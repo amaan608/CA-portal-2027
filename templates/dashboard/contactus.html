@@ -1,0 +1,67 @@
+{% extends '../basic.html'%}
+{% load static %}
+{%block title%}Contact Us | Alcheringa {%endblock%}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/contactus.css' %}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div class="flex" style="background-color: #F1EDE8;">
+{% include 'navbar.html' %}
+<!-- Contact Us Section -->
+<div class="content-section" id="contact-section">
+    <div class="content-header">
+        <h2>Contact Us</h2>
+    </div>
+    
+    <div class="contact-cards">
+        <div class="contact-card">
+            <div class="contact-image">
+                <img src="{% static 'images/Shashank.png' %}" alt="Ariana Gandhi">
+            </div>
+            <div class="contact-info">
+                <h3>Shashank Daga</h3>
+                <p class="role">Public Relations Head</p>
+                <p class="email">shashank.d@alcheringa.co.in</p>
+                <p class="phone">+91 82409 50055</p>
+            </div>
+        </div>
+        
+        <div class="contact-card">
+            <div class="contact-image">
+                <img src="{% static 'images/Khushi.png' %}" alt="Khushi Gupta">
+            </div>
+            <div class="contact-info">
+                <h3>Khushi Gupta</h3>
+                <p class="role">Public Relations Head</p>
+                <p class="email">khushi.g@alcheringa.co.in</p>
+                <p class="phone">+91 98648 75424</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+// Add any interactive functionality here if needed
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Contact Us page loaded');
+    
+    // Add hover effects for contact cards
+    const contactCards = document.querySelectorAll('.contact-card');
+    contactCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% load static %}
+<!-- NOTE- basic.html uses tailwind only. basicbootstrap uses both tailwind and bootstrap, but bootstrap classes will overwrite the tailwind ones -->
+<!-- Note -->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta property="og:url"
+        content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="When Great Minds Don’t Think Alike" />
+    <meta property="og:description" content="How much does culture influence creative thinking?" />
+    <meta property="og:image"
+        content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <!-- JS ANIMATE ON SCROLL LIBRARY -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- FONT AWESOME CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js">
+    <!-- BOOTRAP CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- BOOTRAP ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <!-- GOOGLE AUTH K LIE JS FILE-->
+    <script src="https://apis.google.com/js/api:client.js"></script>
+    <!-- TAILWIND CSS CDN -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!-- EXTERNAL STYLES-->
+    {% block style %} {% endblock %}
+    <!-- CHART  JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"
+        integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ <link rel="icon" href="{% static 'images/logo.svg' %}" type="image/png" sizes="16x16">
+    <title>{% block title %} {% endblock %}</title>
+    <style>
+        @media only screen and (min-width: 768px) {
+            ::-webkit-scrollbar {
+                width: 10px;
+                padding-right: 2px;
+            }
+    
+            ::-webkit-scrollbar-track {
+                background-color: rgb(255, 255, 255);
+            }
+    
+            ::-webkit-scrollbar-thumb {
+                background-color: #009E77;
+                border-radius: 3px;
+            }
+          }
+          @media only screen and (max-width: 640px){
+            body{
+                padding-bottom: 5rem;
+            }
+            }
+        body{
+            font-family: "Poppins";
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+    <!--Google Analytics script-->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TZF1DW5VXE"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-TZF1DW5VXE');
+    </script>
+
+</head>
+
+<body>
+    {% include 'messages.html' %}
+    {% load static %}
+    {% block body %} {% endblock %}
+    
+</body>
+
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+{% block script %}{% endblock %}
+<script>
+    $(document).ready(function () {
+        $(window).scrollTop(0);
+    });
+</script>

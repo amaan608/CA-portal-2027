@@ -1,0 +1,79 @@
+<style>
+  .form-input
+  {
+    border: none;
+    background-color: transparent;
+    width:580px;
+    outline:none;
+  }
+</style>
+<style>@media only screen and (max-width:640px){
+  .subideabody{
+    width: 600px;
+  }
+.ideabox{
+  width: 600px;
+}
+}
+</style>
+  <div class="subideabody">
+    <div class=" bg-gray-50 flex  ">
+
+      <div class="mx-4 flex-grow">
+        
+        <br>
+        <div class=" flex flex-wrap ">
+          <div class=" bg-white max-w-4xl rounded-lg w-screen shadow-md ideabox">
+            <div>
+              <div class="py-3 pl-6 font-medium text-xl border-b-2 font-semibold">Submit Idea </div>
+              <br>
+              <p class="   m-5  " style = "font-size: 18px;color:rgb(82, 82, 82)">Tell us your ideas on how we can make Alcheringa bigger and better
+                than ever! </p>
+
+              <br>
+
+              <div class="sform">
+                <form action="#" method="post" id="idea_form" width:50%>
+                  {% csrf_token %}
+                  <div class="subject m-5 my-8 text-m border-b-2 border-gray-300">
+                    <label for="subject"></label>
+                    <!-- <input type="text" placeholder="Subject" name="subject" id="subject_input" required > -->
+                    {{ form.title }}
+                  </div>
+
+
+
+                  <div class="message m-5 my-8 text-m border-b-2 border-gray-60">
+                    <label for="message"></label>
+                    <!-- <textarea name="message" placeholder="Tell us your idea" id="message_input" cols="35" rows="5" required></textarea> -->
+                    {{ form.description}}
+                  </div>
+
+
+
+
+                  <div class="submit m-4 mx-6 p-1 ">
+                    <input type="submit" value="Submit" id="form_button" />
+                  </div>
+              </div>
+
+              <br>
+              <br>
+
+
+              <div class="  w-80 border-gray-400 rounded mx-4 m-{5}"></div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          var textarea = document.querySelector('textarea')
+          textarea.addEventListener('keydown', autosize);        
+          function autosize(){
+            var el = this;
+            setTimeout(function(){
+              el.style.cssText = 'height:auto; padding:0';
+              el.style.cssText = 'height:' + el.scrollHeight + 'px';
+            },0);
+          }
+        </script>

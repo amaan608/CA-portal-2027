@@ -1,0 +1,243 @@
+{% extends '../basic.html'%} {% load static %} {%block title%}Dashboard |
+Alcheringa {%endblock%} {% block body %}
+<style>
+    .leaderboard-body{
+        padding:1rem;
+    }
+  @media only screen and (max-width: 930px) {
+    .leaderboard-body {
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+  }
+  @media only screen and (min-width: 9300px) {
+    .leaderboard-ind {
+      width: 35.5vw;
+    }
+  }
+  
+</style>
+
+<body class="bg-blue-50">
+  <div class="body flex" style="background-color: #F1EDE8">
+    {% include "../navbar.html" %}
+    <div style="background-color: #F1EDE8;display: flex; gap: 2vw; padding: 5%" class="leaderboard-body">
+      <!-- Singles Leaderboard -->
+      <div class="leaderboard1" style="display: flex; flex-direction: column;flex:1;">
+        
+        <div class="ml-4" style="text-align: center;font-size: larger; font-weight: bolder;padding-bottom:2%">
+          Solo
+        </div>
+        <div class="bg-white mt-2 rounded p-6 w-screen w-auto">
+          <div style=" margin-left:5%;
+          margin-right:5%;
+          border-bottom:2px solid #0000001f;
+      
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;">
+          <p class="pr-3">Rank</p>
+          <p class="mx-4 my-2">Name</p>
+          <p class="ml-auto pl-3">Points</p>
+        </div>
+          {% for user in users %}
+          <div
+            class="px-3 my-2"
+            style="
+              padding-bottom: 20px;
+      border-bottom: 1px solid #0000001f;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+{%if  forloop.counter  == 1 %}
+                font-weight:bold;
+                {%elif  forloop.counter  == 2 %}
+                font-weight:bold;
+                {%elif  forloop.counter  == 3 %}
+                font-weight:bold;
+                   {% endif %}
+      {% if user == request.user %}
+        background-color: #FFE1A0;
+        font-weight: bold;
+      {% endif %}
+    "
+          >
+            <div
+              class="pr-3" style="
+              
+
+        width: 4rem; 
+        flex-shrink: 0; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      "
+              
+            >
+              <div
+                style="
+                  {%if  forloop.counter  == 1 %}
+                padding: 0px;
+                {%elif  forloop.counter  == 2 %}
+                padding : 0px;
+                {%elif  forloop.counter  == 3 %}
+                padding: 0px;
+                  {%else%}
+                  padding: 13px 5px 13px;
+                   {% endif %}
+                "
+              >
+                        {%if  forloop.counter  == 1 %}
+                        <img src="{% static 'icons/Gold.svg' %}" />
+                        {%elif  forloop.counter  == 2 %}
+                        <img src="{% static 'icons/Silver.svg' %}"/>
+                        {%elif  forloop.counter  == 3 %}
+                        <img src="{% static 'icons/Bronze.svg' %}"/>
+                        {%else%}
+                         {{ forloop.counter }}
+                        {% endif %}
+              </div>
+            </div>
+            <div class="mx-4 my-2" >
+              {{ user.firstname }} {{ user.lastname }}
+            </div>
+            <div
+              class="ml-auto pl-3"
+              style="
+                color: rgb(0, 0, 0);
+        width: 4rem; /* Using rem instead of px */
+        text-align: center;
+        font-weight: 500;
+        {%if  forloop.counter  == 1 %}
+                font-weight:bold;
+                {%elif  forloop.counter  == 2 %}
+                font-weight:bold;
+                {%elif  forloop.counter  == 3 %}
+                font-weight:bold;
+                   {% endif %}
+        {% if user == request.user %}
+        font-weight: bold;
+      {% endif %}"
+            >
+              {{ user.points }}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <!-- Group Leaderboard -->
+      <div
+        class="leaderboard1"
+        style="background-color:#F1EDE8;display: flex; flex-direction: column;flex : 1 ;"
+      >
+        <div class="ml-4" style="text-align: center;font-size: larger; font-weight: bolder; padding-bottom:2%">
+          Team
+        </div>
+        <div class="bg-white mt-2 rounded p-6 w-screen w-auto">
+          <div style=" margin-left:5%;
+          margin-right:5%;
+          border-bottom:2px solid #0000001f;
+      
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;">
+          <p class="pr-3">Rank</p>
+          <p class="mx-4 my-2">Name</p>
+          <p class="ml-auto pl-3">Points</p>
+        </div>
+          {% for user in grpusers %}
+          <div
+            class="px-3 my-2"
+            style="
+              padding-bottom: 20px;
+      border-bottom: 1px solid #0000001f;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+          {%if  forloop.counter  == 1 %}
+                font-weight:bold;
+                {%elif  forloop.counter  == 2 %}
+                font-weight:bold;
+                {%elif  forloop.counter  == 3 %}
+                font-weight:bold;
+                   {% endif %}
+              {% if user == request.user %}
+        background-color: #FFE1A0;
+        font-weight: bold;
+      {% endif %}
+            "
+          >
+            <div
+              class="pr-3"
+              
+            >
+              <div
+                style="
+                {%if  forloop.counter  == 1 %}
+                padding: 0px;
+                {%elif  forloop.counter  == 2 %}
+                padding : 0px;
+                {%elif  forloop.counter  == 3 %}
+                padding: 0px;
+                  {%else%}
+                  padding: 13px 5px 13px;
+                   {% endif %}
+                "
+              >
+              {%if  forloop.counter  == 1 %}
+                        <img src="{% static 'icons/Gold-team.svg' %}"  />
+                        {%elif  forloop.counter  == 2 %}
+                        <img src="{% static 'icons/Silver-team.svg' %}" />
+                        {%elif  forloop.counter  == 3 %}
+                        <img src="{% static 'icons/Bronze-team.svg' %}" />
+                        {%else%}
+                         {{ forloop.counter }}
+                        {% endif %}
+              </div>
+            </div>
+            <div class=" my-2 px-4 ">
+              {{ user.leader.firstname }} {{ user.leader.lastname }} <br />
+              {{ user.executive.firstname }} {{ user.executive.lastname }}
+            </div>
+            <div
+              class="ml-auto pl-3"
+              style="
+                
+                color: rgb(0, 0, 0);
+                width: 60px;
+                text-align: center;
+                {%if  forloop.counter  == 1 %}
+                font-weight:bold;
+                {%elif  forloop.counter  == 2 %}
+                font-weight:bold;
+                {%elif  forloop.counter  == 3 %}
+                font-weight:bold;
+                   {% endif %}
+                {% if user == request.user %}
+        font-weight: bold;
+      {% endif %}"
+              "
+            >
+              {{ user.getPoints }}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <!-- <div class="pagination" style="align-items:center">
+            {% if index1.has_previous %}
+                <a href="?page=1" class="my-2 mx-2 btn btn-outline-info btn-sm">First</a>
+                <a href="?page={{ index1.previous_page_number }}" class="my-2 mx-2 btn btn-outline-info btn-sm">Previous</a>
+            {% endif %}
+            <span>Page <span style="color:rgb(13 202 240)" >{{ index1.number }} </span> of {{ index1.paginator.num_pages }}</span>
+            {% if index1.has_next %}
+                <a href="?page={{ index1.next_page_number }}" class="my-2 mx-2 btn btn-outline-info btn-sm">Next</a>
+                {% endif %}
+            <a href="?page={{ index1.paginator.num_pages }}" class="my-2 mx-2 btn btn-outline-info btn-sm">Last</a>
+        </div> -->
+    </div>
+  </div>
+</body>
+{%endblock%} {% block script %} {% endblock %}

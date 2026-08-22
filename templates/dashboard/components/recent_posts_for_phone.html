@@ -1,0 +1,59 @@
+<div class=" bg-white lg:hidden rounded-md shadow-md my-2 pb-1">
+    <div class="py-3  font-medium text-lg border-b pl-4">Recent Posts</div>
+    <!-- horizontal_scroll -->
+    <div class=" bg-gray-100 flex flex-col w-screen space-x-3 overflow-x-scroll">
+        <!-- single_post_1 -->
+        {% for post in post_list %}
+        <!-- single_post_3 -->
+        <div class=" bg-white shadow-md mx-1">
+            <img src="{{ post.image.url }}" alt="image" border="0" class="my-4" style="width: ;">
+            <div class=" py-3 px-4 font-medium">
+                {{ post.caption }}
+            </div>
+            <div class=" py-3 px-4 font-medium text-gray-600">SHARE ON</div>
+            <div class=" my-2 px-4 flex justify-center space-x-4">
+                {% if post.is_facebook %}
+                      <a href="/facebook/{{ post.url_id }}" target="_blank">
+
+                            <svg width="44" height="45" viewBox="0 0 44 45" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M1.22217 22.616C1.22217 32.946 8.72468 41.5359 18.537 43.2778V28.271H13.3425V22.5H18.537V17.8821C18.537 12.6877 21.8839 9.80305 26.6178 9.80305C28.1173 9.80305 29.7345 10.0333 31.2339 10.2636V15.5741H28.5796C26.0395 15.5741 25.4629 16.8433 25.4629 18.4605V22.5H31.0037L30.0808 28.271H25.4629V43.2778C35.2752 41.5359 42.7777 32.9478 42.7777 22.616C42.7777 11.1242 33.4277 1.72223 21.9999 1.72223C10.5722 1.72223 1.22217 11.1242 1.22217 22.616Z"
+                                    fill="#1877F2" />
+                            </svg>
+                            
+                        </a>
+                {% endif %}
+                {% if post.is_instagram %}
+                <a href="/instagram/{{ post.url_id }}" target="_blank">
+                    <i width="34"
+            height="45" class="fa fa-instagram" style="font-size:45px;color:#E1306C"></i>
+                </a>
+                {% endif %}
+            </div>
+            <!-- <center>
+                <form action='checkLike' method='GET'><input type="submit" class="px-4 font-medium"
+                        name="{{post.id}}" value='Verify your Like'></form>
+            </center> -->
+            <div class=" py-3 px-4 font-medium text-gray-600">DEADLINE- {{ post.last_date }}</div>
+        </div>
+        {% endfor%}
+    </div>
+</div>
+
+<div class=" bg-white sm:hidden rounded-md shadow-md my-2 pb-1">
+    <div class="py-3  font-medium text-lg border-b-2 pl-4">Latest Release</div>
+    
+    <div class=" bg-gray-100 flex w-screen space-x-3 ">
+        {% for promotion in promotions %}
+        <!-- single_post_3 -->
+        <div class=" bg-white shadow-md mx-1">
+            <img src="{{ promotion.image.url }}" alt="image" border="0" class="my-4 w-full 1vw">
+            <a target = "_blank" href = '{{ promotion.link }}' class=" py-3 px-4 font-medium">
+                Visit link
+            </a>
+        </div>
+        {% endfor%}
+        
+    </div>
+</div>

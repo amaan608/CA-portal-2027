@@ -1,0 +1,41 @@
+.ccontainer {
+    background-color: #f8f1e7;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+input {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+}
+
+#state-suggestions, #city-suggestions {
+    margin-top: 5px;
+    top:100%;
+    width:100%;
+    max-height: 120px;
+    overflow-y: auto;
+    position: absolute;
+    background: white;
+    z-index:9000;
+    scrollbar-width: auto;  
+}
+
+#state-suggestions div, #city-suggestions div {
+    padding: 8px;
+    cursor: pointer;
+    overflow-y: auto;
+}
+
+#state-suggestions div:hover, #city-suggestions div:hover {
+    background-color: #f1f1f1;
+}

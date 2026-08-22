@@ -1,0 +1,48 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/heroSection.css' %}" />
+<style>
+  a:hover {
+    text-decoration: none;
+    color: white;
+  }
+</style>
+<div class="heroSectionn">
+<div class="spark1"><img src="{% static 'images/spark1.png' %}" alt="spark1"></div>
+<div class="spark2"><img src="{% static 'images/spark1.png' %}" alt="spark2"></div>
+<div class="spark3"><img src="{% static 'images/spark1.png' %}" alt="spark3"></div>
+<div class="spark4"><img src="{% static 'images/spark1.png' %}" alt="spark4"></div>
+
+  <div class="contHolderBox">
+    <p class="alcherTxt">ALCHERINGA '26</p>
+    <p class="caTxt">Campus Ambassador</p>
+    <p class="caPara">
+      With the vision to bring out the essential Leadership traits in you,
+       <span class="caParaIN">Alcheringa IIT Guwahati</span> presents the Campus Ambassador Program.
+    </p>
+  </div>
+  <a href="{% url 'register_single' %}" class="joinBtn navhero-btn">Join Now<img src="{% static 'images/arrowjoin.svg' %}" alt="arrow icon"></a>
+  <div class="video-container">
+  <video class="youtube" src="/static/videos/AfterMovie.mp4" title="A descriptive title for your video" loop autoplay muted ></video>
+  <a href="https://youtu.be/bk3LJ7ECy90?si=r4b9kmzRbnA4ZBuL" class="after-video-button" target="_blank">
+            Watch Aftermovie, Alcheringa 2024
+  </a>
+</div>
+  <div class="counterBox">
+    <div class="valBox">
+      <p class="num">500+</p>
+      <p class="title1">Colleges</p>
+    </div>
+    <div class="valBox">
+      <p class="num">100+</p>
+      <p class="title1">Events</p>
+    </div>
+    <div class="valBox">
+      <p class="num">150k+</p>
+      <p class="title1">Footfall</p>
+    </div>
+    <div class="valBox">
+      <p class="num">45+</p>
+      <p class="title1">Competitions</p>
+    </div>
+  </div>
+</div>

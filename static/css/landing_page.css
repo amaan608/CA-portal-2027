@@ -1,0 +1,401 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: sans-serif;
+}
+.box1 {
+  display: flex;
+  background: linear-gradient(to right, #f2df31, #ffc548, #ffc548);
+  height: 68vh;
+  margin: 0;
+  font-family: sans-serif;
+}
+.box1left{
+    width: 50%;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box1right {
+  width: 50%;
+  height: 30%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.temp {
+  height: 50%;
+  width: 50%;
+}
+.box1left {
+  position: relative;
+}
+.grid-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1) 0.1px,
+      transparent 0.5px
+    ),
+    linear-gradient(to bottom, rgba(0, 0, 0, 1) 0.1px, transparent 0.5px);
+  background-size: calc(100% / 4) calc(100% / 4);
+  background-repeat: repeat;
+  background-position: top left;
+  border-right: 0.1px solid black;
+  border-bottom: 0.1px solid black;
+}
+.less {
+  margin-right: 0px;
+}
+.grid-item {
+  height: 2px;
+  background: linear-gradient(to right, #f2df31, #ffc548, #ffc548);
+  width: 100%;
+}
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.leftboximg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* make it cover the parent */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+.leftboximg img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  position: relative;
+  animation: floatUpDown 3s ease-in-out infinite alternate;
+}
+.rightbox1btn {
+  background-color: transparent;
+  color: black;
+  height: 49px;
+  width: 143px;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 24px;
+  cursor: pointer;
+  border: 2px solid black;
+}
+.rightbox1btn.act {
+  background-color: #009e77;
+  color: white;
+  border: 2px solid white;
+}
+.Team,
+.solo {
+  margin-top: 8px;
+}
+.box2 {
+  margin-top: 10px;
+}
+.box2animation {
+  margin-top: 53px;
+  position: relative;
+  /* animation: floatUpDown 3s ease-in-out infinite alternate; */
+}
+.rightarrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate the arrow inside an active button */
+.rightbox1btn.act .rightarrow {
+  transform: rotate(45deg);
+}
+
+.mainContent {
+  margin: auto;
+  width: 70vw;
+}
+.mainContImg {
+  display: flex;
+  justify-content: center;
+}
+.box2para {
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+}
+.queue {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.steps .material-symbols-outlined {
+  cursor: pointer;
+}
+.steps {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.step {
+  font-size: 48px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.step-details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  padding: 0 1rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin-top: 0.5rem;
+}
+
+/* Shown state */
+.step-details.show {
+  max-height: 300px; /* Adjust as needed */
+  opacity: 1;
+  padding: 1rem;
+  border-color: #4caf50;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.box3 {
+  background-color: #222121;
+}
+.india {
+  background-color: #ffc548;
+  color: #000000;
+  padding: 24px;
+  border-radius: 24px;
+}
+.more {
+  transition: all 0.6s ease;
+}
+.box3first {
+  position: relative;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px;
+  margin-top: 60px;
+}
+.box3first p {
+  font-size: 48px;
+  font-weight: bold;
+  color: white;
+}
+.box3second {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+.box3secondleft,
+.box3secondright {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 321px;
+  width: 277px;
+  border-radius: 16px;
+  background-color: #dad2c71f;
+  margin-top: 185px;
+  gap: 15px;
+}
+.box3secondleft,
+.box3secondright p {
+  color: white;
+}
+.counts {
+  font-size: 48px;
+  font-weight: 600;
+  color: white;
+}
+.bfr {
+  display: none;
+}
+#india-map {
+  width: 100%;
+  height: 722px;
+  max-width: 657px;
+  fill: none;
+  display: block;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1200px){
+  .box1{
+    height: 750px;   /* fixed safe height */
+    min-height: 550px;
+    max-height: 800px;
+  }
+}
+
+@media screen and (max-width: 912px) {
+  .box1 {
+    height: 45vh;
+  }
+  .temp {
+    width: 100%;
+  }
+  .mainContImg img,
+  .box3first img {
+    height: 50px;
+  }
+  .step,
+  .box3first p,
+  .box2para,
+  .counts {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .box3secondleft,
+  .box3secondright {
+    height: 170px;
+    gap: 0px;
+  }
+  .box3secondleft {
+    margin-left: 15px;
+  }
+  .box3secondright {
+    margin-right: 15px;
+  }
+  .box3secondmiddle svg {
+    width: 450px;
+  }
+}
+@media screen and (max-width: 580px) {
+  .leftboximg img {
+    width: 60%;
+  }
+  .box1 {
+    display: block;
+    height: 65vh;
+  }
+  .temp {
+    width: 100%;
+  }
+  .box1left {
+    padding-top: 20px;
+    height: 25%;
+    width: 100%;
+  }
+  .box1right {
+    width: 100%;
+    height: 100%;
+    margin-top: 8px;
+    align-items: flex-start;
+    
+  }
+  .mainContent {
+    width: 95%;
+    margin: auto;
+  }
+  .box3secondmiddle {
+    position: relative;
+  }
+  .box3secondmiddle svg {
+    width: 300px;
+  }
+  .box3second {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .box3secondleft,
+  .box3secondright {
+    margin: auto;
+    width: 65%;
+    gap: 0;
+  }
+  .bfl {
+    display: none;
+  }
+  .bfr {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .bfr > :nth-child(1) {
+    margin-left: 8px;
+  }
+
+  .bfr > :nth-child(2) {
+    margin-right: 8px;
+  }
+  #india-map {
+    height: auto;
+    width: 100%;
+  }
+}
+.city-marker {
+  cursor: pointer;
+}
+
+/* The initial hidden state */
+#map-tooltip.hidden {
+  display: none; /* A simple way to hide it */
+  /* OR */
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* The visible state */
+#map-tooltip.visible {
+  display: block; /* To show it */
+  /* OR */
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Basic styling for the tooltip */
+#map-tooltip {
+  position: absolute;
+  z-index: 1000;
+  /* Add other styling like background-color, padding, etc. */
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  pointer-events: none;
+  transition: opacity 0.3s ease; /* Add a smooth transition */
+}
+@media screen and (max-width: 400px) {
+  .box1 {
+    height: 100vh;
+  }
+}

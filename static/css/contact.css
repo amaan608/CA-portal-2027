@@ -1,0 +1,247 @@
+/* CONTACT PAGE */
+
+/* Fonts */
+@font-face {
+  font-family: "VastagoGrotesk";
+  src: url(../Fonts/VastagoGrotesk-Regular.otf) format("opentype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "VastagoGrotesk";
+  src: url(../Fonts/VastagoGrotesk-Bold.otf) format("opentype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "VastagoGrotesk";
+  src: url(../Fonts/VastagoGrotesk-Medium.otf) format("opentype");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "VastagoGrotesk";
+  src: url(../Fonts/VastagoGrotesk-SemiBold.ttf) format("opentype");
+  font-weight: 650;
+  font-display: swap;
+  font-style: normal;
+}
+
+
+/* CONTACTS */
+.mainbox {
+  padding: 4rem 2rem;
+  padding-bottom: 6.5rem;
+  text-align: center;
+  background-color: #fef8e7;
+}
+
+.upper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.help-heading {
+  font-family: 'VastagoGrotesk', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #222121;
+}
+
+.contact-btn {
+  font-family: 'VastagoGrotesk' sans-serif;
+  background-color: #FFC548;
+  color: #222121;
+  font-size: 2.7rem;
+  font-weight: 700;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  transform: rotate(-4deg);
+  display: flex;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+/* CONTACT CARDS */
+.down1 {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+}
+
+.part1 {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5rem;
+  padding: 2rem;
+  padding-top: 1.7rem;
+  min-height: 230px;
+  width: 480px;
+  border: 3px solid;
+  border-radius: 28px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  transition: transform 0.3s ease, border 0.3s ease;
+  position: relative;
+  padding-left: 13.5rem;
+}
+
+.h {
+  font-family: 'VastagoGrotesk', sans-serif;
+  font-weight: 700;
+  line-height: 1;
+  font-size: 2rem;
+}
+
+.p{
+  font-family: 'VastagoGrotesk', sans-serif;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.ph{
+  font-family: 'VastagoGrotesk', sans-serif;
+  font-weight: 400;
+}
+
+.part1.green {
+  border-color: #07a05f;
+}
+
+.part1.blue {
+  border-color: #1f61e1;
+}
+
+.part1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  pointer-events: none;
+  z-index: -1;
+  transition: box-shadow 0.3s ease;
+}
+
+.part1 img {
+  border-radius: 0%;
+  width: 160px;
+  height: 90%;
+  object-fit: contain;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-left: 1.5rem;
+}
+
+.part1.green:hover::after {
+  box-shadow: 10px 10px 0 #07a05f;
+}
+
+.part1.blue:hover::after {
+  box-shadow: 10px 10px 0 #1f61e1;
+}
+
+.part1:hover {
+  transform: scale(1.08);
+  z-index: 1;
+  position: relative;
+}
+
+.details1 {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: 0;
+}
+
+.h {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.ph {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #666;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .mainbox {
+    padding-bottom: 4rem;
+  }
+  .upper {
+    gap: 0.2rem;
+    margin-bottom: 0.5rem; 
+  }
+
+  .contact-btn {
+    font-size: 1.5rem;
+    padding: 0.6rem 1.5rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .help-heading {
+    font-size: 2rem;
+  }
+
+  .down1 {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.2rem; 
+  }
+
+  .part1 {
+    width: 90vw;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem 1rem 1rem 140px; 
+    min-height: auto;
+    margin-left: -0.5rem;
+  }
+
+  .part1 img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .details1 {
+    margin: 0;
+    text-align: left;
+    gap: 6px;
+    margin-left: 2.5rem;
+  }
+
+  .h {
+    font-size: 1.5rem;
+  }
+
+  .p,
+  .ph {
+    font-size: 1rem;
+  }
+}
+

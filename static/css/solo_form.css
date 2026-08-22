@@ -1,0 +1,393 @@
+ body{
+   background-color: #f8f1e7;
+ }
+ .rj-body {
+   width: 90%;
+   margin: auto;
+   margin-top: 100px;
+ }
+ .rj-form-container {
+   background-color: #f8f1e7;
+   margin-bottom: 25px;
+ }
+ .cform {
+  overflow: hidden;
+  border: solid;
+  border-color: #009E77;
+  border-radius: 8px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-right-width: 6px;
+  border-bottom-width: 6px;
+  box-shadow: rgba(84, 84, 84, 0.19) 0px 10px 20px,
+    rgba(84, 84, 84, 0.19) 0px 6px 6px;
+  padding: 1.5vh 6vh;
+}
+
+ .rj-back-button {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 10px 24px;
+   border-radius: 12px;
+   border: 2px solid #000;
+   background-color: #f7f1e3;
+   color: #000;
+   font-family: sans-serif;
+   font-size: 16px;
+   font-weight: 600;
+   cursor: pointer;
+   margin-top: 30px;
+ }
+ .rj-arrow {
+   font-size: 16px;
+   margin-right: 8px;
+   line-height: 1;
+ }
+ .rj-progress-container {
+   padding-top: 20px;
+   position: relative;
+   display: flex;
+   gap: 16px;
+   align-items: left;
+   justify-content: left;
+   flex-wrap: wrap;
+   border-radius: 16px 16px 0px 0px;
+   background-color: #009e77;
+   height: 6rem;
+ }
+ .rj-step {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+   cursor: pointer;
+   transition: opacity 0.3s ease, transform 0.3s ease;
+   position: relative;
+   z-index: 1;
+ }
+ .rj-step-circle {
+   width: 22px;
+   height: 22px;
+   background-color: white;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-weight: bold;
+   font-size: 20px;
+   color: #008080;
+   border: 2px solid white;
+   transition: all 0.3s ease;
+ }
+ .rj-step-text {
+   margin-top: 10px;
+   font-size: 16px;
+ }
+ .rj-progress-line {
+   position: absolute;
+   top: 45%;
+   left: 47%;
+   width: 67px;
+   height: 2px;
+   background-color: white;
+   margin: 0 10px;
+   transition: all 0.3s ease;
+   z-index: 0;
+ }
+ .rj-step.rj-active {
+   opacity: 1;
+ }
+ .rj-step.rj-active .rj-step-circle {
+   background-color: #eee;
+   border-color: #eee;
+ }
+ .rj-step.rj-inactive {
+   opacity: 0.5;
+ }
+ .rj-button-container {
+   margin-left: 100px;
+   margin-bottom: 50px;
+ }
+ .rj-nav-button {
+   padding: 10px 20px;
+   border-radius: 8px;
+   background-color: #f0f0f0;
+   color: #008080;
+   border: none;
+   font-weight: bold;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+ }
+ .rj-nav-button:hover {
+   background-color: #e0e0e0;
+ }
+ .rj-button-container-second {
+   display: flex;
+   gap: 1.5rem;
+   margin-bottom: 2rem;
+   margin-left: 3rem;
+ }
+ .rj-button-second {
+   padding: 6px 40px;
+   border-radius: 10px;
+   border: 2px solid transparent;
+   font-weight: 600;
+   background-color: transparent;
+   color: black;
+   transition: all 0.3s ease-in-out;
+   cursor: pointer;
+   border: 1px solid;
+ }
+ .rj-button-second:hover {
+   transform: translateY(-2px);
+   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+ }
+ .rj-act {
+   background-color: #f7d71f; /* Yellow color for active state */
+   color: #1a1a2e; /* Dark text for contrast */
+   box-shadow: 0 0 15px rgba(247, 215, 31, 0.5);
+   border: none;
+ }
+.guidelines {
+  border: solid 1px;
+  border-color: #C2CFE0;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.rj-guideline-text {
+    /* Initially hide the text using max-height for a smooth transition */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
+.rj-show {
+    /* This class will be toggled by JavaScript to show the text */
+    max-height: 500px; /* A large enough value to accommodate the content */
+}
+
+.rj-key-icon {
+    /* Set the initial rotation for the arrow to point right */
+    transform: rotate(0deg);
+    transition: transform 0.3s ease; /* Add a smooth rotation transition */
+    cursor: pointer;
+}
+ .rj-guideline-header {
+   align-items: center;
+   gap: 1rem;
+   font-size: 1.5rem;
+   font-weight: 700;
+   color: #e0e0e0;
+   margin-bottom: 1rem;
+ }
+ .rj-key-icon {
+   cursor: pointer;
+   transition: transform 0.3s ease-in-out;
+ }
+ .rj-key-icon:hover {
+   transform: scale(1.1);
+ }
+ .rj-guideline-text {
+    /* Initially hidden with a transition for smooth animation */
+    opacity: 0;
+    transform: translateY(20px);
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out, max-height 0.5s ease-out;
+    /* Remove the text-align: center; rule */
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-top: 0;
+}
+ .rj-guideline-text.rj-show {
+   opacity: 1;
+   transform: translateY(0);
+   max-height: 500px; /* A large value to allow the content to show */
+   margin-top: 1rem;
+ }
+ .rj-form-wrapper {
+   display: flex;
+   align-items: flex-start;
+   justify-content: center;
+   gap: 2rem;
+   background-color: #f8f1e7;
+   padding: 2rem;
+   position: relative;
+ }
+ #rj-form-first,
+ #rj-form-second {
+   width: 50%;
+ }
+ .rj-form-nav,
+ .rj-form-second {
+   display: flex;
+   flex-direction: column;
+   gap: 1.5rem;
+   flex: 1;
+   transition: opacity 0.5s ease-in-out;
+ }
+ .rj-form-hidden {
+   display: none;
+ }
+ .rj-input-group {
+   width: 100%;
+ }
+ .rj-input-group label {
+   display: block;
+   margin-bottom: 0.5rem;
+ }
+ .rj-input-element {
+   width: 100%;
+   padding: 0.75rem;
+   border: 1px solid #5a5a7d;
+   border-radius: 0.5rem;
+   color: #e0e0e0;
+ }
+ .rj-form-image {
+   height: auto;
+   border-radius: 1rem;
+   object-fit: cover;
+ }
+ .rj-form-action-buttons {
+   display: flex;
+   gap: 1rem;
+   margin-top: 1.5rem;
+ }
+ .rj-form-action-button {
+   padding: 0.75rem 2rem;
+   border-radius: 0.5rem;
+   font-weight: 600;
+   cursor: pointer;
+   transition: background-color 0.3s ease-in-out;
+ }
+ .rj-next-button {
+   background-color: #008080; /* Teal-like color */
+   color: white;
+ }
+ .rj-submit-button {
+   background-color: #008080; /* Teal-like color */
+   color: white;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 10px 24px;
+   border-radius: 12px;
+   font-family: sans-serif;
+   font-size: 16px;
+   font-weight: 600;
+   cursor: pointer;
+   margin-top: 30px;
+ }
+ .rj-head {
+   font-size: 2rem;
+   margin-top: 2rem;
+   font-weight: 700;
+   margin-bottom: 2rem;
+ }
+ .rj-btn {
+   display: flex;
+   gap: 12px;
+   margin-top: 8px;
+   margin-bottom: 8px;
+ }
+ .rj-fbc {
+   padding: 3px 1px;
+   border-radius: 8px;
+   background-color: #f8f1e7;
+   font-size: large;
+   font-weight: 700;
+ }
+ .rj-button-second {
+ text-decoration: none; 
+ color: black;        
+}
+.navbar {
+  padding: 1vh 27.5vh;
+}
+.rj{
+  margin-left: 3rem;
+  margin-top: 6rem;
+}
+ @media screen and (max-width: 600px) {
+  .rj-head{
+    font-size: 24px;
+  }
+   #rj-image-container,
+   #rj-form-image {
+     display: none;
+   }
+   #rj-form-first,
+   #rj-form-second {
+     width: 100%;
+   }
+   .rj-progress-line{
+    left: 40%;
+   }
+   .rj-form-wrapper {
+     display: block;
+     width: 100%;
+   }
+   .rj-guideline-box {
+     width: 90%;
+     margin: auto;
+   }
+   .rj-body {
+     width: 90vw;
+   }
+   .rj-button-container-second,
+   .rj-button-container {
+     margin-left: 1rem;
+   }
+ 
+   @media (max-width: 800px) {
+    .rj-progress-line{
+ left: 40%;
+}
+     .navbar {
+       padding: 1vh 4.5vh; /* Reduced padding for screens up to 768px wide */
+     }
+     .rj-button-container-second,.rj{
+      margin-left: 1rem;
+     }
+   }
+ }
+ #rj-state {
+  border: 0;
+  padding: 0 0 0.4vh 0.8vh;
+  width: 40vh;
+  background-color: #f8f1e7;;
+}
+
+#rj-city {
+  border: 0;
+  padding: 0 0 0.4vh 0.8vh;
+  width: 40vh;
+  background-color: #f8f1e7;;
+}
+
+.rj-StateAndCity {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2vh;
+  gap: 1vw;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 800px) {
+  .rj-StateAndCity {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #rj-city {
+    margin-top: 4vw;
+  }
+}
+@media screen and (max-width:600px) {
+  #rj-city,#rj-state{
+    width: 20vw;
+  }
+  
+}

@@ -1,0 +1,157 @@
+
+{% extends '../basic.html'%}{% load static %}
+
+{%block title%}Submissions | Alcheringa {%endblock%}
+{% block style %}
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .subbody {
+    min-height: 600px;
+    display: flex;
+    font-family: 'Poppins', 'Serif';
+  }
+
+  a {
+    text-decoration: none;
+    color: unset;
+  }
+
+  .container {
+    height: 600px;
+    background-color: transparent;
+    background-color: rgba(0, 128, 128, 0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .submit-type {
+    height: 580px;
+    width: 32%;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 10px;
+
+  }
+
+  .submit-type-content {
+    text-align: center;
+    width: 60%;
+    height: 100%;
+    margin: auto;
+  }
+
+  .submit-type-content .image {
+    display: flex;
+    height: 44%;
+    align-items: center;
+  }
+
+  .submit-type-content img {
+    width: 100%;
+  }
+
+  .submit-type-content .about {
+    height: 20%;
+    color: #4c5682;
+    font-size: 0.9rem;
+  }
+
+  .submit-type-content .button {
+    background-color: #109CF1;
+    width: 90%;
+    margin: auto;
+    padding: 5px 20px;
+    margin-top: 10px;
+    color: #fff;
+    font-size: 0.7rem;
+    border-radius: 2px;
+    box-shadow: rgba(99, 99, 99, 0.5) 2px 2px 8px 0px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .container {
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+    }
+
+    .submit-type {
+      width: 98%;
+      margin: auto;
+      margin-bottom: 10px;
+    }
+
+    .submit-type-content {
+      width: 95%;
+    }
+
+    .submit-type-content img {
+      width: 70%;
+      margin: auto;
+    }
+
+    .submit-type-content .about {
+      font-size: 0.7rem;
+    }
+
+  }
+</style>
+{% endblock %}
+{% block body %}
+  <div class="subbody">
+    <div class="container">
+      <div class="submit-type">
+        <h3>Submit POC</h3>
+        <div class="submit-type-content">
+          <div class="image"><img src="{% static 'images/poc_submissions.svg' %}"></div>
+          <div class="about"> Submit single or multiple points of contact for is to get in touch with. </div>
+          <div class="buttons">
+            <a style="margin-left: 20px" href="{% url 'poc-create' %}">
+              <div class="button"> Submit Single POC </div>
+            </a>
+            <a style="margin-left: 20px" href="{% url 'poc-csv-create' %}">
+              <div class="button"> Submit Multiple POCs </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="submit-type">
+        <h3>Submit Idea</h3>
+        <div class="submit-type-content">
+          <div class="image"><img src="{% static 'images/idea_submissions.svg' %}"></div>
+          <div class="about"> Tell us your ideas on how we can make Alcheringa bigger and better than ever! </div>
+          <div class="buttons">
+            <a style="margin-left: 20px" href="{% url 'idea-create' %}">
+              <div class="button"> Submit Idea </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="submit-type">
+        <h3>Team Registration</h3>
+        <div class="submit-type-content">
+          <div class="image"><img src="{% static 'images/team_registration_submissions.svg' %}"></div>
+          <div class="about"> Tell us your ideas on how we can make Alcheringa bigger and better than ever! </div>
+          <div class="buttons">
+            <br>
+              <div class="button" style = "background-color: #8ad2ff;cursor: not-allowed;"> Register Team </div>
+            
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

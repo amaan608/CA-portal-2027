@@ -1,0 +1,91 @@
+@font-face {
+  font-family: "GeneralSans";
+  src: url(../Fonts/GeneralSans-Bold.ttf) format("truetype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GeneralSans";
+  src: url(../Fonts/GeneralSans-Extralight.ttf) format("truetype");
+  font-weight: 200;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GeneralSans";
+  src: url(../Fonts/GeneralSans-Light.ttf) format("truetype");
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GeneralSans";
+  src: url(../Fonts/GeneralSans-Regular.ttf) format("truetype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GeneralSans";
+  src: url(../Fonts/GeneralSans-Medium.ttf) format("truetype");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GeneralSans";
+  src: url(../Fonts/GeneralSans-Semibold.ttf) format("truetype");
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GeneralSans";
+  src: url(../Fonts/GeneralSans-Bold.ttf) format("truetype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+.sidebar{
+  font-family: "GeneralSans",sans-serif !important;
+}
+.navlink {
+  cursor: pointer;
+  border-radius: 9999px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.navcontent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  align-items: start;
+  width: 85%;
+}
+
+.nav-links:hover{
+  color: #009E77;
+}
+.sideicon{
+  aspect-ratio: 4/4;
+  margin-left: 3vh;
+  width: 1.6rem;
+}
+.siz{
+  width: 1.5rem;
+}
+.follow{
+  font-weight: 400;
+  color: #707683;
+  font-size: 0.8rem;
+}
+@media screen and (max-width: 640px) {
+  .navi{
+    justify-content: space-between;
+  }
+}
+/* .sideicon{
+  width: 10vw;
+} */

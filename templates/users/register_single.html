@@ -1,0 +1,349 @@
+{% extends '../basicbootstrap.html'%} {% load static %} {% load static %}
+{%block title%}Register | Alcheringa {%endblock%} {% block style %} <link
+rel="stylesheet" href={% static "css/register_login.css" %}> <link
+rel="stylesheet" href={% static "css/autoFill.css" %}>
+<script src="{% static 'js/autoFill_solo.js' %}"></script>
+<link rel="stylesheet" href="{%static 'css/solo_form.css'%}">
+{% endblock %} {% block body %} {% load crispy_forms_tags %}
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+  crossorigin="anonymous"
+/>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+</script>
+{% if request.session.show_alert %}
+
+<script>
+  // alert('Registration successful. Check your mail for the link to activate your account.');
+  window.location.href = "{% url 'successfull' %}";
+</script>
+
+{% endif %}
+
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+  crossorigin="anonymous"
+></script>
+<nav class="navbar navbar-light" style="background-color: #F8F1E7; padding: 3vh 4%; border-bottom: solid #C8C8C8 1px; position: fixed; width:100%; z-index: 1000;">
+	<div class="ccontainer-fluid" style="width: 100%; height:100%; padding-left: 2rem;">
+		<a class="cnavbar-brand" href="/">
+			<img src="{% static 'images/Logoblack.svg' %}" alt="">
+		</a>
+	</div>
+</nav>
+<style>
+  body{
+    background-color: #f8f1e7;
+  }
+  .navbar{
+    padding: 1vh 27.5vh;
+    background-color: #F8F1E7;
+    padding: 3vh 4%;
+    border-bottom: solid #C8C8C8 1px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0%;
+  }
+  @media screen and (max-width: 600px) {
+    @media (max-width: 768px) {
+        .navbar {
+            padding: 1vh 4.5vh;
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .img-div {
+        display: none !important;
+    }
+    .cform {
+      padding: 1rem 0.8rem;
+    }
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
+    form {
+        width: 100% !important;
+    }
+}
+</style>
+<div class="rj-body">
+  <div class="rj-btn">
+    <button class="rj-fbc"><img src= {%static 'images/backButton.png'%}/></button>
+  </div>
+  <div class="rj-head">Registration</div>
+  <div class="rj-form-container">
+    <div style="background-color:#009E77; height:6rem; margin:0; padding:1rem; padding-top:1.35rem; border-radius:16px; border-bottom-right-radius:0; border-bottom-left-radius: 0;">
+				<img style="background-color: #009E77; height:4rem;"src={%static 'images/details_ca.png' %}/>
+		</div>
+    <div class="cform"  >
+      <div class="cform-head my-2 mb-4">
+					<p style="font-size: 1rem; color: #90A0B7">Join as a<span style="color:red">*</span></p>
+					<div class="row1" style="display: flex; justify-content:flex-start; background-color: #f8f1e7; gap:10px;">
+						<br>
+						<div class="join">
+							<a href="{% url 'register_single' %}" type="button" class="register-top"
+                style="text-decoration: none; font-weight: 500; color: black; background-color: #FFC548; border:none;">
+								Solo
+							</a>
+						</div>
+						<div class="join">
+							<a href="{% url 'register_group' %}" type="button" class="register-top"
+								style="text-decoration: none; font-weight: 500; color: black;">
+								Team
+							</a>
+						</div>
+					</div>
+				</div>
+   
+    <div class="guidelines" style="padding: 1.5vh 3vh;">
+					<div style="padding-bottom: 1rem; gap:0.8rem; display: flex; align-items:center;">
+						<h6 style="color: #4C5862">Guidelines</h6>
+						<img style="background:none; align-self: flex-start; position: relative; top: -3px;" src="{%static 'images/DropdownArrow.png'%}" id="rj-key-icon" class="rj-key-icon">
+					</div>
+					<div class="rj-guideline-text">
+						<ul style="color: #707383;">
+              <li>a. Following the usual method to complete registration, fill up all the details from your name to modules.</li>
+
+              <li>b. Text fields marked with a red asterisk mark (*) are mandatory to fill.</li>
+
+              <li>c. Fill up the Position of Responsibility (POR) field with your role in your organisation or university. For instance:
+                <ul class="lower-alpha list-inside ml-5 mx-2">
+                  <li>1. Student</li>
+                  <li>2. Secretary of the Music/Arts Club</li>
+                  <li>3. Fill up the role you serve in your respective college</li>
+                </ul>
+              </li>
+
+              <li>d. Fill up the interested module(s) field with the performing arts, practices, and activities that interest you. For instance:
+                <ul class="lower-alpha list-inside ml-5 mx-2">
+                  <li>1. Music</li>
+                  <li>2. Dance</li>
+                  <li>3. Photography</li>
+                  <li>4. Sports</li>
+                </ul>
+              </li>
+
+              <li>e. Give a pat to yourself; you are just a click away from being a CA of Alcheringa. Click the submit button and finish the email-based verification to dive into the Dashboard.</li>
+
+              <li>Welcome to Alcheringa.</li>
+            </ul>
+					</div>
+				</div>
+
+<form method="POST" style="width: 60%;">
+  {% csrf_token %}
+
+  <!-- Step 1 -->
+  <div class="main" id="main1" style="display:block;">
+      <div id="form1" style="overflow-y:scroll; padding:2rem 2rem;">
+          <h6 class="my-1" style="padding-bottom:1.2rem; color:#4C5862;">
+              Field marked<span style="color:red"> * </span>are mandatory
+          </h6>
+
+          <ul class="errorlist">
+								{% if single_user_register_form.non_field_errors %}
+								<li>{{ single_user_register_form.non_field_errors }}</li>
+									{% endif %}
+									{% for field in single_user_register_form %}
+								  {% if field.errors %}
+								<ul class="errorlist">
+									{% for error in field.errors %}
+									{{ error }}
+									{% endfor %}
+								</ul>
+								{% endif %}
+								{% endfor %}
+					</ul>
+
+          {{ single_user_register_form.firstname }}
+          {{ single_user_register_form.phone }}
+          {{ single_user_register_form.email }}
+          
+          {{ single_user_register_form.password1 }}
+          {{ single_user_register_form.password2 }}
+
+          <br>
+          <button type="button" id="nextBtn1"
+                class="bg-pur text-white inline-block py-2 px-4 rounded shadow-sm text-base"
+                style="background-color: #009E77; margin-top:2.5rem; border:none;">
+                <img style="background-color: #009E77; color:white;" src="{% static 'images/NextBtn.png' %}" />
+          </button>
+      </div>
+
+      <!-- Keep image as before -->
+      <div class="img-div" style="width: 100%;">
+          <img src="{% static 'images/register_group.png' %}" alt=""
+               style="position:absolute; background: none; width: 70%; bottom:25%; left:98%;">
+      </div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="main" id="main2" style="display:none;">
+      <div id="form2" style="overflow-y:scroll; padding:2rem 2rem;">
+          {{ single_user_register_form.graduation_year }}
+          {{ single_user_register_form.college_name }}
+
+          <div class="rj-StateAndCity">
+              <div style="width:100%; position: relative;">
+                  <input type="text" id="rj-state" name="college_state"
+                         onkeyup="suggestState()" autocomplete="off"
+                         placeholder="College State*" required class="input_field">
+                  <div id="state-suggestions"></div>
+              </div>
+              <div style="width:100%; position: relative;">
+                  <input type="text" id="rj-city" name="college_city"
+                         onkeyup="suggestCity()" autocomplete="off"
+                         placeholder="College City*" required class="input_field">
+                  <div id="city-suggestions"></div>
+              </div>
+          </div>
+
+          {{ single_user_register_form.referred_by }}
+
+          <div style="display:flex; gap:2rem; padding-left: 0rem; margin-top:2rem;">
+              <button type="button" id="backBtn" style="border:none;">
+                  <img style="height:2.5rem; margin-bottom: 3rem;"
+                       src="{% static 'images/backB.png' %}"/>
+              </button>
+              <button onclick="gtag('event', 'click', {'event_category': 'Button','event_label': 'Register Button'});" type="submit" id="submitBtn"
+                  class="bg-pur text-white inline-block py-2 px-4 rounded shadow-sm text-base"
+                  style="background-color: #009E77; border:none; margin-bottom: 3rem; height: 2.5rem;">
+                  Submit
+              </button>
+          </div>
+      </div>
+  </div>
+</form>
+
+    
+<p style="color:green; display:none;" id="showload">Please Wait, don't refresh the page...</p>
+
+</div>
+
+<div id="bottom-connect1" style="display:flex; align-items:center; gap:1rem; align-self:center;justify-content:center; padding-top: 8rem; padding-bottom: 16rem;">
+    <button onclick='window.open("https://www.facebook.com/alcheringaiitg/")' style="display: flex; background-color: #f8f1e7; border: solid #2A6ACB 2px; padding: 0.4rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-fb.png'%}/>  Facebook</button>
+    <button onclick='window.open("https://www.instagram.com/alcheringaiitg/")'style="display: flex; background-color: #f8f1e7; border: solid #2A6ACB 2px; padding: 0.5rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-insta.png'%}/>  Instagram</button>
+</div>
+<div id="bottom-connect2" style="display: none; padding-top: 24rem;"></div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Get references to the buttons and the guideline text element
+    const rjButtons = document.querySelectorAll(".rj-button-second");
+    const rjGuidelineText = document.querySelector(".rj-guideline-text");
+    const rjKeyIcon = document.getElementById("rj-key-icon");
+
+    // Add a click event listener to each button
+    rjButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        // Remove the 'rj-active' class from all buttons
+        rjButtons.forEach((btn) => btn.classList.remove("rj-act"));
+        // Add the 'rj-active' class to the clicked button
+        button.classList.add("rj-act");
+      });
+    });
+
+    // Add a click event listener to the key icon
+    rjKeyIcon.addEventListener("click", () => {
+			// Toggle the 'rj-show' class to show/hide the text
+			rjGuidelineText.classList.toggle("rj-show");
+
+			// Change the icon based on the current state
+			if (rjGuidelineText.classList.contains("rj-show")) {
+				// Rotate the icon downwards when the text is visible
+				rjKeyIcon.style.transform = 'rotate(90deg)';
+			} else {
+				// Reset the rotation to point right when the text is hidden
+				rjKeyIcon.style.transform = 'rotate(0deg)';
+			}
+		});
+
+    // --- Multi-Step Form Logic ---
+    const rjFormFirst = document.getElementById("main1");
+    const rjFormSecond = document.getElementById("main2");
+
+    const rjNextButton = document.getElementById("nextBtn1");
+    const rjBackButton = document.getElementById("backBtn");
+    const rjSubmitButton = document.getElementById("submitBtn");
+    const rjBackToHomeButton = document.querySelector(".rj-fbc");
+
+    const rjBottomConnect1 = document.getElementById("bottom-connect1");
+    const rjBottomConnect2 = document.getElementById("bottom-connect2");
+    const password1 = document.getElementById('id_password1');
+    const password2 = document.getElementById('id_password2');
+
+    password2.addEventListener('input', () => {
+      if (password1.value === password2.value) {
+          password2.setCustomValidity('');
+      } else {
+          password2.setCustomValidity('Passwords do not match');
+      }
+    });
+
+
+    rjNextButton.addEventListener("click", () => {
+        const step1Inputs = rjFormFirst.querySelectorAll("input, select, textarea");
+        let step1Valid = true;
+
+        // Clear previous custom validity messages
+        password2.setCustomValidity("");
+
+        // Validate all inputs on Step 1
+        step1Inputs.forEach(input => {
+            if (!input.checkValidity()) {
+                step1Valid = false;
+                input.reportValidity();
+            }
+        });
+
+        // Check if passwords match
+        if (password1.value !== password2.value) {
+            password2.setCustomValidity("Passwords do not match");
+            step1Valid = false;
+            password2.reportValidity();
+        }
+
+        // Proceed only if everything is valid
+        if (step1Valid) {
+            rjFormFirst.style.display = 'none';
+            rjFormSecond.style.display = 'block';
+            rjBottomConnect1.style.display = 'none';
+            rjBottomConnect2.style.display = 'block';
+        }
+    });
+
+
+
+    rjBackButton.addEventListener("click", () => {
+        rjFormSecond.style.display = 'none';
+        rjFormFirst.style.display = 'block';
+        rjBottomConnect2.style.display = 'none';
+        rjBottomConnect1.style.display = 'flex';
+    });
+
+    rjSubmitButton.addEventListener("click", () => {
+        const mainForm = document.querySelector("form");
+        if (mainForm.reportValidity()) {
+            document.getElementById("showload").style.display = "block";
+            mainForm.submit();
+        }
+    });
+
+
+    rjBackToHomeButton.addEventListener("click", () => {
+        window.location.href = "/";
+    });
+  });
+</script>
+
+{% include 'users/login.html' %} {% endblock %}

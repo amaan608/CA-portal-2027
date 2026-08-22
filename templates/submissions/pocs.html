@@ -1,0 +1,37 @@
+{% extends '../basicbootstrap.html'%}
+{%block title%}Submissions | Alcheringa {%endblock%}
+{% block body %}
+<div class="container" style = "margin-top:40px">
+    <h3>Your POCs</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+              <th scope="col">POC Name</th>
+              <th scope="col">POC Designation</th>
+              <th scope="col">POC College</th>
+              <th scope="col">POC Contact</th>
+              <th scope="col">Submitted On</th>
+              <th scope="col">Verification</th>
+            </tr>
+        </thead>
+    
+    {% for poc in pocs %}
+            <tbody>
+                <tr>
+                  <td>{{poc.name}}</td>
+                  <td>{{poc.design}}</td>
+                  <td>{{poc.college}}</td>
+                  <td>{{poc.contact}}</td>
+                  <td>{{poc.submitdate}}</td>
+                  {% if poc.validate %}
+                    <td><span style = "color:green">Verified</span></td>
+                  {% else %}
+                    <td><span style = "color:orange">Pending</span></td>
+                  {% endif %}
+                </tr>
+            </tbody>
+        
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

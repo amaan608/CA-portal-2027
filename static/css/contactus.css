@@ -1,0 +1,167 @@
+/* Contact Us Page Styles */
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    background-color: #f5f2e6;
+    padding: 32px;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.content-header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Contact Cards */
+/* Contact Cards Section Styling */
+.contact-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.contact-card {
+    background: #ffffff;
+    border: 3px solid #e6b800;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    width: 280px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: #ffcc00;
+}
+
+/* Contact image styling - rectangular */
+.contact-image {
+    width: 100%;
+    height: 370px;
+    overflow: hidden;
+    position: relative;
+}
+
+.contact-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover .contact-image img {
+    transform: scale(1.02);
+}
+
+/* Contact information styling - fills remaining space */
+.contact-info {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: #ffffff;
+}
+
+.contact-info h3 {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+.contact-info .role {
+    color: #7f8c8d;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 0 1rem 0;
+    line-height: 1.3;
+}
+
+.contact-info .email {
+    color: #3498db;
+    font-size: 0.85rem;
+    margin: 0.3rem 0;
+    word-break: break-word;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.contact-info .email:hover {
+    color: #2980b9;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.contact-info .phone {
+    color: #27ae60;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0.3rem 0 0 0;
+    letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .contact-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .main-content {
+        padding: 24px 16px;
+    }
+    .contact-card {
+        width: 100%;
+        max-width: 300px;
+        height: 520px;
+        padding: 20px;
+        text-align: center;
+        padding: 0;
+        margin:0;
+    }
+    .contact-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+    
+    .contact-image {
+        height: 520px;
+    }
+    
+    .contact-info {
+        padding: 1.25rem;
+    }
+    
+    .contact-info h3 {
+        font-size: 1.2rem;
+    }
+} 

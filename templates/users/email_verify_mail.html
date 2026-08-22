@@ -1,0 +1,368 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Alcheringa Campus Ambassador</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8fafc;
+            line-height: 1.6;
+            color: #334155;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-section {
+            position: relative;
+            background: linear-gradient(135deg, #109cf1 0%, #0066cc 100%);
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .banner-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #109cf1 0%, #0066cc 100%);
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/><circle cx="500" cy="50" r="60" fill="rgba(255,255,255,0.1)"/><circle cx="100" cy="150" r="40" fill="rgba(255,255,255,0.08)"/></svg>');
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .logo-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+        }
+        
+        .logo-text {
+            color: #ffffff;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .content-section {
+            padding: 40px 32px;
+        }
+        
+        .greeting {
+            font-size: 28px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 24px;
+        }
+        
+        .welcome-text {
+            font-size: 16px;
+            color: #64748b;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+        
+        .verify-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #109cf1 0%, #0066cc 100%);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 4px 14px rgba(16, 156, 241, 0.3);
+            transition: all 0.3s ease;
+            margin-bottom: 32px;
+        }
+        
+        .verify-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 156, 241, 0.4);
+        }
+        
+        .community-section {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            padding: 24px;
+            border-radius: 12px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        
+        .community-text {
+            color: #ffffff;
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .whatsapp-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .community-section {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            padding: 24px;
+            border-radius: 12px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        
+        .community-text {
+            color: #ffffff;
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .whatsapp-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .fallback-section {
+            background-color: #f8fafc;
+            padding: 24px;
+            border-radius: 8px;
+            margin: 32px 0;
+        }
+        
+        .fallback-text {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 12px;
+        }
+        
+        .fallback-link {
+            color: #109cf1;
+            text-decoration: none;
+            font-size: 14px;
+            word-break: break-all;
+            font-weight: 500;
+        }
+        
+        .signature {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .signature-text {
+            font-size: 16px;
+            color: #475569;
+            font-weight: 500;
+        }
+        
+        .disclaimer {
+            margin-top: 32px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 12px;
+            color: #94a3b8;
+            text-align: center;
+        }
+        
+        .footer-section {
+            background-color: #f1f5f9;
+            padding: 24px 32px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .footer-text {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+        
+        .contact-link {
+            color: #109cf1;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 640px) {
+            .email-container {
+                margin: 10px;
+                border-radius: 8px;
+            }
+            
+            .content-section {
+                padding: 24px 20px;
+            }
+            
+            .logo-text {
+                font-size: 28px;
+            }
+            
+            .greeting {
+                font-size: 24px;
+            }
+            
+            .banner-image {
+                height: 160px;
+            }
+            
+            .footer-section {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 24px;
+                letter-spacing: 1px;
+            }
+            
+            .subtitle-text {
+                font-size: 12px;
+            }
+            
+            .banner-image {
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header with Banner Image -->
+        <div class="header-section">
+            <div class="banner-image">
+                <!-- You can replace this with an actual banner image -->
+                <!-- <img src="{% static 'images/alcheringa-banner.jpg' %}" alt="Alcheringa Banner" style="width: 100%; height: 100%; object-fit: cover;"> -->
+            </div>
+            <div class="logo-overlay">
+                <div class="logo-text">ALCHERINGA</div>
+                <div class="subtitle-text">Campus Ambassador</div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content-section">
+            <h1 class="greeting">Hello {{firstname}},</h1>
+            
+            <p class="welcome-text">
+                Welcome to the Alcheringa Campus Ambassador Portal! We're excited to have you join our community of passionate ambassadors.
+            </p>
+            
+            <p class="welcome-text">
+                To get started, please verify your account by clicking the button below:
+            </p>
+            
+            <a href="{{link}}" class="verify-button">Verify Account</a>
+            
+            <!-- WhatsApp Community Section -->
+            <div class="community-section">
+                <p class="community-text">
+                    <strong>Join our WhatsApp Community</strong> to connect with fellow Campus Ambassadors, get updates, and participate in exciting discussions!
+                </p>
+                <a href="https://chat.whatsapp.com/E6sL8oC0mytAmrSy1J1qF7?mode=ems_copy_c" class="whatsapp-button" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                    </svg>
+                    Join WhatsApp Community
+                </a>
+            </div>
+            
+            <!-- Fallback Link Section -->
+            <div class="fallback-section">
+                <p class="fallback-text">
+                    If the button doesn't work, please copy and paste this link into your browser:
+                </p>
+                <a href="{{link}}" class="fallback-link">{{link}}</a>
+            </div>
+            
+            <!-- Signature -->
+            <div class="signature">
+                <p class="signature-text">
+                    Best regards,<br>
+                    Alcheringa Web Operations Team
+                </p>
+            </div>
+            
+            <!-- Disclaimer -->
+            <div class="disclaimer">
+                This is an automated message. Please do not reply to this email.
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer-section">
+            <p class="footer-text">Need assistance?</p>
+            <a href="https://alcheringa.in/" class="contact-link">Contact our support team</a>
+        </div>
+    </div>
+</body>
+</html>

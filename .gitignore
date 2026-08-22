@@ -1,0 +1,12 @@
+*.pyc
+*/__pycache__/*
+.env
+/myenv
+/myvenv
+rajvenv/
+venv/
+/venv
+/ayush
+ayush/
+venv/
+.idea/

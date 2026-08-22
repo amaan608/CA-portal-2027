@@ -1,0 +1,71 @@
+<style>
+    /* body{ */
+        /* text-align:center; */
+    /* } */
+    .test + .tooltip > .tooltip-inner {
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+    }
+    </style>
+    {% load static %}
+    <link rel="stylesheet" href={% static "css/font.css" %}>
+<div class=" my-2 bg-white max-w-5xl rounded-md shadow-md flex flex-col justify-center content-center gen">
+    <div class="py-3 pl-6 font-medium text-lg border-b" style="font-family: General Sans, sans-serif;font-size: 1.2rem;font-weight: 750;">Referral</div>
+    <div class=" flex flex-col justify-center">
+        <div class="flex justify-center">
+            <img style="width: 50%;" src="{% static 'images/refer-img.svg' %}" title='refer and earn' />
+        </div>
+        <div class=" text-lg text-center my-2">Refer your friend and you both earn</div>
+        <div class="test font-medium text-4xl text-center" data-toggle="tooltip" 
+        title="IF REFERRAL IS USED FOR REG OF THE SAME COLLEGE,YOU GET 400 POINTS.         
+IF REFERRAL IS USED FOR REG OF THE OTHER COLLEGE,YOU GET 600 POINTS.
+YOUR FIREND GETS 300 POINTS.">
+        25 Points!
+        </div>
+
+        <div class=" flex flex-wrap justify-center mt-4 ml-4 mr-4">
+            <input type="url" class=" border-2 border-gray-400 text-gray-600 text-sm px-2 m-2"
+                value="{{request.user.alcherid}}"id="alcherid" size="35" disabled>
+            <button onclick="copytext()" style="background-color: #009E77;"
+                class="text-white inline-block py-1 px-3 rounded shadow-sm font-semibold text-base m-2">
+                Copy ID
+            </button>
+            
+        </div>
+        
+        <!-- <div class=" flex flex-wrap justify-center ml-4 mb-4 mr-4" id="copied"></div> -->
+        <div class=" flex justify-center space-x-4 m-4">
+         
+
+          
+
+           
+        </div>
+    </div>
+</div>
+{% include 'dashboard/components/fbpopup.html' %}
+{% include 'dashboard/components/mailpopup.html' %}
+{% include 'dashboard/components/twitter.html' %}
+{% include 'dashboard/components/instagram.html' %}
+{% include 'dashboard/components/whatsapp.html' %}
+
+{% block script %}
+<script>
+    function copytext() {
+            var copyText = document.getElementById("alcherid");
+
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); 
+            navigator.clipboard.writeText(copyText.value);
+
+            document.getElementById("copied").innerHTML="Copied ID successfully"
+        }
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();   
+        });
+</script>
+{% endblock %}

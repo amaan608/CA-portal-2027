@@ -1,0 +1,140 @@
+{% extends '../basic.html'%}
+{% load static %}
+{%block title%}Points System | Alcheringa {%endblock%}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/points_system.css' %}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div class="flex" style="background-color: #F1EDE8;">
+{% include 'navbar.html' %}
+<!-- Point System Section -->
+<div class="content-section" id="point-system-section">
+    
+    <!-- Tier List Section -->
+    <div class="tier-section">
+        <h3>Tier List</h3>
+        <div class="nav-separator"></div>
+        <p class="section-description">This is to show you the guidelines that will be followed to allot scores.</p>
+        
+        <div class="tier-image-container">
+            <img src="/media/image-uploads/Group 699.png" alt="Tier List Progress Bar" class="tier-progress-image">
+        </div>
+        
+        <div class="tier-image-container">
+            <img src="/media/image-uploads/Group 700.png" alt="Team Tier List Progress Bar" class="tier-progress-image">
+        </div>
+    </div>
+    
+    <!-- Rewards Section -->
+    <div class="rewards-section">
+        <h3>Rewards</h3>
+        <div class="nav-separator"></div>
+        <div class="rewards-grid">
+            <div class="reward-tier">
+                <h4>Novice</h4>
+                <ul>
+                    <li>Grab the chance to win a cash price of 75K for the top performers of Platinum and Gold Levels.</li>
+                    <li>Different levels of Certificates from Alcheringa commemorating your efforts.</li>
+                    <li>Access to Alcher's premium content for top levels.</li>
+                    <li>Depending on the level, get a call from us to be a part of Alcher's execution team.</li>
+                </ul>
+            </div>
+            <div class="reward-tier">
+                <h4>Bronze</h4>
+                <ul>
+                    <li>Grab the chance to win a cash price of 75K for the top performers of Platinum and Gold Levels.</li>
+                    <li>Different levels of Certificates from Alcheringa commemorating your efforts.</li>
+                    <li>Access to Alcher's premium content for top levels.</li>
+                    <li>Depending on the level, get a call from us to be a part of Alcher's execution team.</li>
+                </ul>
+            </div>
+            <div class="reward-tier">
+                <h4>Silver</h4>
+                <ul>
+                    <li>Grab the chance to win a cash price of 75K for the top performers of Platinum and Gold Levels.</li>
+                    <li>Different levels of Certificates from Alcheringa commemorating your efforts.</li>
+                    <li>Access to Alcher's premium content for top levels.</li>
+                    <li>Depending on the level, get a call from us to be a part of Alcher's execution team.</li>
+                </ul>
+            </div>
+            <div class="reward-tier">
+                <h4>Gold</h4>
+                <ul>
+                    <li>Grab the chance to win a cash price of 75K for the top performers of Platinum and Gold Levels.</li>
+                    <li>Different levels of Certificates from Alcheringa commemorating your efforts.</li>
+                    <li>Access to Alcher's premium content for top levels.</li>
+                    <li>Depending on the level, get a call from us to be a part of Alcher's execution team.</li>
+                </ul>
+            </div>
+            <div class="reward-tier">
+                <h4>Platinum</h4>
+                <ul>
+                    <li>Grab the chance to win a cash price of 75K for the top performers of Platinum and Gold Levels.</li>
+                    <li>Different levels of Certificates from Alcheringa commemorating your efforts.</li>
+                    <li>Access to Alcher's premium content for top levels.</li>
+                    <li>Depending on the level, get a call from us to be a part of Alcher's execution team.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Point System for Tasks Section -->
+    <div class="tasks-section">
+        <h3>Point System for Tasks</h3>
+        <div class="nav-separator"></div>
+        <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        
+        <div class="tasks-table">
+            <div class="task-row">
+                <span class="task-name">Social Engagement with recent feed on Facebook</span>
+                <span class="task-points">10</span>
+            </div>
+            <div class="task-row">
+                <span class="task-name">Social Engagement with recent feed on Instagram and tag @alcheringaiitg</span>
+                <span class="task-points">10</span>
+            </div>
+            <div class="task-row">
+                <span class="task-name">If Referral is used for reg of the same college</span>
+                <span class="task-points">40</span>
+            </div>
+            <div class="task-row">
+                <span class="task-name">If Referral is used for reg of other colleges</span>
+                <span class="task-points">60</span>
+            </div>
+            <div class="task-row">
+                <span class="task-name">Submission of an idea</span>
+                <span class="task-points">20</span>
+            </div>
+            <div class="task-row">
+                <span class="task-name">POC Submission</span>
+                <span class="task-points">30</span>
+            </div>
+            <div class="task-row">
+                <span class="task-name">Joining Bonus (Solo)</span>
+                <span class="task-points">50</span>
+            </div>
+            <div class="task-row">
+                <span class="task-name">Joining Bonus (Team)</span>
+                <span class="task-points">100</span>
+            </div>
+            <div class="task-row">
+                <span class="task-name">Event Organizing in your city (City Eliminations)</span>
+                <span class="task-points">Based on Performance</span>
+            </div>
+            <div class="task-row">
+                <span class="task-name">Giving presentations in key clubs/societies</span>
+                <span class="task-points">Based on Performance</span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/points_system.js' %}"></script>
+{% endblock %}
+

@@ -1,0 +1,18 @@
+{% extends '../basic.html' %}
+{% block title %}
+  Profile | Alcheringa
+{% endblock %}
+{% block body %}
+{% load static %}
+<link rel="stylesheet" href={% static "css/font.css" %}>
+  <body>
+    <div class="bg-blue-50 flex gen" style="background-color: #f5f2e6;">
+      {% include 'navbar.html' %}
+
+      {% include 'users/profile_update.html' %}
+    </div>
+  </body>
+{% endblock %}
+{% block script %}
+
+{% endblock %}

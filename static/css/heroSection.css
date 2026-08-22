@@ -1,0 +1,346 @@
+@font-face {
+  font-family: "GeneralSans";
+  src: url(../Fonts/GeneralSans-Bold.ttf) format("truetype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GeneralSans";
+  src: url(../Fonts/GeneralSans-Extralight.ttf) format("truetype");
+  font-weight: 200;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GeneralSans";
+  src: url(../Fonts/GeneralSans-Light.ttf) format("truetype");
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GeneralSans";
+  src: url(../Fonts/GeneralSans-Regular.ttf) format("truetype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GeneralSans";
+  src: url(../Fonts/GeneralSans-Medium.ttf) format("truetype");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GeneralSans";
+  src: url(../Fonts/GeneralSans-Semibold.ttf) format("truetype");
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GeneralSans";
+  src: url(../Fonts/GeneralSans-Bold.ttf) format("truetype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+.heroSectionn {
+  position: relative;
+  min-height: 100vh; /* Use min-height instead of fixed height */
+  width: 100%;
+  background-color: #F8F1E7;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  font-family: "GeneralSans";
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Changed from center to flex-start */
+  padding-top: 80px; /* Add padding to account for sticky navbar */
+  box-sizing: border-box;
+}
+
+/* Spark elements remain the same */
+.spark1 {
+  position: absolute;
+  width: 5vw;
+  height: auto; 
+  transform: rotate(-16.95deg); 
+  opacity: 1;
+  top: 7%;
+  left: 18.23%;
+  z-index: 99;
+}
+.spark2 {
+  position: absolute;
+  width: 10vw; 
+  height: auto; 
+  opacity: 1;
+  top: 32%;
+  right: 20.23%;
+  z-index: 99;
+}
+
+.spark3 {
+  position: absolute;
+  width: 8vw; 
+  height: auto; 
+  opacity: 1;
+  top: 18%;
+  left: -3%;
+  z-index: 99;
+}
+
+.spark4 {
+  position: absolute;
+  width: 2vw;
+  height: auto; 
+  opacity: 1;
+  top: 9%;
+  right: 25.23%;
+  z-index: 99;
+}
+
+.contHolderBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 35px; /* Add some spacing */
+  margin-bottom: 30px; /* Add some spacing */
+}
+
+.contHolderBox > p {
+  color: white;
+}
+
+.alcherTxt {
+  color: #2A6ACB !important;
+  font-size: 3.8vmax;
+  font-weight: 700;
+  text-align: center;
+  font-family: GeneralSans;
+  margin-bottom: 10px;
+}
+
+.caTxt {
+  color: #232122 !important;
+  font-size: clamp(2.5rem, 10vw, 5rem);
+  font-weight: 700;
+  text-align: center;
+  font-family: GeneralSans;
+  margin-bottom: 15px;
+}
+
+.caPara {
+  color: #00000099 !important;
+  font-size: 1.2vmax;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 0.3vw;
+  width: 55%;
+  font-family: Poppins;
+  margin-bottom: 30px;
+}
+
+.caParaIN {
+  color: black !important;
+}
+
+.joinBtn {
+  display: flex;
+  gap: 10px;
+  border-radius: 8px;
+  background: #2A6ACB;
+  border: none;
+  cursor: pointer;
+  font-size: clamp(0.8rem, 2.5vw, 1.1rem);
+  padding: 0.5rem 1.25rem;
+  color: #F8F1E7;
+  text-decoration: none;
+  white-space: nowrap;
+  font-family: GeneralSans;
+  margin-bottom: 30px;
+}
+
+.joinBtn img {
+  width: 2em; 
+  height: 2em;
+  vertical-align: middle; 
+  margin-left: 0.4em;
+}
+
+.video-container {
+  width: 95%;
+  max-width: 1289px;
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden; 
+  margin-bottom: 40px; /* Add margin instead of margin-top */
+}
+
+.after-video-button {
+    position: absolute;
+    margin-top: 10px;
+    font-size: 1.5rem;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: transparent;
+    font-weight: 550;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    position: absolute;
+  top: 90%; /* Adjust as needed */
+  left: 20%; /* Adjust as needed */
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  padding: 12px 24px; /* Recommended for better spacing */
+  white-space: nowrap; /* Prevents text from breaking into two lines */
+
+  /* --- CHANGE --- */
+  margin-top: 0; /* Remove or set to 0 */
+
+  /* --- Your existing styles below --- */
+  display: inline-block;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.video-container .youtube {
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  border: 0;
+}
+
+.counterBox {
+  background-color: #222121;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 40px 0; /* Add padding instead of relying on height */
+  margin-top: auto; /* This will push it to the bottom */
+}
+
+.valBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.valBox > p {
+  overflow: hidden;
+  text-align: center;
+  margin: 0;
+}
+
+.num {
+  color: #FFDC91;
+  font-size: 3vmax;
+  font-weight: 700;
+  font-family: GeneralSans;
+}
+
+.title1 {
+  color: #F8F1E7;
+  font-size: 1.75vmax;
+  font-weight: 700;
+  font-family: GeneralSans;
+}
+
+/* Mobile styles */
+@media (max-width: 769px) {
+  .heroSectionn {
+    min-height: 100vh;
+    padding-top: 60px; /* Adjust for mobile navbar height */
+    padding-bottom: 20px;
+  }
+
+  .spark1 {
+    top: 8%;
+
+  }
+  .spark2 {
+    top: 32%;
+    right: 20%;
+  }
+  .spark3 {
+    top: 25%;
+  }
+  .spark4 {
+    top: 13%;
+    right:10%;
+    width: 3vw;
+  }
+
+  .caTxt {
+    font-size: 1.7rem;
+  }
+
+  .counterBox {
+    flex-wrap: wrap;
+    row-gap: 20px;
+    padding: 30px 20px;
+  }
+
+  .valBox {
+    flex-basis: 50%;
+  }
+
+  .caPara {
+    width: 85%; /* Make it wider on mobile */
+  }
+}
+
+/* For very short screens (laptops with 16:9) */
+@media (max-height: 700px) {
+  .heroSectionn {
+    padding-top: 60px;
+    padding-bottom: 20px;
+  }
+  
+  .contHolderBox {
+    margin-bottom: 20px;
+  }
+  
+  .video-container {
+    margin-bottom: 30px;
+  }
+  
+  .alcherTxt {
+    font-size: 3.5vmax; /* Slightly smaller on short screens */
+  }
+}
+
+/* For very tall screens */
+@media (min-height: 900px) {
+  .heroSectionn {
+    justify-content: center; /* Center content on very tall screens */
+    padding-top: 100px;
+  }
+}
+@media (max-width: 768px) {
+  
+  .after-video-button {
+    /* 1. Change positioning to put it back in the normal flow */
+    position: relative; 
+    
+    /* 2. Reset the properties used for overlapping */
+    top: auto;
+    left: auto;
+    transform: none;
+    color: black;
+    border-color: black;
+    font-size: 0.7rem;
+    /* 3. Style it for its new position below the video */
+    display: block; /* Makes it take up its own line */
+    width: 90%;     /* Adjust width as needed */
+    margin: 1rem auto 0 auto; /* Adds space on top and centers it */
+    text-align: center;
+  }

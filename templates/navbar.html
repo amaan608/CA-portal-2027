@@ -1,0 +1,261 @@
+{% load static %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{%static 'css/nav.css'%}">
+<nav class="flex bg-white justify-evenly w-full fixed bottom-0 sm:hidden z-10 sidebar" style="width: 100%">
+  <!-- dashboard -->
+  <a href="{% url 'dashboard_page' %}">
+    <div class="py-6 rounded-full">
+      {% if heading == 'Dashboard' %}
+      <img src="{%static 'icons/dashboard-active.svg'%}" class="sideicon"/>
+      {% else %}
+      <img src="{% static 'icons/dashboard.svg' %}" class="sideicon"/>
+      {% endif %}
+    </div>
+  </a>
+  <!-- tasks -->
+  <a href="{% url 'tasks' %}">
+    <div class="py-6 rounded-full">
+      {% if heading == 'Tasks' %}
+      <img src="{% static 'icons/tasks.svg' %}" class="sideicon" />
+      {% else %}
+      <img src="{% static 'icons/tasks.svg' %}" class="sideicon"/>
+      {% endif %}
+    </div>
+  </a>
+  <a href="{% url 'leaderboard' %}">
+    <div class="py-6 rounded-full">
+      {% if heading == 'Leaderboard' %}
+      <img src="{% static 'icons/leaderboard-active.svg' %}" class="sideicon"/>
+      {% else %}
+      <img src="{% static 'icons/leaderboard.svg' %}" class="sideicon"/>
+      {% endif %}
+    </div>
+  </a>
+  <a href="{% url 'profile' %}">
+    <div class="py-6 rounded-full">
+      {% if heading == 'Profile' %}
+      <img src="{% static 'icons/profile.svg' %}" class="sideicon"/>
+      {% else %}
+      <img src="{% static 'icons/profile.svg' %}" class="sideicon"/>
+      {% endif %}
+    </div>
+  </a>
+  <div class="py-6 rounded-full">
+    <div class="relative inline-flex align-middle w-full z-10">
+      <button
+        class="hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 bg-blueGray-700 ease-linear transition-all duration-150"
+        type="button" onclick="openDropUp(event,'dropup-id')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M6 10C4.9 10 4 10.9 4 12C4 13.1 4.9 14 6 14C7.1 14 8 13.1 8 12C8 10.9 7.1 10 6 10ZM18 10C16.9 10 16 10.9 16 12C16 13.1 16.9 14 18 14C19.1 14 20 13.1 20 12C20 10.9 19.1 10 18 10ZM12 10C10.9 10 10 10.9 10 12C10 13.1 10.9 14 12 14C13.1 14 14 13.1 14 12C14 10.9 13.1 10 12 10Z"
+            fill="#C2CFE0" />
+        </svg>
+      </button>
+      <div class="hidden bg-white  text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mb-1"
+        style="min-width:12rem" id="dropup-id">
+        <a href="{% url 'guidelines' %}"
+          class="text-md-left py-3 px-6 font-normal block w-full whitespace-nowrap bg-white text-blueGray-700">
+          Guidelines
+        </a>
+        <a href="{% url 'scoring' %}"
+          class="text-md-right py-3 px-6 font-normal block w-full whitespace-nowrap bg-white text-blueGray-700">
+          Point System
+        </a>
+        <a href="{% url 'contactus' %}"
+          class="text-md-right py-3 px-6 font-normal block w-full whitespace-nowrap  bg-white   text-blueGray-700">
+          Contact Us
+        </a>
+        <a href="{% url 'logout' %}"
+          class="text-md-right py-3 px-6 font-normal block w-full whitespace-nowrap  bg-white  text-blueGray-700">
+          Logout
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- left_nav -->
+<nav class="hidden sm:block bg-white border-gray-400 sidebar">
+
+  <div style="width: 18rem;align-items: center;" class="flex flex-col h-screen bg-white border-gray-400 rounded  sticky top-0">
+    <div style="margin-top:2vh; width: 21vh; padding-bottom:20px"><a href="/"><img src="{% static 'images/dashlogo.svg' %}" class="border-b" width="100%" alt="logo"/></a></div>
+    {% comment %} profile {% endcomment %}
+    <div style="justify-content: space-between; align-items: center;margin: 1rem 4rem;" class="flex flex-col justify-center" style="margin:0;align-items: center;">
+
+      <div style="margin-top: 2vh; width: 14vh;border-radius: 50%;padding: 0px;background: radial-gradient(circle, #AD4A35, #B85D37);" id="profile-value">
+        <img src="{{request.user.img.url}}" width="100%" alt="profile pic" border="0" class="mx-auto rounded-full" style="width: 14vh; height: 14vh; object-fit: cover;">
+      </div>
+      <div><div style="font-size: 2.5vh; font-weight: 600;color: #13141D;" class="font-medium text-center">{{request.user.firstname}}</div>
+      <div style="font-size: 2.2vh;" class="text-gray-500 font-normal text-center">
+        <!-- {{request.user.email}} -->
+        {%if rank <= 5 %}
+                        Platinum
+                        {%elif rank >= 6 and rank <= 30 %}
+                        Gold
+                        {%elif rank >= 31 and rank <= 80 %}
+                        Silver
+                        {%elif rank >= 81 %}
+                        Bronze
+                        {% endif %}
+      </div>
+    </div>
+      
+    </div>
+    {% comment %} nav main {% endcomment %}
+    <div class="navcontent" >
+      <div style="width: 100%;" >
+        <a href="{% url 'dashboard_page' %}"
+          class="navlink nav-links" style="width: 100%;color:#767676">
+          {% if heading == 'Dashboard' %}
+          <div class="tabs" style="padding: 1vh 0vh;background-color: #FFC548; display: flex; width: 100%;border-radius: 3vw;" >
+          <img src="{% static 'icons/dashboard-active.svg' %}" class="sideicon"/>
+          <p class="hover:no-underline" style="color: #444444; transform: translate(-2px,0); margin-left:1vw;font-weight: 600;font-size: 1rem;">Dashboard</p>
+          </div>
+          {% else %}
+          <img src="{% static 'icons/dashboard.svg' %}" class="sideicon icon" />
+          <p class="hover:no-underline nav-links" style="transform: translate(-2px,0); margin-left:1vw;font-weight: 600;font-size: 1rem;">Dashboard</p>
+          {% endif %}
+        </a>
+      </div>
+      <!-- tasks -->
+      <div style="width: 100%;" >
+        <a href="{% url 'tasks' %}"
+          class="navlink nav-links" style="width: 100%;color:#767676">
+          {% if heading == 'Tasks' %}
+          <div class="tabs" style="padding: 1vh 0vh;background-color: #FFC548; display: flex; width: 100%;border-radius: 3vw;" >
+          <img  src="{% static 'icons/tasks.svg' %}" class="sideicon"/>
+          <p class=" hover:no-underline" style="color: #444444; margin-left:1vw;font-weight: 600;font-size: 1rem;">Tasks</p>
+          </div>
+          {% else %}
+          <img src="{% static 'icons/tasks.svg' %}" class="sideicon iconup" />
+          <p class="hover:no-underline" style="margin-left:1vw;font-weight: 600;font-size: 1rem;">Tasks</p>
+          {% endif %}
+        </a>
+      </div>
+      <!-- leaderboard -->
+      <div style="width: 100%;">
+        <a href="{% url 'leaderboard' %}" class="navlink nav-links" style="width: 100%; color:#767676">
+          {% if heading == 'Leaderboard' %}
+          <div class="tabs" style="padding: 1vh 0vh;background-color: #FFC548; display: flex; width: 100%;border-radius: 1vw;" >
+            <img src="{% static 'icons/leaderboard-active.svg' %}" class="sideicon"/>
+            <p class="hover:no-underline" style="color: #444444; transform: translate(-2px,0); margin-left:1vw;font-weight: 550;font-size: 1rem;">Leaderboard</p>
+          </div>
+          {% else %}
+          <img src="{% static 'icons/leaderboard.svg' %}" class="sideicon iconup" />
+          <p class="nav-links hover:no-underline" style=" margin-left:1vw;font-weight: 600;font-size: 1rem;">Leaderboard</p>
+          {% endif %}
+        </a>
+      </div>
+      <div style="width: 100%;">
+        <a href="{% url 'profile' %}" class="navlink nav-links" style="width: 100%;color:#767676">
+          {% if heading == 'Profile' %}
+          <div class="tabs" style="padding: 1vh 0vh;background-color: #FFC548; display: flex; width: 100%;border-radius: 3vw;" >
+            <img  src="{% static 'icons/profile.svg' %}" class="sideicon"/>
+            <p class="hover:no-underline" style="color: #444444; transform: translate(-2px,0); margin-left:1vw;font-weight: 600;font-size: 1rem;">Profile</p>
+          </div>
+          {% else %}
+          <img src="{% static 'icons/profile.svg' %}" class="sideicon upicon"/>
+          <p class="nav-links no-underline" style=" margin-left:1vw;font-weight: 600;font-size: 1rem;">Profile</p>
+          {% endif %}
+        </a>
+      </div>
+      <hr style="width: 100%;">
+      <div style="width: 100%;">
+        <a href="{% url 'guidelines' %}" class="navlink nav-links" style="width: 100%;color:#767676">
+          {% if heading == 'Guidelines' %}
+          <div class="tabs" style="padding: 1vh 0vh;background-color: #FFC548; display: flex; width: 100%;border-radius: 3vw;" >
+            <img src="{%static 'icons/guidelines.svg'%}" class="sideicon"/>
+            <p class="hover:no-underline" style="color: #444444; transform: translate(-2px,0); margin-left:1vw;font-weight: 600;font-size: 1rem;">Guidelines</p>
+          </div>
+          {% else %}
+          <img  src="{%static 'icons/guidelines.svg'%}" class="sideicon downicon"/>
+          <p class="nav-links no-underline" style=" margin-left:1vw;font-weight: 600;font-size: 1rem;">Guidelines</p>
+          {% endif %}
+        </a>
+      </div>
+      <div style="width: 100%;">
+        <a href="{% url 'scoring' %}" class="navlink nav-links" style="width: 100%;color:#767676">
+          {% if heading == 'Point System' %}
+          <div class="tabs" style="padding: 1vh 0vh;background-color: #FFC548; display: flex; width: 100%;border-radius: 3vw;" >
+            <img src="{% static 'icons/pointsystem.svg' %}" class="sideicon">
+            <p class="hover:no-underline" style="color: #444444; transform: translate(-2px,0); margin-left:1vw;font-weight: 600;font-size: 1rem;">Point System</p>
+          </div>
+          {% else %}
+            <img  src="{% static 'icons/pointsystem.svg' %}" class="sideicon"/>
+            <p class="nav-links no-underline" style="margin-left:1vw;font-weight: 600;font-size: 1rem;">Point System</p>
+          {% endif %}
+      </a>
+      </div>
+    <div style="width: 100%;">
+      <a href="{% url 'contactus' %}" class="navlink nav-links" style="width: 100%;color:#767676">
+      {% if heading == 'Contact us' %}
+      <div class="tabs" style="padding: 1vh 0vh;background-color: #FFC548; display: flex; width: 100%;border-radius: 3vw;" >
+        <img src="{% static 'icons/contactus.svg' %}" class="sideicon"/>
+        <p class="hover:no-underline" style="color: #444444; transform: translate(-2px,0); margin-left:1vw;font-weight: 600;font-size: 1rem;">Contact Us</p>
+      </div>
+      {% else %}
+      <img  src="{% static 'icons/contactus.svg' %}" class="sideicon"/>
+      <p class="nav-links no-underline" style="margin-left:1vw;font-weight: 600;font-size: 1rem;">Contact Us</p>
+      {% endif %}
+    </a>
+    </div>
+    <div style="width: 100%;">
+      <a href="{% url 'logout' %}" class="navlink nav-links" style="width: 100%;color:#767676">
+        {% if heading == 'Logout' %}
+      <div class="tabs" style="padding: 1vh 0vh;background-color: #FFC548; display: flex; width: 100%;border-radius: 3vw;" >
+        <img src="{%static 'icons/logout.svg'%}" class="sideicon"/>
+        <p class="hover:no-underline" style="color: #444444; transform: translate(-2px,0); margin-left:1vw;font-weight: 600;font-size: 1rem;">Logout</p>
+      </div>
+      {% else %}
+      <div style="display: flex;">
+      <img src="{%static 'icons/logout.svg'%}" class="sideicon"/>
+      <p class="no-underline" style="margin-left:1vw;font-weight: 600;font-size: 1rem;">Logout</p>
+      </div>
+      {% endif %}
+      </a>
+    </div>
+    <div class="w-full">
+      <div style="text-align:center; margin-top: 1rem;">
+        <p class="follow">Follow us on</p>
+        <div class=" flex justify-center space-x-4 mx-4 my-2">
+          <a style="cursor:pointer;" href="https://www.facebook.com/alcheringaiitg" target="_blank">
+            <img src="{% static 'icons/icon.svg' %}" width="34" height="45" class="siz"/>
+          </a>
+            <a style="cursor:pointer;" href="https://www.instagram.com/alcheringaiitg/" target="_blank"><img src="{% static 'icons/insta.svg' %}" width="34" height="45" class="siz"/></a>
+            <a style="cursor:pointer;" href="https://www.youtube.com/c/AlcheringaIITG" target="_blank"><img src="{% static 'icons/youtube.svg' %}" width="34" height="45" class="siz"/></a>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+  </div>
+
+</nav>
+<div x-data="{ dropdownOpen: false }" style="width: -webkit-fill-available;"\>
+  <!-- top_nav-all_screens -->
+  <nav class=" px-6 py-3 flex sm:bg-color-[#eff6ff] -mx-4 mx-0 sticky top-0 justify-end navi" style="border-bottom : 1px solid black;background-color: #ffffff; z-index: 100;">
+    <a href="/" class=" block sm:hidden">
+      <img src="{% static 'images/dashlogo.svg' %}" alt="profile-pic" width="110px"  border="0" />
+    </a>
+    <a class=" font-medium text-xl position-relative mr-16 hidden lg:block" style="font-weight: 600;font-size: 1.3rem;">{{ heading }}</a>
+    {%include 'navbarnotifications.html'%}
+  </nav>
+
+  <script src="https://unpkg.com/@popperjs/core@2.9.1/dist/umd/popper.min.js" charset="utf-8"></script>
+  <script>
+    function openDropUp(event, dropupID) {
+      let element = event.target;
+      while (element.nodeName !== "BUTTON") {
+        element = element.parentNode;
+      }
+      var popper = Popper.createPopper(element, document.getElementById(dropupID), {
+        placement: 'top-end'
+      });
+      document.getElementById(dropupID).classList.toggle("hidden");
+      document.getElementById(dropupID).classList.toggle("block");
+    }
+
+  </script>

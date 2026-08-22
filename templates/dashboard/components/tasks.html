@@ -1,0 +1,124 @@
+{% load static %}
+<link rel="stylesheet" href={% static "css/font.css" %}>
+<style>
+    body{
+        width: fit-content !important;
+    }
+    .task{
+        padding: min(4vw,2rem);
+        margin:min(4vw,2rem);
+    }
+    .shadow-xd {
+        box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2);
+    }
+    .bg-pur{
+        background-color: #009E77;
+    }
+    .bg-pur:hover{
+        background-color: #009E77;
+    }
+    .points{
+        color: #0A7116;
+        border-radius: 3px;
+        padding: 3px;
+        background-color: #D4F1C0;
+    }
+    @media screen and (min-width: 640px) {
+        .taskss{
+            margin-top: 0.5rem;
+        }
+    }
+</style>
+<div class="bg-white rounded-md shadow-xd pb-1 w-full taskss gen">
+    <div class="py-3 pl-6 font-medium text-lg border-b" style="font-size: 1.2rem;font-weight: 600; border-bottom:1px solid #959595;">Pending Tasks</div>
+
+    {% for quiz in quizzes %}
+    <div class="task rounded-md flex justify-between" style="border:1px solid #95959580;">
+        <div style="text-align:left">
+            <div class=" mb-2">
+                <span class="font-bold text-xl" style="font-weight:500">{{ quiz.name }}</span>
+                <span class=" bg-green-50 text-green-400 font-medium text-lg mx-1 px-2 mb-2 points">500
+                    points</span>
+            </div>
+            <p class=" text-justify mr-4">
+                Tell us about the college festival in your region.
+            </p>
+            <br>
+        </div>
+        <div class=" text-right whitespace-nowrap grid content-between">
+            <div>
+                <div class="text-gray-500 text-xs"></div>
+                <div class="text-gray-500 font-medium text-base"></div>
+            </div>
+            {% if submitted %}
+            <a href="{% url 'quiz' quiz.id %}">
+                <button
+                    class=" bg-pur text-white inline-block py-2 px-4 rounded shadow-sm font-semibold text-base">
+                    Start
+                </button></a>
+            {% else %}
+            <a href="{% url 'quiz' quiz.id %}">
+                <button
+                    class=" bg-pur text-white inline-block py-2 px-4 rounded shadow-sm font-semibold text-base">
+                    Start
+                </button></a>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="task rounded-md flex justify-between" style="border:1px solid #95959580;">
+        <div style="text-align:left">
+            <div class=" mb-2">
+                <span class="font-medium text-xl" style="font-weight: 500;font-size: 1.3rem;">Submit POC</span>
+                <span class="font-medium text-lg mx-1 px-2 mb-2 points">250
+                    points</span>
+            </div>
+            <p class=" text-justify mr-4">
+                Submit contacts of individual or group of participants. You will be rewarded with 250 points for this
+                task.
+
+
+            </p>
+            <br>
+        </div>
+        <div class=" text-right whitespace-nowrap grid content-between">
+            <div>
+                <div class="text-gray-500 text-xs"></div>
+                <div class="text-gray-500 font-medium text-base"></div>
+            </div>
+            <a href="{% url 'poc-create' %}"><button
+                    class=" bg-pur text-white inline-block py-2 px-4 rounded shadow-sm font-semibold text-base">
+                    Submit
+                </button></a>
+        </div>
+    </div>
+    <div class="task rounded-md flex justify-between" style="border:1px solid #95959580;">
+        <div style="text-align:left">
+            <span class="font-medium text-xl mb-2" style="font-weight: 500;font-size: 1.3rem;">Submit Idea</span>
+            <span class=" font-medium text-lg mx-1 px-2 mb-2 points">200
+                points</span>
+            <p class=" text-justify mr-4">
+                Is your mind engulfed with ideas that will make Alcheringa more enjoyable than before? Then suggest
+                ideas to get credited with points.
+            </p>
+            <br>
+            <span class=" text-gray-500"></span>
+            <span></span>
+        </div>
+        <div class=" text-right whitespace-nowrap grid content-between">
+            <div>
+                <div class="text-gray-500 text-xs"></div>
+                <div class="text-gray-500 font-medium text-base"></div>
+            </div>
+            <a href="{% url 'idea-create' %}"><button
+                    class=" bg-pur text-white inline-block py-2 px-4 rounded shadow-sm font-semibold text-base">
+                    Submit
+                </button></a>
+        </div>
+
+    </div>
+
+
+
+</div>

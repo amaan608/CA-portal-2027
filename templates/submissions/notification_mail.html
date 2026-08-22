@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+   
+  </head>
+  <body style="background: #e5e5e5">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <div
+      style="background-color: #ffffff; width: 1000px; height: 1150px"
+      class="my-40 mx-20 p-4"
+    >
+      <div
+        style="
+          background-color: #109cf1;
+          height: 167.000000301315px;
+          width: 966.0000017429359px;
+          left: 29.263671875px;
+          top: 40.97486114501953px;
+          border-radius: 16px;
+        "
+        class="flex"
+      >
+        <div
+          style="
+            background-color: #109cf1;
+            margin-top: 50px;
+            margin-left: 300px;
+          "
+          class=""
+        >
+          <img src="{% static 'images/ca-mail.svg' %}" alt="" />
+        </div>
+        <div>
+          <div
+            style="
+              color: #ffffff;
+              text-align: center;
+              margin-top: 40px;
+              font-size: 30px;
+            "
+            class="text-7x1 font-bold"
+          >
+            ALCHERINGA
+          </div>
+          <div style="color: #ffffff; text-align: center; font-size: 18px">
+            CAMPUS AMBASSADOR
+          </div>
+        </div>
+      </div>
+
+      <div
+        style="
+          background-color: #b4e3ff;
+          height: 924.000001667156px;
+          width: 966.0000017429359px;
+          left: 30.802734375px;
+          top: 232.96869659423828px;
+          border-radius: 16px;
+          padding-top: 0.5px;
+        "
+        class="mt-4"
+      >
+        <div
+          style="
+            background-color: #ffffff;
+            height: 765.0000013802753px;
+            width: 943.0000017014373px;
+            left: 42.890380859375px;
+            top: 243.87215423583984px;
+            border-radius: 16px;
+          "
+          class="ml-2 mt-8"
+        >
+          <div>
+            <h1 class="text-4xl pt-8 pl-8 font-semibold">Hello,</h1>
+            <p class="text-2xl mt-10 ml-8">
+              Someone has submitted a new {{type}}. Please check it out by visiting the link below.
+            </p>
+          </div>
+          <a href="{{link}}"
+            style="
+              background-color: #109cf1;
+              display: flex;
+              flex-direction: row;
+              width: 177px;
+              margin-left: 30px;
+              margin-top: 40px;
+              justify-content: center;
+              align-items: center;
+              padding: 8px 16px;
+              box-shadow: 0px 4px 10px rgba(16, 156, 241, 0.24);
+              border-radius: 4px;
+              transform: rotate(-0.46deg);
+            "
+          >
+            <h1 style="color: #ffffff" class="font-semibold">Verify</h1>
+        </a>
+
+          <div>
+            <p class="text-2xl mt-10 ml-8">
+              If that doesn’t work, please copy and <br />
+              paste the below link in your browser.
+            </p>
+            <a style="color: #109cf1" class="text-2xl mt-4 ml-8" href="{{link}}"
+              >{{link}}</a
+            >
+            <img
+              style="
+                position: absolute;
+                width: 450px;
+                height: 450px;
+                left: 550.51px;
+                top: 560.48px;
+              "
+              src="{% static 'images/ca-man.svg' %}"
+              alt=""
+            />
+          </div>
+          <div>
+            <p class="text-2xl mt-20 ml-8">
+              Sincerely, <br />
+              Alcheringa Web Operations
+            </p>
+          </div>
+          <div>
+            <p style="color: #838383" class="text-2xl mt-40 ml-8">
+              This is an automated message, please dont reply.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

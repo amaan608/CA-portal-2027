@@ -1,0 +1,101 @@
+{% load mathfilters %}
+<style>
+    @media screen and (min-width: 640px) {
+    .myprogress{
+        display: flex;
+        justify-content: space-between;
+    }
+    .level{
+        width: 39.5%;
+    }
+    .my-progress{
+        width: 59.5%;
+    }
+    }
+    @media screen and (max-width: 640px) {
+        .my-progress{
+            margin-top: 0.5rem;
+        }
+    }
+</style>
+{% load static %}
+<link rel="stylesheet" href={% static "css/font.css" %}>
+<div class="myprogress gen">
+    <div class="level bg-white rounded-md shadow-md">
+        <div class="py-3 font-medium text-lg border-b pl-6" style="font-size: 1.2rem; font-weight: 750;font-family: General Sans, sans-serif;">Level</div>
+        <div class=" flex justify-center w-full min-w-x">
+            <div class=" py-4 px-8 flex flex-col align-items-center">
+                <div style="width: 9.5rem;align-items: end;display: flex;">
+                    <div style="margin: 80px 60px;" class=" absolute">
+                        <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.625 4.5C5.625 3.25736 6.63236 2.25 7.875 2.25H19.125C20.3677 2.25 21.375 3.25736 21.375 4.5V10.125C21.375 14.4742 17.8492 18 13.5 18C9.15076 18 5.625 14.4742 5.625 10.125V4.5Z" stroke="#13141D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.125 24.75H16.875L13.5 19.125L10.125 24.75Z" stroke="#13141D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M5.625 4.5H4.5C3.25736 4.5 2.25 5.50736 2.25 6.75V8.14357C2.25 9.81042 3.17136 11.3407 4.64451 12.1206L6.1875 12.9375" stroke="#13141D" stroke-width="2" stroke-linejoin="round"/>
+<path d="M21.375 4.5H22.5C23.7427 4.5 24.75 5.50736 24.75 6.75V7.46623C24.75 9.54979 23.5983 11.4626 21.7568 12.4376L20.8125 12.9375" stroke="#13141D" stroke-width="2" stroke-linejoin="round"/>
+</svg>
+
+                    </div>
+                    <div id="level-value" style="margin: 30px 50px;color: black;font-size: 1.9rem;font-weight:700" class="absolute font-medium text-xl ">NaN</div>
+                    <canvas id="level-pie"></canvas>
+                </div>
+                <div class=" my-2">
+                    <div class="text-xl font-medium text-center" style="font-family: General Sans, sans-serif;font-weight: 700;font-size: 1.2rem;">
+                        {%if rank <= 5 %}
+                        Platinum
+                        <p style="font-family: General Sans, sans-serif;font-size:1rem;color: #4C5862;">You are at Platinum level</p>
+                        {%elif rank >= 6 and rank <= 30 %}
+                        Gold
+                        <p style="font-family: General Sans, sans-serif;font-size:1rem;color: #4C5862;">{{rank|sub:5}} more ranks to Platinum</p>
+                        {%elif rank >= 31 and rank <= 80 %}
+                        Silver
+                        <p style="font-family: General Sans, sans-serif;font-size:1rem;color: #4C5862;">{{rank|sub:30}} more ranks to Gold</p>
+                        {%elif rank >= 81 %}
+                        Bronze
+                        <p style="font-family: General Sans, sans-serif;font-size:1rem;color: #4C5862;">{{rank|sub:80}} more ranks to Silver</p>
+                        <!-- <p>{{ 6|sub:rank }} more points to Gold</p> -->
+                        {% endif %}
+                    </div>
+                    <!-- <div class=" text-center whitespace-nowrap" style="font-family: General Sans, sans-serif;">
+                        {%if rank <= 5 %}
+                        You are at Platinum level
+                        {%elif rank >= 6 and rank <= 30 %}
+                        {{rank|sub:5}} more ranks to Platinum
+                        {%elif rank >= 31 and rank <= 80 %}
+                        {{rank|sub:30}} more ranks to Gold
+                        {%elif rank >= 81 %}
+                        {{rank|sub:80}} more ranks to Silver
+                        {% endif %}
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="my-progress bg-white rounded-md shadow-md w-full">
+        <div class="py-3 pl-6 font-medium text-lg border-b" style="font-size: 1.2rem; font-weight: 750;font-family: General Sans, sans-serif;">My Progress</div>
+        <div class=" flex justify-around p-4">
+            <div class=" flex flex-col justify-center">
+                <div class="h-40 flex" style="width:9.5rem; align-items:end;">
+                    <div id="tasks-completed-value" style="font-size: 2rem; margin: 53px 61px;"
+                        class="absolute font-medium">NaN</div>
+                        <canvas id="tasks-completed-pie"></canvas>
+                </div>
+                <div class=" my-2">
+                    <div class=" text-xl font-medium text-center" style="font-family: General Sans, sans-serif;font-weight: 700;font-size: 1.2rem;">Tasks completed
+                    </div>
+                        <div class=" text-gray-600 text-center "><span id = "task-points"></span> </div>
+                </div>
+            </div>
+            <div>
+                <div class=" w-40 h-40">
+                    <div id="referrals-value" style="font-size: 2rem; margin: 60px 60px;" class="absolute font-medium">
+                        NaN</div>
+                    <canvas id="referrals-pie"></canvas>
+                </div>
+                <div class=" my-2">
+                    <div class=" text-xl font-medium text-center" style="font-family: General Sans, sans-serif;font-weight: 700;font-size: 1.2rem;">Referrals</div>
+                    <div class=" text-gray-600 text-center "><span id = "referral-points"></span> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

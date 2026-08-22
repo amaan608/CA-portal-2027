@@ -1,0 +1,194 @@
+{% load static %}
+<style>
+	.backdrop {
+    background-color: blue;
+}
+
+.wapopup {
+    position: fixed;
+    top: -150%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.25);
+    -webkit-transform: translate(-50%, -50%) scale(1.25);
+    -moz-transform: translate(-50%, -50%) scale(1.25);
+    -ms-transform: translate(-50%, -50%) scale(1.25);
+    -o-transform: translate(-50%, -50%) scale(1.25);
+    width: 400px;
+    padding: 20px 30px;
+    background: white;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    transition: top 0ms ease-in-out 200ms, opacity 200ms ease-in-out 0ms, transform 200ms ease-in-out 0ms;
+    -webkit-transition: top 0ms ease-in-out 200ms, opacity 200ms ease-in-out 0ms, transform 200ms ease-in-out 0ms;
+    -moz-transition: top 0ms ease-in-out 200ms, opacity 200ms ease-in-out 0ms, transform 200ms ease-in-out 0ms;
+    -ms-transition: top 0ms ease-in-out 200ms, opacity 200ms ease-in-out 0ms, transform 200ms ease-in-out 0ms;
+    -o-transition: top 0ms ease-in-out 200ms, opacity 200ms ease-in-out 0ms, transform 200ms ease-in-out 0ms;
+}
+
+.wapopup.active {
+    top: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    -webkit-transform: translate(-50%, -50%) scale(1);
+    -moz-transform: translate(-50%, -50%) scale(1);
+    -ms-transform: translate(-50%, -50%) scale(1);
+    -o-transform: translate(-50%, -50%) scale(1);
+    transition: top 0ms ease-in-out 0ms, opacity 200ms ease-in-out 0ms, transform 200ms ease-in-out 0ms;
+    -webkit-transition: top 0ms ease-in-out 0ms, opacity 200ms ease-in-out 0ms, transform 200ms ease-in-out 0ms;
+    -moz-transition: top 0ms ease-in-out 0ms, opacity 200ms ease-in-out 0ms, transform 200ms ease-in-out 0ms;
+    -ms-transition: top 0ms ease-in-out 0ms, opacity 200ms ease-in-out 0ms, transform 200ms ease-in-out 0ms;
+    -o-transition: top 0ms ease-in-out 0ms, opacity 200ms ease-in-out 0ms, transform 200ms ease-in-out 0ms;
+}
+
+.wapopup .waclose-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    background: #888;
+    color: #eee;
+    text-align: center;
+    line-height: 10px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    cursor: pointer;
+}
+
+.wapopup .form-login h2 {
+    text-align: center;
+    color: #222;
+    margin: 10px 0px 20px;
+    font-size: 25px;
+}
+
+.wapopup .form-login .form-element {
+    margin: 15px 20px 15px 0px;
+}
+
+.wapopup .form-login .form-element label {
+    font-size: 14px;
+    color: #222;
+}
+
+.wapopup .form-login .form-element input[type="text"],
+.wapopup .form-login .form-element input[type="password"] {
+    margin-top: 5px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.wapopup .form-login .form-element button {
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    background: blue;
+    color: #f5f5f5;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    cursor: pointer;
+}
+
+.wapopup .form-login .form-element a {
+    display: block;
+    text-align: right;
+    font-size: 15px;
+    color: #1a79ca;
+    text-decoration: none;
+    font-weight: 600;
+}
+@media only screen and (max-width: 600px) {
+    .wapopup {
+        width: 96%;
+        height: auto;
+    }
+    .test + .tooltip > .tooltip-inner {
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+    }
+}
+</style>
+<div class="backdrop">
+	<div id="modal" class="wapopup">
+		<span class="waclose-btn">&times;</span>
+		<div class=" my-2 bg-white max-w-5xl rounded-md shadow-md flex flex-col justify-center content-center">
+            <div class="py-3 pl-6 font-medium text-lg border-b-2">Share and Earn</div>
+            <div class=" flex flex-col justify-center">
+                <div class=" text-lg text-center my-2">Refer your friend and you both earn</div>
+                <!-- <div class=" font-medium text-4xl text-center" style="font-size: 24px;">25 points!</div> -->
+                <div class="test font-medium text-3xl text-center" data-toggle="tooltip" 
+                title="IF REFERRAL IS USED FOR REG OF THE SAME COLLEGE,YOU GET 400 POINTS.         
+IF REFERRAL IS USED FOR REG OF THE OTHER COLLEGE,YOU GET 600 POINTS.
+YOUR FIREND GETS 300 POINTS.">
+                Bonus Points!
+                </div>
+                <div class=" flex flex-wrap justify-center mt-4 ml-4 mr-4">
+                    <input type="url" class=" border-2 border-gray-400 text-gray-600 text-sm px-2 m-2"
+                        value="Visit ambassador.alcheringa.in and Register using my referral code {{request.user.alcherid}} and get bonus points"id="wamsg" size="40" disabled>
+                    <button onclick="copymessage()"
+                        class=" bg-blue-600 hover:bg-blue-700 active:bg-blue-700 text-white inline-block py-1 px-3 rounded shadow-sm font-semibold text-base m-2">
+                        Copy this message
+                    </button><div style="clear:both"></div><br>
+                    
+                    
+                </div>
+                
+                <center><div class=" flex flex-wrap justify-center ml-4 mb-4 mr-4" id="copiedmessage"></div>
+                and share on<br>
+
+                <a id = "walink" target="_blank" style = "color:blue;font-weight: 500;font-size: 22px;cursor: pointer;">Whatsapp</a></center>
+                <div class=" flex justify-center space-x-4 m-4">
+                    
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+<script>
+    document.getElementById('walink').addEventListener('click',()=>window.open('http://whatsapp.com', '_blank'))
+	document.querySelector("#washare").addEventListener("click", function () {
+		document.querySelector(".wapopup").classList.add("active");
+		$(".backdrop").fadeTo(200, 1);
+	});
+
+	document.querySelector(".waclose-btn").addEventListener("click", function () {
+		document.querySelector(".wapopup").classList.remove("active");
+		$(".backdrop").fadeOut(200);
+	});
+    function copymessage() {
+            var copyText = document.getElementById("wamsg");
+
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); 
+            navigator.clipboard.writeText(copyText.value);
+
+            document.getElementById("copiedmessage").innerHTML="Copied message successfully"
+        }
+	
+</script>

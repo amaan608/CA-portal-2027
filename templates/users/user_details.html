@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CA Details</title>
+    <style>
+        table, th, td {
+  border:1px solid black;
+}
+    </style>
+</head>
+<body>
+    <div style="margin:10vw">
+        <table style="width:80%;margin:auto">
+            <tr>
+                <th>Sl No.</th>
+                <th>Alcher ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Graduation Year</th>
+              <th>College State</th>
+              <th>College City</th>
+              <th>College Name</th>
+              <th>Points</th>
+              <th>POR</th>
+              <th>Interested Modules</th>
+              
+              
+            
+            </tr>
+            {% for user in users%}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+             <td>{{user.alcherid}}</td>
+             <td>{{user.firstname}}</td>
+             <td>{{user.email}}</td>
+             <td>{{user.phone}}</td>
+             <td>{{user.graduation_year}}</td>
+             <td>{{user.college_state}}</td>
+             <td>{{user.college_city}}</td>
+             <td>{{user.college_name}}</td>
+             <td>{{user.points}}</td>
+             {% if user.position_of_responsibility %}
+             <td>{{user.position_of_responsibility}}</td>
+             {% endif %}
+             {% if user.interested_modules %}
+             <td>{{user.interested_modules}}</td>
+             {% endif %}
+             
+            </tr>
+            {% endfor %}
+          
+          </table>
+    </div>
+</body>
+</html>

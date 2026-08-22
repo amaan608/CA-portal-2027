@@ -1,0 +1,222 @@
+{% extends '../basic.html'%}
+{%load static%}
+{%block title%}Dashboard | Alcheringa {%endblock%}
+{% block style%}
+<link rel="stylesheet" href="{% static 'css/guide.css' %}">
+{% endblock %}
+{% block body %}
+<body class="bg-blue-50 " style="background-color: #F1EDE8;">
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '3748249885284314',
+                autoLogAppEvents: true,
+                xfbml: true,
+                version: 'v12.0'
+            });
+        };
+    </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <script>
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        function postShared(response, postId) {
+            if (response) {
+                let csrftoken = getCookie("csrftoken");
+                fetch("/submissions/media/new/", {
+                    "method": "POST",
+                    "body": JSON.stringify({
+                        "shared_post": postId
+                    }),
+                    "credentials": "same-origin",
+                    "headers": { "X-CSRFToken": csrftoken, "Content-Type": "application/json" }
+                }).then(res => res.json()).then(data => {
+                    notifySuccess("Post Shared Successfully!", "Reload the page for latest post and point updates.")
+                }).catch(console.log);
+            }
+        }
+
+        function fbshare(post, postId) {
+            console.log(post)
+            return FB.ui({
+                "method": "share",
+                "href": post,
+                "hashtag": "Alcheringa2022"
+            }, function (response) {
+                return postShared(response, postId)
+            })
+        }
+
+    </script>
+    <style>
+      .mainbox{
+        padding:0.6rem;
+      }
+    </style>
+    <div class="flex ">
+        {% include "../navbar.html" %}
+        <div class="flex boxes">
+            <div>
+                <div class="flex flex-col items-center min-h-screen mainbox" >
+                  <div class="p-4 my-2 w-full rounded-lg bg-white shadow-sm">
+                    <h2 class="font-bold"> Registration </h2>
+                    <div class="mt-3 py-3 px-4 rounded-sm shadows">
+                      <h3 class="font-bold mb-2">Solo </h3>
+                      <ul class="list-decimal list-outside ml-5 mx-2 lists text-sm">
+                        <li>Following the usual method to complete registration, fill up all the details from your name to modules.
+                        </li>
+                        <li>Text fields marked with a red asterisk mark (*) makes them mandatory to fill.
+                        </li>
+                        <li>Fill up the Position of Responsibility (POR) field with your role in your organisation or university. For instance:
+                          <ul class="lower-alpha list-inside ml-5 mx-2">
+                            <li>Student</li>
+                            <li>Secretary of the Music/Arts... Club</li>
+                            <li>Fill up the role you serve in your respective college</li>
+                          </ul>
+                        </li>
+                        <li>Fill up the interested module(s) field with the performing - arts, practices, activities that interest you. For instance, Music, Dance, Photography, sports etc.
+                        </li>
+                        <li>Give a pat to yourself; you are just a click away from being a CA of Alcheringa. Click the submit button and finish the email-based verification to dive into the Dashboard.
+                        </li>
+                        <li>Welcome to Alcheringa. </li>
+                      </ul>
+                    </div>
+                    <div class="mt-3 py-3 px-4 rounded-sm shadows">
+                      <h3 class="font-bold mb-2">Team </h3>
+                      <ul class="list-decimal list-outside ml-5 mx-2 lists text-sm">
+                        <li>We bring you the ease of showing as a Team of two for the Campus Ambassador programme.
+                        </li>
+                        <li>Terms and conditions to show as a team:
+                          <ul class="lower-alpha list-inside ml-5 mx-2">
+                            <li>The team should consist of a Leader and executive.                            </li>
+                            <li>There must be a minimum gap of one academic year between the lead and executive, making the leader by minimum a one year senior to the executive in respective fields.</li>
+                          </ul>
+                        </li>
+                        <li>Fill out CA’s Alcheringa’s sdetails, from your name to password, as part of the process to complete registration.
+                        </li>
+                        <li>Text fields marked with a red asterisk mark (*) makes them mandatory to fill.
+                        </li>
+                        <li>Fill up the Position of Responsibility (POR) field with your role in your organisation or university. For instance:
+                          <ul class="lower-alpha list-inside ml-5 mx-2">
+                            <li>Student</li>
+                            <li>Secretary of the Music/Arts... Club</li>
+                            <li>Fill up the role you serve in your respective college</li>
+                          </ul>
+                        </li>
+                        <li>Fill in the interested module(s) field with the performing arts, practices, and activities that interest you. As an example:
+                          <ul class="lower-alpha list-inside ml-5 mx-2">
+                            <li>Music.</li>
+                            <li>Dance, photography, sports etc.</li>
+                          </ul>
+                        </li>
+                        <li>Kudos; you are just a click away from showing up as a team. Click the submit button and finish the email-based verification to dive into the Dashboard.
+                        </li>
+                        <li>Email verification:
+                          <ul class="lower-alpha list-inside ml-5 mx-2">
+                            <li>After pressing the submit button, Alcheringa will send two verification mails to both leader and executive.</li>
+                            <li>After completing the verification, both the leader and executive should use the same password to get into Dashboard, provided email is their username.</li>
+                            <li>After getting into the Dashboard, we recommend both leader and executive change their common password by going into the profile section.</li>
+                          </ul>
+                        </li>
+                      </ul>
+                      </div>
+                  </div>
+                    <div class="p-4 my-2 w-full rounded-lg bg-white shadow-sm">
+                      <p class="font-bold"> How can a CA earn points </p>
+                      <div class="mt-3 py-3 px-4 rounded-sm shadows" >
+                        <ul class="list-decimal list-outside ml-5 mx-2 lists text-sm">
+                          <li>Tasks - Completing the tasks as shown in the Dashboard will earn points. </li>
+                          <li>Referrals - Invite your mates to be part of making Alcheringa bigger than ever by just sharing your referral. </li>
+                          <li>Joining Bonus - Complete your registration to earn the joining bonus. </li>
+                          <li>Submitting POC’s. </li>
+                          <li>Event Registration. </li>
+                          <li>City Eliminations. </li>
+                          <li>College Branding and Presentations. </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="w-full min-h-full p-4 bg-white my-2 rounded-md">
+                      <p class="font-bold"> Connecting with us </p>
+                      <div class=" mt-3 py-3 px-4 rounded-sm shadows text-sm lists">
+                        To get credited with your engagement with our recent feed from Alcheringa’s official handles, like, follow, connect and subscribe to Alcher’s Facebook, Instagram, Twitter, LinkedIn and YouTube. Go to the profile section and connect with us.
+                      </div>
+                    </div>
+                    <div class="w-full min-h-full p-4 bg-white my-2 rounded-md">
+                      <p class="font-bold"> Levels </p>
+                      <div class=" mt-3 py-3 px-4 rounded-sm shadows text-sm lists">
+                        <p>The more you put your efforts to better your level, the cultural festival to appreciate your effort.</p>
+                        <ul class="list-disc list-outside ml-5 mx-2 space-y-1 text-sm" lists>
+                          <li> Grab the chance to win a cash price of 75K for the top performers of Platinum and Gold Levels. </li>
+                          <li> Different levels of Certificates from Alcheringa commemorating your efforts. </li>
+                          <li> Access to Alcher’s premium content for top levels. </li>
+                          <li> Depending on the level, get a call from us to be a part of Alcher’s execution team. </li>
+                        </ul>      
+                      </div>
+                    </div>
+                    <div class="w-full min-h-full p-4 bg-white my-2 rounded-md">
+                      <p class="font-bold"> Social Media Engagement </p>
+                      <div class=" mt-3 py-3 px-4 rounded-sm shadows">
+                        <ul class="list-disc list-outside ml-5 mx-2 space-y-1 text-sm lists">
+                          <li>Like, comment, save and share the recent feed from Alcheringa's official handles to earn points. </li>
+                          <li>Like, comment, save, share are known as engagement. </li>
+                          <li>Ensure your connection with Alcheringa's official social media handles and read this (hyperlink to connecting with us) before engaging with the recent feed. </li>
+                          <li>All the recent feeds of Alcheringa will be present to the right of the Dashboard page. (hyperlink to DashBoard)  </li>
+                          <li>Engaging with the feed whose timer reached 00:00 will not reward you any points. </li>
+                          <li>A Campus Ambassador must engage with the social media posts only from the official handles of Alcheringa to get rewarded with points. </li>
+                        </ul>      
+                      </div>
+                    </div>
+                    <div class="w-full min-h-full p-4 bg-white my-2 rounded-md">
+                      <p class="font-bold"> Submitting a POC </p>
+                      <div class="mt-3 py-3 px-4 rounded-sm shadows">
+                        <ul class="list-disc list-outside ml-5 mx-2 space-y-1 text-sm">
+                          <li>POC (Point Of Contact) - A person who acts on behalf of an organisation's club, society or team.</li>
+                          <li>Make Alcher bigger than ever by helping us reach out to the clubs and societies of those schools, colleges, universities, and performing art studios (for instance, dance, music studios, drama schools) with whom you have contact.  </li>
+                          <li>Submit the point of contact in submission, and Team Alcheringa will be reaching out to them. </li>
+                          <li>The scoring criteria for submitting a POC depends on the colleges, cubs, societies you made Alcher reach. Hence, a single and perfect POC is reasonably enough to fetch you a score rather than submitting multiple POC’s of the same clubs and societies.</li>
+                          <li>Team Alcheringa will reward you with points for submitting a POC after confirming their genuineness and notify you.</li>
+                          <li>Submitting a Data Responsibility Memo.  </li>   
+                        </ul>      
+                      </div>
+                      <div class="mt-3 py-3 px-4 rounded-sm shadows">
+                        <ul class="list-decimal list-outside ml-5 mx-2 space-y-1 text-sm lists">
+                          <li><span class="font-normal">Use of the information provided by you: </span> We only use the information you give to identify individuals, reach them, and keep them updated about Alcheringa through their mail and contact number. We do not share your information with any third parties. </li>
+                          <li><span class="font-normal">Sharing of the information provided by you: </span> We will not, in any circumstances, share the information you give with other individuals or organizations, including public organizations, corporations or individuals. We do not sell, communicate or divulge your information to any mailing lists. </li>
+                          <li><span class="font-normal">Access to and Viewing your personal information: </span> You can, at any time, access the personal information given by you under the profile section from the Dashboard page. </li>
+                        </ul>      
+                          <p class="mt-3 text-sm lists">If you have any or comments regarding this Memorandum, don't hesitate to <span class="font-normal">contact us</span>. </p>
+                      </div>
+                    </div>
+                    <div class="w-full min-h-full p-4 bg-white my-2 rounded-md">
+                      <p class="font-bold"> College Branding/Presentations </p>
+                      <div class="mt-3 py-3 px-4 rounded-sm shadows" >
+                        <ul class="list-disc list-outside ml-5 mx-2 space-y-1 text-sm lists">
+                         <li> Use your social skills to spread the awareness of Alcheringa to the key clubs and social groups on your campus by scheduling and giving professional presentations. </li>
+                         <li> Team Alcheringa will send all the visual content for the presentation to you priorly to help you engage effectively. </li>
+                         <li> Depending upon the strength and way of your presentation, rewarding you with appropriate points for giving presentations will be done after the team is verified and notified. </li>
+                        </ul>      
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          
+        </div>
+    </div>
+    </div>
+
+</body>
+{%endblock%}

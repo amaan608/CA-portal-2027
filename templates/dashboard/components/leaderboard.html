@@ -1,0 +1,191 @@
+<style>
+    table.roundedCorners {
+        border-radius: 1.5vh;
+        border-spacing: 0;
+    }
+
+    .podium {
+        display: flex;
+        justify-content: center;
+        margin-top: 4.3vh;
+        font-size: 1.8vh;
+        align-items: flex-end;
+    }
+
+    .third {
+        margin-top: 4.3vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+    }
+
+    .second {
+        margin-top: 2.2vh;
+
+    }
+
+    .tpod {
+        display: flex;
+        justify-content: center;
+        height: 10vh;
+        width: 80%;
+        padding-left: 10%;
+        padding-right: 10%;
+        border-radius: 0.3vh;
+        background: rgb(240, 247, 255);
+        background: linear-gradient(0deg, rgba(240, 247, 255, 0.5) 0%, rgba(230, 207, 185, 1) 39%, rgba(205, 127, 50, 1) 100%);
+        border: 1px solid rgba(205, 127, 50, 1);
+
+    }
+
+    .fpod {
+        display: flex;
+        justify-content: center;
+        height: 14vh;
+        width: 80%;
+        padding-left: 10%;
+        padding-right: 10%;
+
+        background: rgb(255, 255, 255);
+        background: linear-gradient(0deg, rgba(240, 247, 255, .5) 0%, rgba(255, 230, 183, 1) 49%, rgba(255, 186, 54, 1) 100%);
+        border-radius: 0.3vh;
+        border: 1px solid rgba(255, 186, 54, 1);
+
+
+    }
+
+    .spod {
+        display: flex;
+        justify-content: center;
+        height: 12vh;
+        width: 80%;
+        padding-left: 10%;
+        padding-right: 10%;
+        background: rgb(255, 255, 255);
+        background: linear-gradient(0deg, rgba(240, 247, 255, .5) 0%, rgba(234, 234, 234, 1) 39%, rgba(201, 201, 201, 1) 100%);
+        border-radius: 0.3vh;
+        border: 1px solid rgba(201, 201, 201, 1);
+
+    }
+
+    .name {
+        text-align: center;
+        width: 8vw;
+    }
+
+    .user {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 60%;
+    }
+
+    .pimg{
+        height: 60px;
+    }
+
+    .epimg {
+        transform:translateX(-1.6vh)
+    }
+
+    .lpimg {
+        transform:translateX(1.6vh)
+    }
+
+    .podium-table {
+        border: 2px solid rgb(229, 229, 229);
+    }
+
+    .podium-table th,
+    td {
+        border: 2px solid rgb(229, 229, 229);
+    }
+
+    .podium-table td {
+        padding: 10px;
+    }
+</style>
+<div class="bg-white rounded-md shadow-md my-2 pb-1">
+    <div class="py-3 pl-6 font-medium text-lg border-b-2">Leaderboard</div>
+    <table class="w-full podium-table">
+        <tr>
+            <td>Solo Podium</td>
+            <td>Group Podium</td>
+        </tr>
+        <tr>
+            <td>
+                <div class="podium pb-6">
+                    <div class="third">
+                        <div class="user"> <img src="{{top_solousers.2.img.url}}" width="13vh" alt="profile pic" border="0"
+                            style="border-radius:1500vh; text-align:center;" class="pimg">
+                        </div>
+                        <p class="name">{{top_solousers.2.firstname}} </p>
+                        <p class="tpod"></p>
+                    </div>
+                    <div class="first">
+                        <div class="user"> <img src="{{top_solousers.0.img.url}}" width="13vh" alt="profile pic" border="0"
+                            style="border-radius:1500vh; text-align:center;" class="pimg">
+                    </div>
+                        <p class="name">{{top_solousers.0.firstname}} </p>
+                        <p class="fpod"></p>
+                    </div>
+                    <div class="second">
+                        <div class="user"> <img src="{{top_solousers.1.img.url}}" width="13vh" alt="profile pic" border="0"
+                            style="border-radius:1500vh; text-align:center;" class="pimg">
+                    </div>
+                        <p class="name">{{top_solousers.1.firstname}}</p>
+                        <p class="spod"></p>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="podium pb-6">
+                    <div class="third">
+                        <div class="teamuser" style="display:flex; justify-content: space-around;"> <img
+                            src="{{grpusers.2.leader.img.url}}" width="11vh" alt="profile pic" border="0"
+                            style="border-radius:1500vh; text-align:center ; height: 11vh;" class="lpimg">
+                            <img src="{{grpusers.2.executive.img.url}}" width="11vh" alt="profile pic" border="0"
+                            style="border-radius:1500vh; text-align:center; height: 11vh;" class="epimg">
+                        </div>
+
+                        <p class="name">{{grpusers.2.leader.firstname}}</p>
+                        <p class="name">{{grpusers.2.executive.firstname}}</p>
+
+                        <p class="tpod"></p>
+                    </div>
+                    <div class="first">
+                        <div class="teamuser" style="display:flex; justify-content: space-around;"> <img
+                            src="{{grpusers.0.leader.img.url}}" width="11vh" alt="profile pic" border="0"
+                            style="border-radius:1500vh; text-align:center ; height: 11vh;" class="lpimg">
+                        <img src="{{grpusers.0.executive.img.url}}" width="11vh" alt="profile pic" border="0"
+                            style="border-radius:1500vh; text-align:center; height: 11vh;" class="epimg">
+                        </div>
+
+                        <p class="name">{{grpusers.0.leader.firstname}}</p>
+                        <p class="name">{{grpusers.0.executive.firstname}}</p>
+
+
+                        <p class="fpod"></p>
+                    </div>
+                    <div class="second">
+                        <div class="teamuser" style="display:flex; justify-content: space-around;"> <img
+                            src="{{grpusers.1.leader.img.url}}" width="11vh" alt="profile pic" border="0"
+                            style="border-radius:1500vh; text-align:center ; height: 11vh;" class="lpimg">
+                        <img src="{{grpusers.1.executive.img.url}}" width="11vh" alt="profile pic" border="0"
+                            style="border-radius:1500vh; text-align:center; height: 11vh;" class="epimg">
+                        </div>
+
+                        <p class="name">{{grpusers.1.leader.firstname}}</p>
+                        <p class="name">{{grpusers.1.executive.firstname}}</p>
+
+                        <p class="spod"></p>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+
+
+</div>

@@ -1,0 +1,138 @@
+{% load static %}
+<div class="sharedpost" style="display:flex; flex-direction: column;">
+    <div style="display:flex; flex-direction: column;">
+        <div class="py-3 font-medium text-lg border-b text-center">Recent Posts</div>
+    
+
+
+            <!-- horizontal_scroll -->
+
+            {% for post in post_list %}
+            {% comment %} <div class=" bg-white rounded-md shadow-md my-2 pb-1" style=""> {% endcomment %}
+            <div class=" bg-white shadow-md w-full h-full flex flex-col mx-4 my-2 rounded-lg w-auto" >
+                <img src="{{ post.image.url }}" alt="image" border="0" class="my-4 w-full h-1/2">
+                <center>
+                    <div class=" py-3 px-4 font-medium" style="word-wrap: break-word;">
+                        {{ post.caption }}
+                    </div>
+                </center>
+
+                <div class="mt-auto">
+                    <center>
+                        <div class=" py-1 px-4 font-medium text-gray-600">SHARE ON</div>
+                    </center>
+
+                    <div class=" my-2 px-4 flex justify-center space-x-4" style="display:flex ;transform: scale(.8); ">
+                        {% if post.is_facebook %}
+                              <a href="/facebook/{{ post.url_id }}" target="_blank">
+                            <svg width="44" height="45" viewBox="0 0 44 45" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M1.22217 22.616C1.22217 32.946 8.72468 41.5359 18.537 43.2778V28.271H13.3425V22.5H18.537V17.8821C18.537 12.6877 21.8839 9.80305 26.6178 9.80305C28.1173 9.80305 29.7345 10.0333 31.2339 10.2636V15.5741H28.5796C26.0395 15.5741 25.4629 16.8433 25.4629 18.4605V22.5H31.0037L30.0808 28.271H25.4629V43.2778C35.2752 41.5359 42.7777 32.9478 42.7777 22.616C42.7777 11.1242 33.4277 1.72223 21.9999 1.72223C10.5722 1.72223 1.22217 11.1242 1.22217 22.616Z"
+                                    fill="#1877F2" />
+                            </svg>
+                            </a>
+                        {% endif %}
+                        {% if post.is_instagram %}
+                        <a href="/instagram/{{ post.url_id }}" target="_blank">
+                            <i width="44"
+            height="55" class="fa fa-instagram" style="font-size:45px;color:#E1306C"></i>
+                        </a>
+                        {% endif %}
+                    </div>
+                    {% comment %} <center>
+                        <div class=" py-1 px-4 font-medium text-gray-600">SHARE</div>
+                    </center>
+                    <div style="margin-bottom: 18px;">
+                     {% if post.is_instagram %}
+                        <div style="margin-bottom: 5px;">
+                            <div class="my-1">Instagram:</div>
+                            <input type="text" value="{{ request.get_host }}/instagram/{{ post.url_id }}" 
+                                style="border: 1px solid grey; padding: 4px 9px 4px 9px; width: 70%" disabled >
+                                 <button onclick="myFunction1{{forloop.counter}}()" style=" transform: scale(.8); max-width: 30px; max-height: 30px;" ><img src="{% static 'icons/copy.png' %}" alt="" style="transform:scale(.9) ; transform: translateY(12px);"></img></button>
+                                <div class=" flex flex-wrap justify-center ml-4 mb-4 mr-4 I" id="copied1{{forloop.counter}}"></div>
+                        </div>
+                        <script>
+
+                            function myFunction1{{forloop.counter}}() {
+                              /* Get the text field */
+                             
+                              navigator.clipboard.writeText("{{ request.get_host }}/instagram/{{ post.url_id }}");
+                            
+                              /* Alert the copied text */
+                              document.getElementById("copied1{{forloop.counter}}").innerHTML="Copied Link successfully"
+                              
+                            }
+                            </script>
+                        {% endif %}
+                        {% if post.is_facebook %}
+                        <div>
+                            <div class="my-1">Facebook:</div>
+                            <input type="text" value="{{ request.get_host }}/facebook/{{ post.url_id }}" 
+                                style="border: 1px solid grey; padding: 4px 9px 4px 9px; width: 70%" disabled >
+                                 <button onclick="myFunction2{{forloop.counter}}()" style=" transform: scale(.8); max-width: 30px; max-height: 30px;" ><img src="{% static 'icons/copy.png' %}" alt="" style="transform:scale(.9) ; transform: translateY(12px);"></img></button>
+                                <div class=" flex flex-wrap justify-center ml-4 mb-4 mr-4 F" id="copied2{{forloop.counter}}"></div>
+                            </div>
+                            <script>
+
+                                function myFunction2{{forloop.counter}}() {
+                                  /* Get the text field */
+                                 
+                                  navigator.clipboard.writeText("{{ request.get_host }}/facebook/{{ post.url_id }}");
+                                
+                                  /* Alert the copied text */
+                                  document.getElementById("copied2{{forloop.counter}}").innerHTML="Copied Link successfully"
+                                  
+                                }
+                                </script>
+                        {% endif %}
+
+
+
+                    </div>
+                    <!-- <center>
+                        <div class=" py-2 px-4 font-medium text-gray-600">LIKE</div>
+                    </center>
+                    <center>
+                        <form action='checkLike' method='GET'><input type="submit" class="px-4 font-medium"
+                                name="{{post.id}}" value='Verify your Instagram Like'></form>
+                    </center> -->
+                    <!-- <center>
+                        <input type="submit" class="px-4 font-medium" style="color:grey"
+                            value='Verify your Facebook Like' disabled>
+                    </center> -->
+                    <center>
+                        <div class=" py-3 px-4 font-medium text-gray-600">DEADLINE- {{ post.last_date }}</div>
+                    </center>
+
+                </div>
+                <hr />
+            </div>{% endcomment %}
+                </div>
+            </div>
+            {% endfor%}
+
+
+        </div> 
+
+        <div class="bg-white">
+
+            <div class=" py-3  font-medium text-lg border-b-2 text-center">Latest Release</div>
+            <div class=" bg-white rounded-md shadow-md my-2 pb-1 ">
+                    {% for promotion in promotions %}
+                    <div class=" bg-white shadow-md w-full  flex flex-col">
+                        <img src="{{ promotion.image.url }}" alt="image" border="0" class="my-4 w-full h-1/2 p-1">
+                        <center>
+                            <a href="{{ promotion.link }}" target="_blank" class=" py-3 px-4 font-medium"
+                                style="word-wrap: break-word;">
+                                Visit Link
+                            </a>
+                        </center>
+                    </div>
+                    <hr />
+                    {% endfor%}
+            </div>
+        </div>
+    </div>
+
+</div>

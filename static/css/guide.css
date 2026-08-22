@@ -1,0 +1,63 @@
+@font-face {
+    font-family: "GeneralSans";
+    src: url(../Fonts/GeneralSans-Bold.ttf) format("truetype");
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "GeneralSans";
+    src: url(../Fonts/GeneralSans-Extralight.ttf) format("truetype");
+    font-weight: 200;
+    font-display: swap;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "GeneralSans";
+    src: url(../Fonts/GeneralSans-Light.ttf) format("truetype");
+    font-weight: 300;
+    font-display: swap;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "GeneralSans";
+    src: url(../Fonts/GeneralSans-Regular.ttf) format("truetype");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "GeneralSans";
+    src: url(../Fonts/GeneralSans-Medium.ttf) format("truetype");
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "GeneralSans";
+    src: url(../Fonts/GeneralSans-Semibold.ttf) format("truetype");
+    font-weight: 600;
+    font-display: swap;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "GeneralSans";
+    src: url(../Fonts/GeneralSans-Bold.ttf) format("truetype");
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+  }
+.mainbox{
+    font-family: 'GeneralSans', sans-serif;
+}
+.lists{
+    color: var(--Neutrals-400, #4C5862);
+    letter-spacing: 0.3px;
+}
+.lower-alpha{
+    list-style-type: lower-alpha;
+}
+.shadows{
+    --tw-shadow: 0 0px 5px -1px rgba(0, 0, 0, 0.1), 0 3px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}

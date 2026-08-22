@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- SEO Tags -->
+    <meta name="description" content="Register as a Campus Ambassador for Alcheringa, northeast India's largest cultural fest by IIT Guwahati. Unlock leadership opportunities, manage events, and connect with 500+ colleges nationwide.">
+    <meta property="og:title" content="Campus Ambassador Portal | Alcheringa IIT Guwahati">
+    <meta property="og:description" content="Become a Campus Ambassador and lead nationwide outreach for India's biggest college fest. Exclusive benefits for top performers.">
+    <meta property="og:url" content="https://caportal.alcheringa.co.in/">
+    <meta property="og:image" content="https://caportal.alcheringa.co.in/static/images/Logo.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="https://caportal.alcheringa.co.in/static/images/twitter.png">
+    <meta name="twitter:title" content="Campus Ambassador Portal | Alcheringa IIT Guwahati">
+    <meta name="twitter:description" content="Alcheringa campus ambassador registration: join India's largest student fest, lead, organize, and network!">
+    <meta name="twitter:image" content="https://caportal.alcheringa.co.in/static/images/twitter.png">
+    <link rel="canonical" href="https://caportal.alcheringa.co.in/" />
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- TAILWIND CSS CDN -->
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    {% load static %} 
+    {% block style %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    {% endblock %}
+    <link
+      rel="icon"
+      href="{% static 'images/logo.svg' %}"
+      type="image/png"
+      sizes="16x16"
+    />
+    <title>{% block title %}{% endblock title %}</title>
+    <style>
+      @media only screen and (min-width: 768px) {
+        ::-webkit-scrollbar {
+          width: 0px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background-color: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background-color: #009E77;
+          border-radius: 3px;
+        }
+      }
+      @media only screen and (max-width: 320px) {
+        body {
+          padding-bottom: 20px;
+        }
+      }
+      body {
+        font-family: "Poppins";
+      }
+    </style>
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <!--Google Analytics Script-->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TZF1DW5VXE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-TZF1DW5VXE');
+    </script>
+  </head>
+
+  <body>
+    {% include 'messages.html' %} {% block body %}{% endblock body %}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    {% block script %}{% endblock %}
+  </body>
+</html>
+<script>
+  $(document).ready(function () {
+    $(window).scrollTop(0);
+    $("#id").show();
+  });
+</script>

@@ -1,0 +1,187 @@
+{% extends '../basic.html'%}
+{%load static%}
+{%block title%}Dashboard | Alcheringa {%endblock%}
+{% block body %}
+{%block style%}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+<link rel="stylesheet" href={% static "css/font.css" %}>
+{%endblock%}
+<body class="bg-blue-50 gen" style="background-color: #f6ebff;">
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '3748249885284314',
+        autoLogAppEvents: true,
+        xfbml: true,
+        version: 'v12.0'
+      });
+    };
+  </script>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+  <script>
+    function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+
+    function postShared(response, postId) {
+      if (response) {
+        let csrftoken = getCookie("csrftoken");
+        fetch("/submissions/media/new/", {
+          "method": "POST",
+          "body": JSON.stringify({
+            "shared_post": postId
+          }),
+          "credentials": "same-origin",
+          "headers": { "X-CSRFToken": csrftoken, "Content-Type": "application/json" }
+        }).then(res => res.json()).then(data => {
+          notifySuccess("Post Shared Successfully!", "Reload the page for latest post and point updates.")
+        }).catch(console.log);
+      }
+    }
+
+    function fbshare(post, postId) {
+      console.log(post)
+      return FB.ui({
+        "method": "share",
+        "href": post,
+        "hashtag": "Alcheringa2022"
+      }, function (response) {
+        return postShared(response, postId)
+      })
+    }
+
+  </script>
+  <div class="flex" style="background-color: #F1EDE8;">
+    {% include "../navbar.html" %}
+    <div class="flex justify-center p-3">
+      <div class="mr-4 totalbox">
+        <!-- complete registration -->
+        {% if show_popup %}
+        {% include "dashboard/components/update_prof.html" %}
+        {% endif %}
+        <!------- Group Users --------->
+        {% if isgrp %}
+        {% include "dashboard/components/grp_details.html" %}
+        {% endif %}
+        <!-- scores -->
+        {% include "dashboard/components/level_myprogress.html" %}
+        <!-- recent_posts -->
+        {% include "dashboard/components/recent_posts_for_phone.html" %}
+        <!-- leaderboard -->
+        <!-- tasks -->
+        {% include "dashboard/components/tasks.html" %}
+        <!-- refer_and_earn -->
+        {% include "dashboard/components/refer.html" %}
+      </div>
+      <div class="bg-white w-2/3 max-w-md border-gray-400 overflow-scroll sticky lg:block hidden rounded mr-0 " style="top: 4.4rem;
+      height: calc(100vh - 5rem);">
+        {% include "dashboard/components/recent_posts_for_pc.html" %}
+      </div>
+    </div>
+  </div>
+  </div>
+
+</body>
+{%endblock%}
+{% block script %}
+<script>
+  /* Chat.js */
+  const levelPoints = [{{ grp_points }}, 200];
+  if ({{ grp_points }}< 10)
+  document.getElementById('level-value').innerText = '00' + levelPoints[0]
+    else if ({{ grp_points }}< 100)
+  document.getElementById('level-value').innerText = '0' + levelPoints[0]
+    else
+  document.getElementById('level-value').innerText = levelPoints[0]
+
+  // class initialization(myChat)
+  var levelChart = new Chart(document.getElementById('level-pie').getContext('2d'), {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: levelPoints,
+        backgroundColor: [
+          'rgba(0, 158, 119, 1)',
+          'rgba(175, 213, 203, 1)'
+        ],
+        borderWidth: 0,
+        cutout: 62,
+      }]
+    },
+    options: {
+      plugins: {
+        legend: false,
+        tooltip: false,
+      }
+    }
+  });
+
+  const tasksCompletedPoints = [{{ grp_tasks }}, 8];
+  if ({{ grp_tasks }}< 10)
+  document.getElementById('tasks-completed-value').innerText = '0' + tasksCompletedPoints[0]
+    else
+  document.getElementById('tasks-completed-value').innerText = tasksCompletedPoints[0]
+
+  // class initialization(myChat)
+  var tasksCompletedChart = new Chart(document.getElementById('tasks-completed-pie').getContext('2d'), {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: tasksCompletedPoints,
+        backgroundColor: [
+          'rgba(0, 201, 92, 1)',
+          'rgba(243, 246, 248, 1)'
+        ],
+        borderWidth: 0,
+        cutout: 62,
+      }]
+    },
+    options: {
+      plugins: {
+        legend: false,
+        tooltip: false,
+      }
+    }
+
+  });
+
+  const referralsPoints = [{{ grp_referrals }}, 5];
+  document.getElementById('referrals-value').innerText = '0' + referralsPoints[0]
+
+  // class initialization(myChat)
+  var referralsChart = new Chart(document.getElementById('referrals-pie').getContext('2d'), {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: referralsPoints,
+        backgroundColor: [
+          'rgba(255, 161, 51, 1)',
+          'rgba(243, 246, 248, 1)'
+        ],
+        borderWidth: 0,
+        cutout: 62,
+      }]
+    },
+    options: {
+      tooltips: {
+        enabled: false
+      }
+    }
+  });
+
+
+</script>
+
+{% endblock %}

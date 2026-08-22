@@ -1,0 +1,223 @@
+<style>
+    /*Timer visuell */
+
+
+ 
+
+    .timer-l,
+    .timer-r {
+        border-radius: 150px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 15;
+        border: 8px solid #FF4231;
+        width: 198.6px;
+        height: 198.6px;
+        margin-left: -100px;
+        margin-top: -100px;
+        border-left-color: transparent;
+        border-top-color: transparent;
+
+        animation-iteration-count: infinite;
+        animation-direction: reverse;
+        animation-name: timer-toggle;
+        animation-timing-function: linear;
+    }
+
+    .timer-l {
+        animation-name: timer-slide;
+        animation-timing-function: linear;
+        z-index: 15;
+        left: 0;
+    }
+
+
+
+    .timer-slot {
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        overflow: hidden;
+    }
+
+    .pie-timer {
+        height: 0;
+        width: 0;
+        margin: -100px 0 0 -100px;
+        border-width: 100px;
+        animation-duration: 4s;
+    }
+
+
+ 
+</style>
+
+
+
+
+<canvas id="circle-timer{{post.id}}" height="200" width="200" style="transform:rotateZ(-90deg) ; width: 200px;
+        height: 200px;
+        position: relative;
+        box-shadow: inset 0px 0px 14px rgb(236, 183, 178);
+        border-radius: 180px;
+        display: inline-block;">
+    <div class="timer-r" style="z-index:-1 ;"></div>
+    <div class="timer-slot">
+        <div class="timer-l" style="z-index:-1;"></div>
+    </div>
+    </div>
+    {% if post.is_instagram and post.is_facebook %}
+    <div id="timer_numbers{{post.id}}"
+        style="transform: translateY(-13px) translateX(150px) translateZ(10px) scale(.5); position: absolute;
+        left: 55px;
+        top: 80px;
+        font-size: 20px;
+        color: black; "></div>
+    {% else %}
+    <div id="timer_numbers{{post.id}}"
+        style="transform: translateY(-13px) translateX(99px) translateZ(10px) scale(.5); position: absolute;
+        left: 55px;
+        top: 80px;
+        font-size: 20px;
+        color: black; "></div>
+    {% endif %}
+</canvas>
+
+
+
+
+<script>
+   var target_date_{{forloop.counter}} = "{{post.lastDate}}"
+
+    console.log(target_date_{{forloop.counter}})
+    
+
+
+    // var target_date = new Date(target_date_raw)
+
+
+
+    // Länge Countdown in Sekunden
+    var minutes_{{forloop.counter}}, seconds_{{forloop.counter}}; // Variablen für die Zeiteinheiten
+ 
+     
+    var countdown_{{forloop.counter}} = document.getElementById("timer_numbers{{post.id}}"); // DIV mit id= timer finden
+     var canvas_{{forloop.counter}} = document.getElementById('circle-timer{{post.id}}');
+   
+
+    
+       getCountdown_{{forloop.counter}}();
+
+
+
+
+    setInterval(function () {
+        console.log({{forloop.counter}})
+        console.log(countdown_{{forloop.counter}})
+        getCountdown_{{forloop.counter}}();
+    }, 1000);
+
+    function getCountdown_{{forloop.counter}}() {
+        var current_date_{{forloop.counter}} = new Date().getTime();
+
+        var target_seconds_{{forloop.counter}} = target_date_{{forloop.counter}} * 1000;
+        var seconds_left_{{forloop.counter}} = (target_seconds_{{forloop.counter}} - current_date_{{forloop.counter}}) / 1000;
+        console.log("{{post.id}}")
+        var seconds_left_raw12_{{forloop.counter}}= seconds_left_{{forloop.counter}};
+        // var seconds_left_raw24=seconds_left%216000;
+        // var seconds_left_raw48=seconds_left%129600;
+        minutes12_{{forloop.counter}} = pad(parseInt(seconds_left_{{forloop.counter}} / 60 % 60));
+        // minutes24 = pad(parseInt(seconds_left / 60%60));
+        // minutes48 = pad(parseInt(seconds_left / 60%60));
+        hours12_{{forloop.counter}} = pad(parseInt(seconds_left_{{forloop.counter}} / 3600));
+        minutes_{{forloop.counter}} = pad(parseInt(seconds_left_{{forloop.counter}} / 60 % 60));
+        hours_{{forloop.counter}}= pad(parseInt(seconds_left_{{forloop.counter}} / 3600));
+        // hours24= pad(parseInt(seconds_left / 3600%48));
+        // hours48= pad(parseInt(seconds_left / 3600));
+        seconds_left_{{forloop.counter}} = seconds_left_{{forloop.counter}} % 60;
+        seconds_{{forloop.counter}} = pad(parseInt(seconds_left_{{forloop.counter}} % 60));
+        seconds_left_{{forloop.counter}} = seconds_left_{{forloop.counter}} % 60;
+        var result_min12_{{forloop.counter}} = minutes12_{{forloop.counter}}.fontsize(7)
+        var result_hrs12_{{forloop.counter}} = hours12_{{forloop.counter}}.fontsize(7)
+        var result_min_{{forloop.counter}} = minutes_{{forloop.counter}}.fontsize(7)
+        var result_hrs_{{forloop.counter}} = hours_{{forloop.counter}}.fontsize(7)
+        // var result_min24 = minutes24.fontsize(7)
+        // var result_hrs24 = hours24.fontsize(7)
+        // var result_min48 = minutes48.fontsize(7)
+        // var result_hrs48 = hours48.fontsize(7)
+
+        if (current_date_{{forloop.counter}} >= target_seconds_{{forloop.counter}}) {
+            document.querySelector("#circle-timer{{post.id}}").style.display = "none";
+        }
+        if (hours_{{forloop.counter}} >= 0) {
+            countdown_{{forloop.counter}}.innerHTML = "<span>" + result_hrs12_{{forloop.counter}} + "</span><span>" + ":" + "</span><span>" + result_min12_{{forloop.counter}} +
+                "</span>";
+            if (canvas_{{forloop.counter}}.getContext) {
+                const ctx_{{forloop.counter}} = canvas_{{forloop.counter}}.getContext('2d');
+                if (hours_{{forloop.counter}} >= 24) {
+                    ctx_{{forloop.counter}}.strokeStyle = 'green';
+                } else if (hours_{{forloop.counter}} >= 12) {
+                    ctx_{{forloop.counter}}.strokeStyle = '#FFBF00';
+                } else if (hours_{{forloop.counter}} >= 0) {
+                    ctx_{{forloop.counter}}.strokeStyle = 'red';
+                }
+
+
+                ctx_{{forloop.counter}}.lineWidth = 15;
+                ctx_{{forloop.counter}}.beginPath();
+                ctx_{{forloop.counter}}.arc(canvas_{{forloop.counter}}.width / 2, canvas_{{forloop.counter}}.height / 2, 100, 0, -(172800 - seconds_left_raw12_{{forloop.counter}}) / 86400 * Math.PI);
+                ctx_{{forloop.counter}}.stroke();
+
+            }
+        }
+
+        //          else if(hours>=48 && hours<72)  {
+
+        //             countdown.innerHTML = "<span>" + result_hrs24 + "</span><span>" + ":" + "</span><span>" + result_min24 + "</span>";
+        //             if (canvas.getContext ) {
+        //     const ctx = canvas.getContext('2d');
+
+        //     ctx.strokeStyle = 'red';
+
+        //     ctx.lineWidth = 10;
+        // ctx.beginPath();
+        //       ctx.arc(canvas.width / 2, canvas.height / 2, 100, 0,-(86400-seconds_left_raw24)/43200* Math.PI);
+        //       console.log(seconds_left_raw24)
+        //       ctx.stroke();
+
+
+        // }
+        //          }
+        //         else if(hours<48){
+
+        //             countdown.innerHTML = "<span>" + result_hrs48 + "</span><span>" + ":" + "</span><span>" + result_min48 + "</span>";
+        //             if (canvas.getContext ) {
+        //     const ctx = canvas.getContext('2d');
+
+        //     ctx.strokeStyle = 'red';
+
+        //     ctx.lineWidth = 10;
+        // ctx.beginPath();
+        //       ctx.arc(canvas.width / 2, canvas.height / 2, 100, 0,-(172800-seconds_left_raw48)/86400* Math.PI);
+        //       console.log(seconds_left_raw48)
+        //       ctx.stroke();
+
+
+        // }
+        //         }
+
+
+
+
+    }
+
+
+
+
+    function pad(sec) {
+        return (sec < 10 ? '0' : '') + sec;
+    }
+</script>

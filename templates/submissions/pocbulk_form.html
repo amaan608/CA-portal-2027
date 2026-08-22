@@ -1,0 +1,92 @@
+{% extends '../basic.html'%}
+{%block title%}Submissions | Alcheringa {%endblock%}
+{%block style%}
+<style>
+    .subpbody {
+        font-family: 'Poppins';
+    }
+
+    .pform {
+        width: 70%;
+
+    }
+
+    .bell {
+        position: fixed;
+        top: 1vw;
+        right: 1vw;
+    }
+
+    #form_button {
+        background-color: #109CF1;
+        border: none;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 15px;
+        padding-right: 25px;
+        padding-left: 25px;
+        cursor: pointer;
+        border-radius: 10px;
+        font-family: 'Poppins';
+    }
+</style>
+{%endblock%}
+{% block body %}
+{% load static %}
+<link rel="stylesheet" href={% static "css/font.css" %}>
+<body>
+    <div class="bg-blue-50 flex gen">
+        {% include "../navbar.html" %}
+        <div class="flex">
+
+            <div class="subpbody">
+                <div class=" bg-gray-50 flex  ">
+                  
+
+            
+                  <div class="mx-4 flex-grow">
+                    
+                    <div class=" flex flex-wrap ">
+                      <div class=" bg-white max-w-4xl rounded-lg w-screen shadow-md">
+                        <div>
+                          <div class="py-3 pl-6 font-medium text-xl border-b-2 font-semibold">Submit Multiple POCS </div>
+                          <br>
+                          <p class=" font-small text-xl ml-5 " style="font-size: 17px;color:rgb(109, 109, 109)">Add a CSV file with columns as Name,Designation,College,Contact </p>
+            
+                          <br>
+            
+                          <div class="pform ml-5">
+                            <form action="" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                               <label for="file1" style = "font-weight: 400;font-size: 18px;">Upload a file</label><br><hr style = "margin-bottom: 15px;">
+                                {{form.csv_file}}
+                                <small style = "color: red;">* Only accepts CSV files</small>
+                                
+                                
+            
+                              <div class="submit mt-6 p-1 ">
+                                <input type="submit" value="Submit" id="form_button" />
+                              </div>
+                            </form>
+                          </div>
+            
+                          <br>
+                          <br>
+            
+            
+                          <div class="  w-80 border-gray-400 rounded mx-4 m-{5}"></div>
+                        </div>
+                      </div>
+                    </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+{%endblock%}
+{% block script %}
+
+{% endblock %}

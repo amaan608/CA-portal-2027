@@ -1,0 +1,631 @@
+/* CONTACT PAGE */
+
+/* Fonts */
+@font-face {
+  font-family: "VastagoGrotesk";
+  src: url(../Fonts/VastagoGrotesk-Regular.otf) format("opentype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "VastagoGrotesk";
+  src: url(../Fonts/VastagoGrotesk-Bold.otf) format("opentype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "VastagoGrotesk";
+  src: url(../Fonts/VastagoGrotesk-Medium.otf) format("opentype");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "VastagoGrotesk";
+  src: url(../Fonts/VastagoGrotesk-SemiBold.ttf) format("opentype");
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+
+
+/* CONTACTS */
+.mainbox {
+  padding: 4rem 2rem;
+  padding-bottom: 6.5rem;
+  text-align: center;
+  background-color: #fef8e7;
+}
+
+.upper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.help-heading {
+  font-family: 'VastagoGrotesk', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #222121;
+}
+
+.contact-btn {
+  font-family: 'VastagoGrotesk' sans-serif;
+  background-color: #FFC548;
+  color: #222121;
+  font-size: 2.7rem;
+  font-weight: 700;
+  padding: 0.8rem 2rem;
+  border-radius: 24px;
+  transform: rotate(-4deg);
+  display: flex;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+/* CONTACT CARDS */
+.down1 {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+}
+
+.part1 {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5rem;
+  padding: 2rem;
+  padding-top: 1.7rem;
+  min-height: 230px;
+  width: 420px;
+  border: 3px solid;
+  border-radius: 28px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  transition: transform 0.3s ease, border 0.3s ease;
+  position: relative;
+  padding-left: 13.5rem;
+}
+
+.h {
+  font-family: 'VastagoGrotesk', sans-serif;
+  font-weight: 700;
+  line-height: 1;
+  font-size: 2rem;
+}
+
+.p{
+  font-family: 'VastagoGrotesk', sans-serif;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.ph{
+  font-family: 'VastagoGrotesk', sans-serif;
+  font-weight: 400;
+}
+
+.part1.green {
+  border-color: #07a05f;
+}
+
+.part1.blue {
+  border-color: #1f61e1;
+}
+
+.part1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  pointer-events: none;
+  z-index: -1;
+  transition: box-shadow 0.3s ease;
+}
+
+.part1 img {
+  border-radius: 0%;
+  width: 160px;
+  height: 90%;
+  object-fit: contain;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-left: 1.5rem;
+}
+
+.part1.green:hover::after {
+  box-shadow: 10px 10px 0 #07a05f;
+}
+
+.part1.blue:hover::after {
+  box-shadow: 10px 10px 0 #1f61e1;
+}
+
+.part1:hover {
+  transform: scale(1.08);
+  z-index: 1;
+  position: relative;
+}
+
+.details1 {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: 0;
+}
+
+.h {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.ph {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #666;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .mainbox {
+    padding-bottom: 4rem;
+  }
+  .upper {
+    gap: 0.2rem;
+    margin-bottom: 0.5rem; 
+  }
+
+  .contact-btn {
+    font-size: 1.5rem;
+    padding: 0.6rem 1.5rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .help-heading {
+    font-size: 2rem;
+  }
+
+  .down1 {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.2rem; 
+  }
+
+  .part1 {
+    width: 90vw;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem 1rem 1rem 140px; 
+    min-height: auto;
+    margin-left: -0.5rem;
+  }
+
+  .part1 img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .details1 {
+    margin: 0;
+    text-align: left;
+    gap: 6px;
+    margin-left: 2.5rem;
+  }
+
+  .h {
+    font-size: 1.5rem;
+  }
+
+  .p,
+  .ph {
+    font-size: 1rem;
+  }
+}
+
+
+
+/* FOOTER */
+
+/* Fonts */
+@font-face {
+  font-family: "Poppins";
+  src: url(../Fonts/Poppins-Regular.ttf) format("truetype");
+  font-weight: 450;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url(../Fonts/Poppins-Bold.ttf) format("truetype");
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url(../Fonts/Poppins-Medium.ttf) format("truetype");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url(../Fonts/Poppins-SemiBold.ttf) format("truetype");
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* Footer */
+.footer {
+  font-family: 'Poppins', sans-serif;
+  background-color: #222121;
+  color: #F8F1E7;
+  width: 100%;
+}
+
+.footer-top {
+  display: flex;
+  margin-left: 30px;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 80px 90px;
+  padding-left: 70px;
+  padding-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-section {
+  display: flex;
+  padding-left: 8px;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 180px;
+}
+
+.logo-social {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo-social img{
+  width: 250px;
+  height: auto;
+  margin-bottom: 48px;
+}
+
+.footer-logo {
+  width: 200px;
+  height: auto;
+  margin-bottom: 100px;
+}
+
+.follow-head {
+  font-family: 'Poppins';
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+.footer-right {
+  display: flex;
+  justify-content: flex-end;
+  gap: 55px;
+  flex: 2;
+}
+
+.section-title {
+    font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  text-underline-offset: 6px;
+  margin-bottom: 2px;
+}
+
+.links a{
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  line-height: 0.65;
+  font-weight: 450;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.contact {
+  gap: 0.32rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-blocks {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-blocks p {
+  margin: 2px 0; 
+}
+
+.one {
+  margin-bottom: 0.3rem;
+}
+
+.contact .contact-phone,
+.contact .contact-name{
+  text-decoration: none;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 450;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.contact .contact-role{
+  text-decoration: none;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  font-size: 0.8rem;
+  padding-bottom: 0.15rem;
+}
+
+.footer-bottom {
+  font-family: 'Poppins', sans-serif;
+  border-top: none;
+  margin-top: 30px;
+  padding: 20px 24px;
+  padding-bottom: 50px;
+  font-size: 0.6rem;
+  text-align: center;
+  line-height: 0;
+  font-weight: 450;
+}
+
+
+/* RESPONSIVE */
+@media screen and (max-width: 600px) {
+
+  .footer-top {
+    margin-left: 0;
+    margin-right: 0;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 32px 20px;
+    padding-bottom: 12px;
+    gap: 12px;  
+  }
+
+  .logo-social {
+    align-items: center;
+  }
+
+  .logo-social img{
+    margin-bottom: 16px;
+  }
+
+  .footer-logo {
+    width: 160px;
+    margin-bottom: 16px;
+  }
+
+  .social-icons {
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .footer-right {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 24px;
+  }
+
+  .footer-section {
+    align-items: center;
+    padding-left: 0;
+    width: 100%;
+    gap: 6px;
+  }
+
+  .links {
+    font-weight: 350;
+    gap: 3vh;
+  }
+ 
+  .links a {
+    line-height: 0.9;
+    font-weight: 400;
+  }
+
+  .contact {
+    gap: 2vh;
+  }
+
+  .contact .section-title {
+    margin-bottom: 0.15rem;
+  }
+
+  .contact .comtact-phone,
+  .contact .contact-role {
+    font-size: 0.7rem;
+    font-weight: 250;
+  }
+
+  .contact-blocks {
+    align-items: center;
+  }
+
+  .one {
+    margin-bottom: 0.3rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.6rem;
+    padding: 16px;
+    margin-top: 18px;
+    padding-bottom:24px;
+    padding-top:8px;
+    line-height:0;
+  }
+}
+
+
+
+@media screen and (max-width: 900px) and (min-width: 601px) {
+
+  .footer-top {
+    margin-left: 0;
+    padding: 40px 48px;
+    padding-bottom: 0;
+    justify-content: space-evenly;
+    gap: 32px;
+  }
+
+  .logo-social {
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  .footer-section {
+  text-align: center;
+}
+
+  .footer-right {
+    gap: 32px;
+    flex: 1;
+    justify-content: space-evenly;
+  }
+
+  .footer-section {
+    min-width: 120px;
+    padding-left: 0;
+  }
+
+  .logo-social {
+    flex: 1;
+    align-items: flex-start;
+  }
+}
+
+/* SPONSOR SECTION */
+.sponsorSection {
+  min-height: 280px;
+  padding: 40px 20px;
+  background-color: #f8f1e7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.sponsorHeading {
+  font-family: 'VastagoGrotesk', sans-serif;
+  font-size: 52px;
+  font-weight: 900;
+  color: #000000;
+  text-align: center;
+  margin: 0;
+  margin-top: 3.25rem;
+}
+
+.sponsorLogo {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sponsorImg {
+  width: 70%;
+  max-width: 70%;
+  max-height: 300px;
+  height: auto;
+  opacity: 4;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.sponsorSubheading{
+  margin-top: -2rem;
+  font-size: 1.5rem;
+}
+
+/* RESPONSIVE SPONSOR SECTION */
+@media screen and (max-width: 900px) {
+  .sponsorSection {
+    min-height: 250px;
+    padding: 35px 20px;
+    gap: 25px;
+  }
+
+  .sponsorHeading {
+    font-size: 2.5rem;
+    letter-spacing: 1.5px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .sponsorSection {
+    min-height: 200px;
+    padding: 30px 15px;
+    gap: 20px;
+  }
+
+  .sponsorHeading {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+
+  .sponsorImg {
+    border-radius: 8px;
+  }
+
+  .sponsorSubheading{
+    margin-top: -1.5rem;
+    font-size: 1rem;
+  }
+}

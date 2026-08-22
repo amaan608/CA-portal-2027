@@ -1,0 +1,81 @@
+<style>
+  .form-input
+  {
+    border: none;
+    background-color: transparent;
+    width:580px;
+    outline: none;
+  }
+</style>
+<style>@media only screen and (max-width:640px){
+  .subpocbody{
+    width: 600px;
+  }
+.pocbox{
+  width: 600px;
+}
+}
+</style>
+    <div class="subpocbody">
+      <div class=" bg-gray-50 flex  ">
+        
+        <div class=" flex flex-wrap ">
+          <div class=" bg-white max-w-4xl rounded-lg w-screen shadow-md pocbox">
+            <div>
+              <br>
+              <div class="py-3 pl-6 font-medium text-xl border-b-2 font-semibold">Submit single POC</div>
+              <p class=" font-small text-xl m-5  " style="font-size: 18px;color:rgb(61, 61, 61)">Tell us your ideas on how we can make Alcheringa bigger and better
+                than ever! </p>
+              <br>
+              <div class="sform">
+              <form action="#" method="post" id="contact_form" width:50%>
+                {% csrf_token %}
+                <div class="name m-5 my-8 text-m border-b-2 border-gray-300">
+                  <label for="name"></label>
+                  <!-- <input type="text" placeholder="Name of POC" name="name" id="name_input" required > -->
+                  {{ form.name }}
+                </div>
+
+
+                <div class="designation m-5 my-8 text-m border-b-2 border-gray-300">
+                  <label for="design"></label>
+                  <!-- <input type="text" placeholder="Designation of POC" name="designation" id="des_input" required> -->
+                  {{ form.design }}
+                </div>
+
+                <div class=" m-5 my-8 text-m border-b-2 border-gray-300">
+                  <label for="college"></label>
+                  <!-- <input placeholder="College of POC" name="college" id="college_input" required> -->
+                  {{ form.college }}
+
+                </div>
+
+                <div class="telephone m-5 my-8 text-m border-b-2 border-gray-300">
+                  <label for="telephone"></label>
+                  <!-- <input type="text" placeholder="Contact" name="telephone" id="telephone_input" required> -->
+                  {{ form.contact }}
+                </div>
+
+
+                <div class="submit ml-4 mt-4 mx-6 p-1 ">
+                  <input type="submit" value="Submit" id="form_button" />
+                </div>
+            </div>
+            <br>
+            <br>
+            <a href="{% url 'poc-csv-create' %}">
+              <p class=" font-small text-xl ml-5  " style="font-size: 17px;color:rgb(122, 122, 122);text-decoration: underline;">You can also submit Multiple POCs </p>
+              <br>
+            </a>
+            <br>
+            <br>
+
+
+            <div class="  w-80 border-gray-400 rounded mx-4 m-{5}"></div>
+          </div>
+        </div>
+
+
+
+
+
