@@ -1956,10 +1956,10 @@ main {
 .faq-question {
   display: flex;
   justify-content: space-between;
-  font-family: "Poppins";
+  font-family: "Inter";
   align-items: center;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 500;
   gap: 180px;
 }
@@ -1970,13 +1970,13 @@ main {
 
 .faq-answer {
   margin-top: 15px;
-  font-size: 22px;
-  font-family: "Poppins";
+  font-size: 16px;
+  font-family: "Inter";
   line-height: 1.5;
   color: #ffffff;
   /* display: none; */
   max-height: 0;
-  font-style: italic;
+  /* font-style: italic; */
   overflow: hidden;
   transition: max-height 0.4s ease, opacity 0.3s ease;
   opacity: 0;
