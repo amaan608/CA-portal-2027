@@ -54,25 +54,25 @@
 }
 
 .contact-btn {
-  font-family: 'VastagoGrotesk' sans-serif;
-  background-color: #FFC548;
-  color: #222121;
+  font-family: 'Zolla';
+  /* background-color: #FFC548; */
+  color: #2A6ACB;
   font-size: 2.7rem;
   font-weight: 700;
-  padding: 0.8rem 2rem;
-  border-radius: 24px;
-  transform: rotate(-4deg);
+  /* padding: 0.8rem 2rem; */
+  /* border-radius: 24px; */
+  /* transform: rotate(-4deg); */
   display: flex;
-  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.15);
+  /* box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.15); */
   cursor: pointer;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 
 /* CONTACT CARDS */
 .down1 {
   display: flex;
   justify-content: center;
-  gap: 3rem;
+  gap: 10rem;
   margin-top: 4rem;
   flex-wrap: wrap;
 }
@@ -84,12 +84,12 @@
   padding: 2rem;
   padding-top: 1.7rem;
   min-height: 230px;
-  width: 420px;
+  width: 500px;
   border: 3px solid;
   border-radius: 28px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  /* box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05); */
   box-sizing: border-box;
-  transition: transform 0.3s ease, border 0.3s ease;
+  /* transition: transform 0.3s ease, border 0.3s ease; */
   position: relative;
   padding-left: 13.5rem;
 }
@@ -113,14 +113,18 @@
 }
 
 .part1.green {
-  border-color: #07a05f;
+  /* border-color: #07a05f; */
+  background-color: #FFFBEF;
+  border: none;
 }
 
 .part1.blue {
-  border-color: #1f61e1;
+  /* border-color: #1f61e1; */
+  background-color: #FFFBEF;
+  border: none;
 }
 
-.part1::after {
+/* .part1::after {
   content: "";
   position: absolute;
   top: 0;
@@ -131,7 +135,7 @@
   pointer-events: none;
   z-index: -1;
   transition: box-shadow 0.3s ease;
-}
+} */
 
 .part1 img {
   border-radius: 0%;
@@ -144,7 +148,7 @@
   margin-left: 1.5rem;
 }
 
-.part1.green:hover::after {
+/* .part1.green:hover::after {
   box-shadow: 10px 10px 0 #07a05f;
 }
 
@@ -156,7 +160,7 @@
   transform: scale(1.08);
   z-index: 1;
   position: relative;
-}
+} */
 
 .details1 {
   text-align: left;
@@ -167,19 +171,22 @@
 }
 
 .h {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #1a1a1a;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    font-family: 'Zolla';
 }
 
 .p {
   font-size: 1.2rem;
   color: #555;
+  font-family: 'Inter';
 }
 
 .ph {
   font-size: 1.2rem;
   font-weight: 500;
+  font-family: 'Inter';
   color: #666;
 }
 
@@ -594,6 +601,16 @@
   font-size: 1.5rem;
 }
 
+.fun-fact{
+  background-color: #FFDC91;
+    padding: 0.7rem;
+    color: white;
+    border-radius: 10px;
+    font-weight: 500;
+    padding-bottom: 0;
+    /* /* font-family: 'Zolla'; */
+}
+
 /* RESPONSIVE SPONSOR SECTION */
 @media screen and (max-width: 900px) {
   .sponsorSection {
@@ -629,3 +646,4 @@
     font-size: 1rem;
   }
 }
+
