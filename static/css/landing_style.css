@@ -53,6 +53,20 @@
   font-display: swap;
   font-style: normal;
 }
+@font-face {
+  font-family: "Zolla";
+  src: url(../Fonts/Zolla.ttf) format("truetype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Inter";
+  src: url(../Fonts/Inter-VariableFont_opsz,wght.ttf) format("truetype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
 
 /* .header {
   background: linear-gradient(
@@ -1884,7 +1898,7 @@ main {
 
 
 .page2 {
-  background-color: #222121;
+  background-color: skyblue;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1896,46 +1910,47 @@ main {
 
 .freq-asked {
   position: relative;
-  color: #f8f1e7;
+  color: #FFFBEF;
   font-size: 62px;
   font-weight: 700;
   font-style: bold;
   top: 100px;
   width: fit-content;
 }
-
+/* 
 .questions {
   justify-content:flex-start;
   position: relative;
-  color: #f8f1e7;
+  color: #2A6ACB;
   font-size: 62px;
   font-weight: 700;
   font-style: bold;
-  background-color: #2a6acb;
-  padding-left: 20px;
+  /* background-color: #2a6acb; */
+  /* padding-left: 20px;
   padding-right: 20px;
   width: fit-content;
-  top: 100px;
-  border-radius: 24px;
-  transform: rotate(2deg);
-}
+  top: 100px; */
+  /* border-radius: 24px; */
+  /* transform: rotate(2deg); */
+/* } */
 
 .faq-section {
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 26px;
-  color: white;
+  /* color: white; */
   /* background-color: #111; */
   padding: 20px;
   width: fit-content;
   margin-top: 250px;
-  font-family: "Vastago-Grotesk";
+  /* font-family: 'Zolla'; */
 }
 
 .faq {
-  border-bottom: 1px solid #555;
+  border-bottom: 1px solid #FFFBEF;
   padding-bottom: 26px;
+  font-family: 'Inter';
 }
 
 .faq-question {
