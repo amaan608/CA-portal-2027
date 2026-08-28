@@ -1590,7 +1590,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Zolla'!important;
+  font-family: "Vastago Grotesk";
 }
 
 .lets_hear_some {
@@ -1598,26 +1598,26 @@ header {
   margin-top: 65px;
   /* margin-bottom: 0px; */
   /* text-align: center; */
-  font-size: 72px;
+  font-size: 60px;
   line-height: 181%;
   letter-spacing: 0%;
-  color: #FFFBEF;
+  color: #000000;
 }
 
 .testimonials {
   /* position: relative;
   top: 40px; */
-  margin-top: -50px;
+  margin-top: -20px;
   width: fit-content;
   height: fit-content;
   border-radius: 24px;
-  font-size: 72px;
-  /* background-color: #009e77; */
-  color: #2A6ACB;
+  font-size: 60px;
+  background-color: #009e77;
+  color: white;
   padding: 20px 30px;
   /* gap: 10px; */
-  /* rotate: 3.08;
-  transform: rotate(-3.08deg); */
+  rotate: 3.08;
+  transform: rotate(-3.08deg);
   /* transition: all 0.3s ease-in; */
 }
 
@@ -2339,128 +2339,5 @@ main {
   /* 5. Adjust the space below the entire component */
   .frame1 {
     margin-bottom: 40px; /* Fine-tune space to avoid overlap */
-  }
-}
-
-
-
-.testimonial-carousel-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  max-width: 1100px;
-  width: 90%;
-  margin: 40px auto;
-}
-
-.testimonial-swiper {
-  width: 540px;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.testimonial-swiper .swiper-slide {
-  height: auto;
-  display: flex;
-  justify-content: center;
-  min-width: 0;
-}
-
-.testimonial-card {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  background-color: #FFFBEF;
-  /* border: 2px solid #2A6ACB; */
-  border-radius: 16px;
-  padding: 16px 8px;
-  box-sizing: border-box;
-  min-height: 300px;
-  width: 100%;
-  border: none;
-}
-
-.testimonial-image {
-  flex-shrink: 0;
-  width: 190px;
-}
-
-.testimonial-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-  display: block;
-}
-
-.testimonial-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
-  min-width: 0;
-}
-
-.testimonial-text {
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #1a1a1a;
-  margin: 0;
-  overflow-wrap: break-word;
-}
-
-.testimonial-name {
-  align-self: flex-end;
-  font-family: "Zolla", sans-serif;
-  font-weight: 700;
-  font-size: 24px;
-  color: #000;
-  margin-top: 12px;
-}
-
-.carousel-arrow {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px;
-  flex-shrink: 0;
-  transition: transform 0.2s ease;
-}
-
-.carousel-arrow:hover {
-  transform: scale(1.15);
-}
-
-@media (max-width: 768px) {
-  .testimonial-carousel-wrapper {
-    gap: 12px;
-  }
-
-  .testimonial-card {
-    flex-direction: column;
-    padding: 20px;
-    min-height: auto;
-  }
-
-  .testimonial-image {
-    width: 100%;
-  }
-
-  .testimonial-image img {
-    height: 180px;
-  }
-
-  .testimonial-name {
-    align-self: flex-end;
-  }
-
-  .carousel-arrow svg {
-    width: 26px;
-    height: 26px;
   }
 }
