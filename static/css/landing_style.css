@@ -1580,7 +1580,7 @@ opacity: 1;
   display: flex;
   flex-direction: column;
   height: 70rem;
-  background-color: #f8f1e7;
+  background-color: transparent;
   margin: 0;
   padding: 0;
   position: relative;
@@ -1898,7 +1898,7 @@ main {
 
 
 .page2 {
-  background-color: skyblue;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1911,10 +1911,11 @@ main {
 .freq-asked {
   position: relative;
   color: #FFFBEF;
-  font-size: 62px;
-  font-weight: 700;
-  font-style: bold;
+  font-size: 72px;
+  font-weight: 400;
+  /* font-style: bold; */
   top: 100px;
+  line-height: 150%;
   width: fit-content;
 }
 /* 
@@ -1972,7 +1973,7 @@ main {
   margin-top: 15px;
   font-size: 16px;
   font-family: "Inter";
-  line-height: 1.5;
+  line-height: 150%;
   color: #ffffff;
   /* display: none; */
   max-height: 0;
@@ -2463,4 +2464,13 @@ main {
     width: 26px;
     height: 26px;
   }
+}
+
+
+.sky-bg-section {
+  background-image: url("../images/bg\ \(1\).png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: top center;
+  position: relative;
 }
