@@ -460,6 +460,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
+  try {
     new Swiper(".testimonial-swiper", {
       loop: true,
       speed: 500,
@@ -468,6 +469,17 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
         prevEl: "#testimonial-prev",
       },
     });
+  } catch (err) {
+    console.error("Testimonial swiper failed to init:", err);
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".faq-question").forEach((question) => {
+    question.addEventListener("click", () => {
+      question.parentElement.classList.toggle("open");
+    });
   });
+});
 </script>
 {%endblock%}

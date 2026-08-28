@@ -2370,7 +2370,7 @@ main {
 .testimonial-card {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 12px;
   background-color: #FFFBEF;
   /* border: 2px solid #2A6ACB; */
   border-radius: 16px;
@@ -2414,7 +2414,7 @@ main {
 .testimonial-name {
   align-self: flex-end;
   font-family: "Zolla", sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 24px;
   color: #000;
   margin-top: 12px;
