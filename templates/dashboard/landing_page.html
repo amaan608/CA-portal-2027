@@ -200,8 +200,8 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 <!-- Testimonials starts 2026 alcher -->
 <div class="page1" id="testimonials_">
   <header>
-    <div class="lets_hear_some"><strong>Lets's hear some</strong></div>
-    <div class="testimonials" style="font-weight:700;">Testimonials</div>
+    <div class="lets_hear_some" style="font-family:'Zolla';font-weight:400;">Lets's hear some</div>
+    <div class="testimonials" style="font-weight:400;font-family:'Zolla'">Testimonials</div>
   </header>
   <div class="dots-container">
     <span class="dot active" onclick="showTestimonial(0)"></span>
@@ -209,76 +209,81 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     <span class="dot" onclick="showTestimonial(5)"></span>
   </div>
   <main>
-    <div class="frame1">
-      <div class="elements">
-        <div class="up-apos">
-          <img src="{% static 'images/apos_up.png' %}" alt="quote" />
-        </div>
-        <button class="left-arrow"></button>
-      </div>
-      <div class="frame2">
-        <div>
-          <img
-            src="{% static 'images/3ee368d4a7a993e89d89166a4e32811355fc46da.png' %}"
-            alt="person_image"
-          />
-        </div>
-        <div class="content">
-          <p class="text">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus
-            esse ullam veritatis quod provident? Natus porro quod culpa,
-            consequatur distinctio cumque magnam itaque, asperiores id, odio
-            dicta adipisci obcaecati fuga.
-          </p>
-          <div class="name">-Unknown</div>
-        </div>
-      </div>
-      <div class="elements">
-        <button class="right-arrow"></button>
-        <div class="down-apos">
-          <img src="{% static 'images/apos_down.png' %}" alt="quote" />
+    <div class="testimonial-carousel-wrapper">
+  <button class="carousel-arrow left-arrow" id="testimonial-prev" aria-label="Previous testimonial">
+    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 6L9 12L15 18" stroke="#5B8DEF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <div class="swiper testimonial-swiper">
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide">
+        <div class="testimonial-card">
+          <div class="testimonial-image">
+            <img src="{% static 'images/pfp1.jpg' %}" alt="person_image" />
+          </div>
+          <div class="testimonial-content">
+            <p class="testimonial-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam, lectus sed dignissim pharetra, ligula eros mattis sem, id viverra ligula massa et eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <div class="testimonial-name">-Unknown</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="pfp-section">
 
-      <div class="pfp pfp-1">
-        <img
-          src="{% static 'images/pfp1.jpg' %}"
-          alt="testimonial_pfp_1"
-          class="pfp-1"
-        />
-        <div class="hover-text">Click to read my story</div>
+      <div class="swiper-slide">
+        <div class="testimonial-card">
+          <div class="testimonial-image">
+            <img src="{% static 'images/pfp5.jpg' %}" alt="person_image" />
+          </div>
+          <div class="testimonial-content">
+            <p class="testimonial-text">
+              Replace with Person Two's real testimonial text.
+            </p>
+            <div class="testimonial-name">-Person Two</div>
+          </div>
+        </div>
       </div>
 
-      <div class="pfp pfp-5">
-        <img
-          src="{% static 'images/pfp5.jpg' %}"
-          alt="testimonial_pfp_5"
-          class="pfp-5"
-        />
-        <div class="hover-text">Click to read my story</div>
+      <div class="swiper-slide">
+        <div class="testimonial-card">
+          <div class="testimonial-image">
+            <img src="{% static 'images/pfp6.jpeg' %}" alt="person_image" />
+          </div>
+          <div class="testimonial-content">
+            <p class="testimonial-text">
+              Replace with Person Three's real testimonial text.
+            </p>
+            <div class="testimonial-name">-Person Three</div>
+          </div>
+        </div>
       </div>
 
-      <div class="pfp pfp-6">
-        <img
-          src="{% static 'images/pfp6.jpeg' %}"
-          alt="testimonial_pfp_6"
-          class="pfp-6"
-        />
-        <div class="hover-text">Click to read my story</div>
-      </div>
-
-      <div class="pfp pfp-7">
-        <img
-          src="{% static 'images/pfp7.jpg' %}"
-          alt="testimonial_pfp_7"
-          class="pfp-7"
-        />
-        <div class="hover-text">Click to read my story</div>
+      <div class="swiper-slide">
+        <div class="testimonial-card">
+          <div class="testimonial-image">
+            <img src="{% static 'images/pfp7.jpg' %}" alt="person_image" />
+          </div>
+          <div class="testimonial-content">
+            <p class="testimonial-text">
+              Replace with Person Four's real testimonial text.
+            </p>
+            <div class="testimonial-name">-Person Four</div>
+          </div>
+        </div>
       </div>
 
     </div>
+  </div>
+
+  <button class="carousel-arrow right-arrow" id="testimonial-next" aria-label="Next testimonial">
+    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9 6L15 12L9 18" stroke="#5B8DEF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+</div>
 
   </main>
 </div>
@@ -451,5 +456,18 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     function hideMenu() {
         navLinks.style.right = "-200px";
     }
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    new Swiper(".testimonial-swiper", {
+      loop: true,
+      speed: 500,
+      navigation: {
+        nextEl: "#testimonial-next",
+        prevEl: "#testimonial-prev",
+      },
+    });
+  });
 </script>
 {%endblock%}
