@@ -17,6 +17,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0..200&display=swap"
     />
     <link rel="stylesheet" href="{% static 'css/landing_page.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -35,21 +36,22 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 
 
 <nav style="width:100%;" class="scrolled">
-    <a href="/"><img src="{% static 'images/Logomain.svg' %}" alt="Logo" /></a>
+    <a href="/"><img src="{% static 'images/Logo31.png' %}" alt="Logo" /></a>
     <div class="nav-links" id="navLinks">
         <i class="fa fa-times" id="navcross" onclick="hideMenu()"></i>
         <ul>
             <li><a href="#about" id="navlink1">About</a></li>
+            <li><a href="#testimonials_" id="navlink2">Testimonials</a></li>
             <li><a href="#responsibility" id="navlink3">Responsibilities</a></li>
             <li><a href="#faq1" id="navlink4">FAQs</a></li>
-            <li><a href="#testimonials_" id="navlink2">Testimonials</a></li>
             <li><a id="navlink5">Login</a></li>
             <li>
                 <button class="navhero-btn" onclick="hideMenu()" style="font-weight: 600 !important; display:none; " id="navcross" >Close</button>
             </li>
         </ul>
-        <div class="join-now-btn"><a href="{% url 'register_single' %}" class="navhero-btn">Join Now</a></div>
+        
     </div>
+    <div class="join-now-btn"><a href="{% url 'register_single' %}" class="navhero-btn">Join Now</a></div>
     
     <i class="fa fa-bars" style="color: rgb(0, 0, 0);" onclick="showMenu()"></i>
 </nav>

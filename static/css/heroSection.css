@@ -1,346 +1,301 @@
-@font-face {
-  font-family: "GeneralSans";
-  src: url(../Fonts/GeneralSans-Bold.ttf) format("truetype");
-  font-weight: 700;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: "GeneralSans";
-  src: url(../Fonts/GeneralSans-Extralight.ttf) format("truetype");
-  font-weight: 200;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: "GeneralSans";
-  src: url(../Fonts/GeneralSans-Light.ttf) format("truetype");
-  font-weight: 300;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: "GeneralSans";
-  src: url(../Fonts/GeneralSans-Regular.ttf) format("truetype");
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: "GeneralSans";
-  src: url(../Fonts/GeneralSans-Medium.ttf) format("truetype");
-  font-weight: 500;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: "GeneralSans";
-  src: url(../Fonts/GeneralSans-Semibold.ttf) format("truetype");
-  font-weight: 600;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: "GeneralSans";
-  src: url(../Fonts/GeneralSans-Bold.ttf) format("truetype");
-  font-weight: 700;
-  font-display: swap;
-  font-style: normal;
-}
-.heroSectionn {
-  position: relative;
-  min-height: 100vh; /* Use min-height instead of fixed height */
-  width: 100%;
-  background-color: #F8F1E7;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  font-family: "GeneralSans";
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; /* Changed from center to flex-start */
-  padding-top: 80px; /* Add padding to account for sticky navbar */
-  box-sizing: border-box;
-}
 
-/* Spark elements remain the same */
-.spark1 {
-  position: absolute;
-  width: 5vw;
-  height: auto; 
-  transform: rotate(-16.95deg); 
-  opacity: 1;
-  top: 7%;
-  left: 18.23%;
-  z-index: 99;
-}
-.spark2 {
-  position: absolute;
-  width: 10vw; 
-  height: auto; 
-  opacity: 1;
-  top: 32%;
-  right: 20.23%;
-  z-index: 99;
-}
 
-.spark3 {
-  position: absolute;
-  width: 8vw; 
-  height: auto; 
-  opacity: 1;
-  top: 18%;
-  left: -3%;
-  z-index: 99;
-}
-
-.spark4 {
-  position: absolute;
-  width: 2vw;
-  height: auto; 
-  opacity: 1;
-  top: 9%;
-  right: 25.23%;
-  z-index: 99;
-}
-
-.contHolderBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 35px; /* Add some spacing */
-  margin-bottom: 30px; /* Add some spacing */
-}
-
-.contHolderBox > p {
-  color: white;
-}
-
-.alcherTxt {
-  color: #2A6ACB !important;
-  font-size: 3.8vmax;
-  font-weight: 700;
-  text-align: center;
-  font-family: GeneralSans;
-  margin-bottom: 10px;
-}
-
-.caTxt {
-  color: #232122 !important;
-  font-size: clamp(2.5rem, 10vw, 5rem);
-  font-weight: 700;
-  text-align: center;
-  font-family: GeneralSans;
-  margin-bottom: 15px;
-}
-
-.caPara {
-  color: #00000099 !important;
-  font-size: 1.2vmax;
-  font-weight: 500;
-  text-align: center;
-  margin-top: 0.3vw;
-  width: 55%;
-  font-family: Poppins;
-  margin-bottom: 30px;
-}
-
-.caParaIN {
-  color: black !important;
-}
-
-.joinBtn {
-  display: flex;
-  gap: 10px;
-  border-radius: 8px;
-  background: #2A6ACB;
-  border: none;
-  cursor: pointer;
-  font-size: clamp(0.8rem, 2.5vw, 1.1rem);
-  padding: 0.5rem 1.25rem;
-  color: #F8F1E7;
-  text-decoration: none;
-  white-space: nowrap;
-  font-family: GeneralSans;
-  margin-bottom: 30px;
-}
-
-.joinBtn img {
-  width: 2em; 
-  height: 2em;
-  vertical-align: middle; 
-  margin-left: 0.4em;
-}
-
-.video-container {
-  width: 95%;
-  max-width: 1289px;
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden; 
-  margin-bottom: 40px; /* Add margin instead of margin-top */
-}
-
-.after-video-button {
-    position: absolute;
-    margin-top: 10px;
-    font-size: 1.5rem;
-    color: #ffffff;
-    text-decoration: none;
-    background-color: transparent;
-    font-weight: 550;
-    border: 2px solid #ffffff;
-    border-radius: 8px;
-    position: absolute;
-  top: 90%; /* Adjust as needed */
-  left: 20%; /* Adjust as needed */
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  padding: 12px 24px; /* Recommended for better spacing */
-  white-space: nowrap; /* Prevents text from breaking into two lines */
-
-  /* --- CHANGE --- */
-  margin-top: 0; /* Remove or set to 0 */
-
-  /* --- Your existing styles below --- */
-  display: inline-block;
-  font-size: 1.5rem;
-  color: #ffffff;
-}
-
-.video-container .youtube {
-  width: 100%;
-  height: 100%;
-  border-radius: 24px;
-  border: 0;
-}
-
-.counterBox {
-  background-color: #222121;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  padding: 40px 0; /* Add padding instead of relying on height */
-  margin-top: auto; /* This will push it to the bottom */
-}
-
-.valBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.valBox > p {
-  overflow: hidden;
-  text-align: center;
+html, body {
   margin: 0;
+  padding: 0;
 }
 
-.num {
-  color: #FFDC91;
-  font-size: 3vmax;
-  font-weight: 700;
-  font-family: GeneralSans;
+:root {
+  /* Locked brand palette — use only these three colors */
+  --ca-blue: #2a6acb;
+  --ca-cream: #fffbef;
+  --ca-gold: #ffc727;
+
+  /* Neutral helpers derived from the palette above (opacity only, no new hues) */
+  --ca-cream-soft: rgba(255, 251, 239, 0.82);
+  --ca-card-bg: rgba(255, 251, 239, 0.16);
+  --ca-card-border: rgba(255, 251, 239, 0.32);
+  --ca-blue-glass: rgba(42, 106, 203, 0.55);
+
+  /* landing2 crop controls — nudge these if the black edge peeks back in */
+  --landing2-ratio: 21 / 9;
+  --landing2-pos: center;
 }
 
-.title1 {
-  color: #F8F1E7;
-  font-size: 1.75vmax;
-  font-weight: 700;
-  font-family: GeneralSans;
+/* ---------- Layout shell ---------- */
+
+.heroSectionn {
+  width: 100%;
+  overflow: hidden;
+  background: #075a87;
 }
 
-/* Mobile styles */
-@media (max-width: 769px) {
-  .heroSectionn {
-    min-height: 100vh;
-    padding-top: 60px; /* Adjust for mobile navbar height */
-    padding-bottom: 20px;
-  }
-
-  .spark1 {
-    top: 8%;
-
-  }
-  .spark2 {
-    top: 32%;
-    right: 20%;
-  }
-  .spark3 {
-    top: 25%;
-  }
-  .spark4 {
-    top: 13%;
-    right:10%;
-    width: 3vw;
-  }
-
-  .caTxt {
-    font-size: 1.7rem;
-  }
-
-  .counterBox {
-    flex-wrap: wrap;
-    row-gap: 20px;
-    padding: 30px 20px;
-  }
-
-  .valBox {
-    flex-basis: 50%;
-  }
-
-  .caPara {
-    width: 85%; /* Make it wider on mobile */
-  }
+.heroSectionn .contHolderBox {
+  position: relative;
+  width: 100%;
+  min-height: 740px;
+  background-image: url('../images/hero/landing.png') !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 110px 24px 70px;
+  box-sizing: border-box;
+  isolation: isolate; /* keeps overlay + cards stacking predictable */
 }
 
-/* For very short screens (laptops with 16:9) */
-@media (max-height: 700px) {
-  .heroSectionn {
-    padding-top: 60px;
-    padding-bottom: 20px;
-  }
-  
-  .contHolderBox {
-    margin-bottom: 20px;
-  }
-  
-  .video-container {
-    margin-bottom: 30px;
-  }
-  
-  .alcherTxt {
-    font-size: 3.5vmax; /* Slightly smaller on short screens */
-  }
+/* Real <img>, guaranteed full-bleed cover — no background-size cascade to fight */
+.heroSectionn .contHolderBox img.heroImg {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 30% !important;
+  z-index: 0;
+  pointer-events: none;
 }
 
-/* For very tall screens */
-@media (min-height: 900px) {
-  .heroSectionn {
-    justify-content: center; /* Center content on very tall screens */
-    padding-top: 100px;
-  }
+/* Dark gradient over the photo so white text/cards read no matter what
+   part of landing.png is in frame */
+.heroSectionn .contHolderBox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2,35,58,.08), rgba(2,35,58,.22));
+  z-index: 1;
 }
-@media (max-width: 768px) {
-  
-  .after-video-button {
-    /* 1. Change positioning to put it back in the normal flow */
-    position: relative; 
-    
-    /* 2. Reset the properties used for overlapping */
-    top: auto;
-    left: auto;
+
+.heroSectionn .contHolderBox::after { display: none; }
+
+.heroSectionn .contHolderBox > *:not(img.heroImg) {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- Headline ---------- */
+
+.heroSectionn .caTxt {
+  font-family: "zolla", "Inter", sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 72px !important;
+  line-height: 100% !important;
+  letter-spacing: 0.5px;
+  color: var(--ca-cream) !important;
+  text-align: center !important;
+  width: 800px;
+  max-width: 100%;
+  margin: 0 auto 24px !important; /* more breathing room before the paragraph */
+  text-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.15),
+    0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.heroSectionn .caPara {
+  font-family: "Inter", sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 16px !important; /* Inter body size */
+  line-height: 1.5 !important;
+  color: var(--ca-cream-soft) !important;
+  text-align: center !important;
+  max-width: 520px;
+  margin: 0 auto 32px !important;
+}
+
+.heroSectionn .caParaIN {
+  font-family: "Inter", sans-serif !important;
+  font-weight: 700 !important;
+  color: var(--ca-gold) !important;
+}
+
+/* ---------- CTA button ---------- */
+
+.heroSectionn .joinBtn,
+.heroSectionn a.joinBtn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px;
+  font-family: "Inter", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 24px !important; /* Inter secondary size */
+  color: var(--ca-cream) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 999px !important;
+  padding: 14px 44px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, background 0.2s ease;
+  text-decoration: none !important;
+}
+
+.heroSectionn .joinBtn img {
+  width: 14px;
+  height: 14px;
+  filter: brightness(0) invert(1); /* keep arrow icon cream on blue */
+}
+
+.heroSectionn .joinBtn:hover {
+  background: var(--ca-blue-glass) !important;
+  transform: translateY(-2px);
+}
+
+/* ---------- Stat counters ---------- */
+
+.heroSectionn .counterBox {
+  display: flex !important;
+  width: 1290.53px;
+  height: 151.08px;
+  gap: 48px;
+  margin-top: 64px !important;
+  flex-wrap: wrap;
+  justify-content: space-between !important;
+  max-width: calc(100% - 40px);
+}
+
+.heroSectionn .valBox {
+  font-family: "Inter", sans-serif;
+  width: 235.75px;
+  height: 118.64px;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 18.49px;
+  padding: 20px 34px;
+  min-width: 150px;
+  display: flex !important;
+  flex-direction: column !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: inset 0 1px 1px rgba(255,255,255,.28), 0 8px 24px rgba(0, 0, 0, 0.25);
+  transform: rotate(-8.21deg);
+}
+.heroSectionn .valBox:nth-child(4) { transform: rotate(-8.21deg); }
+.heroSectionn .valBox:nth-child(1) { transform: rotate(6.83deg); }
+.heroSectionn .valBox:nth-child(3) { transform: rotate(6.83deg); }
+.heroSectionn .valBox:nth-child(2) { transform: rotate(-8.21deg); }
+
+.heroSectionn .valBox .num,
+.heroSectionn .valBox .title1 {
+  transform: skewX(8deg);
+  white-space: nowrap;
+}
+
+.heroSectionn .num {
+  font-family: "Zolla", "Inter", sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 32px !important; /* Zolla stat size */
+  color: var(--ca-cream) !important; /* confirmed white/cream in the Figma frame, not gold */
+  text-align: center !important;
+  margin: 0 0 4px !important;
+}
+
+.heroSectionn .title1 {
+  font-family: "Inter", sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 16px !important; /* Inter body size */
+  color: var(--ca-cream) !important;
+  text-align: center !important;
+  margin: 0 !important;
+}
+
+
+.heroSectionn .joinBtn:hover,
+.heroSectionn a.joinBtn:hover {
+  background: #13131326 !important;
+}
+
+.heroSectionn .landing2 {
+  display: block;
+  width: 100% !important;
+  aspect-ratio: 16 / 9;
+  height: auto !important;
+  object-fit: cover !important;
+  object-position: var(--landing2-pos) !important;
+  margin: 0;
+  background: #000;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .heroSectionn .caTxt {
+    font-size: 40px !important;
+  }
+
+  .heroSectionn .caPara {
+    font-size: 11px !important;
+  }
+
+  .heroSectionn .joinBtn {
+    padding: 10px 24px !important;
+    font-size: 16px !important;
+  }
+
+  .heroSectionn .contHolderBox {
+    min-height: 620px;
+    padding: 65px 20px 48px;
+  }
+
+  .heroSectionn .counterBox {
+    gap: 14px;
+  }
+
+  .heroSectionn .valBox {
+    padding: 16px 22px;
+    min-width: 120px;
     transform: none;
-    color: black;
-    border-color: black;
-    font-size: 0.7rem;
-    /* 3. Style it for its new position below the video */
-    display: block; /* Makes it take up its own line */
-    width: 90%;     /* Adjust width as needed */
-    margin: 1rem auto 0 auto; /* Adds space on top and centers it */
-    text-align: center;
   }
+
+  .heroSectionn .valBox .num,
+  .heroSectionn .valBox .title1 {
+    transform: none;
+  }
+
+  .heroSectionn .num {
+    font-size: 22px !important;
+  }
+
+  .heroSectionn .landing2 {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 520px) {
+  .heroSectionn .caTxt {
+    font-size: 32px !important; /* Zolla mobile size */
+  }
+
+  .heroSectionn .caPara {
+    font-size: 16px !important;
+  }
+
+  .heroSectionn .joinBtn {
+    padding: 12px 32px !important;
+    font-size: 16px !important;
+  }
+
+  .heroSectionn .counterBox {
+    gap: 10px;
+  }
+
+  .heroSectionn .valBox {
+    padding: 14px 16px;
+    min-width: calc(50% - 10px);
+  }
+
+  .heroSectionn .num {
+    font-size: 24px !important; /* Zolla stat size, mobile */
+  }
+
+  .heroSectionn .title1 {
+    font-size: 16px !important;
+  }
+
+  .heroSectionn .landing2 {
+    aspect-ratio: 4 / 3;
+  }
+}

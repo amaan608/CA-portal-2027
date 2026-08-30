@@ -1,48 +1,88 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/heroSection.css' %}" />
-<style>
-  a:hover {
-    text-decoration: none;
-    color: white;
-  }
-</style>
-<div class="heroSectionn">
-<div class="spark1"><img src="{% static 'images/spark1.png' %}" alt="spark1"></div>
-<div class="spark2"><img src="{% static 'images/spark1.png' %}" alt="spark2"></div>
-<div class="spark3"><img src="{% static 'images/spark1.png' %}" alt="spark3"></div>
-<div class="spark4"><img src="{% static 'images/spark1.png' %}" alt="spark4"></div>
 
-  <div class="contHolderBox">
-    <p class="alcherTxt">ALCHERINGA '26</p>
+<div class="heroSectionn">
+
+  <div class="contHolderBox" style="background-image: url('{% static 'images/hero/landing.png' %}');">
     <p class="caTxt">Campus Ambassador</p>
     <p class="caPara">
       With the vision to bring out the essential Leadership traits in you,
-       <span class="caParaIN">Alcheringa IIT Guwahati</span> presents the Campus Ambassador Program.
+      <span class="caParaIN">Alcheringa IIT Guwahati</span> presents the Campus Ambassador Program.
     </p>
-  </div>
-  <a href="{% url 'register_single' %}" class="joinBtn navhero-btn">Join Now<img src="{% static 'images/arrowjoin.svg' %}" alt="arrow icon"></a>
-  <div class="video-container">
-  <video class="youtube" src="/static/videos/AfterMovie.mp4" title="A descriptive title for your video" loop autoplay muted ></video>
-  <a href="https://youtu.be/bk3LJ7ECy90?si=r4b9kmzRbnA4ZBuL" class="after-video-button" target="_blank">
-            Watch Aftermovie, Alcheringa 2024
-  </a>
-</div>
+
+    <a href="{% url 'register_single' %}" class="joinBtn navhero-btn">Join Us</a>
+
   <div class="counterBox">
     <div class="valBox">
-      <p class="num">500+</p>
+      <p class="num" data-target="500" data-suffix="+">0+</p>
       <p class="title1">Colleges</p>
     </div>
     <div class="valBox">
-      <p class="num">100+</p>
+      <p class="num" data-target="100" data-suffix="+">0+</p>
       <p class="title1">Events</p>
     </div>
     <div class="valBox">
-      <p class="num">150k+</p>
+      <p class="num" data-target="200" data-suffix="k+">0k+</p>
       <p class="title1">Footfall</p>
     </div>
     <div class="valBox">
-      <p class="num">45+</p>
+      <p class="num" data-target="45" data-suffix="+">0+</p>
       <p class="title1">Competitions</p>
     </div>
   </div>
+
+    <!-- ^ counterBox now properly closed here -->
+
+  </div>
+  <!-- ^ contHolderBox now properly closed here -->
+
+  <img class="landing2" src="{% static 'images/hero/landing2.png' %}" alt="Alcheringa event">
+  <!-- landing2 is now a sibling of contHolderBox, its own full-width section -->
+
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const counterElements = document.querySelectorAll(".num");
+
+  const animateCount = (element) => {
+    const target = parseFloat(element.getAttribute("data-target"));
+    const suffix = element.getAttribute("data-suffix") || "";
+    const duration = 1000; // Total animation time in milliseconds
+    const frameRate = 16; // Roughly 60fps
+    const totalFrames = Math.round(duration / frameRate);
+    const increment = target / totalFrames;
+
+    let currentCount = 0;
+
+    const updateCounter = () => {
+      currentCount += increment;
+
+      if (currentCount < target) {
+        // Use Math.ceil to avoid decimals during the count
+        element.innerText = Math.ceil(currentCount) + suffix;
+        requestAnimationFrame(updateCounter);
+      } else {
+        // Ensure the final number exactly matches the target
+        element.innerText = target + suffix;
+      }
+    };
+
+    updateCounter();
+  };
+
+  // Intersection Observer to trigger animation when in view
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCount(entry.target);
+        obs.unobserve(entry.target); // Stop observing once animated
+      }
+    });
+  }, { threshold: 0.5 }); // Triggers when 50% of the element is visible
+
+  counterElements.forEach(counter => {
+    observer.observe(counter);
+  });
+});
+</script>
