@@ -1579,7 +1579,7 @@ opacity: 1;
 .page1 {
   display: flex;
   flex-direction: column;
-  height: 70rem;
+  min-height: 70rem;
   background-color: transparent;
   margin: 0;
   padding: 0;
@@ -1634,7 +1634,8 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: clamp(20px, 4vh, 60px);
 }
 
 .frame1 {
@@ -1996,7 +1997,7 @@ main {
 @media (max-width: 768px) {
   .page1 {
     height: 92vh;
-    width: 100vw;
+    width: 100%;
   }
 
   .pfp {
