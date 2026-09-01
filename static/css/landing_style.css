@@ -2016,14 +2016,15 @@ main {
   .testimonials {
     font-size: 26px;
     padding: 8px 16px;
-    border-radius: 10px;
-    transform: rotate(2.8deg);
+    /* border-radius: 10px; */
+    /* transform: rotate(2.8deg); */
+    margin-top: -30px;
   }
 
-  .left-arrow,
+  /* .left-arrow,
   .right-arrow {
     display: none;
-  }
+  } */
 
   .frame1 {
     width: 100vw;

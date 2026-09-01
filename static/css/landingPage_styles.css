@@ -168,6 +168,8 @@
   flex-direction: column;
   gap: 8px;
   margin-left: 0;
+  min-width: 0;   /* ADD — allows flex item to shrink below content width */
+  width: 100%;
 }
 
 .h {
@@ -188,6 +190,8 @@
   font-weight: 500;
   font-family: 'Inter';
   color: #666;
+  overflow-wrap: anywhere;  /* ADD */
+  word-break: break-word;   /* ADD */
 }
 
 /* RESPONSIVE */
@@ -610,6 +614,9 @@
     padding-bottom: 0;
     font-size: 13px;
     /* /* font-family: 'Zolla'; */
+    width: 100%;          /* ADD */
+  max-width: 100%;      /* ADD */
+  box-sizing: border-box; /* ADD */
 }
 
 /* RESPONSIVE SPONSOR SECTION */
