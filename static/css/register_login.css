@@ -27,11 +27,32 @@
   font-display: swap;
   font-style: normal;
 }
+@font-face {
+  font-family: "Poppins";
+  src: url(../Fonts/Poppins-SemiBold.ttf) format("truetype");
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Zolla";
+  src: url(../Fonts/Zolla.ttf) format("truetype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Inter";
+  src: url(../Fonts/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
 
 * {
-  font-family: "Poppins";
+  font-family: "Inter";
   margin: 0%;
-  background-color: #f8f1e7;
+  /* background-color: #f8f1e7; */
 }
 
 input:focus,
@@ -41,7 +62,11 @@ input.form-control:focus {
 
 body {
   overflow-x: hidden;
-  background-color: #f8f1e7;
+  /* background-color: #f8f1e7; */
+  background-image: url("../images/bg\ \(1\).png"); /* PLACEHOLDER: sky/clouds image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .form-wapper h2 {
@@ -304,6 +329,14 @@ h8 {
   gap: 1vw;
   flex-wrap: wrap;
 }
+
+/* .rj-head {
+  color: #FFFBEF;
+  font-family: 'Zolla';
+  font-size: 3em;
+  font-weight: 400;
+  margin: 1.5rem 0;
+} */
 
 @media only screen and (max-width: 800px) {
   .StateAndCity {

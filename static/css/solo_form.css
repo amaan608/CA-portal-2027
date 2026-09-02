@@ -281,10 +281,13 @@
    margin-top: 30px;
  }
  .rj-head {
-   font-size: 2rem;
-   margin-top: 2rem;
-   font-weight: 700;
-   margin-bottom: 2rem;
+      font-size: 3rem;
+    margin-top: 2rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    color: #FFFBEF;
+    font-family: 'Zolla';
+
  }
  .rj-btn {
    display: flex;

@@ -35,13 +35,14 @@ rel="stylesheet" href={% static "css/autoFill.css" %}>
 <nav class="navbar navbar-light" style="background-color: #F8F1E7; padding: 3vh 4%; border-bottom: solid #C8C8C8 1px; position: fixed; width:100%; z-index: 1000;">
 	<div class="ccontainer-fluid" style="width: 100%; height:100%; padding-left: 2rem;">
 		<a class="cnavbar-brand" href="/">
-			<img src="{% static 'images/Logoblack.svg' %}" alt="">
+			<img src="{% static 'images/logo_black.svg' %}" alt="">
+      {% comment %} <span style="font-size:0.6rem; letter-spacing:1px; color:#4C5862;">CAMPUS AMBASSADOR</span> {% endcomment %}
 		</a>
 	</div>
 </nav>
 <style>
   body{
-    background-color: #f8f1e7;
+    {% comment %} background-color: #f8f1e7; {% endcomment %}
   }
   .navbar{
     padding: 1vh 27.5vh;
@@ -78,8 +79,10 @@ rel="stylesheet" href={% static "css/autoFill.css" %}>
 </style>
 <div class="rj-body">
   <div class="rj-btn">
-    <button class="rj-fbc"><img src= {%static 'images/backButton.png'%}/></button>
-  </div>
+  <button class="rj-fbc" style="background:transparent; border:1.5px solid #fff; color:#fff; border-radius:8px; padding:0.4rem 1.2rem; font-weight:500;">
+    ← Back
+  </button>
+</div>
   <div class="rj-head">Registration</div>
   <div class="rj-form-container">
     <div style="background-color:#009E77; height:6rem; margin:0; padding:1rem; padding-top:1.35rem; border-radius:16px; border-bottom-right-radius:0; border-bottom-left-radius: 0;">
