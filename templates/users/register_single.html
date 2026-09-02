@@ -83,15 +83,30 @@ rel="stylesheet" href={% static "css/autoFill.css" %}>
     ← Back
   </button>
 </div>
-  <div class="rj-head">Registration</div>
-  <div class="rj-form-container">
-    <div style="background-color:#009E77; height:6rem; margin:0; padding:1rem; padding-top:1.35rem; border-radius:16px; border-bottom-right-radius:0; border-bottom-left-radius: 0;">
-				<img style="background-color: #009E77; height:4rem;"src={%static 'images/details_ca.png' %}/>
-		</div>
+  <div class="rj-head" style="
+    color: #FFFBEF;
+    font-size: 3rem;
+    font-family: &quot;Zolla&quot;;
+    font-weight: 400;
+    margin: 1.5rem 0;
+">Registration</div>
+  <div style="background-color:#FFC727; padding:1.5rem 2rem; border-radius:16px; border-bottom-right-radius:0; border-bottom-left-radius:0;">
+  <div class="progress-bar-container">
+    <div style="text-align:center;">
+      <div class="step step1" id="stepCircle1">1</div>
+      <div style="font-size:0.75rem; font-weight:600; margin-top:4px;">Personal details</div>
+    </div>
+    <div class="connector" id="stepConnector"></div>
+    <div style="text-align:center;">
+      <div class="step" id="stepCircle2">2</div>
+      <div style="font-size:0.75rem; font-weight:600; margin-top:4px;">CA Details</div>
+    </div>
+  </div>
+</div>
     <div class="cform"  >
       <div class="cform-head my-2 mb-4">
 					<p style="font-size: 1rem; color: #90A0B7">Join as a<span style="color:red">*</span></p>
-					<div class="row1" style="display: flex; justify-content:flex-start; background-color: #f8f1e7; gap:10px;">
+					<div class="row1" style="display: flex; justify-content:flex-start; background-color: #FFFBEF; gap:10px;">
 						<br>
 						<div class="join">
 							<a href="{% url 'register_single' %}" type="button" class="register-top"
@@ -177,17 +192,16 @@ rel="stylesheet" href={% static "css/autoFill.css" %}>
 
           <br>
           <button type="button" id="nextBtn1"
-                class="bg-pur text-white inline-block py-2 px-4 rounded shadow-sm text-base"
-                style="background-color: #009E77; margin-top:2.5rem; border:none;">
-                <img style="background-color: #009E77; color:white;" src="{% static 'images/NextBtn.png' %}" />
-          </button>
+      style="background-color:#FFC548; color:#000; font-weight:600; margin-top:2.5rem; border:none; border-radius:24px; padding:0.6rem 1.8rem;">
+      Next  →
+</button>
       </div>
 
       <!-- Keep image as before -->
-      <div class="img-div" style="width: 100%;">
-          <img src="{% static 'images/register_group.png' %}" alt=""
-               style="position:absolute; background: none; width: 70%; bottom:25%; left:98%;">
-      </div>
+<div class="img-div" style="flex: 0 0 40%; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+    <img src="{% static 'images/undraw_join_niai 1.png' %}" alt=""
+         style="max-width: 85%; height:auto;">
+</div>
   </div>
 
   <!-- Step 2 -->
@@ -233,10 +247,10 @@ rel="stylesheet" href={% static "css/autoFill.css" %}>
 
 </div>
 
-<div id="bottom-connect1" style="display:flex; align-items:center; gap:1rem; align-self:center;justify-content:center; padding-top: 8rem; padding-bottom: 16rem;">
+{% comment %} <div id="bottom-connect1" style="display:flex; align-items:center; gap:1rem; align-self:center;justify-content:center; padding-top: 8rem; padding-bottom: 16rem;">
     <button onclick='window.open("https://www.facebook.com/alcheringaiitg/")' style="display: flex; background-color: #f8f1e7; border: solid #2A6ACB 2px; padding: 0.4rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-fb.png'%}/>  Facebook</button>
     <button onclick='window.open("https://www.instagram.com/alcheringaiitg/")'style="display: flex; background-color: #f8f1e7; border: solid #2A6ACB 2px; padding: 0.5rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-insta.png'%}/>  Instagram</button>
-</div>
+</div> {% endcomment %}
 <div id="bottom-connect2" style="display: none; padding-top: 24rem;"></div>
 
 <script>
@@ -297,6 +311,9 @@ rel="stylesheet" href={% static "css/autoFill.css" %}>
     rjNextButton.addEventListener("click", () => {
         const step1Inputs = rjFormFirst.querySelectorAll("input, select, textarea");
         let step1Valid = true;
+        document.getElementById("stepCircle1").classList.add("completed");
+        document.getElementById("stepCircle2").classList.add("step1");
+        document.getElementById("stepConnector").classList.add("completed");
 
         // Clear previous custom validity messages
         password2.setCustomValidity("");

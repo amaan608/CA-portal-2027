@@ -55,6 +55,21 @@
   /* background-color: #f8f1e7; */
 }
 
+.input_field,
+#form1 input,
+#form1 select {
+  border: none;
+  border-bottom: 1.5px solid #C2CFE0;
+  background-color: transparent;
+  padding: 0.6rem 0.2rem;
+  margin-bottom: 1.5rem;
+  color: #6B7A8F;
+}
+.input_field::placeholder,
+#form1 input::placeholder {
+  color: #90A0B7;
+}
+
 input:focus,
 input.form-control:focus {
   outline: none !important;
@@ -67,6 +82,15 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+}
+
+.rj-form-container,
+.cform {
+  background-color: #FFFBEF;
+}
+
+#form1, #form2 {
+  background-color: #FFFBEF;
 }
 
 .form-wapper h2 {
@@ -99,10 +123,10 @@ body {
 }
 
 .guidelines {
-  border: solid 1px;
-  border-color: #C2CFE0;
-  border-radius: 6px;
-  margin-bottom: 1rem;
+  border: solid 1px #C2CFE0;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  padding: 0.9rem 1.2rem;
 }
 
 .rj-guideline-text {
@@ -125,12 +149,16 @@ body {
 }
 
 .main {
-  position:relative;
+  position: relative;
   display: flex;
-  flex-direction : column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
 }
 
+#form1, #form2 {
+  flex: 1 1 60%;
+}
 
 form {
   width: 60%;
@@ -182,7 +210,7 @@ h8 {
   border-right: none;
   width: 100%;
   margin-bottom: 25px;
-  background-color: #f8f1e7;;
+  background-color: #FFFBEF;;
 }
 
 .input_field:focus {
@@ -289,7 +317,9 @@ h8 {
 }
 
 .step1 {
-  background-color: #b542fb !important;
+  background-color: #FFFBEF !important;
+  color: black;
+  font-family: "Inter";
 }
 
 .connector {
@@ -299,11 +329,11 @@ h8 {
 }
 
 .step.completed {
-  background-color: #b542fb !important;
+  background-color: #FFFBEF !important;
 }
 
 .connector.completed {
-  background-color: #b542fb !important;
+  background-color: #FFFBEF !important;
 }
 
 /* progress bar css end */
