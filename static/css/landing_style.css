@@ -82,105 +82,11 @@
   position: relative;
 } */
 
-nav {
-  position: fixed;
-  display: flex;
-  opacity: 100%;
-  padding: 2% 6%;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  transition: background 0.5s;
-  z-index: 5;
-}
-
 * {
   margin: 0;
   padding: 0;
   font-family: "GeneralSans", sans-serif;
 }
-nav.scrolled {
-  border-bottom: 1px solid #C8C8C8;
-  backdrop-filter: blur(8px);
-  background-color: #F8F1E7;
-  z-index: 100;
-  width: 100%;
-  display: flex;                 /* make nav a flex container */
-  align-items: center;           /* vertically center */
-  justify-content: space-between;/* spread logo and links */
-  padding: 12px 5%;
-  box-sizing: border-box;
-}
-
-nav img {
-  width: 209px;
-  flex-shrink: 0;                /* logo won’t shrink */
-}
-
-.nav-links {
-  flex: 1;
-  display: flex;                 /* make links flex */
-  justify-content: flex-end;     /* push links to the right */
-  align-items: center;
-}
-
-.nav-links ul {
-  display: flex;                 /* align list items in one line */
-  margin: 0;
-  padding: 0;
-  flex-wrap: nowrap;             /* prevent wrapping */
-}
-
-.nav-links ul li {
-  list-style: none;
-  margin: 0 12px;                /* spacing between links */
-  white-space: nowrap;           /* stop text from breaking */
-}
-
-.nav-links ul li a {
-  color: #222121;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.join-now-btn {
-  margin-left: 20px;             /* spacing from nav links */
-  flex-shrink: 0;
-}
-
-#join-button {
-  border: 1px solid #109cf1;
-  box-sizing: border-box;
-  border-radius: 4px;
-  background-color: #ffffff;
-  padding: 7px 0px;
-}
-
-#join-button-text {
-  padding: 10px 25px;
-}
-
-#join-button.scroll {
-  border: 1px solid #ffffff;
-  box-sizing: border-box;
-  border-radius: 4px;
-  background-color: #109cf1;
-}
-
-#join-button a {
-  font-weight: 600;
-  color: #109cf1;
-}
-
-#join-button-text.scroll {
-  color: #ffffff;
-}
-
-#join-button a:hover {
-  color: #334d6e;
-  transition: 0.5s;
-}
-
 .backdrop {
   background-color: blue;
 }
@@ -331,10 +237,6 @@ nav img {
 .box-text div p {
   margin-bottom: 4%;
   color: #707683;
-}
-
-nav .fa {
-  display: none;
 }
 
 #fly {
@@ -601,43 +503,6 @@ nav .fa {
     overflow-x: hidden;
   }
 
-  .nav-links ul li {
-    display: block;
-  }
-
-  .nav-links ul li a:hover {
-    color: #334d6e;
-    transition: 0.5s;
-  }
-
-  #join-button {
-    padding: 7px 8px;
-  }
-
-  .nav-links {
-    position: absolute;
-    background-color: #b542fb;
-    height: 100vh;
-    width: 200px;
-    top: 0;
-    right: -200px;
-    text-align: left;
-    z-index: 101;
-    transition: 0.5s;
-  }
-
-  nav .fa {
-    display: block;
-    margin: 10px;
-    font-size: 22px;
-    cursor: pointer;
-    color: #334d6e;
-  }
-
-  .nav-links ul {
-    padding: 30px;
-  }
-
   .joining {
     text-align: center;
     font-size: 30px;
@@ -808,112 +673,6 @@ ul {
   position: relative;
 } */
 
-nav {
-  position: fixed;
-  display: flex;
-  opacity: 100%;
-  padding: 1% 6%;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  z-index: 5;
-}
-
-nav {
-  backdrop-filter: blur(8px);
-  background-color: rgba(0, 0, 0, 0.2);
-  z-index: 5000;
-}
-
-nav img {
-  width: 209px;
-}
-
-.nav-links {
-  display: flex;
-  justify-content: flex-end;
-
-  text-align: right;
-}
-
-.nav-links ul li {
-  list-style: none;
-  display: inline-block;
-  padding: 8px 28px;
-  position: relative;
-  cursor: pointer;
-}
-
-.nav-links ul li a {
-  color: #121212;
-  text-decoration: none;
-  border-radius: 5px;
-  font-family: GeneralSans;
-}
-
-#navlink5 {
-  color: #222121;
-  text-decoration: none;
-  border-radius: 20px;
-  font-family: GeneralSans;
-}
-
-#navlink5:hover {
-  color: #109cf1;
-  transition: 0.5s;
-}
-
-#navlink1.scroll,
-#navlink2.scroll,
-#navlink3.scroll,
-#navlink4.scroll,
-#navlink5.scroll {
-  color: black;
-}
-
-.nav-links ul li a:hover,
-#navlink1.scroll:hover,
-#navlink2.scroll:hover,
-#navlink3.scroll:hover,
-#navlink4.scroll:hover,
-#navlink5.scroll:hover {
-  color: #fff;
-  transition: 0.5s;
-}
-
-#join-button {
-  border: 1px solid #109cf1;
-  box-sizing: border-box;
-  border-radius: 4px;
-  background-color: #ffffff;
-  padding: 7px 0px;
-}
-
-#join-button-text {
-  padding: 10px 25px;
-}
-
-#join-button.scroll {
-  border: 1px solid #ffffff;
-  box-sizing: border-box;
-  border-radius: 4px;
-  background-color: #109cf1;
-}
-
-#join-button a {
-  font-weight: 600;
-  color: #109cf1;
-}
-
-#join-button-text.scroll {
-  color: #ffffff;
-}
-
-#join-button a:hover {
-  color: #334d6e;
-  transition: 0.5s;
-}
-
 .backdrop {
   background-color: blue;
 }
@@ -945,7 +704,6 @@ nav img {
   padding-bottom: 20px;
 }
 
-.navhero-btn,
 .hero-btn {
 
   border: 1px solid #1460D2;
@@ -1045,10 +803,6 @@ nav img {
 .box-text div p {
   margin-bottom: 4%;
   color: #707683;
-}
-
-nav .fa {
-  display: none;
 }
 
 #fly {
@@ -1198,57 +952,11 @@ opacity: 1;
     position: relative;
   }
 
-  .navhero-btn {
-    border: none;
-    display: inline-block;
-    text-decoration: none;
-    padding: 0;
-    box-sizing: border-box;
-    border-radius: 0;
-    background-color: initial;
-    color: #000000;
-    position: relative;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-
   html,
   body {
     overflow-x: hidden;
   }
 
-  .nav-links ul li {
-    display: block;
-  }
-
-  .nav-links ul li a:hover {
-    color: #334d6e;
-    transition: 0.5s;
-  }
-
-  #join-button {
-    padding: 7px 8px;
-  }
-
-  .nav-links {
-    position: absolute;
-    background-color: #b542fb;
-    height: 100vh;
-    width: 200px;
-    top: 0;
-    right: -200px;
-    text-align: left;
-    z-index: 2;
-    transition: 0.5s;
-  }
-
-  nav .fa {
-    display: block;
-    margin: 10px;
-    font-size: 22px;
-    cursor: pointer;
-    color: #334d6e;
-  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -2169,72 +1877,6 @@ main {
 }
 
 /* Alcher 2026 styles ends */
-@media only screen and (max-width: 1100px) {
-
-  /* Show the hamburger icon */
-  nav .fa-bars {
-    display: block;
-    color: #222121;
-    /* Make it visible */
-    font-size: 22px;
-    cursor: pointer;
-  }
-
-  /* Hide the normal inline links */
-  .nav-links ul {
-    display: none;
-  }
-
-  /* This is your sliding menu container */
-  .nav-links {
-    position: fixed;
-    height: 100vh;
-    width: 200px;
-    top: 0;
-    right: -200px;
-    background: #f8f1e7;
-    z-index: 2000;
-    transition: right 0.5s ease;
-
-    /* --- NEW FLEXBOX RULES --- */
-    display: flex;
-    flex-direction: column;
-    /* Stack items vertically */
-    align-items: flex-start;
-    /* Align items to the left */
-    justify-content: center;
-    /* Center items vertically */
-    padding: 0 20px;
-    /* Add horizontal padding only */
-  }
-
-  /* Inside the slide-out menu, show the links as a vertical list */
-  .nav-links ul {
-    display: block;
-  }
-
-  .nav-links ul li {
-    display: block;
-    /* Each link on its own line */
-    padding: 15px 0;
-  }
-
-  .join-now-btn {
-    display: none;
-  }
-
-  /* Show the close icon (X) inside the menu */
-  .nav-links .fa-times {
-    display: block;
-    color: #222121;
-    font-size: 24px;
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-  }
-}
-
 /* --- Responsive Styles for Mobile --- */
 @media (max-width: 768px) {
 
