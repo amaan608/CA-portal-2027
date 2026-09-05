@@ -194,7 +194,7 @@ rel="stylesheet" href={% static "css/autoFill.css" %}>
 
           <br>
           <button type="button" id="nextBtn1"
-      style="background-color:#FFC548; color:#000; font-weight:600; margin-top:2.5rem; border:none; border-radius:24px; padding:0.6rem 1.8rem;">
+      style="background-color:#FFC548; color:#000; font-weight:600; margin-top:2.5rem; border:none; border-radius:8px; padding:0.6rem 1.8rem;">
       Next  →
 </button>
       </div>
@@ -205,39 +205,45 @@ rel="stylesheet" href={% static "css/autoFill.css" %}>
   </div>
 
   <!-- Step 2 -->
-  <div class="main" id="main2" style="display:none;">
-      <div id="form2" style="overflow-y:scroll; padding:2rem 2rem;">
-          {{ single_user_register_form.graduation_year }}
-          {{ single_user_register_form.college_name }}
+<div class="main" id="main2" style="display:none;">
+    <div id="form2" style="overflow-y:scroll; padding:2rem 2rem;">
+        {{ single_user_register_form.graduation_year }}
+        {{ single_user_register_form.college_name }}
 
-          <div class="rj-StateAndCity">
-              <div style="width:100%; position: relative;">
-                  <input type="text" id="rj-state" name="college_state"
-                         onkeyup="suggestState()" autocomplete="off"
-                         placeholder="College State*" required class="input_field">
-                  <div id="state-suggestions"></div>
-              </div>
-              <div style="width:100%; position: relative;">
-                  <input type="text" id="rj-city" name="college_city"
-                         onkeyup="suggestCity()" autocomplete="off"
-                         placeholder="College City*" required class="input_field">
-                  <div id="city-suggestions"></div>
-              </div>
-          </div>
+        <div class="rj-StateAndCity">
+            <div style="width:100%; position: relative;">
+                <input type="text" id="rj-state" name="college_state"
+                       onkeyup="suggestState()" autocomplete="off"
+                       placeholder="College State*" required class="input_field">
+                <div id="state-suggestions"></div>
+            </div>
+            <div style="width:100%; position: relative;">
+                <input type="text" id="rj-city" name="college_city"
+                       onkeyup="suggestCity()" autocomplete="off"
+                       placeholder="College City*" required class="input_field">
+                <div id="city-suggestions"></div>
+            </div>
+        </div>
 
-          {{ single_user_register_form.referred_by }}
+        {{ single_user_register_form.referred_by }}
 
-          <div style="display:flex; gap:2rem; padding-left: 0rem; margin-top:2rem;">
-              <button type="button" id="backBtn" style="border:none;">
-                  <img style="height:2.5rem; margin-bottom: 3rem;"
-                       src="{% static 'images/backB.png' %}"/>
-              </button>
-              <button onclick="gtag('event', 'click', {'event_category': 'Button','event_label': 'Register Button'});" type="submit" id="submitBtn" class="bg-pur text-white inline-block py-2 px-4 rounded shadow-sm text-base" style="/* background-color: #009E77; *//* border:none; *//* margin-bottom: 3rem; *//* height: 2.5rem; */background-color: #FFC548;color: #000;font-weight: 600;margin-top: 2.5rem;border: none;border-radius: 24px;padding: 0.6rem 1.8rem;">
-                  Submit
-              </button>
-          </div>
-      </div>
-  </div>
+        <div style="display:flex; gap:2rem; padding-left: 0rem; margin-top:2rem;">
+            <button type="button" id="backBtn" style="border:none;">
+                <img style="height:2.5rem; margin-bottom: 3rem;"
+                     src="{% static 'images/backB.png' %}"/>
+            </button>
+            <button onclick="gtag('event', 'click', {'event_category': 'Button','event_label': 'Register Button'});" type="submit" id="submitBtn"
+                class="bg-pur inline-block py-2 px-4 rounded shadow-sm text-base"
+                style="background-color: #FFC727; border:none; margin-bottom: 3rem; height: 2.5rem; color: black;">
+                Submit
+            </button>
+        </div>
+    </div>
+
+    <div class="img-div" style="display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+        <img src="{% static 'images/undraw_join_niai 1.png' %}" alt="">
+    </div>
+</div>
 </form>
 
     
@@ -332,12 +338,13 @@ rel="stylesheet" href={% static "css/autoFill.css" %}>
         }
 
         // Proceed only if everything is valid
-        if (step1Valid) {
-            rjFormFirst.style.display = 'none';
-            rjFormSecond.style.display = 'block';
-            rjBottomConnect1.style.display = 'none';
-            rjBottomConnect2.style.display = 'block';
-        }
+        // AFTER
+if (step1Valid) {
+    rjFormFirst.style.display = 'none';
+    rjFormSecond.style.display = 'flex';
+    rjBottomConnect1.style.display = 'none';
+    rjBottomConnect2.style.display = 'block';
+}
     });
 
 
