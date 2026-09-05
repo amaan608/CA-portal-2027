@@ -80,33 +80,44 @@
     
 {% endif %}
 
-<nav class="navbar navbar-light" style="background-color: #F8F1E7; padding: 3vh 4%; border-bottom: solid #C8C8C8 1px; position: fixed; width:100%; z-index: 1000;">
+<nav class="navbar navbar-light" style="background-color: #FFFBEF; padding: 3vh 4%; border-bottom: solid #C8C8C8 1px; position: fixed; width:100%; z-index: 1000;">
 	<div class="ccontainer-fluid" style="width: 100%; height:100%; padding-left: 2rem;">
 		<a class="cnavbar-brand" href="/">
-			<img src="{% static 'images/Logoblack.svg' %}" alt="">
+			<img src="{% static 'images/logo_black.svg' %}" alt="">
+      {% comment %} <span style="font-size:0.6rem; letter-spacing:1px; color:#4C5862;">CAMPUS AMBASSADOR</span> {% endcomment %}
 		</a>
 	</div>
 </nav>
 
 <div>
-  	<button id="GoBack" style = "justify-content:flex-start; background-color: #f8f1e7; padding: 0.4rem 1rem; margin-top: 6rem; margin-left: 13.5%;"><img src= {%static 'images/backButton.png'%}/></button>
+<button id="GoBack" style="justify-content:flex-start;background-color: #fff;padding: 0.4rem 1rem;margin-top: 6rem;margin-left: 13.5%;background: transparent;border:1.5px solid #fff;color:#fff;border-radius:8px;padding:0.4rem 1.2rem;font-weight:500;">← Back</button>
 </div>
 
 <div class="crow">
 	<div class="ccol form-div">
+		<h2 class="rj-head">Registration</h2>
 		<div class="ccontainer form-wrapper">
-			<h2 style="font-weight: 700; margin-top:2rem;">Registration</h2>
 
-			<br>
+			{% comment %} <br> {% endcomment %}
 
-			<div style="background-color:#009E77; height:6rem; margin:0; padding:1rem; padding-top:1.35rem; border-radius:16px; border-bottom-right-radius:0; border-bottom-left-radius: 0;">
-					<img style="background-color: #009E77; height:4rem;"src={%static 'images/details_ca.png' %}/>
-			</div>
+			<div style="background-color:#FFC548; padding:1.5rem 1rem; border-radius:16px; border-bottom-right-radius:0; border-bottom-left-radius:0;">
+  <div class="progress-bar-container">
+    <div style="text-align:center;">
+      <div class="step step1 completed" id="stepCircle1">1</div>
+      <p style="font-size:0.75rem; margin-top:4px;">Personal details</p>
+    </div>
+    <div class="connector" id="connector1"></div>
+    <div style="text-align:center;">
+      <div class="step" id="stepCircle2">2</div>
+      <p style="font-size:0.75rem; margin-top:4px;">CR Details</p>
+    </div>
+  </div>
+</div>
 
 			<div class="cform">
 				<div class="cform-head my-2 mb-4">
 					<p style="font-size: 1rem; color: #90A0B7">Join as a<span style="color:red">*</span></p>
-					<div class="row1" style="display: flex; justify-content:flex-start; background-color: #f8f1e7; gap:10px;">
+					<div class="row1" style="display: flex; justify-content:flex-start; background-color: #FFFBEF; gap:10px;">
 						<br>
 						<div class="join">
 							<a href="{% url 'register_single' %}" type="button" class="register-top"
@@ -160,7 +171,7 @@
 				</div>
 				<form method="POST" id="group_form">
 					{% csrf_token %}
-					<div class="main" id="main1" style="display:block;">
+					<div class="main" id="main1" style="display:flex;">
 						<div id="form1">
 						
 							<div id="form1" style="overflow-y:scroll; padding:2rem 2rem;">
@@ -206,13 +217,13 @@
 
 								{{ single_user_register_form_1.graduation_year }}
 
-								<!-- <div id="connect-social" style="color: #707683; padding-top:0.6rem;">
-									Connect social media 
+								 <div id="connect-social" style="color: #707683; padding-top:0.6rem;">
+									{% comment %} Connect social media  {% endcomment %}
 									<div class="social-btns" style="gap: 1.5rem; display: flex; margin-top: 0.8rem;">
-										<button style="display: flex; background-color: #f8f1e7; border: solid #2A6ACB 2px; padding: 0.2rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-fb.png'%}/>  Facebook</button>
-										<button style="display: flex; background-color: #f8f1e7; border: solid #2A6ACB 2px; padding: 0.2rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-insta.png'%}/>  Instagram</button>
+										<button style="display: flex; background-color: #FFFBEF; border: solid #2A6ACB 2px; padding: 0.2rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-fb.png'%}/>  Facebook</button>
+										<button style="display: flex; background-color: #FFFBEF; border: solid #2A6ACB 2px; padding: 0.2rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-insta.png'%}/>  Instagram</button>
 									</div>
-								</div> -->
+								</div>
 
 								<br>
 
@@ -224,7 +235,7 @@
 							</div>
 						</div>
 						<div class="img-div" style = "width: 100%;">
-							<img src="{% static 'images/register_group.png' %}" alt="" style="position:absolute; background: none; width: 70%; bottom:30%; left:95%; ">
+							<img src="{% static 'images/undraw_join_niai 1.png' %}" alt="" style="background: none; width: 70%;">
 						</div>
 					</div>	
 
@@ -283,13 +294,13 @@
 								{% endfor %}
 							</ul>       
 
-								<!-- <div id="connect-social" style="color: #707683; padding-top:0.6rem;">
+								<div id="connect-social" style="color: #707683; padding-top:0.6rem;">
 									Connect social media 
 									<div class="social-btns" style="gap: 1.5rem; display: flex; margin-top: 0.8rem;">
-										<button style="display: flex; background-color: #f8f1e7; border: solid #2A6ACB 2px; padding: 0.2rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-fb.png'%}/>  Facebook</button>
-										<button style="display: flex; background-color: #f8f1e7; border: solid #2A6ACB 2px; padding: 0.2rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-insta.png'%}/>  Instagram</button>
+										<button style="display: flex; background-color: #FFFBEF; border: solid #2A6ACB 2px; padding: 0.2rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-fb.png'%}/>  Facebook</button>
+										<button style="display: flex; background-color: #FFFBEF; border: solid #2A6ACB 2px; padding: 0.2rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-insta.png'%}/>  Instagram</button>
 									</div>
-								</div> -->
+								</div>
 								<br>
 								<button type="button" id="nextBtn2"
 									class="bg-pur text-white inline-block py-2 px-4 rounded shadow-sm  text-base"
@@ -300,7 +311,7 @@
 						</div>
 
 						<div class="img-div" style = "width: 100%; height: 135%;">
-							<img src="{% static 'images/register_group.png' %}" alt="" style="position:absolute; background:none; width:70%; bottom:30%; left:95%;">
+							<img src="{% static 'images/register_group.png' %}" alt="" style="background:none; width:70%;">
 						</div>
 
 					</div>
@@ -356,15 +367,11 @@
 										style="background-color: #009E77; border:none; margin-bottom: 3rem; height: 2.5rem;">Submit
 									</button>
 								</div>
-								
-								</div>
 							</div>
 						</div>
 						<!-- <div class="img-div" id="form3-image" style="width: 100%; height: 135%; display:none;">
 							<img src="{% static 'images/register_group.png' %}" alt="" style="position:absolute; background:none; top: 22rem; width:40%; left:55%;">
 						</div> -->
-					</div>
-					</div>
 					<p style="color:green; display:none;" id="showload">Please Wait, don't refresh the page...</p>
 					<br>
 				</form>
@@ -374,8 +381,8 @@
 </div>
 
 <div id="bottom-connect1" style="display:flex; align-items:center; gap:1rem; align-self:center;justify-content:center; padding-top: 8rem; padding-bottom: 16rem;">
-	<button onclick='window.open("https://www.facebook.com/alcheringaiitg/")' style="display: flex; background-color: #f8f1e7; border: solid #2A6ACB 2px; padding: 0.4rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-fb.png'%}/>  Facebook</button>
-	<button onclick='window.open("https://www.instagram.com/alcheringaiitg/")'style="display: flex; background-color: #f8f1e7; border: solid #2A6ACB 2px; padding: 0.5rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-insta.png'%}/>  Instagram</button>
+	<button onclick='window.open("https://www.facebook.com/alcheringaiitg/")' style="display: flex; background-color: #FFFBEF; border: solid #2A6ACB 2px; padding: 0.4rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-fb.png'%}/>  Facebook</button>
+	<button onclick='window.open("https://www.instagram.com/alcheringaiitg/")'style="display: flex; background-color: #FFFBEF; border: solid #2A6ACB 2px; padding: 0.5rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-insta.png'%}/>  Instagram</button>
 </div>
 
 <div id="bottom-connect2" style="display: none; padding-top: 12rem; "></div>
@@ -430,7 +437,7 @@
 
 			// If valid, proceed
 			step1.style.display = "none";
-			step2.style.display = "block";
+			step2.style.display = "flex";
 			bottom1.style.display ="none";
 			bottom2.style.display ="block";
 			bottom3.style.display ="none";
@@ -439,7 +446,7 @@
 		nextButton2.addEventListener("click", function () {
 			if ([...form2.querySelectorAll("input")].every(input => input.reportValidity())) {
             step2.style.display = "none";
-            step3.style.display = "block";
+            step3.style.display = "flex";
 			form3Image.style.display = "block";
 			bottom1.style.display ="none";
 			bottom2.style.display ="none";
@@ -466,7 +473,7 @@
 			step3.style.display = "none";
 			form3Image.style.display = "none";
 			bottom3.style.display = "none";
-            step2.style.display = "block";
+            step2.style.display = "flex";
 			bottom2.style.display = "block";
         });
 		rjKeyIcon.addEventListener("click", () => {

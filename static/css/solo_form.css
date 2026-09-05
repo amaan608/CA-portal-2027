@@ -2,9 +2,10 @@
    background-color: #f8f1e7;
  }
  .rj-body {
-   width: 90%;
+   width: 80%;
    margin: auto;
    margin-top: 100px;
+   padding-bottom: 5vw;
  }
  .rj-form-container {
    background-color: #f8f1e7;

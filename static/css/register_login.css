@@ -1,35 +1,35 @@
 /* Fonts */
 @font-face {
   font-family: "Poppins";
-  src: url(../Fonts/Poppins-Regular.ttf) format("truetype");
+  src: url(../Fonts/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
   font-weight: 400;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
   font-family: "Poppins";
-  src: url(../Fonts/Poppins-Bold.ttf) format("truetype");
+  src: url(../Fonts/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
   font-weight: 600;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
   font-family: "Poppins";
-  src: url(../Fonts/Poppins-Medium.ttf) format("truetype");
+  src: url(../Fonts/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
   font-weight: 500;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
   font-family: "Poppins";
-  src: url(../Fonts/Poppins-SemiBold.ttf) format("truetype");
+  src: url(../Fonts/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
   font-weight: 600;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
   font-family: "Poppins";
-  src: url(../Fonts/Poppins-SemiBold.ttf) format("truetype");
+  src: url(../Fonts/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
   font-weight: 600;
   font-display: swap;
   font-style: normal;
@@ -298,10 +298,10 @@ h8 {
 /* end of pop up css */
 
 #GoBack {
-  color: #b542fb !important;
-  font-size: 28px;
+  /* color: #b542fb !important; */
+  font-size: 24px;
   transform: translateX(-9.8vw);
-  border: none;
+  /* border: none; */
 }
 
 /* progress bar css start */
@@ -350,14 +350,14 @@ h8 {
   border: 0;
   padding: 0 0 0.4vh 0.8vh;
   width: 40vh;
-  background-color: #f8f1e7;;
+  background-color: #FFFBEF;
 }
 
 #city {
   border: 0;
   padding: 0 0 0.4vh 0.8vh;
   width: 40vh;
-  background-color: #f8f1e7;;
+  background-color: #FFFBEF;
 }
 
 .StateAndCity {
@@ -368,13 +368,13 @@ h8 {
   flex-wrap: wrap;
 }
 
-/* .rj-head {
+.rj-head {
   color: #FFFBEF;
   font-family: 'Zolla';
   font-size: 3em;
   font-weight: 400;
-  margin: 1.5rem 0;
-} */
+  margin: 1.5rem 3rem;
+}
 
 @media only screen and (max-width: 800px) {
   .StateAndCity {
@@ -384,5 +384,62 @@ h8 {
 
   #city {
     margin-top: 4vw;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Shared page shell + buttons
+   Pulled out of solo_form.css so any registration page (solo or
+   group) gets the same look just by including register_login.css,
+   without needing to also load solo_form.css.
+   ----------------------------------------------------------------*/
+
+.rj-body {
+  width: 80%;
+  margin: auto;
+  margin-top: 100px;
+  padding-bottom: 5vw;
+}
+
+.rj-btn {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.rj-fbc {
+  padding: 3px 1px;
+  border-radius: 8px;
+  background-color: #f8f1e7;
+  font-size: large;
+  font-weight: 700;
+}
+
+/* Yellow "Next" button used to move between form steps */
+.rj-next-btn {
+  background-color: #FFC548;
+  color: #000;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.8rem;
+}
+
+/* Yellow "Submit" button used on the final step */
+.rj-submit-btn {
+  background-color: #FFC727;
+  border: none;
+  margin-bottom: 3rem;
+  height: 2.5rem;
+  color: #000;
+  border-radius: 4px;
+  padding: 0 1.2rem;
+}
+
+@media screen and (max-width: 600px) {
+  .rj-body {
+    width: 90vw;
   }
 }
