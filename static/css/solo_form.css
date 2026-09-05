@@ -12,8 +12,8 @@
  }
  .cform {
   overflow: hidden;
-  border: solid;
-  border-color: #009E77;
+  border: none;
+  border-color: #009e7700;
   border-radius: 8px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -360,14 +360,14 @@
   border: 0;
   padding: 0 0 0.4vh 0.8vh;
   width: 40vh;
-  background-color: #f8f1e7;;
+  background-color: #FFFBEF;;
 }
 
 #rj-city {
   border: 0;
   padding: 0 0 0.4vh 0.8vh;
   width: 40vh;
-  background-color: #f8f1e7;;
+  background-color: #FFFBEF;
 }
 
 .rj-StateAndCity {

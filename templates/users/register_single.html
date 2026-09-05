@@ -158,11 +158,13 @@ rel="stylesheet" href={% static "css/autoFill.css" %}>
 					</div>
 				</div>
 
-<form method="POST" style="width: 60%;">
+<form method="POST" style="width: 100%;">
   {% csrf_token %}
 
   <!-- Step 1 -->
-  <div class="main" id="main1" style="display:block;">
+  <div class="main" id="main1" style="display:flex;">
+          <!-- Keep image as before -->
+
       <div id="form1" style="overflow-y:scroll; padding:2rem 2rem;">
           <h6 class="my-1" style="padding-bottom:1.2rem; color:#4C5862;">
               Field marked<span style="color:red"> * </span>are mandatory
@@ -197,10 +199,8 @@ rel="stylesheet" href={% static "css/autoFill.css" %}>
 </button>
       </div>
 
-      <!-- Keep image as before -->
-<div class="img-div" style="flex: 0 0 40%; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
-    <img src="{% static 'images/undraw_join_niai 1.png' %}" alt=""
-         style="max-width: 85%; height:auto;">
+<div class="img-div" style="display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+    <img src="{% static 'images/undraw_join_niai 1.png' %}" alt="">
 </div>
   </div>
 
@@ -232,9 +232,7 @@ rel="stylesheet" href={% static "css/autoFill.css" %}>
                   <img style="height:2.5rem; margin-bottom: 3rem;"
                        src="{% static 'images/backB.png' %}"/>
               </button>
-              <button onclick="gtag('event', 'click', {'event_category': 'Button','event_label': 'Register Button'});" type="submit" id="submitBtn"
-                  class="bg-pur text-white inline-block py-2 px-4 rounded shadow-sm text-base"
-                  style="background-color: #009E77; border:none; margin-bottom: 3rem; height: 2.5rem;">
+              <button onclick="gtag('event', 'click', {'event_category': 'Button','event_label': 'Register Button'});" type="submit" id="submitBtn" class="bg-pur text-white inline-block py-2 px-4 rounded shadow-sm text-base" style="/* background-color: #009E77; *//* border:none; *//* margin-bottom: 3rem; *//* height: 2.5rem; */background-color: #FFC548;color: #000;font-weight: 600;margin-top: 2.5rem;border: none;border-radius: 24px;padding: 0.6rem 1.8rem;">
                   Submit
               </button>
           </div>
@@ -346,7 +344,7 @@ rel="stylesheet" href={% static "css/autoFill.css" %}>
 
     rjBackButton.addEventListener("click", () => {
         rjFormSecond.style.display = 'none';
-        rjFormFirst.style.display = 'block';
+        rjFormFirst.style.display = 'flex';
         rjBottomConnect2.style.display = 'none';
         rjBottomConnect1.style.display = 'flex';
     });

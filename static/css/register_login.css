@@ -55,6 +55,7 @@
   /* background-color: #f8f1e7; */
 }
 
+
 .input_field,
 #form1 input,
 #form1 select {
@@ -68,6 +69,10 @@
 .input_field::placeholder,
 #form1 input::placeholder {
   color: #90A0B7;
+}
+
+#form1, #form2 {
+  flex: 1 1 60%;
 }
 
 input:focus,
@@ -91,7 +96,9 @@ body {
 
 #form1, #form2 {
   background-color: #FFFBEF;
+  flex: 1 1 60%;
 }
+
 
 .form-wapper h2 {
   margin: 1rem 0;
@@ -104,7 +111,7 @@ body {
 
 .cform {
   overflow: hidden;
-  border: solid;
+  border: none;
   border-color: #009E77;
   border-radius: 8px;
   border-top-left-radius: 0;
@@ -161,7 +168,7 @@ body {
 }
 
 form {
-  width: 60%;
+  width: 100%;
 }
 
 label.required::after {
@@ -172,21 +179,22 @@ label.required::after {
 #form1 {
   padding: 2rem;
 }
-
 .img-div {
     display: flex;
-    flex-direction: column;
+    flex: 1;
+    flex-direction: row;
     align-items: center;
-    justify-content: flex-start;    
-    min-width: 200px;         
+    justify-content: center;
+    min-width: 0;
+    margin: 0;
 }
 
 .img-div img {
-    display: block;  
-    max-width: 90%;          
+    display: block;
+    max-width: 85%;
     height: auto;
+    margin: 0 auto;
 }
-
 input,
 select {
   margin: 6px 0;
