@@ -8,7 +8,7 @@
 
 <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
 
-<div x-show="dropdownOpen" class="absolute right-4 top-14 bg-white rounded-md shadow-lg overflow-y-scroll max-h-96 z-20 lg:mx-5"
+<div x-show="dropdownOpen" class="absolute right-4 top-14 bg-white rounded-md shadow-lg overflow-y-auto max-h-96 z-20 lg:mx-5"
     style="width:20rem;" id="dropdown" style="display:none;">
     {% for notification in notification_list %}
     {% if notification.type == 'Info' %}

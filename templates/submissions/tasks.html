@@ -1,28 +1,56 @@
 {% extends '../basic.html'%}
 {%block title%}Tasks | Alcheringa {%endblock%}
+
+{% block style %}
+<style>
+  html, body {
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  ::-webkit-scrollbar {
+    display: none;
+    width: 0px;
+    height: 0px;
+    background: transparent;
+  }
+  * {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  *::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+{% endblock %}
+
 {% block body %}
 {% load static %}
-<link rel="stylesheet" href={% static "css/font.css" %}>
-<body>
-    <div class="bg-blue-50 flex gen" style="background-color: #F1EDE8;">
+<link rel="stylesheet" href="{% static 'css/font.css' %}">
+<div class="flex pt-16" style="background-color: #F1EDE8; min-height: 100vh;">
         {% include "../navbar.html" %}
-        <div class="flex">
-            <div class="flex-grow m-3" >
-                <!-- tasks -->
+        
+        <!-- Main Content Layout Container -->
+        <div class="flex-1 flex flex-col lg:flex-row gap-8 px-6 md:px-8 pt-3 md:pt-4 pb-6 md:pb-8 max-w-[1400px] w-full overflow-x-hidden">
+            <!-- Middle Main Column -->
+            <div class="flex-1 space-y-6">
+                <!-- Tasks Section -->
                 {% include "dashboard/components/tasks.html" %}
 
-                {% include "dashboard/components/recent_posts_for_phone.html" %}
-
+                <!-- Mobile Recent Posts (shown only on small screens) -->
+                <div class="block lg:hidden">
+                    {% include "dashboard/components/recent_posts_for_phone.html" %}
+                </div>
             </div>
-            <div class="bg-white w-2/3 max-w-md border-gray-400 rounded ml-4 mt-2 mr-0 hidden lg:block">
-                {% include "dashboard/components/recent_posts_for_pc.html" %}
-            </div>
 
+            <!-- Right Recent Posts Column (With 1px vertical separation line) -->
+            <div class="w-full lg:w-80 xl:w-[360px] flex-shrink-0 lg:border-l border-gray-300 lg:pl-8 hidden lg:block">
+                <div class="sticky top-20">
+                    {% include "dashboard/components/recent_posts_for_pc.html" %}
+                </div>
+            </div>
         </div>
     </div>
-    </div>
-
-</body>
 {%endblock%}
 {% block script %}
 <script>

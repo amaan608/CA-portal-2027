@@ -92,7 +92,17 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
     objects = CustomAccountManager()
     points = models.IntegerField(default=250)
     tasks = models.IntegerField(default=0)
-    
+
+    @property
+    def level_title(self):
+        if self.points >= 500:
+            return "Platinum"
+        elif self.points >= 300:
+            return "Gold"
+        elif self.points >= 150:
+            return "Silver"
+        else:
+            return "Bronze"
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['firstname']
