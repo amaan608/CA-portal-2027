@@ -299,8 +299,8 @@ h8 {
 
 #GoBack {
   /* color: #b542fb !important; */
-  font-size: 24px;
-  transform: translateX(-9.8vw);
+  font-size: 16px;
+  /* transform: translateX(-9.8vw); */
   /* border: none; */
 }
 

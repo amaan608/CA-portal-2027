@@ -19,56 +19,37 @@
 </script>
 
 <style>
+  .navbar{
+    padding: 1vh 27.5vh;
+    background-color: #F8F1E7;
+    padding: 3vh 4%;
+    border-bottom: solid #C8C8C8 1px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0%;
+  }
+  @media screen and (max-width: 600px) {
+    @media (max-width: 768px) {
+        .navbar {
+            padding: 1vh 4.5vh;
+        }
+    }
+}
 @media screen and (max-width: 768px) {
-
     .img-div {
         display: none !important;
     }
-
+    .cform {
+      padding: 1rem 0.8rem;
+    }
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
     form {
         width: 100% !important;
     }
-
-    #form1 {
-        padding: 1rem 0.5rem !important;
-    }
-
-	.cform {
-		padding: 1rem 0.8rem;
-	}
-
-	.GoBack {
-		margin-top: 4rem;
-		margin-left: 1rem !important;
-	}
-	.main {
-        flex-direction: column;
-        align-items: center;}
-
-   .guidelines {
-        padding-left: 0.5rem !important;
-        padding-right: 0.5rem !important;
-		padding-bottom:0.5vh !important;
-        margin: 1rem 0 !important;
-        width: 100% !important;
-        box-sizing: border-box;
-    }
-
-    .guidelines ul {
-        padding-left: 1rem !important;
-		margin-top:0;
-    }
-
-    .guidelines h2,
-    .guidelines h3 {
-        text-align: center;
-        margin-bottom: 1rem;
-    }
-
-    h2 {
-        font-size: 1.25rem !important;
-    }
-
 }
 </style>
 
@@ -89,16 +70,13 @@
 	</div>
 </nav>
 
-<div>
-<button id="GoBack" style="justify-content:flex-start;background-color: #fff;padding: 0.4rem 1rem;margin-top: 6rem;margin-left: 13.5%;background: transparent;border:1.5px solid #fff;color:#fff;border-radius:8px;padding:0.4rem 1.2rem;font-weight:500;">← Back</button>
-</div>
-
-<div class="crow">
-	<div class="ccol form-div">
-		<h2 class="rj-head">Registration</h2>
-		<div class="ccontainer form-wrapper">
-
-			{% comment %} <br> {% endcomment %}
+<div class="rj-body">
+  <div class="rj-btn">
+    <button class="rj-fbc" id="GoBack" style="background:transparent; border:1.5px solid #fff; color:#fff; border-radius:8px; padding:0.4rem 1.2rem; font-weight:500;">
+      ← Back
+    </button>
+  </div>
+  <div class="rj-head" style="color:#FFFBEF; font-size:3rem; font-family:'Zolla'; font-weight:400; margin:1.5rem 0;">Registration</div>
 
 			<div style="background-color:#FFC548; padding:1.5rem 1rem; border-radius:16px; border-bottom-right-radius:0; border-bottom-left-radius:0;">
   <div class="progress-bar-container">
@@ -220,8 +198,8 @@
 								 <div id="connect-social" style="color: #707683; padding-top:0.6rem;">
 									{% comment %} Connect social media  {% endcomment %}
 									<div class="social-btns" style="gap: 1.5rem; display: flex; margin-top: 0.8rem;">
-										<button style="display: flex; background-color: #FFFBEF; border: solid #2A6ACB 2px; padding: 0.2rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-fb.png'%}/>  Facebook</button>
-										<button style="display: flex; background-color: #FFFBEF; border: solid #2A6ACB 2px; padding: 0.2rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-insta.png'%}/>  Instagram</button>
+										<button onclick='window.open("https://www.facebook.com/alcheringaiitg/")' style="display: flex; background-color: #FFFBEF; border: solid #2A6ACB 2px; padding: 0.2rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-fb.png'%}/>  Facebook</button>
+										<button onclick='window.open("https://www.instagram.com/alcheringaiitg/")' style="display: flex; background-color: #FFFBEF; border: solid #2A6ACB 2px; padding: 0.2rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-insta.png'%}/>  Instagram</button>
 									</div>
 								</div>
 
@@ -229,8 +207,8 @@
 
 								<button type="button" id="nextBtn1"
 									class="bg-pur text-white inline-block py-2 px-4 rounded shadow-sm  text-base"
-									style="background-color: #009E77; margin-top:2.5rem; border:none;" />
-									<img style="background-color: #009E77; color:white;" src="{%static 'images/NextBtn.png'%}"/>
+									style="background-color: #FFC727; margin-top:2.5rem; border:none;" />
+									Next →
 								</button>
 							</div>
 						</div>
@@ -304,8 +282,8 @@
 								<br>
 								<button type="button" id="nextBtn2"
 									class="bg-pur text-white inline-block py-2 px-4 rounded shadow-sm  text-base"
-									style="background-color: #009E77; margin-top:2.5rem; border:none;" />
-									<img style="background-color: #009E77; color:white;" src="{%static 'images/NextBtn.png'%}"/> 
+									style="background-color: #FFC727; margin-top:2.5rem; border:none;" />
+									Next →
 								</button>
 							</div>
 						</div>
@@ -364,7 +342,7 @@
 									</button>
 									<button onclick="gtag('event', 'click', {'event_category': 'Button','event_label': 'Register Button'});" type="button" id="submitBtn"
 										class="bg-pur text-white inline-block py-2 px-4 rounded shadow-sm  text-base"
-										style="background-color: #009E77; border:none; margin-bottom: 3rem; height: 2.5rem;">Submit
+										style="background-color: #FFC727; border:none; margin-bottom: 3rem; height: 2.5rem;">Submit
 									</button>
 								</div>
 							</div>
@@ -376,15 +354,15 @@
 					<br>
 				</form>
 			</div>
-		</div>
-	</div>
 </div>
 
-<div id="bottom-connect1" style="display:flex; align-items:center; gap:1rem; align-self:center;justify-content:center; padding-top: 8rem; padding-bottom: 16rem;">
+{% comment %} <div id="bottom-connect1" style="display:flex; align-items:center; gap:1rem; align-self:center;justify-content:center; padding-top: 8rem; padding-bottom: 16rem;">
 	<button onclick='window.open("https://www.facebook.com/alcheringaiitg/")' style="display: flex; background-color: #FFFBEF; border: solid #2A6ACB 2px; padding: 0.4rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-fb.png'%}/>  Facebook</button>
 	<button onclick='window.open("https://www.instagram.com/alcheringaiitg/")'style="display: flex; background-color: #FFFBEF; border: solid #2A6ACB 2px; padding: 0.5rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-insta.png'%}/>  Instagram</button>
-</div>
-
+</div> {% endcomment %}
+<br>
+<br>
+<br>
 <div id="bottom-connect2" style="display: none; padding-top: 12rem; "></div>
 
 <div id="bottom-connect3" style="display: none; padding-top: 24rem;"></div>
