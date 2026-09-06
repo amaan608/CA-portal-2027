@@ -1,7 +1,15 @@
+nav {
+  background: rgb(44, 88, 126) !important;
+  transition: all 0.3s ease;
+}
 
+html,
+body {
+  background-color: rgb(44, 88, 126);
+}
 
 nav.scrolled {
-  position: sticky !important; /* remains visible while the full landing page scrolls */
+  position: sticky !important;
   top: 0 !important;
   left: 0;
   width: 100% !important;
@@ -11,13 +19,17 @@ nav.scrolled {
   justify-content: space-between !important;
   padding: 0 40px !important;
   box-sizing: border-box;
-  background: linear-gradient(180deg, #1d668f 0%, #07557e 100%) !important;
-  border: 1px solid rgba(89, 171, 214, .72) !important;
-  /* border-bottom-color: rgba(255,255,255,.30) !important; */ 
-  background: transparent;
-  backdrop-filter: none !important;
+  
+  /* Pure Image Color Glass: No color tint, just a very faint neutral base to catch light */
+  background:#0103174D !important;
+  backdrop-filter: blur(16px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(120%) !important;
+  
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  
   z-index: 999 !important;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 nav img {
@@ -25,9 +37,9 @@ nav img {
   height: 52px !important;
   object-fit: contain;
   flex-shrink: 0;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
 }
 
-/* Nav links pill — 745 x 60, #00000012 (7% black) */
 .nav-links {
   position: absolute !important;
   top: 13px;
@@ -37,14 +49,23 @@ nav img {
   max-width: none;
   height: 60px !important;
   margin: 0 !important;
-  background: rgba(2, 32, 58, .30) !important;
-  border: 1px solid rgba(194, 227, 245, .48) !important;
   border-radius: 40px !important;
   padding: 0 28px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   box-sizing: border-box;
+  
+  /* Pure transparency: relying completely on the blurred background image */
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+  border-right-color: rgba(255, 255, 255, 0.05) !important;
+  
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3), 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .nav-links ul {
@@ -70,22 +91,22 @@ nav img {
   text-decoration: none;
   font-family: "Inter", sans-serif !important;
   font-weight: 500 !important;
-  font-size: 16px !important; /* Figma inspect: 16px, not 25px */
+  font-size: 16px !important;
   line-height: 100% !important;
   letter-spacing: 0;
   white-space: nowrap;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .nav-links ul li a:hover,
 #navlink5:hover {
   color: #ffffff !important;
-  opacity: 0.7;
+  opacity: 1;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
   transform: none !important;
 }
 
-/* Hide the mobile-only elements on desktop */
 @media (min-width: 1101px) {
   .nav-links .fa-times,
   nav .fa-bars,
@@ -94,9 +115,8 @@ nav img {
   }
 }
 
-/* Join now button — 155 x 60, #0103174D (30% navy), radius 32 */
 .join-now-btn {
-  display: flex !important; /* was `display: none` unconditionally — that was the bug */
+  display: flex !important;
   align-items: center;
   flex-shrink: 0;
 }
@@ -108,27 +128,40 @@ nav img {
   gap: 10px !important;
   height: 60px;
   width: 155px;
-  border: 1px solid rgba(255, 255, 255, 0.25) !important;
   border-radius: 32px !important;
   padding: 12px 32px !important;
-  background: rgba(1, 27, 52, .52) !important;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   box-sizing: border-box;
   color: #ffffff !important;
   font-family: "Inter", sans-serif !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   font-size: 16px !important;
   white-space: nowrap;
   text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  
+  /* Pure neutral transparency */
+  background: #0103174D !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+  border-right-color: rgba(255, 255, 255, 0.05) !important;
+  
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .join-now-btn .navhero-btn:hover {
-  background: rgba(1, 27, 52, .72) !important;
-  transition: background 0.3s ease;
+  background: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4), 0 8px 24px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
 }
 
-/* ---------- Mobile: collapse into the slide-out menu ---------- */
+@media only screen and (max-width: 1200px) {
+  nav.scrolled { padding: 0 28px !important; }
+  .nav-links { width: min(680px, calc(100vw - 280px)); }
+}
+
 @media only screen and (max-width: 1100px) {
   nav.scrolled {
     height: 82px;
@@ -136,16 +169,26 @@ nav img {
     padding: 0 20px !important;
     border-width: 1px !important;
   }
-
-  .join-now-btn {
-    display: none !important; /* shown inside the slide-out .nav-links instead */
+  .nav-links { display: none !important; }
+  nav .fa-bars {
+    display: block !important;
+    color: #ffffff !important;
+    font-size: 30px;
+    cursor: pointer;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
   }
+  .join-now-btn { display: none !important; }
 }
 
-@media only screen and (min-width: 1101px) and (max-width: 1200px) {
-  .nav-links {
-    left: 50%;
-    width: min(745px, calc(100vw - 430px));
-    transform: translateX(-50%);
+@media only screen and (max-width: 560px) {
+  nav.scrolled {
+    height: 70px;
+    min-height: 70px;
+    padding: 0 16px !important;
   }
+  nav img {
+    width: 138px !important;
+    height: 36px !important;
+  }
+  nav .fa-bars { font-size: 26px; }
 }
