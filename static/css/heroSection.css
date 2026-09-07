@@ -1,346 +1,439 @@
+
 @font-face {
-  font-family: "GeneralSans";
-  src: url(../Fonts/GeneralSans-Bold.ttf) format("truetype");
-  font-weight: 700;
-  font-display: swap;
+  font-family: "Zolla";
+  src: url("../Fonts/Zolla.ttf") format("truetype");
+  font-weight: 400 900;
   font-style: normal;
+  font-display: swap;
 }
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Locked brand palette — use only these three colors */
+  --ca-blue: #2a6acb;
+  --ca-cream: #fffbef;
+  --ca-gold: #ffc727;
+
+  /* Neutral helpers derived from the palette above (opacity only, no new hues) */
+  --ca-cream-soft: rgba(255, 251, 239, 0.82);
+  --ca-card-bg: rgba(255, 251, 239, 0.16);
+  --ca-card-border: rgba(255, 251, 239, 0.32);
+  --ca-blue-glass: rgba(42, 106, 203, 0.55);
+
+  /* landing2 crop controls — nudge these if the black edge peeks back in */
+  --landing2-ratio: 21 / 9;
+  --landing2-pos: center;
+}
+
+/* ---------- Layout shell ---------- */
+
+.heroSectionn {
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0a5e8f 0%, #0d5c8b 100%);
+}
+
+.heroSectionn .contHolderBox {
+  position: relative;
+  /* Keep the counters above the aftermovie's black hover arc. */
+  z-index: 3;
+  width: 100%;
+  min-height: 760px;
+  background-image: linear-gradient(180deg, rgba(10, 65, 101, 0.16), rgba(18, 52, 74, 0.08)), url('../images/hero/landing.png') !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  text-align: center !important;
+  padding: 72px 24px 18px;
+  box-sizing: border-box;
+  isolation: isolate;
+  margin-bottom: 0;
+}
+
+/* Real <img>, guaranteed full-bleed cover — no background-size cascade to fight */
+.heroSectionn .contHolderBox img.heroImg {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 30% !important;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Dark gradient over the photo so white text/cards read no matter what
+   part of landing.png is in frame */
+.heroSectionn .contHolderBox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2,35,58,.08), rgba(2,35,58,.22));
+  z-index: 1;
+}
+
+.heroSectionn .contHolderBox::after { display: none; }
+
+.heroSectionn .contHolderBox > *:not(img.heroImg) {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- Headline ---------- */
+
 @font-face {
-  font-family: "GeneralSans";
-  src: url(../Fonts/GeneralSans-Extralight.ttf) format("truetype");
-  font-weight: 200;
-  font-display: swap;
+  font-family: "Zolla";
+  src: url("../Fonts/Zolla.ttf") format("truetype");
+  font-weight: 800;
   font-style: normal;
-}
-@font-face {
-  font-family: "GeneralSans";
-  src: url(../Fonts/GeneralSans-Light.ttf) format("truetype");
-  font-weight: 300;
   font-display: swap;
-  font-style: normal;
 }
-@font-face {
-  font-family: "GeneralSans";
-  src: url(../Fonts/GeneralSans-Regular.ttf) format("truetype");
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal;
+
+.heroSectionn .caTxt {
+  font-family: "Zolla", "Inter", sans-serif !important;
+  font-weight: 800 !important;
+  font-size: clamp(54px, 5.4vw, 108px) !important;
+  line-height: 0.95 !important;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.96) !important;
+  text-align: center !important;
+  width: min(1040px, 92%);
+  max-width: 100%;
+  margin: 0 auto 18px !important;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.13),
+    0 14px 30px rgba(0, 0, 0, 0.2);
 }
-@font-face {
-  font-family: "GeneralSans";
-  src: url(../Fonts/GeneralSans-Medium.ttf) format("truetype");
-  font-weight: 500;
-  font-display: swap;
-  font-style: normal;
+
+.heroSectionn .caPara {
+  font-family: "Inter", sans-serif !important;
+  font-weight: 500 !important;
+  font-style: normal !important;
+  font-size: 16px !important;
+  line-height: 150% !important;
+  letter-spacing: 0 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  text-align: center !important;
+  max-width: 700px;
+  margin: 0 auto 28px !important;
 }
-@font-face {
-  font-family: "GeneralSans";
-  src: url(../Fonts/GeneralSans-Semibold.ttf) format("truetype");
-  font-weight: 600;
-  font-display: swap;
-  font-style: normal;
+
+.heroSectionn .caParaIN {
+  font-family: "Inter", sans-serif !important;
+  font-weight: 700 !important;
+  color: #f6d66b !important;
+  text-shadow: 0 0 10px rgba(246, 214, 107, 0.15);
 }
-@font-face {
-  font-family: "GeneralSans";
-  src: url(../Fonts/GeneralSans-Bold.ttf) format("truetype");
-  font-weight: 700;
-  font-display: swap;
-  font-style: normal;
+
+/* ---------- CTA button ---------- */
+
+.heroSectionn .joinBtn,
+.heroSectionn a.joinBtn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px;
+  font-family: "Zolla", sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 24px !important;
+  color: rgba(255, 255, 255, 0.96) !important;
+  
+  /* 1. Frosted Glass Background & Filter */
+  background-color: #13131326 !important;
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%); /* Safari support */
+  
+  /* 2. Directional Lighting Border */
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+  border-right-color: rgba(255, 255, 255, 0.05) !important;
+  
+  border-radius: 999px !important;
+  padding: 12px 48px !important;
+  min-width: 180px;
+  
+  /* 3. Soft Glass Shadows */
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), 0 4px 12px rgba(0, 0, 0, 0.1);
+  
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-decoration: none !important;
 }
+
+.heroSectionn .joinBtn img {
+  width: 14px;
+  height: 14px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+.heroSectionn .joinBtn:hover,
+.heroSectionn a.joinBtn:hover {
+  /* 1. Brighten the dark glass to simulate light hitting it */
+  background: linear-gradient(135deg, rgba(30, 55, 85, 0.8), rgba(15, 30, 50, 0.6)) !important;
+  
+  /* 2. Tactile lift and scale */
+  transform: translateY(-4px) scale(1.02);
+  
+  /* 3. Catch more light on the top/left edges */
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.15) !important;
+  border-right-color: rgba(255, 255, 255, 0.15) !important;
+  
+  /* 4. Deepen the drop shadow for height, brighten inner reflection, add subtle glow */
+  box-shadow: 
+    inset 0 2px 6px rgba(255, 255, 255, 0.4), 
+    0 24px 48px rgba(0, 0, 0, 0.5),
+    0 0 24px rgba(255, 255, 255, 0.15); /* Soft outer glow */
+    
+  /* 5. Make the text glow slightly */
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+
+
+/* ---------- Stat counters (exact Figma positions, arranged in a curve) ---------- */
+
 .heroSectionn {
   position: relative;
-  min-height: 100vh; /* Use min-height instead of fixed height */
-  width: 100%;
-  background-color: #F8F1E7;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  font-family: "GeneralSans";
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; /* Changed from center to flex-start */
-  padding-top: 80px; /* Add padding to account for sticky navbar */
-  box-sizing: border-box;
 }
 
-/* Spark elements remain the same */
-.spark1 {
+.heroSectionn .counterBox {
   position: absolute;
-  width: 5vw;
-  height: auto; 
-  transform: rotate(-16.95deg); 
-  opacity: 1;
-  top: 7%;
-  left: 18.23%;
-  z-index: 99;
-}
-.spark2 {
-  position: absolute;
-  width: 10vw; 
-  height: auto; 
-  opacity: 1;
-  top: 32%;
-  right: 20.23%;
-  z-index: 99;
-}
-
-.spark3 {
-  position: absolute;
-  width: 8vw; 
-  height: auto; 
-  opacity: 1;
-  top: 18%;
-  left: -3%;
-  z-index: 99;
-}
-
-.spark4 {
-  position: absolute;
-  width: 2vw;
-  height: auto; 
-  opacity: 1;
-  top: 9%;
-  right: 25.23%;
-  z-index: 99;
-}
-
-.contHolderBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 35px; /* Add some spacing */
-  margin-bottom: 30px; /* Add some spacing */
-}
-
-.contHolderBox > p {
-  color: white;
-}
-
-.alcherTxt {
-  color: #2A6ACB !important;
-  font-size: 3.8vmax;
-  font-weight: 700;
-  text-align: center;
-  font-family: GeneralSans;
-  margin-bottom: 10px;
-}
-
-.caTxt {
-  color: #232122 !important;
-  font-size: clamp(2.5rem, 10vw, 5rem);
-  font-weight: 700;
-  text-align: center;
-  font-family: GeneralSans;
-  margin-bottom: 15px;
-}
-
-.caPara {
-  color: #00000099 !important;
-  font-size: 1.2vmax;
-  font-weight: 500;
-  text-align: center;
-  margin-top: 0.3vw;
-  width: 55%;
-  font-family: Poppins;
-  margin-bottom: 30px;
-}
-
-.caParaIN {
-  color: black !important;
-}
-
-.joinBtn {
-  display: flex;
-  gap: 10px;
-  border-radius: 8px;
-  background: #2A6ACB;
-  border: none;
-  cursor: pointer;
-  font-size: clamp(0.8rem, 2.5vw, 1.1rem);
-  padding: 0.5rem 1.25rem;
-  color: #F8F1E7;
-  text-decoration: none;
-  white-space: nowrap;
-  font-family: GeneralSans;
-  margin-bottom: 30px;
-}
-
-.joinBtn img {
-  width: 2em; 
-  height: 2em;
-  vertical-align: middle; 
-  margin-left: 0.4em;
-}
-
-.video-container {
-  width: 95%;
-  max-width: 1289px;
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden; 
-  margin-bottom: 40px; /* Add margin instead of margin-top */
-}
-
-.after-video-button {
-    position: absolute;
-    margin-top: 10px;
-    font-size: 1.5rem;
-    color: #ffffff;
-    text-decoration: none;
-    background-color: transparent;
-    font-weight: 550;
-    border: 2px solid #ffffff;
-    border-radius: 8px;
-    position: absolute;
-  top: 90%; /* Adjust as needed */
-  left: 20%; /* Adjust as needed */
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  padding: 12px 24px; /* Recommended for better spacing */
-  white-space: nowrap; /* Prevents text from breaking into two lines */
-
-  /* --- CHANGE --- */
-  margin-top: 0; /* Remove or set to 0 */
-
-  /* --- Your existing styles below --- */
-  display: inline-block;
-  font-size: 1.5rem;
-  color: #ffffff;
-}
-
-.video-container .youtube {
-  width: 100%;
-  height: 100%;
-  border-radius: 24px;
-  border: 0;
-}
-
-.counterBox {
-  background-color: #222121;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  padding: 40px 0; /* Add padding instead of relying on height */
-  margin-top: auto; /* This will push it to the bottom */
-}
-
-.valBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.valBox > p {
-  overflow: hidden;
-  text-align: center;
+  left: calc(50% - 16px);
+  bottom: -110px; /* Note: Adjust this if the cards overlap content below on mobile */
+  transform: translateX(-50%);
+  width: min(1280px, calc(100% - 40px));
+  min-height: 120px; /* Changed from fixed height */
+  height: auto;      /* Allows container to grow dynamically */
   margin: 0;
+  padding-bottom: 18px;
+  
+  /* Equal tracks keep every card evenly spaced across the row. */
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  column-gap: clamp(24px, 3vw, 52px);
+  
+  transition: all 0.35s ease;
+  z-index: 4;
 }
 
-.num {
-  color: #FFDC91;
-  font-size: 3vmax;
-  font-weight: 700;
-  font-family: GeneralSans;
+.heroSectionn .valBox {
+  position: relative;
+  width: 235.75px;
+  height: 118.64px;
+  
+  /* 1. Neutral Transparent Background */
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+  
+  /* 2. Fine Glass Border Effect (Light hits top/left edges) */
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 18.49px;
+
+  /* 3. Combined Blur & Saturation */
+  -webkit-backdrop-filter: blur(12px) saturate(130%);
+  backdrop-filter: blur(12px) saturate(130%);
+
+  /* Inner edge highlight + soft outer shadow */
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3), 0 8px 24px rgba(0, 0, 0, 0.15);
+
+  padding: 20px 34px;
+  display: flex !important;
+  flex-direction: column !important;
+  transform-origin: center center;
+  z-index: 5;
+  transition: all 0.35s ease;
+  left: auto;
+  top: auto;
+  transform: rotate(0deg);
+  justify-self: center;
 }
 
-.title1 {
-  color: #F8F1E7;
-  font-size: 1.75vmax;
-  font-weight: 700;
-  font-family: GeneralSans;
+
+.heroSectionn .valBox:nth-child(1) { transform: rotate(8.21deg); }
+.heroSectionn .valBox:nth-child(2) { transform: rotate(-6.83deg); }
+.heroSectionn .valBox:nth-child(3) { transform: rotate(6.83deg); }
+.heroSectionn .valBox:nth-child(4) { transform: rotate(-8.21deg); }
+
+
+.heroSectionn .num {
+  font-family:  "Inter", sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 32px !important;
+  color: var(--ca-cream) !important;
+  text-align: center !important;
+  margin: 0 0 4px !important;
 }
 
-/* Mobile styles */
-@media (max-width: 769px) {
-  .heroSectionn {
-    min-height: 100vh;
-    padding-top: 60px; /* Adjust for mobile navbar height */
-    padding-bottom: 20px;
-  }
-
-  .spark1 {
-    top: 8%;
-
-  }
-  .spark2 {
-    top: 32%;
-    right: 20%;
-  }
-  .spark3 {
-    top: 25%;
-  }
-  .spark4 {
-    top: 13%;
-    right:10%;
-    width: 3vw;
-  }
-
-  .caTxt {
-    font-size: 1.7rem;
-  }
-
-  .counterBox {
-    flex-wrap: wrap;
-    row-gap: 20px;
-    padding: 30px 20px;
-  }
-
-  .valBox {
-    flex-basis: 50%;
-  }
-
-  .caPara {
-    width: 85%; /* Make it wider on mobile */
-  }
+.heroSectionn .title1 {
+  font-family:  "Inter", sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 16px !important;
+  color: var(--ca-cream) !important;
+  text-align: center !important;
+  margin: 0 !important;
 }
 
-/* For very short screens (laptops with 16:9) */
-@media (max-height: 700px) {
-  .heroSectionn {
-    padding-top: 60px;
-    padding-bottom: 20px;
+.heroSectionn .joinBtn:hover,
+.heroSectionn a.joinBtn:hover {
+  background: #13131326 !important;
+}
+
+/* ---------- 2nd image seam: thin dome, not a thick block ---------- */
+
+.heroSectionn .aftermovie-preview {
+  position: relative;
+  overflow: visible;
+  margin-top: 0;
+  z-index: 1;
+}
+
+.heroSectionn .aftermovie-preview::before {
+  content: "";
+  position: absolute;
+  top: -46px;         /* was -60px */
+  left: 0;
+  width: 100%;         /* full width again — image itself no longer moves,
+                           so a wide arc is safe and matches Figma */
+  height: 46px;         /* was 160px — thin dome, not a block */
+  background: #000;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  opacity: 0;
+  transform: scaleY(0.3);
+  transform-origin: bottom center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.heroSectionn .aftermovie-preview:hover::before,
+.heroSectionn .aftermovie-preview:focus-within::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.heroSectionn .landing2 {
+  display: block;
+  width: 100% !important;
+  aspect-ratio: 16 / 9;
+  height: auto !important;
+  object-fit: cover !important;
+  object-position: var(--landing2-pos) !important;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  background: #000;
+}
+
+.heroSectionn .aftermovie-preview:hover .valBox,
+.heroSectionn .aftermovie-preview:focus-within .valBox {
+  box-shadow: inset 0 1px 1px rgba(255,255,255,.32), 0 18px 26px rgba(0, 0, 0, 0.28);
+  border-color: rgba(255, 251, 239, 0.5) !important;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .heroSectionn .caTxt {
+    font-size: clamp(50px, 8vw, 70px) !important;
+    line-height: 1.1 !important; /* Prevents tall custom fonts from clipping */
+  }
+
+  .heroSectionn .joinBtn,
+  .heroSectionn a.joinBtn {
+    font-size: 28px !important;
+    padding: 14px 48px !important;
+    min-width: 240px;
+  }
+
+  .heroSectionn .counterBox {
+    bottom: -60px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    padding: 0 20px;
+  }
+
+  .heroSectionn .valBox {
+    transform: none !important; /* Disable the arc on tablets */
   }
   
-  .contHolderBox {
-    margin-bottom: 20px;
-  }
-  
-  .video-container {
-    margin-bottom: 30px;
-  }
-  
-  .alcherTxt {
-    font-size: 3.5vmax; /* Slightly smaller on short screens */
+  .heroSectionn.is-hovered .valBox {
+    transform: none !important; /* Prevent arc snapping on touch/hover */
   }
 }
 
-/* For very tall screens */
-@media (min-height: 900px) {
-  .heroSectionn {
-    justify-content: center; /* Center content on very tall screens */
-    padding-top: 100px;
+@media (max-width: 520px) {
+  .heroSectionn .contHolderBox {
+    min-height: 100svh; /* Allow it to naturally fill the mobile viewport */
+    padding: 110px 20px 60px !important; /* Increased top padding to clear the navbar */
+    justify-content: center !important;
   }
-}
-@media (max-width: 768px) {
-  
-  .after-video-button {
-    /* 1. Change positioning to put it back in the normal flow */
-    position: relative; 
+
+  /* 1. Fix clipped heading text */
+  .heroSectionn .caTxt {
+    font-size: clamp(42px, 12vw, 54px) !important;
+    line-height: 1.15 !important; /* CRITICAL: Fixes the top of 'Ambassador' getting chopped off */
+    width: 100%;
+    margin-bottom: 16px !important;
+  }
+
+  .heroSectionn .caPara {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    max-width: 100%;
+    margin-bottom: 32px !important;
+    padding: 0 10px;
+  }
+
+  /* 2. Scale down the massive register button for mobile */
+  .heroSectionn .joinBtn,
+  .heroSectionn a.joinBtn {
+    font-size: 24px !important;
+    padding: 12px 40px !important;
+    min-width: 200px;
+  }
+
+  /* 3. Fix the floating cards by dropping absolute positioning on mobile */
+  .heroSectionn .counterBox {
+    position: relative !important; 
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100%;
+    height: auto;
+    margin-top: 48px;
+    padding: 0;
     
-    /* 2. Reset the properties used for overlapping */
-    top: auto;
-    left: auto;
-    transform: none;
-    color: black;
-    border-color: black;
-    font-size: 0.7rem;
-    /* 3. Style it for its new position below the video */
-    display: block; /* Makes it take up its own line */
-    width: 90%;     /* Adjust width as needed */
-    margin: 1rem auto 0 auto; /* Adds space on top and centers it */
-    text-align: center;
+    /* Perfect 2x2 Grid */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
+
+  /* 4. Let grid control the card sizing */
+  .heroSectionn .valBox {
+    width: 100% !important; 
+    height: auto !important;
+    aspect-ratio: 4 / 3; /* Keeps them uniformly rectangular */
+    padding: 16px 12px !important;
+    justify-content: center !important;
+    border-radius: 16px !important;
+  }
+
+  .heroSectionn .num {
+    font-size: 26px !important;
+  }
+
+  .heroSectionn .title1 {
+    font-size: 13px !important;
+  }
+}

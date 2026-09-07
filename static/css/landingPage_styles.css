@@ -362,11 +362,13 @@
 }
 
 .section-title {
-    font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
-  text-underline-offset: 6px;
-  margin-bottom: 2px;
+	font-size: 72px;
+	font-weight: 400;
+	color: white;
+	text-align: center;
+	line-height: 66px;
+	font-family: 'Zolla',sans-serif;
+	text-align: center;
 }
 
 .links a{

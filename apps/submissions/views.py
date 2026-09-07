@@ -12,7 +12,7 @@ from django import forms
 from django.conf import settings
 
 from django.db.models import Q
-from dashboard.models import Promotions, ShareablePost
+from dashboard.models import Promotions, ShareablePost, PostUrl
 from users.models import Profile, UserGroup
 from datetime import datetime
 from django.db.models import Exists,OuterRef
@@ -288,8 +288,13 @@ def tasks(request):
         shared_post__id=OuterRef('id'),
         user=request.user,
         ))
-    ).exclude(is_shared=True)
-    promotions = Promotions.objects.all().order_by('-created_on')
+    ).exclude(is_shared=True)[:2]
+    promotions = Promotions.objects.all().order_by('-created_on')[:2]
+
+    for post in post_list:
+        post_url_obj = PostUrl.objects.filter(post=post, user=request.user).first()
+        if post_url_obj:
+            post.url_id = post_url_obj.url_id
     all_quizzes = Quiz.objects.all()
     tbd = []
     completed = []
