@@ -1,37 +1,78 @@
 /* Fonts */
 @font-face {
   font-family: "Poppins";
-  src: url(../Fonts/Poppins-Regular.ttf) format("truetype");
+  src: url(../Fonts/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
   font-weight: 400;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
   font-family: "Poppins";
-  src: url(../Fonts/Poppins-Bold.ttf) format("truetype");
+  src: url(../Fonts/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
   font-weight: 600;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
   font-family: "Poppins";
-  src: url(../Fonts/Poppins-Medium.ttf) format("truetype");
+  src: url(../Fonts/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
   font-weight: 500;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
   font-family: "Poppins";
-  src: url(../Fonts/Poppins-SemiBold.ttf) format("truetype");
+  src: url(../Fonts/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
   font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url(../Fonts/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Zolla";
+  src: url(../Fonts/Zolla.ttf) format("truetype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Inter";
+  src: url(../Fonts/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
+  font-weight: 500;
   font-display: swap;
   font-style: normal;
 }
 
 * {
-  font-family: "Poppins";
+  font-family: "Inter";
   margin: 0%;
-  background-color: #f8f1e7;
+  /* background-color: #f8f1e7; */
+}
+
+
+.input_field,
+#form1 input,
+#form1 select {
+  border: none;
+  border-bottom: 1.5px solid #C2CFE0;
+  background-color: transparent;
+  padding: 0.6rem 0.2rem;
+  margin-bottom: 1.5rem;
+  color: #6B7A8F;
+}
+.input_field::placeholder,
+#form1 input::placeholder {
+  color: #90A0B7;
+}
+
+#form1, #form2 {
+  flex: 1 1 60%;
 }
 
 input:focus,
@@ -41,8 +82,23 @@ input.form-control:focus {
 
 body {
   overflow-x: hidden;
-  background-color: #f8f1e7;
+  /* background-color: #f8f1e7; */
+  background-image: url("../images/bg\ \(1\).png"); /* PLACEHOLDER: sky/clouds image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
+
+.rj-form-container,
+.cform {
+  background-color: #FFFBEF;
+}
+
+#form1, #form2 {
+  background-color: #FFFBEF;
+  flex: 1 1 60%;
+}
+
 
 .form-wapper h2 {
   margin: 1rem 0;
@@ -55,7 +111,7 @@ body {
 
 .cform {
   overflow: hidden;
-  border: solid;
+  border: none;
   border-color: #009E77;
   border-radius: 8px;
   border-top-left-radius: 0;
@@ -74,10 +130,10 @@ body {
 }
 
 .guidelines {
-  border: solid 1px;
-  border-color: #C2CFE0;
-  border-radius: 6px;
-  margin-bottom: 1rem;
+  border: solid 1px #C2CFE0;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  padding: 0.9rem 1.2rem;
 }
 
 .rj-guideline-text {
@@ -100,15 +156,19 @@ body {
 }
 
 .main {
-  position:relative;
+  position: relative;
   display: flex;
-  flex-direction : column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
 }
 
+#form1, #form2 {
+  flex: 1 1 60%;
+}
 
 form {
-  width: 60%;
+  width: 100%;
 }
 
 label.required::after {
@@ -119,21 +179,22 @@ label.required::after {
 #form1 {
   padding: 2rem;
 }
-
 .img-div {
     display: flex;
-    flex-direction: column;
+    flex: 1;
+    flex-direction: row;
     align-items: center;
-    justify-content: flex-start;    
-    min-width: 200px;         
+    justify-content: center;
+    min-width: 0;
+    margin: 0;
 }
 
 .img-div img {
-    display: block;  
-    max-width: 90%;          
+    display: block;
+    max-width: 85%;
     height: auto;
+    margin: 0 auto;
 }
-
 input,
 select {
   margin: 6px 0;
@@ -157,7 +218,7 @@ h8 {
   border-right: none;
   width: 100%;
   margin-bottom: 25px;
-  background-color: #f8f1e7;;
+  background-color: #FFFBEF;;
 }
 
 .input_field:focus {
@@ -237,10 +298,10 @@ h8 {
 /* end of pop up css */
 
 #GoBack {
-  color: #b542fb !important;
-  font-size: 28px;
-  transform: translateX(-9.8vw);
-  border: none;
+  /* color: #b542fb !important; */
+  font-size: 16px;
+  /* transform: translateX(-9.8vw); */
+  /* border: none; */
 }
 
 /* progress bar css start */
@@ -264,7 +325,9 @@ h8 {
 }
 
 .step1 {
-  background-color: #b542fb !important;
+  background-color: #FFFBEF !important;
+  color: black;
+  font-family: "Inter";
 }
 
 .connector {
@@ -274,11 +337,11 @@ h8 {
 }
 
 .step.completed {
-  background-color: #b542fb !important;
+  background-color: #FFFBEF !important;
 }
 
 .connector.completed {
-  background-color: #b542fb !important;
+  background-color: #FFFBEF !important;
 }
 
 /* progress bar css end */
@@ -287,14 +350,14 @@ h8 {
   border: 0;
   padding: 0 0 0.4vh 0.8vh;
   width: 40vh;
-  background-color: #f8f1e7;;
+  background-color: #FFFBEF;
 }
 
 #city {
   border: 0;
   padding: 0 0 0.4vh 0.8vh;
   width: 40vh;
-  background-color: #f8f1e7;;
+  background-color: #FFFBEF;
 }
 
 .StateAndCity {
@@ -305,6 +368,14 @@ h8 {
   flex-wrap: wrap;
 }
 
+.rj-head {
+  color: #FFFBEF;
+  font-family: 'Zolla';
+  font-size: 3em;
+  font-weight: 400;
+  margin: 1.5rem 3rem;
+}
+
 @media only screen and (max-width: 800px) {
   .StateAndCity {
     display: flex;
@@ -313,5 +384,62 @@ h8 {
 
   #city {
     margin-top: 4vw;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Shared page shell + buttons
+   Pulled out of solo_form.css so any registration page (solo or
+   group) gets the same look just by including register_login.css,
+   without needing to also load solo_form.css.
+   ----------------------------------------------------------------*/
+
+.rj-body {
+  width: 80%;
+  margin: auto;
+  margin-top: 100px;
+  padding-bottom: 5vw;
+}
+
+.rj-btn {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.rj-fbc {
+  padding: 3px 1px;
+  border-radius: 8px;
+  background-color: #f8f1e7;
+  font-size: large;
+  font-weight: 700;
+}
+
+/* Yellow "Next" button used to move between form steps */
+.rj-next-btn {
+  background-color: #FFC548;
+  color: #000;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.8rem;
+}
+
+/* Yellow "Submit" button used on the final step */
+.rj-submit-btn {
+  background-color: #FFC727;
+  border: none;
+  margin-bottom: 3rem;
+  height: 2.5rem;
+  color: #000;
+  border-radius: 4px;
+  padding: 0 1.2rem;
+}
+
+@media screen and (max-width: 600px) {
+  .rj-body {
+    width: 90vw;
   }
 }
