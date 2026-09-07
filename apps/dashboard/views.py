@@ -56,8 +56,8 @@ def dashboard(request):
             shared_post__id=OuterRef('id'),
             user=request.user,
             ))
-        ).exclude(is_shared=True)
-        promotions = Promotions.objects.all().order_by('-created_on')
+        ).exclude(is_shared=True)[:2]
+        promotions = Promotions.objects.all().order_by('-created_on')[:2]
         # Leaderboard
 
         for post in post_list:
