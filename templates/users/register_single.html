@@ -35,13 +35,14 @@ rel="stylesheet" href={% static "css/autoFill.css" %}>
 <nav class="navbar navbar-light" style="background-color: #F8F1E7; padding: 3vh 4%; border-bottom: solid #C8C8C8 1px; position: fixed; width:100%; z-index: 1000;">
 	<div class="ccontainer-fluid" style="width: 100%; height:100%; padding-left: 2rem;">
 		<a class="cnavbar-brand" href="/">
-			<img src="{% static 'images/Logoblack.svg' %}" alt="">
+			<img src="{% static 'images/logo_black.svg' %}" alt="">
+      {% comment %} <span style="font-size:0.6rem; letter-spacing:1px; color:#4C5862;">CAMPUS AMBASSADOR</span> {% endcomment %}
 		</a>
 	</div>
 </nav>
 <style>
   body{
-    background-color: #f8f1e7;
+    {% comment %} background-color: #f8f1e7; {% endcomment %}
   }
   .navbar{
     padding: 1vh 27.5vh;
@@ -78,17 +79,34 @@ rel="stylesheet" href={% static "css/autoFill.css" %}>
 </style>
 <div class="rj-body">
   <div class="rj-btn">
-    <button class="rj-fbc"><img src= {%static 'images/backButton.png'%}/></button>
+  <button class="rj-fbc" style="background:transparent; border:1.5px solid #fff; color:#fff; border-radius:8px; padding:0.4rem 1.2rem; font-weight:500;">
+    ← Back
+  </button>
+</div>
+  <div class="rj-head" style="
+    color: #FFFBEF;
+    font-size: 3rem;
+    font-family: &quot;Zolla&quot;;
+    font-weight: 400;
+    margin: 1.5rem 0;
+">Registration</div>
+  <div style="background-color:#FFC727; padding:1.5rem 2rem; border-radius:16px; border-bottom-right-radius:0; border-bottom-left-radius:0;">
+  <div class="progress-bar-container">
+    <div style="text-align:center;">
+      <div class="step step1" id="stepCircle1">1</div>
+      <div style="font-size:0.75rem; font-weight:600; margin-top:4px;">Personal details</div>
+    </div>
+    <div class="connector" id="stepConnector"></div>
+    <div style="text-align:center;">
+      <div class="step" id="stepCircle2">2</div>
+      <div style="font-size:0.75rem; font-weight:600; margin-top:4px;">CA Details</div>
+    </div>
   </div>
-  <div class="rj-head">Registration</div>
-  <div class="rj-form-container">
-    <div style="background-color:#009E77; height:6rem; margin:0; padding:1rem; padding-top:1.35rem; border-radius:16px; border-bottom-right-radius:0; border-bottom-left-radius: 0;">
-				<img style="background-color: #009E77; height:4rem;"src={%static 'images/details_ca.png' %}/>
-		</div>
+</div>
     <div class="cform"  >
       <div class="cform-head my-2 mb-4">
 					<p style="font-size: 1rem; color: #90A0B7">Join as a<span style="color:red">*</span></p>
-					<div class="row1" style="display: flex; justify-content:flex-start; background-color: #f8f1e7; gap:10px;">
+					<div class="row1" style="display: flex; justify-content:flex-start; background-color: #FFFBEF; gap:10px;">
 						<br>
 						<div class="join">
 							<a href="{% url 'register_single' %}" type="button" class="register-top"
@@ -140,11 +158,13 @@ rel="stylesheet" href={% static "css/autoFill.css" %}>
 					</div>
 				</div>
 
-<form method="POST" style="width: 60%;">
+<form method="POST" style="width: 100%;">
   {% csrf_token %}
 
   <!-- Step 1 -->
-  <div class="main" id="main1" style="display:block;">
+  <div class="main" id="main1" style="display:flex;">
+          <!-- Keep image as before -->
+
       <div id="form1" style="overflow-y:scroll; padding:2rem 2rem;">
           <h6 class="my-1" style="padding-bottom:1.2rem; color:#4C5862;">
               Field marked<span style="color:red"> * </span>are mandatory
@@ -174,55 +194,56 @@ rel="stylesheet" href={% static "css/autoFill.css" %}>
 
           <br>
           <button type="button" id="nextBtn1"
-                class="bg-pur text-white inline-block py-2 px-4 rounded shadow-sm text-base"
-                style="background-color: #009E77; margin-top:2.5rem; border:none;">
-                <img style="background-color: #009E77; color:white;" src="{% static 'images/NextBtn.png' %}" />
-          </button>
+      style="background-color:#FFC548; color:#000; font-weight:600; margin-top:2.5rem; border:none; border-radius:8px; padding:0.6rem 1.8rem;">
+      Next  →
+</button>
       </div>
 
-      <!-- Keep image as before -->
-      <div class="img-div" style="width: 100%;">
-          <img src="{% static 'images/register_group.png' %}" alt=""
-               style="position:absolute; background: none; width: 70%; bottom:25%; left:98%;">
-      </div>
+<div class="img-div" style="display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+    <img src="{% static 'images/undraw_join_niai 1.png' %}" alt="">
+</div>
   </div>
 
   <!-- Step 2 -->
-  <div class="main" id="main2" style="display:none;">
-      <div id="form2" style="overflow-y:scroll; padding:2rem 2rem;">
-          {{ single_user_register_form.graduation_year }}
-          {{ single_user_register_form.college_name }}
+<div class="main" id="main2" style="display:none;">
+    <div id="form2" style="overflow-y:scroll; padding:2rem 2rem;">
+        {{ single_user_register_form.graduation_year }}
+        {{ single_user_register_form.college_name }}
 
-          <div class="rj-StateAndCity">
-              <div style="width:100%; position: relative;">
-                  <input type="text" id="rj-state" name="college_state"
-                         onkeyup="suggestState()" autocomplete="off"
-                         placeholder="College State*" required class="input_field">
-                  <div id="state-suggestions"></div>
-              </div>
-              <div style="width:100%; position: relative;">
-                  <input type="text" id="rj-city" name="college_city"
-                         onkeyup="suggestCity()" autocomplete="off"
-                         placeholder="College City*" required class="input_field">
-                  <div id="city-suggestions"></div>
-              </div>
-          </div>
+        <div class="rj-StateAndCity">
+            <div style="width:100%; position: relative;">
+                <input type="text" id="rj-state" name="college_state"
+                       onkeyup="suggestState()" autocomplete="off"
+                       placeholder="College State*" required class="input_field">
+                <div id="state-suggestions"></div>
+            </div>
+            <div style="width:100%; position: relative;">
+                <input type="text" id="rj-city" name="college_city"
+                       onkeyup="suggestCity()" autocomplete="off"
+                       placeholder="College City*" required class="input_field">
+                <div id="city-suggestions"></div>
+            </div>
+        </div>
 
-          {{ single_user_register_form.referred_by }}
+        {{ single_user_register_form.referred_by }}
 
-          <div style="display:flex; gap:2rem; padding-left: 0rem; margin-top:2rem;">
-              <button type="button" id="backBtn" style="border:none;">
-                  <img style="height:2.5rem; margin-bottom: 3rem;"
-                       src="{% static 'images/backB.png' %}"/>
-              </button>
-              <button onclick="gtag('event', 'click', {'event_category': 'Button','event_label': 'Register Button'});" type="submit" id="submitBtn"
-                  class="bg-pur text-white inline-block py-2 px-4 rounded shadow-sm text-base"
-                  style="background-color: #009E77; border:none; margin-bottom: 3rem; height: 2.5rem;">
-                  Submit
-              </button>
-          </div>
-      </div>
-  </div>
+        <div style="display:flex; gap:2rem; padding-left: 0rem; margin-top:2rem;">
+            <button type="button" id="backBtn" style="border:none;">
+                <img style="height:2.5rem; margin-bottom: 3rem;"
+                     src="{% static 'images/backB.png' %}"/>
+            </button>
+            <button onclick="gtag('event', 'click', {'event_category': 'Button','event_label': 'Register Button'});" type="submit" id="submitBtn"
+                class="bg-pur inline-block py-2 px-4 rounded shadow-sm text-base"
+                style="background-color: #FFC727; border:none; margin-bottom: 3rem; height: 2.5rem; color: black;">
+                Submit
+            </button>
+        </div>
+    </div>
+
+    <div class="img-div" style="display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+        <img src="{% static 'images/undraw_join_niai 1.png' %}" alt="">
+    </div>
+</div>
 </form>
 
     
@@ -230,11 +251,20 @@ rel="stylesheet" href={% static "css/autoFill.css" %}>
 
 </div>
 
-<div id="bottom-connect1" style="display:flex; align-items:center; gap:1rem; align-self:center;justify-content:center; padding-top: 8rem; padding-bottom: 16rem;">
+{% comment %} <div id="bottom-connect1" style="display:flex; align-items:center; gap:1rem; align-self:center;justify-content:center; padding-top: 8rem; padding-bottom: 16rem;">
     <button onclick='window.open("https://www.facebook.com/alcheringaiitg/")' style="display: flex; background-color: #f8f1e7; border: solid #2A6ACB 2px; padding: 0.4rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-fb.png'%}/>  Facebook</button>
     <button onclick='window.open("https://www.instagram.com/alcheringaiitg/")'style="display: flex; background-color: #f8f1e7; border: solid #2A6ACB 2px; padding: 0.5rem 0.6rem; border-radius: 6px; align-items: center;"><img style="height:80%; margin-right: 0.4rem;" src={%static 'images/connect-insta.png'%}/>  Instagram</button>
-</div>
+</div> {% endcomment %}
 <div id="bottom-connect2" style="display: none; padding-top: 24rem;"></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -294,6 +324,9 @@ rel="stylesheet" href={% static "css/autoFill.css" %}>
     rjNextButton.addEventListener("click", () => {
         const step1Inputs = rjFormFirst.querySelectorAll("input, select, textarea");
         let step1Valid = true;
+        document.getElementById("stepCircle1").classList.add("completed");
+        document.getElementById("stepCircle2").classList.add("step1");
+        document.getElementById("stepConnector").classList.add("completed");
 
         // Clear previous custom validity messages
         password2.setCustomValidity("");
@@ -314,19 +347,20 @@ rel="stylesheet" href={% static "css/autoFill.css" %}>
         }
 
         // Proceed only if everything is valid
-        if (step1Valid) {
-            rjFormFirst.style.display = 'none';
-            rjFormSecond.style.display = 'block';
-            rjBottomConnect1.style.display = 'none';
-            rjBottomConnect2.style.display = 'block';
-        }
+        // AFTER
+if (step1Valid) {
+    rjFormFirst.style.display = 'none';
+    rjFormSecond.style.display = 'flex';
+    rjBottomConnect1.style.display = 'none';
+    rjBottomConnect2.style.display = 'block';
+}
     });
 
 
 
     rjBackButton.addEventListener("click", () => {
         rjFormSecond.style.display = 'none';
-        rjFormFirst.style.display = 'block';
+        rjFormFirst.style.display = 'flex';
         rjBottomConnect2.style.display = 'none';
         rjBottomConnect1.style.display = 'flex';
     });
