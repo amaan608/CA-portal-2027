@@ -6,45 +6,83 @@
   <div class="contHolderBox" style="background-image: url('{% static 'images/hero/landing.png' %}');">
     <p class="caTxt">Campus Ambassador</p>
     <p class="caPara">
-      With the vision to bring out the essential Leadership traits in you,<br>
+      With the vision to bring out the essential Leadership traits in you,
       <span class="caParaIN">Alcheringa IIT Guwahati</span> presents the Campus Ambassador Program.
     </p>
 
-    <a href="{% url 'register_single' %}" class="joinBtn navhero-btn">Register</a>
+    <a href="{% url 'register_single' %}" class="joinBtn navhero-btn">Join Us</a>
 
-    <div class="counterBox">
-      <div class="valBox">
-        <p class="num" data-target="500" data-suffix="+">0+</p>
-        <p class="title1">Colleges</p>
-      </div>
-      <div class="valBox">
-        <p class="num" data-target="100" data-suffix="+">0+</p>
-        <p class="title1">Events</p>
-      </div>
-      <div class="valBox">
-        <p class="num" data-target="200" data-suffix="k+">0k+</p>
-        <p class="title1">Footfall</p>
-      </div>
-      <div class="valBox">
-        <p class="num" data-target="45" data-suffix="+">0+</p>
-        <p class="title1">Competitions</p>
-      </div>
+  <div class="counterBox">
+    <div class="valBox">
+      <p class="num" data-target="500" data-suffix="+">0+</p>
+      <p class="title1">Colleges</p>
     </div>
+    <div class="valBox">
+      <p class="num" data-target="100" data-suffix="+">0+</p>
+      <p class="title1">Events</p>
+    </div>
+    <div class="valBox">
+      <p class="num" data-target="200" data-suffix="k+">0k+</p>
+      <p class="title1">Footfall</p>
+    </div>
+    <div class="valBox">
+      <p class="num" data-target="45" data-suffix="+">0+</p>
+      <p class="title1">Competitions</p>
+    </div>
+  </div>
+
+    <!-- ^ counterBox now properly closed here -->
+
   </div>
   <!-- ^ contHolderBox now properly closed here -->
 
-  <div class="aftermovie-preview">
-    <img class="landing2" src="{% static 'images/hero/LandingPage.png' %}" alt="Alcheringa event">
-  </div>
-  <!-- landing2 and the stat cards are grouped together so hover on the image triggers the arc -->
+  <img class="landing2" src="{% static 'images/hero/landing2.png' %}" alt="Alcheringa event">
+  <!-- landing2 is now a sibling of contHolderBox, its own full-width section -->
 
 </div>
 
-<script src="{% static 'js/heroPage.js' %}"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const counterElements = document.querySelectorAll(".num");
 
-<!--
-.heroSectionn .valBox:nth-child(1) { transform: rotate(8.21deg); }
-.heroSectionn .valBox:nth-child(2) { transform: rotate(-6.83deg); }
-.heroSectionn .valBox:nth-child(3) { transform: rotate(6.83deg); }
-.heroSectionn .valBox:nth-child(4) { transform: rotate(-8.21deg); }
--->
+  const animateCount = (element) => {
+    const target = parseFloat(element.getAttribute("data-target"));
+    const suffix = element.getAttribute("data-suffix") || "";
+    const duration = 1000; // Total animation time in milliseconds
+    const frameRate = 16; // Roughly 60fps
+    const totalFrames = Math.round(duration / frameRate);
+    const increment = target / totalFrames;
+
+    let currentCount = 0;
+
+    const updateCounter = () => {
+      currentCount += increment;
+
+      if (currentCount < target) {
+        // Use Math.ceil to avoid decimals during the count
+        element.innerText = Math.ceil(currentCount) + suffix;
+        requestAnimationFrame(updateCounter);
+      } else {
+        // Ensure the final number exactly matches the target
+        element.innerText = target + suffix;
+      }
+    };
+
+    updateCounter();
+  };
+
+  // Intersection Observer to trigger animation when in view
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCount(entry.target);
+        obs.unobserve(entry.target); // Stop observing once animated
+      }
+    });
+  }, { threshold: 0.5 }); // Triggers when 50% of the element is visible
+
+  counterElements.forEach(counter => {
+    observer.observe(counter);
+  });
+});
+</script>
