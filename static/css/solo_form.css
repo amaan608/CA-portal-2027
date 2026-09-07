@@ -2,9 +2,10 @@
    background-color: #f8f1e7;
  }
  .rj-body {
-   width: 90%;
+   width: 80%;
    margin: auto;
    margin-top: 100px;
+   padding-bottom: 5vw;
  }
  .rj-form-container {
    background-color: #f8f1e7;
@@ -12,8 +13,8 @@
  }
  .cform {
   overflow: hidden;
-  border: solid;
-  border-color: #009E77;
+  border: none;
+  border-color: #009e7700;
   border-radius: 8px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -281,10 +282,13 @@
    margin-top: 30px;
  }
  .rj-head {
-   font-size: 2rem;
-   margin-top: 2rem;
-   font-weight: 700;
-   margin-bottom: 2rem;
+      font-size: 3rem;
+    margin-top: 2rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    color: #FFFBEF;
+    font-family: 'Zolla';
+
  }
  .rj-btn {
    display: flex;
@@ -357,14 +361,14 @@
   border: 0;
   padding: 0 0 0.4vh 0.8vh;
   width: 40vh;
-  background-color: #f8f1e7;;
+  background-color: #FFFBEF;;
 }
 
 #rj-city {
   border: 0;
   padding: 0 0 0.4vh 0.8vh;
   width: 40vh;
-  background-color: #f8f1e7;;
+  background-color: #FFFBEF;
 }
 
 .rj-StateAndCity {
