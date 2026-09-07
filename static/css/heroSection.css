@@ -1,4 +1,12 @@
 
+@font-face {
+  font-family: "Zolla";
+  src: url("../Fonts/Zolla.ttf") format("truetype");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 html, body {
   margin: 0;
@@ -27,25 +35,28 @@ html, body {
 .heroSectionn {
   width: 100%;
   overflow: hidden;
-  background: #075a87;
+  background: linear-gradient(180deg, #0a5e8f 0%, #0d5c8b 100%);
 }
 
 .heroSectionn .contHolderBox {
   position: relative;
+  /* Keep the counters above the aftermovie's black hover arc. */
+  z-index: 3;
   width: 100%;
-  min-height: 740px;
-  background-image: url('../images/hero/landing.png') !important;
+  min-height: 760px;
+  background-image: linear-gradient(180deg, rgba(10, 65, 101, 0.16), rgba(18, 52, 74, 0.08)), url('../images/hero/landing.png') !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   background-position: center center !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
-  justify-content: center !important;
+  justify-content: flex-start !important;
   text-align: center !important;
-  padding: 110px 24px 70px;
+  padding: 72px 24px 18px;
   box-sizing: border-box;
-  isolation: isolate; /* keeps overlay + cards stacking predictable */
+  isolation: isolate;
+  margin-bottom: 0;
 }
 
 /* Real <img>, guaranteed full-bleed cover — no background-size cascade to fight */
@@ -79,37 +90,48 @@ html, body {
 
 /* ---------- Headline ---------- */
 
+@font-face {
+  font-family: "Zolla";
+  src: url("../Fonts/Zolla.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 .heroSectionn .caTxt {
-  font-family: "zolla", "Inter", sans-serif !important;
-  font-weight: 400 !important;
-  font-size: 72px !important;
-  line-height: 100% !important;
+  font-family: "Zolla", "Inter", sans-serif !important;
+  font-weight: 800 !important;
+  font-size: clamp(54px, 5.4vw, 108px) !important;
+  line-height: 0.95 !important;
   letter-spacing: 0.5px;
-  color: var(--ca-cream) !important;
+  color: rgba(255, 255, 255, 0.96) !important;
   text-align: center !important;
-  width: 800px;
+  width: min(1040px, 92%);
   max-width: 100%;
-  margin: 0 auto 24px !important; /* more breathing room before the paragraph */
+  margin: 0 auto 18px !important;
   text-shadow:
-    0 2px 0 rgba(0, 0, 0, 0.15),
-    0 12px 28px rgba(0, 0, 0, 0.35);
+    0 1px 0 rgba(255, 255, 255, 0.13),
+    0 14px 30px rgba(0, 0, 0, 0.2);
 }
 
 .heroSectionn .caPara {
   font-family: "Inter", sans-serif !important;
-  font-weight: 400 !important;
-  font-size: 16px !important; /* Inter body size */
-  line-height: 1.5 !important;
-  color: var(--ca-cream-soft) !important;
+  font-weight: 500 !important;
+  font-style: normal !important;
+  font-size: 16px !important;
+  line-height: 150% !important;
+  letter-spacing: 0 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
   text-align: center !important;
-  max-width: 520px;
-  margin: 0 auto 32px !important;
+  max-width: 700px;
+  margin: 0 auto 28px !important;
 }
 
 .heroSectionn .caParaIN {
   font-family: "Inter", sans-serif !important;
   font-weight: 700 !important;
-  color: var(--ca-gold) !important;
+  color: #f6d66b !important;
+  text-shadow: 0 0 10px rgba(246, 214, 107, 0.15);
 }
 
 /* ---------- CTA button ---------- */
@@ -120,92 +142,184 @@ html, body {
   align-items: center !important;
   justify-content: center !important;
   gap: 10px;
-  font-family: "Inter", sans-serif !important;
-  font-weight: 600 !important;
-  font-size: 24px !important; /* Inter secondary size */
-  color: var(--ca-cream) !important;
-  background: rgba(255, 255, 255, 0.08) !important;
+  font-family: "Zolla", sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 24px !important;
+  color: rgba(255, 255, 255, 0.96) !important;
+  
+  /* 1. Frosted Glass Background & Filter */
+  background-color: #13131326 !important;
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%); /* Safari support */
+  
+  /* 2. Directional Lighting Border */
   border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+  border-right-color: rgba(255, 255, 255, 0.05) !important;
+  
   border-radius: 999px !important;
-  padding: 14px 44px !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  transition: transform 0.2s ease, background 0.2s ease;
+  padding: 12px 48px !important;
+  min-width: 180px;
+  
+  /* 3. Soft Glass Shadows */
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), 0 4px 12px rgba(0, 0, 0, 0.1);
+  
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   text-decoration: none !important;
 }
 
 .heroSectionn .joinBtn img {
   width: 14px;
   height: 14px;
-  filter: brightness(0) invert(1); /* keep arrow icon cream on blue */
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+.heroSectionn .joinBtn:hover,
+.heroSectionn a.joinBtn:hover {
+  /* 1. Brighten the dark glass to simulate light hitting it */
+  background: linear-gradient(135deg, rgba(30, 55, 85, 0.8), rgba(15, 30, 50, 0.6)) !important;
+  
+  /* 2. Tactile lift and scale */
+  transform: translateY(-4px) scale(1.02);
+  
+  /* 3. Catch more light on the top/left edges */
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.15) !important;
+  border-right-color: rgba(255, 255, 255, 0.15) !important;
+  
+  /* 4. Deepen the drop shadow for height, brighten inner reflection, add subtle glow */
+  box-shadow: 
+    inset 0 2px 6px rgba(255, 255, 255, 0.4), 
+    0 24px 48px rgba(0, 0, 0, 0.5),
+    0 0 24px rgba(255, 255, 255, 0.15); /* Soft outer glow */
+    
+  /* 5. Make the text glow slightly */
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
 }
 
-.heroSectionn .joinBtn:hover {
-  background: var(--ca-blue-glass) !important;
-  transform: translateY(-2px);
-}
 
-/* ---------- Stat counters ---------- */
+
+/* ---------- Stat counters (exact Figma positions, arranged in a curve) ---------- */
+
+.heroSectionn {
+  position: relative;
+}
 
 .heroSectionn .counterBox {
-  display: flex !important;
-  width: 1290.53px;
-  height: 151.08px;
-  gap: 48px;
-  margin-top: 64px !important;
-  flex-wrap: wrap;
-  justify-content: space-between !important;
-  max-width: calc(100% - 40px);
+  position: absolute;
+  left: calc(50% - 16px);
+  bottom: -110px; /* Note: Adjust this if the cards overlap content below on mobile */
+  transform: translateX(-50%);
+  width: min(1280px, calc(100% - 40px));
+  min-height: 120px; /* Changed from fixed height */
+  height: auto;      /* Allows container to grow dynamically */
+  margin: 0;
+  padding-bottom: 18px;
+  
+  /* Equal tracks keep every card evenly spaced across the row. */
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  column-gap: clamp(24px, 3vw, 52px);
+  
+  transition: all 0.35s ease;
+  z-index: 4;
 }
 
 .heroSectionn .valBox {
-  font-family: "Inter", sans-serif;
+  position: relative;
   width: 235.75px;
   height: 118.64px;
-  background: rgba(255, 255, 255, 0.08) !important;
-  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  
+  /* 1. Neutral Transparent Background */
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+  
+  /* 2. Fine Glass Border Effect (Light hits top/left edges) */
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 18.49px;
+
+  /* 3. Combined Blur & Saturation */
+  -webkit-backdrop-filter: blur(12px) saturate(130%);
+  backdrop-filter: blur(12px) saturate(130%);
+
+  /* Inner edge highlight + soft outer shadow */
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3), 0 8px 24px rgba(0, 0, 0, 0.15);
+
   padding: 20px 34px;
-  min-width: 150px;
   display: flex !important;
   flex-direction: column !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: inset 0 1px 1px rgba(255,255,255,.28), 0 8px 24px rgba(0, 0, 0, 0.25);
-  transform: rotate(-8.21deg);
+  transform-origin: center center;
+  z-index: 5;
+  transition: all 0.35s ease;
+  left: auto;
+  top: auto;
+  transform: rotate(0deg);
+  justify-self: center;
 }
-.heroSectionn .valBox:nth-child(4) { transform: rotate(-8.21deg); }
-.heroSectionn .valBox:nth-child(1) { transform: rotate(6.83deg); }
-.heroSectionn .valBox:nth-child(3) { transform: rotate(6.83deg); }
-.heroSectionn .valBox:nth-child(2) { transform: rotate(-8.21deg); }
 
-.heroSectionn .valBox .num,
-.heroSectionn .valBox .title1 {
-  transform: skewX(8deg);
-  white-space: nowrap;
-}
+
+.heroSectionn .valBox:nth-child(1) { transform: rotate(8.21deg); }
+.heroSectionn .valBox:nth-child(2) { transform: rotate(-6.83deg); }
+.heroSectionn .valBox:nth-child(3) { transform: rotate(6.83deg); }
+.heroSectionn .valBox:nth-child(4) { transform: rotate(-8.21deg); }
+
 
 .heroSectionn .num {
-  font-family: "Zolla", "Inter", sans-serif !important;
+  font-family:  "Inter", sans-serif !important;
   font-weight: 800 !important;
-  font-size: 32px !important; /* Zolla stat size */
-  color: var(--ca-cream) !important; /* confirmed white/cream in the Figma frame, not gold */
+  font-size: 32px !important;
+  color: var(--ca-cream) !important;
   text-align: center !important;
   margin: 0 0 4px !important;
 }
 
 .heroSectionn .title1 {
-  font-family: "Inter", sans-serif !important;
-  font-weight: 400 !important;
-  font-size: 16px !important; /* Inter body size */
+  font-family:  "Inter", sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 16px !important;
   color: var(--ca-cream) !important;
   text-align: center !important;
   margin: 0 !important;
 }
 
-
 .heroSectionn .joinBtn:hover,
 .heroSectionn a.joinBtn:hover {
   background: #13131326 !important;
+}
+
+/* ---------- 2nd image seam: thin dome, not a thick block ---------- */
+
+.heroSectionn .aftermovie-preview {
+  position: relative;
+  overflow: visible;
+  margin-top: 0;
+  z-index: 1;
+}
+
+.heroSectionn .aftermovie-preview::before {
+  content: "";
+  position: absolute;
+  top: -46px;         /* was -60px */
+  left: 0;
+  width: 100%;         /* full width again — image itself no longer moves,
+                           so a wide arc is safe and matches Figma */
+  height: 46px;         /* was 160px — thin dome, not a block */
+  background: #000;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  opacity: 0;
+  transform: scaleY(0.3);
+  transform-origin: bottom center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.heroSectionn .aftermovie-preview:hover::before,
+.heroSectionn .aftermovie-preview:focus-within::before {
+  opacity: 1;
+  transform: scaleY(1);
 }
 
 .heroSectionn .landing2 {
@@ -216,86 +330,110 @@ html, body {
   object-fit: cover !important;
   object-position: var(--landing2-pos) !important;
   margin: 0;
+  position: relative;
+  z-index: 1;
   background: #000;
 }
 
-/* ---------- Responsive ---------- */
+.heroSectionn .aftermovie-preview:hover .valBox,
+.heroSectionn .aftermovie-preview:focus-within .valBox {
+  box-shadow: inset 0 1px 1px rgba(255,255,255,.32), 0 18px 26px rgba(0, 0, 0, 0.28);
+  border-color: rgba(255, 251, 239, 0.5) !important;
+}
 
+/* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .heroSectionn .caTxt {
-    font-size: 40px !important;
+    font-size: clamp(50px, 8vw, 70px) !important;
+    line-height: 1.1 !important; /* Prevents tall custom fonts from clipping */
   }
 
-  .heroSectionn .caPara {
-    font-size: 11px !important;
-  }
-
-  .heroSectionn .joinBtn {
-    padding: 10px 24px !important;
-    font-size: 16px !important;
-  }
-
-  .heroSectionn .contHolderBox {
-    min-height: 620px;
-    padding: 65px 20px 48px;
+  .heroSectionn .joinBtn,
+  .heroSectionn a.joinBtn {
+    font-size: 28px !important;
+    padding: 14px 48px !important;
+    min-width: 240px;
   }
 
   .heroSectionn .counterBox {
-    gap: 14px;
+    bottom: -60px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    padding: 0 20px;
   }
 
   .heroSectionn .valBox {
-    padding: 16px 22px;
-    min-width: 120px;
-    transform: none;
+    transform: none !important; /* Disable the arc on tablets */
   }
-
-  .heroSectionn .valBox .num,
-  .heroSectionn .valBox .title1 {
-    transform: none;
-  }
-
-  .heroSectionn .num {
-    font-size: 22px !important;
-  }
-
-  .heroSectionn .landing2 {
-    aspect-ratio: 16 / 9;
+  
+  .heroSectionn.is-hovered .valBox {
+    transform: none !important; /* Prevent arc snapping on touch/hover */
   }
 }
 
 @media (max-width: 520px) {
+  .heroSectionn .contHolderBox {
+    min-height: 100svh; /* Allow it to naturally fill the mobile viewport */
+    padding: 110px 20px 60px !important; /* Increased top padding to clear the navbar */
+    justify-content: center !important;
+  }
+
+  /* 1. Fix clipped heading text */
   .heroSectionn .caTxt {
-    font-size: 32px !important; /* Zolla mobile size */
+    font-size: clamp(42px, 12vw, 54px) !important;
+    line-height: 1.15 !important; /* CRITICAL: Fixes the top of 'Ambassador' getting chopped off */
+    width: 100%;
+    margin-bottom: 16px !important;
   }
 
   .heroSectionn .caPara {
-    font-size: 16px !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    max-width: 100%;
+    margin-bottom: 32px !important;
+    padding: 0 10px;
   }
 
-  .heroSectionn .joinBtn {
-    padding: 12px 32px !important;
-    font-size: 16px !important;
+  /* 2. Scale down the massive register button for mobile */
+  .heroSectionn .joinBtn,
+  .heroSectionn a.joinBtn {
+    font-size: 24px !important;
+    padding: 12px 40px !important;
+    min-width: 200px;
   }
 
+  /* 3. Fix the floating cards by dropping absolute positioning on mobile */
   .heroSectionn .counterBox {
-    gap: 10px;
+    position: relative !important; 
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100%;
+    height: auto;
+    margin-top: 48px;
+    padding: 0;
+    
+    /* Perfect 2x2 Grid */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 
+  /* 4. Let grid control the card sizing */
   .heroSectionn .valBox {
-    padding: 14px 16px;
-    min-width: calc(50% - 10px);
+    width: 100% !important; 
+    height: auto !important;
+    aspect-ratio: 4 / 3; /* Keeps them uniformly rectangular */
+    padding: 16px 12px !important;
+    justify-content: center !important;
+    border-radius: 16px !important;
   }
 
   .heroSectionn .num {
-    font-size: 24px !important; /* Zolla stat size, mobile */
+    font-size: 26px !important;
   }
 
   .heroSectionn .title1 {
-    font-size: 16px !important;
-  }
-
-  .heroSectionn .landing2 {
-    aspect-ratio: 4 / 3;
+    font-size: 13px !important;
   }
 }
