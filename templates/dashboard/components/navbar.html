@@ -1,0 +1,27 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
+<nav style="width:100%;" class="scrolled">
+  <a href="/"><img src="{% static 'images/Logo31.png' %}" alt="Logo" /></a>
+  <div class="nav-links" id="navLinks">
+    <ul>
+      <li><a href="#about" id="navlink1">About</a></li>
+      <li><a href="#responsibility" id="navlink3">Responsibilities</a></li>
+      <li><a href="#faq1" id="navlink4">FAQs</a></li>
+      <li><a href="#testimonials_" id="navlink2">Testimonials</a></li>
+      <li><a id="navlink5">Login</a></li>
+    </ul>
+    <div class="join-now-btn mobile-join-now"><a href="{% url 'register_single' %}" class="navhero-btn">Join Now</a></div>
+  </div>
+
+  <button class="navbar-menu-close" type="button" aria-label="Close menu" onclick="hideMenu()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+  <div class="join-now-btn desktop-join-now"><a href="{% url 'register_single' %}" class="navhero-btn">Join Now</a></div>
+
+  <button class="navbar-menu-toggle" type="button" aria-label="Open menu" onclick="showMenu()">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+  </button>
+</nav>
