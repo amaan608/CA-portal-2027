@@ -7,19 +7,19 @@
     width: 100%;
     background-color: transparent !important;
     border: none !important;
-    border-bottom: 1.5px solid #4a5568 !important;
+    border-bottom: 1.5px solid #64748B !important;
     border-radius: 0 !important;
-    padding: 0.25rem 0 !important;
-    font-size: 1.125rem !important;
+    padding: 0.35rem 0 !important;
+    font-size: 1.05rem !important;
     font-weight: 600 !important;
-    color: #1a202c !important;
+    color: #0F172A !important;
     outline: none !important;
     box-shadow: none !important;
     resize: none !important;
     overflow: hidden !important;
   }
   .underlined-input:focus {
-    border-bottom-color: #000000 !important;
+    border-bottom-color: #0F172A !important;
     box-shadow: none !important;
   }
   .underlined-input:disabled, .underlined-input[readonly] {
@@ -27,15 +27,15 @@
     cursor: default;
   }
   .field-label {
-    font-size: 0.875rem;
-    color: #718096;
+    font-size: 0.825rem;
+    color: #64748B;
     font-weight: 500;
     margin-bottom: 0.25rem;
     display: block;
   }
 </style>
 
-<div class="w-full">
+<div class="w-full bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
   <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
 
@@ -45,20 +45,20 @@
     </div>
 
     <!-- Top Section: Avatar + Personal Details -->
-    <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16 mb-12">
+    <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-14 mb-12">
       <!-- Profile Picture Column -->
       <div class="relative flex-shrink-0">
-        <div class="w-48 h-48 md:w-52 md:h-52 rounded-full overflow-hidden">
+        <div class="w-44 h-44 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-white shadow-md">
           <img src="{{ request.user.img.url }}" alt="Profile Picture" class="w-full h-full object-cover" id="dp-set">
         </div>
-        <button type="button" onclick="dpupload()" class="absolute bottom-2 right-2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition-all cursor-pointer" title="Change Profile Picture">
-          <i class="fas fa-pencil-alt text-base" style="color: #009E77;"></i>
+        <button type="button" onclick="dpupload()" class="absolute bottom-2 right-2 w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-md border border-gray-200 hover:bg-gray-50 transition-all cursor-pointer" title="Change Profile Picture">
+          <i class="fas fa-pencil-alt text-sm text-gray-800"></i>
         </button>
       </div>
 
       <!-- Personal Details Column -->
       <div class="flex-1 w-full">
-        <h2 class="text-xl font-bold text-gray-900 mb-6" style="font-family: General Sans, sans-serif;">Personal Details</h2>
+        <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-6" style="font-family: General Sans, sans-serif;">Personal Details</h2>
 
         <div class="space-y-5">
           <!-- Full Name -->
@@ -84,7 +84,7 @@
 
     <!-- Bottom Section: College Details -->
     <div class="mt-8">
-      <h2 class="text-xl font-bold text-gray-900 mb-6" style="font-family: General Sans, sans-serif;">College Details</h2>
+      <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-6" style="font-family: General Sans, sans-serif;">College Details</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
         <!-- Row 1 -->
@@ -161,7 +161,7 @@
 
     <!-- Update Button -->
     <div class="mt-8">
-      <button type="submit" style="background-color: #009E77;" class="hover:opacity-90 text-white px-6 py-2.5 rounded-md font-semibold text-sm transition-opacity cursor-pointer shadow-md">
+      <button type="submit" style="background-color: #1F77D0;" class="hover:opacity-90 text-white px-8 py-3 rounded-xl font-semibold text-sm transition-opacity cursor-pointer shadow-md">
         Update
       </button>
     </div>

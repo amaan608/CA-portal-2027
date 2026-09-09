@@ -1,157 +1,86 @@
+{% extends '../basic.html'%}
+{% load static %}
 
-{% extends '../basic.html'%}{% load static %}
+{%block title%}Submissions | Alcheringa{%endblock%}
 
-{%block title%}Submissions | Alcheringa {%endblock%}
 {% block style %}
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  .subbody {
-    min-height: 600px;
-    display: flex;
-    font-family: 'Poppins', 'Serif';
-  }
-
-  a {
-    text-decoration: none;
-    color: unset;
-  }
-
-  .container {
-    height: 600px;
-    background-color: transparent;
-    background-color: rgba(0, 128, 128, 0.1);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 10px;
-  }
-
-  .submit-type {
-    height: 580px;
-    width: 32%;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    padding: 10px;
-
-  }
-
-  .submit-type-content {
-    text-align: center;
-    width: 60%;
-    height: 100%;
-    margin: auto;
-  }
-
-  .submit-type-content .image {
-    display: flex;
-    height: 44%;
-    align-items: center;
-  }
-
-  .submit-type-content img {
-    width: 100%;
-  }
-
-  .submit-type-content .about {
-    height: 20%;
-    color: #4c5682;
-    font-size: 0.9rem;
-  }
-
-  .submit-type-content .button {
-    background-color: #109CF1;
-    width: 90%;
-    margin: auto;
-    padding: 5px 20px;
-    margin-top: 10px;
-    color: #fff;
-    font-size: 0.7rem;
-    border-radius: 2px;
-    box-shadow: rgba(99, 99, 99, 0.5) 2px 2px 8px 0px;
-  }
-
-  @media only screen and (max-width: 600px) {
-    .container {
-      flex-direction: column;
-      width: 100%;
-      height: 100%;
-    }
-
-    .submit-type {
-      width: 98%;
-      margin: auto;
-      margin-bottom: 10px;
-    }
-
-    .submit-type-content {
-      width: 95%;
-    }
-
-    .submit-type-content img {
-      width: 70%;
-      margin: auto;
-    }
-
-    .submit-type-content .about {
-      font-size: 0.7rem;
-    }
-
-  }
-</style>
+<link rel="stylesheet" href="{% static 'css/font.css' %}">
 {% endblock %}
+
 {% block body %}
-  <div class="subbody">
-    <div class="container">
-      <div class="submit-type">
-        <h3>Submit POC</h3>
-        <div class="submit-type-content">
-          <div class="image"><img src="{% static 'images/poc_submissions.svg' %}"></div>
-          <div class="about"> Submit single or multiple points of contact for is to get in touch with. </div>
-          <div class="buttons">
-            <a style="margin-left: 20px" href="{% url 'poc-create' %}">
-              <div class="button"> Submit Single POC </div>
-            </a>
-            <a style="margin-left: 20px" href="{% url 'poc-csv-create' %}">
-              <div class="button"> Submit Multiple POCs </div>
-            </a>
+<div class="flex pt-16 portal-bg" style="background: #5797CE url('{% static "images/bg (1).png" %}') no-repeat center center / cover fixed; min-height: 100vh;">
+  {% include "navbar.html" %}
+
+  <div class="flex-1 p-6 md:p-10 max-w-7xl w-full">
+    <div class="mb-8">
+      <h1 class="text-2xl md:text-3xl font-bold text-white mb-2" style="font-family: General Sans, sans-serif;">Submissions</h1>
+      <p class="text-white/90 text-sm">Choose a submission category below to get started.</p>
+    </div>
+
+    <!-- 3 Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+      
+      <!-- Card 1: Submit POC -->
+      <div class="bg-white rounded-3xl p-8 shadow-xl flex flex-col justify-between items-center text-center border border-gray-100 hover:shadow-2xl transition-all">
+        <div class="w-full flex flex-col items-center">
+          <h2 class="text-xl font-bold text-gray-900 mb-2" style="font-family: General Sans, sans-serif;">Submit POC</h2>
+          <div class="w-44 h-44 my-4 flex items-center justify-center">
+            <img src="{% static 'images/poc_submissions.svg' %}" alt="Submit POC" class="w-full h-full object-contain">
           </div>
+          <p class="text-sm text-gray-600 mb-6 leading-relaxed">
+            Submit single or multiple points of contact for us to get in touch with.
+          </p>
+        </div>
+
+        <div class="w-full space-y-3 mt-auto">
+          <a href="{% url 'poc-create' %}" class="w-full bg-[#1F77D0] hover:bg-[#1560AA] text-white font-semibold py-3 px-4 rounded-xl text-sm transition-all shadow-md block text-center">
+            Submit Single POC
+          </a>
+          <a href="{% url 'poc-csv-create' %}" class="w-full bg-[#FFC548] hover:opacity-90 text-gray-900 font-bold py-3 px-4 rounded-xl text-sm transition-all shadow-md block text-center">
+            Submit Multiple POCs
+          </a>
         </div>
       </div>
 
-      <div class="submit-type">
-        <h3>Submit Idea</h3>
-        <div class="submit-type-content">
-          <div class="image"><img src="{% static 'images/idea_submissions.svg' %}"></div>
-          <div class="about"> Tell us your ideas on how we can make Alcheringa bigger and better than ever! </div>
-          <div class="buttons">
-            <a style="margin-left: 20px" href="{% url 'idea-create' %}">
-              <div class="button"> Submit Idea </div>
-            </a>
+      <!-- Card 2: Submit Idea -->
+      <div class="bg-white rounded-3xl p-8 shadow-xl flex flex-col justify-between items-center text-center border border-gray-100 hover:shadow-2xl transition-all">
+        <div class="w-full flex flex-col items-center">
+          <h2 class="text-xl font-bold text-gray-900 mb-2" style="font-family: General Sans, sans-serif;">Submit Idea</h2>
+          <div class="w-44 h-44 my-4 flex items-center justify-center">
+            <img src="{% static 'images/idea_submissions.svg' %}" alt="Submit Idea" class="w-full h-full object-contain">
           </div>
+          <p class="text-sm text-gray-600 mb-6 leading-relaxed">
+            Tell us your ideas on how we can make Alcheringa bigger and better than ever!
+          </p>
+        </div>
+
+        <div class="w-full mt-auto">
+          <a href="{% url 'idea-create' %}" class="w-full bg-[#1F77D0] hover:bg-[#1560AA] text-white font-semibold py-3 px-4 rounded-xl text-sm transition-all shadow-md block text-center">
+            Submit Idea
+          </a>
         </div>
       </div>
 
-      <div class="submit-type">
-        <h3>Team Registration</h3>
-        <div class="submit-type-content">
-          <div class="image"><img src="{% static 'images/team_registration_submissions.svg' %}"></div>
-          <div class="about"> Tell us your ideas on how we can make Alcheringa bigger and better than ever! </div>
-          <div class="buttons">
-            <br>
-              <div class="button" style = "background-color: #8ad2ff;cursor: not-allowed;"> Register Team </div>
-            
+      <!-- Card 3: Team Registration -->
+      <div class="bg-white rounded-3xl p-8 shadow-xl flex flex-col justify-between items-center text-center border border-gray-100 opacity-90">
+        <div class="w-full flex flex-col items-center">
+          <h2 class="text-xl font-bold text-gray-900 mb-2" style="font-family: General Sans, sans-serif;">Team Registration</h2>
+          <div class="w-44 h-44 my-4 flex items-center justify-center">
+            <img src="{% static 'images/team_registration_submissions.svg' %}" alt="Team Registration" class="w-full h-full object-contain">
           </div>
+          <p class="text-sm text-gray-600 mb-6 leading-relaxed">
+            Register as a team of two to represent your campus together for Alcheringa.
+          </p>
+        </div>
+
+        <div class="w-full mt-auto">
+          <button disabled class="w-full bg-gray-200 text-gray-500 font-semibold py-3 px-4 rounded-xl text-sm cursor-not-allowed">
+            Register Team
+          </button>
         </div>
       </div>
 
     </div>
   </div>
+</div>
 {% endblock %}

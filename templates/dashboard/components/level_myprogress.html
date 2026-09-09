@@ -43,29 +43,31 @@
     <h3 class="text-base font-bold text-gray-900 mb-2" style="font-family: General Sans, sans-serif;">Progress</h3>
     <div class="h-px bg-gray-300 w-full mb-6"></div>
 
-    <div class="grid grid-cols-2 gap-4 h-full items-center">
+    <div class="grid grid-cols-2 gap-8 h-full items-center py-2">
       <!-- Tasks completed -->
-      <div class="flex flex-col items-center text-center">
-        <div class="relative w-28 h-28 flex items-center justify-center mb-2">
-          <canvas id="tasks-completed-pie" class="w-full h-full"></canvas>
-          <div class="absolute inset-0 flex items-center justify-center text-center pointer-events-none">
-            <span class="text-xl md:text-2xl font-extrabold text-gray-900" id="tasks-completed-value">0</span>
-          </div>
+      <div class="flex flex-col items-center text-center w-full px-2">
+        <div class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3" id="tasks-completed-value">0</div>
+        
+        <!-- Linear Line Progress Bar -->
+        <div class="w-full bg-blue-100 h-2.5 rounded-full mb-4 overflow-hidden" style="background-color: #BFDBFE;">
+          <div id="tasks-progress-bar" class="h-full rounded-full transition-all duration-500" style="width: 35%; background-color: #1F77D0;"></div>
         </div>
-        <div class="font-bold text-xs text-gray-900" style="font-family: General Sans, sans-serif;">Tasks completed</div>
-        <div class="text-[11px] text-gray-500 mt-0.5"><span id="task-points"></span></div>
+
+        <div class="font-bold text-xs text-gray-900" style="font-family: General Sans, sans-serif;">Task completed</div>
+        <div class="text-[11px] text-gray-500 mt-0.5"><span id="task-points">0 points earned</span></div>
       </div>
 
       <!-- Referrals -->
-      <div class="flex flex-col items-center text-center">
-        <div class="relative w-28 h-28 flex items-center justify-center mb-2">
-          <canvas id="referrals-pie" class="w-full h-full"></canvas>
-          <div class="absolute inset-0 flex items-center justify-center text-center pointer-events-none">
-            <span class="text-xl md:text-2xl font-extrabold text-gray-900" id="referrals-value">0</span>
-          </div>
+      <div class="flex flex-col items-center text-center w-full px-2">
+        <div class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3" id="referrals-value">0</div>
+        
+        <!-- Linear Line Progress Bar -->
+        <div class="w-full bg-blue-100 h-2.5 rounded-full mb-4 overflow-hidden" style="background-color: #BFDBFE;">
+          <div id="referrals-progress-bar" class="h-full rounded-full transition-all duration-500" style="width: 25%; background-color: #1F77D0;"></div>
         </div>
+
         <div class="font-bold text-xs text-gray-900" style="font-family: General Sans, sans-serif;">Referrals</div>
-        <div class="text-[11px] text-gray-500 mt-0.5"><span id="referral-points"></span></div>
+        <div class="text-[11px] text-gray-500 mt-0.5"><span id="referral-points">0 points earned</span></div>
       </div>
     </div>
   </div>

@@ -56,7 +56,7 @@
 {% endblock %}
 
 {% block body %}
-<div class="flex pt-16" style="background-color: #F1EDE8; min-height: 100vh;">
+<div class="flex pt-16 portal-bg" style="background: #5797CE url('{% static "images/bg (1).png" %}') no-repeat center center / cover fixed; min-height: 100vh;">
   {% include "navbar.html" %}
 
   <!-- Main Content Area: Middle Guidelines + Right Quick Access Panel -->
@@ -66,184 +66,195 @@
     <div class="flex-1 space-y-6">
       
       <!-- Registration Section Card -->
-      <div id="registration" class="bg-[#F8F8F6] rounded-2xl p-6 border border-gray-300 shadow-sm scroll-mt-20" style="background-color: #F8F8F6;">
-        <h2 class="text-xl font-bold text-gray-900 mb-3" style="font-family: General Sans, sans-serif;">Registration</h2>
-        <div class="h-px bg-gray-300 w-full mb-6"></div>
+      <div id="registration" class="bg-white rounded-2xl md:rounded-3xl border-2 border-[#1F77D0] overflow-hidden shadow-md scroll-mt-20">
+        <div class="bg-[#1F77D0] px-6 py-3.5 text-white font-bold text-lg" style="font-family: General Sans, sans-serif;">Registration</div>
+        <div class="p-6 md:p-8 space-y-6">
 
-        <!-- Solo Box -->
-        <div id="solo" class="bg-[#F8F8F6] rounded-xl p-5 border border-gray-300 mb-6 scroll-mt-24" style="background-color: #F8F8F6;">
-          <h3 class="text-base font-bold text-gray-900 mb-3">Solo</h3>
-          <ol class="list-decimal list-outside ml-5 space-y-2.5 text-sm text-gray-700 leading-relaxed">
-            <li>Following the usual method to complete registration, fill up all the details from your name to modules.</li>
-            <li>Text fields marked with a red asterisk mark (*) makes them mandatory to fill.</li>
-            <li>Fill up the Position of Responsibility (POR) field with your role in your organisation or university. For instance:
-              <ul class="list-none ml-4 mt-1.5 space-y-1 text-gray-600">
-                <li>4. Student</li>
-                <li>5. Secretary of the Music/Arts... Club</li>
-                <li>6. Fill up the role you serve in your respective college</li>
-              </ul>
-            </li>
-            <li>Fill up the interested module(s) field with the performing - arts, practices, activities that interest you. For instance, Music, Dance, Photography, sports etc.</li>
-            <li>Give a pat to yourself; you are just a click away from being a CA of Alcheringa. Click the submit button and finish the email-based verification to dive into the Dashboard.</li>
-            <li>Welcome to Alcheringa.</li>
-          </ol>
-        </div>
+          <!-- Solo Box -->
+          <div id="solo" class="bg-[#F8F9FA] rounded-xl p-5 border border-gray-200 scroll-mt-24">
+            <h3 class="text-base font-bold text-gray-900 mb-3">Solo</h3>
+            <ol class="list-decimal list-outside ml-5 space-y-2.5 text-sm text-gray-700 leading-relaxed">
+              <li>Following the usual method to complete registration, fill up all the details from your name to modules.</li>
+              <li>Text fields marked with a red asterisk mark (*) makes them mandatory to fill.</li>
+              <li>Fill up the Position of Responsibility (POR) field with your role in your organisation or university. For instance:
+                <ul class="list-none ml-4 mt-1.5 space-y-1 text-gray-600">
+                  <li>4. Student</li>
+                  <li>5. Secretary of the Music/Arts... Club</li>
+                  <li>6. Fill up the role you serve in your respective college</li>
+                </ul>
+              </li>
+              <li>Fill up the interested module(s) field with the performing - arts, practices, activities that interest you. For instance, Music, Dance, Photography, sports etc.</li>
+              <li>Give a pat to yourself; you are just a click away from being a CA of Alcheringa. Click the submit button and finish the email-based verification to dive into the Dashboard.</li>
+              <li>Welcome to Alcheringa.</li>
+            </ol>
+          </div>
 
-        <!-- Team Box -->
-        <div id="team" class="bg-[#F8F8F6] rounded-xl p-5 border border-gray-300 scroll-mt-24" style="background-color: #F8F8F6;">
-          <h3 class="text-base font-bold text-gray-900 mb-3">Team</h3>
-          <ol class="list-decimal list-outside ml-5 space-y-2.5 text-sm text-gray-700 leading-relaxed">
-            <li>For the first time in Alcheringa, we bring you the ease of showing as a Team of two for the Campus Ambassador programme.</li>
-            <li>Terms and conditions to show as a team:</li>
-            <li>The team should consist of a Leader and executive.</li>
-            <li>There must be a minimum gap of one academic year between the lead and executive, making the leader by minimum a one year senior to the executive in respective fields.</li>
-            <li>Fill out CA’sAlcheringa’sAlcheringa’sAlcheringa’sdetails, from your name to password, as part of the process to complete registration.</li>
-            <li>Text fields marked with a red asterisk mark (*) makes them mandatory to fill.</li>
-            <li>Fill up the Position of Responsibility (POR) field with your role in your organisation or university. For instance:
-              <ul class="list-none ml-4 mt-1.5 space-y-1 text-gray-600">
-                <li>8. Student</li>
-                <li>9. Secretary of the Music/Arts... Club</li>
-                <li>10. Fill up the role you serve.</li>
-              </ul>
-            </li>
-          </ol>
+          <!-- Team Box -->
+          <div id="team" class="bg-[#F8F9FA] rounded-xl p-5 border border-gray-200 scroll-mt-24">
+            <h3 class="text-base font-bold text-gray-900 mb-3">Team</h3>
+            <ol class="list-decimal list-outside ml-5 space-y-2.5 text-sm text-gray-700 leading-relaxed">
+              <li>For the first time in Alcheringa, we bring you the ease of showing as a Team of two for the Campus Ambassador programme.</li>
+              <li>Terms and conditions to show as a team:</li>
+              <li>The team should consist of a Leader and executive.</li>
+              <li>There must be a minimum gap of one academic year between the lead and executive, making the leader by minimum a one year senior to the executive in respective fields.</li>
+              <li>Fill out CA’sAlcheringa’sAlcheringa’sAlcheringa’sdetails, from your name to password, as part of the process to complete registration.</li>
+              <li>Text fields marked with a red asterisk mark (*) makes them mandatory to fill.</li>
+              <li>Fill up the Position of Responsibility (POR) field with your role in your organisation or university. For instance:
+                <ul class="list-none ml-4 mt-1.5 space-y-1 text-gray-600">
+                  <li>8. Student</li>
+                  <li>9. Secretary of the Music/Arts... Club</li>
+                  <li>10. Fill up the role you serve.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
         </div>
       </div>
 
       <!-- How can a CA earn points? Section Card -->
-      <div id="earn-points" class="bg-[#F8F8F6] rounded-2xl p-6 border border-gray-300 shadow-sm scroll-mt-20" style="background-color: #F8F8F6;">
-        <h2 class="text-xl font-bold text-gray-900 mb-3" style="font-family: General Sans, sans-serif;">How can a CA earn points?</h2>
-        <div class="h-px bg-gray-300 w-full mb-6"></div>
-        <ol class="list-decimal list-outside ml-5 space-y-2.5 text-sm text-gray-700 leading-relaxed">
-          <li><strong>Tasks</strong> - Completing the tasks as shown in the Dashboard will earn points.</li>
-          <li><strong>Referrals</strong> - Invite your mates to be part of making Alcheringa bigger than ever by just sharing your referral.</li>
-          <li><strong>Joining Bonus</strong> - Complete your registration to earn the joining bonus.</li>
-          <li><strong>Submitting POC’s.</strong></li>
-          <li><strong>Event Registration.</strong></li>
-          <li><strong>City Eliminations.</strong></li>
-          <li><strong>College Branding and Presentations.</strong></li>
-        </ol>
-      </div>
-
-      <!-- Connecting with us Section Card -->
-      <div id="connecting" class="bg-[#F8F8F6] rounded-2xl p-6 border border-gray-300 shadow-sm scroll-mt-20" style="background-color: #F8F8F6;">
-        <h2 class="text-xl font-bold text-gray-900 mb-3" style="font-family: General Sans, sans-serif;">Connecting with us</h2>
-        <div class="h-px bg-gray-300 w-full mb-4"></div>
-        <p class="text-sm text-gray-700 leading-relaxed">
-          To get credited with your engagement with our recent feed from Alcheringa’s official handles, like, follow, connect and subscribe to Alcher’s Facebook, Instagram, Twitter, LinkedIn and YouTube. Go to the profile section and connect with us.
-        </p>
-      </div>
-
-      <!-- Level Section Card -->
-      <div id="level" class="bg-[#F8F8F6] rounded-2xl p-6 border border-gray-300 shadow-sm scroll-mt-20" style="background-color: #F8F8F6;">
-        <h2 class="text-xl font-bold text-gray-900 mb-3" style="font-family: General Sans, sans-serif;">Level</h2>
-        <div class="h-px bg-gray-300 w-full mb-4"></div>
-        <p class="text-sm text-gray-700 mb-3">The more you put your efforts to better your level, the cultural festival to appreciate your effort.</p>
-        <ul class="list-disc list-outside ml-5 space-y-2 text-sm text-gray-700 leading-relaxed">
-          <li>Grab the chance to win a cash price of 75K for the top performers of Platinum and Gold Levels.</li>
-          <li>Different levels of Certificates from Alcheringa commemorating your efforts.</li>
-          <li>Access to Alcher’s premium content for top levels.</li>
-          <li>Depending on the level, get a call from us to be a part of Alcher’s execution team.</li>
-        </ul>
-      </div>
-
-      <!-- Social Media Engagement Section Card -->
-      <div id="social-media" class="bg-[#F8F8F6] rounded-2xl p-6 border border-gray-300 shadow-sm scroll-mt-20" style="background-color: #F8F8F6;">
-        <h2 class="text-xl font-bold text-gray-900 mb-3" style="font-family: General Sans, sans-serif;">Social Media Engagement</h2>
-        <div class="h-px bg-gray-300 w-full mb-4"></div>
-        <ul class="list-disc list-outside ml-5 space-y-2 text-sm text-gray-700 leading-relaxed">
-          <li>Like, comment, save and share the recent feed from Alcheringa's official handles to earn points.</li>
-          <li>Like, comment, save, share are known as engagement.</li>
-          <li>Ensure your connection with Alcheringa's official social media handles before engaging with the recent feed.</li>
-          <li>All the recent feeds of Alcheringa will be present to the right of the Dashboard page.</li>
-          <li>Engaging with the feed whose timer reached 00:00 will not reward you any points.</li>
-          <li>A Campus Ambassador must engage with the social media posts only from official handles of Alcheringa to get rewarded with points.</li>
-        </ul>
-      </div>
-
-      <!-- Submitting a POC Section Card -->
-      <div id="submitting-poc" class="bg-[#F8F8F6] rounded-2xl p-6 border border-gray-300 shadow-sm scroll-mt-20" style="background-color: #F8F8F6;">
-        <h2 class="text-xl font-bold text-gray-900 mb-3" style="font-family: General Sans, sans-serif;">Submitting a POC</h2>
-        <div class="h-px bg-gray-300 w-full mb-4"></div>
-        <ul class="list-disc list-outside ml-5 space-y-2 text-sm text-gray-700 leading-relaxed mb-6">
-          <li>POC (Point Of Contact) - A person who acts on behalf of an organisation's club, society or team.</li>
-          <li>Make Alcher bigger than ever by helping us reach out to the clubs and societies of those schools, colleges, universities, and performing art studios.</li>
-          <li>Submit the point of contact in submission, and Team Alcheringa will be reaching out to them.</li>
-          <li>The scoring criteria for submitting a POC depends on the colleges, clubs, societies you made Alcher reach.</li>
-          <li>Team Alcheringa will reward you with points for submitting a POC after confirming their genuineness and notify you.</li>
-        </ul>
-
-        <!-- Data Responsibility Memo Sub-card -->
-        <div id="data-memo" class="bg-[#F8F8F6] rounded-xl p-5 border border-gray-300 scroll-mt-24" style="background-color: #F8F8F6;">
-          <h3 class="text-base font-bold text-gray-900 mb-3">Data Responsibility Memo</h3>
-          <ol class="list-decimal list-outside ml-5 space-y-2 text-sm text-gray-700 leading-relaxed">
-            <li><strong>Use of the information provided by you:</strong> We only use the information you give to identify individuals, reach them, and keep them updated about Alcheringa through their mail and contact number. We do not share your information with any third parties.</li>
-            <li><strong>Sharing of the information provided by you:</strong> We will not, in any circumstances, share the information you give with other individuals or organizations, including public organizations, corporations or individuals. We do not sell, communicate or divulge your information to any mailing lists.</li>
-            <li><strong>Access to and Viewing your personal information:</strong> You can, at any time, access the personal information given by you under the profile section from the Dashboard page.</li>
+      <div id="earn-points" class="bg-white rounded-2xl md:rounded-3xl border-2 border-[#1F77D0] overflow-hidden shadow-md scroll-mt-20">
+        <div class="bg-[#1F77D0] px-6 py-3.5 text-white font-bold text-lg" style="font-family: General Sans, sans-serif;">How can a CA earn points?</div>
+        <div class="p-6 md:p-8">
+          <ol class="list-decimal list-outside ml-5 space-y-2.5 text-sm text-gray-700 leading-relaxed">
+            <li><strong>Tasks</strong> - Completing the tasks as shown in the Dashboard will earn points.</li>
+            <li><strong>Referrals</strong> - Invite your mates to be part of making Alcheringa bigger than ever by just sharing your referral.</li>
+            <li><strong>Joining Bonus</strong> - Complete your registration to earn the joining bonus.</li>
+            <li><strong>Submitting POC’s.</strong></li>
+            <li><strong>Event Registration.</strong></li>
+            <li><strong>City Eliminations.</strong></li>
+            <li><strong>College Branding and Presentations.</strong></li>
           </ol>
         </div>
       </div>
 
+      <!-- Connecting with us Section Card -->
+      <div id="connecting" class="bg-white rounded-2xl md:rounded-3xl border-2 border-[#1F77D0] overflow-hidden shadow-md scroll-mt-20">
+        <div class="bg-[#1F77D0] px-6 py-3.5 text-white font-bold text-lg" style="font-family: General Sans, sans-serif;">Connecting with us</div>
+        <div class="p-6 md:p-8">
+          <p class="text-sm text-gray-700 leading-relaxed">
+            To get credited with your engagement with our recent feed from Alcheringa’s official handles, like, follow, connect and subscribe to Alcher’s Facebook, Instagram, Twitter, LinkedIn and YouTube. Go to the profile section and connect with us.
+          </p>
+        </div>
+      </div>
+
+      <!-- Level Section Card -->
+      <div id="level" class="bg-white rounded-2xl md:rounded-3xl border-2 border-[#1F77D0] overflow-hidden shadow-md scroll-mt-20">
+        <div class="bg-[#1F77D0] px-6 py-3.5 text-white font-bold text-lg" style="font-family: General Sans, sans-serif;">Level</div>
+        <div class="p-6 md:p-8">
+          <p class="text-sm text-gray-700 mb-3">The more you put your efforts to better your level, the cultural festival to appreciate your effort.</p>
+          <ul class="list-disc list-outside ml-5 space-y-2 text-sm text-gray-700 leading-relaxed">
+            <li>Grab the chance to win a cash price of 75K for the top performers of Platinum and Gold Levels.</li>
+            <li>Different levels of Certificates from Alcheringa commemorating your efforts.</li>
+            <li>Access to Alcher’s premium content for top levels.</li>
+            <li>Depending on the level, get a call from us to be a part of Alcher’s execution team.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Social Media Engagement Section Card -->
+      <div id="social-media" class="bg-white rounded-2xl md:rounded-3xl border-2 border-[#1F77D0] overflow-hidden shadow-md scroll-mt-20">
+        <div class="bg-[#1F77D0] px-6 py-3.5 text-white font-bold text-lg" style="font-family: General Sans, sans-serif;">Social Media Engagement</div>
+        <div class="p-6 md:p-8">
+          <ul class="list-disc list-outside ml-5 space-y-2 text-sm text-gray-700 leading-relaxed">
+            <li>Like, comment, save and share the recent feed from Alcheringa's official handles to earn points.</li>
+            <li>Like, comment, save, share are known as engagement.</li>
+            <li>Ensure your connection with Alcheringa's official social media handles before engaging with the recent feed.</li>
+            <li>All the recent feeds of Alcheringa will be present to the right of the Dashboard page.</li>
+            <li>Engaging with the feed whose timer reached 00:00 will not reward you any points.</li>
+            <li>A Campus Ambassador must engage with the social media posts only from official handles of Alcheringa to get rewarded with points.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Submitting a POC Section Card -->
+      <div id="submitting-poc" class="bg-white rounded-2xl md:rounded-3xl border border-gray-200 overflow-hidden shadow-md scroll-mt-20">
+        <div class="bg-gray-100 px-6 py-3.5 text-gray-900 font-bold text-lg border-b border-gray-200" style="font-family: General Sans, sans-serif;">Submitting a POC</div>
+        <div class="p-6 md:p-8 space-y-6">
+          <ul class="list-disc list-outside ml-5 space-y-2 text-sm text-gray-700 leading-relaxed mb-6">
+            <li>POC (Point Of Contact) - A person who acts on behalf of an organisation's club, society or team.</li>
+            <li>Make Alcher bigger than ever by helping us reach out to the clubs and societies of those schools, colleges, universities, and performing art studios.</li>
+            <li>Submit the point of contact in submission, and Team Alcheringa will be reaching out to them.</li>
+            <li>The scoring criteria for submitting a POC depends on the colleges, clubs, societies you made Alcher reach.</li>
+            <li>Team Alcheringa will reward you with points for submitting a POC after confirming their genuineness and notify you.</li>
+          </ul>
+
+          <!-- Data Responsibility Memo Sub-card -->
+          <div id="data-memo" class="bg-[#F8F9FA] rounded-xl p-5 border border-gray-200 scroll-mt-24">
+            <h3 class="text-base font-bold text-gray-900 mb-3">Data Responsibility Memo</h3>
+            <ol class="list-decimal list-outside ml-5 space-y-2 text-sm text-gray-700 leading-relaxed">
+              <li><strong>Use of the information provided by you:</strong> We only use the information you give to identify individuals, reach them, and keep them updated about Alcheringa through their mail and contact number. We do not share your information with any third parties.</li>
+              <li><strong>Sharing of the information provided by you:</strong> We will not, in any circumstances, share the information you give with other individuals or organizations, including public organizations, corporations or individuals. We do not sell, communicate or divulge your information to any mailing lists.</li>
+              <li><strong>Access to and Viewing your personal information:</strong> You can, at any time, access the personal information given by you under the profile section from the Dashboard page.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
       <!-- Submitting an Idea Section Card -->
-      <div id="submitting-idea" class="bg-[#F8F8F6] rounded-2xl p-6 border border-gray-300 shadow-sm scroll-mt-20" style="background-color: #F8F8F6;">
-        <h2 class="text-xl font-bold text-gray-900 mb-3" style="font-family: General Sans, sans-serif;">Submitting an Idea</h2>
-        <div class="h-px bg-gray-300 w-full mb-4"></div>
-        <p class="text-sm text-gray-700 leading-relaxed">
-          Share your innovative ideas for events, publicity campaigns, or campus outreach. Exceptional ideas will be rewarded with bonus points and direct mentorship from Team Alcheringa.
-        </p>
+      <div id="submitting-idea" class="bg-white rounded-2xl md:rounded-3xl border border-gray-200 overflow-hidden shadow-md scroll-mt-20">
+        <div class="bg-gray-100 px-6 py-3.5 text-gray-900 font-bold text-lg border-b border-gray-200" style="font-family: General Sans, sans-serif;">Submitting an Idea</div>
+        <div class="p-6 md:p-8">
+          <p class="text-sm text-gray-700 leading-relaxed">
+            Share your innovative ideas for events, publicity campaigns, or campus outreach. Exceptional ideas will be rewarded with bonus points and direct mentorship from Team Alcheringa.
+          </p>
+        </div>
       </div>
 
       <!-- College Branding / Presentations Section Card -->
-      <div id="branding" class="bg-[#F8F8F6] rounded-2xl p-6 border border-gray-300 shadow-sm scroll-mt-20" style="background-color: #F8F8F6;">
-        <h2 class="text-xl font-bold text-gray-900 mb-3" style="font-family: General Sans, sans-serif;">College Branding /Presentations</h2>
-        <div class="h-px bg-gray-300 w-full mb-4"></div>
-        <ul class="list-disc list-outside ml-5 space-y-2 text-sm text-gray-700 leading-relaxed">
-          <li>Use your social skills to spread the awareness of Alcheringa to the key clubs and social groups on your campus by scheduling and giving professional presentations.</li>
-          <li>Team Alcheringa will send all the visual content for the presentation to you priorly to help you engage effectively.</li>
-          <li>Depending upon the strength and way of your presentation, rewarding you with appropriate points for giving presentations will be done after the team is verified and notified.</li>
-        </ul>
+      <div id="branding" class="bg-white rounded-2xl md:rounded-3xl border border-gray-200 overflow-hidden shadow-md scroll-mt-20">
+        <div class="bg-gray-100 px-6 py-3.5 text-gray-900 font-bold text-lg border-b border-gray-200" style="font-family: General Sans, sans-serif;">College Branding /Presentations</div>
+        <div class="p-6 md:p-8">
+          <ul class="list-disc list-outside ml-5 space-y-2 text-sm text-gray-700 leading-relaxed">
+            <li>Use your social skills to spread the awareness of Alcheringa to the key clubs and social groups on your campus by scheduling and giving professional presentations.</li>
+            <li>Team Alcheringa will send all the visual content for the presentation to you priorly to help you engage effectively.</li>
+            <li>Depending upon the strength and way of your presentation, rewarding you with appropriate points for giving presentations will be done after the team is verified and notified.</li>
+          </ul>
+        </div>
       </div>
 
       <!-- Event Registration Section Card -->
-      <div id="event-reg" class="bg-[#F8F8F6] rounded-2xl p-6 border border-gray-300 shadow-sm scroll-mt-20" style="background-color: #F8F8F6;">
-        <h2 class="text-xl font-bold text-gray-900 mb-3" style="font-family: General Sans, sans-serif;">Event Registration</h2>
-        <div class="h-px bg-gray-300 w-full mb-4"></div>
-        <p class="text-sm text-gray-700 leading-relaxed">
-          Facilitate registrations for flagship Alcheringa competitions and workshops from your college or city. Bonus point tiers apply based on confirmed team registrations.
-        </p>
+      <div id="event-reg" class="bg-white rounded-2xl md:rounded-3xl border border-gray-200 overflow-hidden shadow-md scroll-mt-20">
+        <div class="bg-gray-100 px-6 py-3.5 text-gray-900 font-bold text-lg border-b border-gray-200" style="font-family: General Sans, sans-serif;">Event Registration</div>
+        <div class="p-6 md:p-8">
+          <p class="text-sm text-gray-700 leading-relaxed">
+            Facilitate registrations for flagship Alcheringa competitions and workshops from your college or city. Bonus point tiers apply based on confirmed team registrations.
+          </p>
+        </div>
       </div>
 
       <!-- City - Eliminations Section Card -->
-      <div id="city-elim" class="bg-[#F8F8F6] rounded-2xl p-6 border border-gray-300 shadow-sm scroll-mt-20" style="background-color: #F8F8F6;">
-        <h2 class="text-xl font-bold text-gray-900 mb-3" style="font-family: General Sans, sans-serif;">City - Eliminations</h2>
-        <div class="h-px bg-gray-300 w-full mb-4"></div>
-        <p class="text-sm text-gray-700 leading-relaxed">
-          Assist Team Alcheringa in conducting city-level audition rounds and eliminations. Responsibilities include venue coordination, participant registration management, and on-ground logistics support.
-        </p>
+      <div id="city-elim" class="bg-white rounded-2xl md:rounded-3xl border border-gray-200 overflow-hidden shadow-md scroll-mt-20">
+        <div class="bg-gray-100 px-6 py-3.5 text-gray-900 font-bold text-lg border-b border-gray-200" style="font-family: General Sans, sans-serif;">City - Eliminations</div>
+        <div class="p-6 md:p-8">
+          <p class="text-sm text-gray-700 leading-relaxed">
+            Assist Team Alcheringa in conducting city-level audition rounds and eliminations. Responsibilities include venue coordination, participant registration management, and on-ground logistics support.
+          </p>
+        </div>
       </div>
 
       <!-- Disclaimer Section Card -->
-      <div id="disclaimer" class="bg-[#F8F8F6] rounded-2xl p-6 border border-gray-300 shadow-sm scroll-mt-20" style="background-color: #F8F8F6;">
-        <h2 class="text-xl font-bold text-gray-900 mb-3" style="font-family: General Sans, sans-serif;">Disclaimer</h2>
-        <div class="h-px bg-gray-300 w-full mb-4"></div>
-        <p class="text-sm text-gray-700 leading-relaxed">
-          Alcheringa reserves the right to modify point allocations, tier benefits, or disqualify any participant found violating program rules or engaging in fraudulent activity.
-        </p>
+      <div id="disclaimer" class="bg-white rounded-2xl md:rounded-3xl border border-gray-200 overflow-hidden shadow-md scroll-mt-20">
+        <div class="bg-gray-100 px-6 py-3.5 text-gray-900 font-bold text-lg border-b border-gray-200" style="font-family: General Sans, sans-serif;">Disclaimer</div>
+        <div class="p-6 md:p-8">
+          <p class="text-sm text-gray-700 leading-relaxed">
+            Alcheringa reserves the right to modify point allocations, tier benefits, or disqualify any participant found violating program rules or engaging in fraudulent activity.
+          </p>
+        </div>
       </div>
 
     </div>
 
-    <!-- Right Quick Access Column (With 1px vertical separation line) -->
-    <div class="w-full lg:w-72 flex-shrink-0 lg:border-l border-gray-300 lg:pl-8">
-      <div class="sticky top-20">
+    <!-- Right Quick Access Column -->
+    <div class="w-full lg:w-80 flex-shrink-0">
+      <div class="sticky top-20 bg-white rounded-2xl md:rounded-3xl p-6 shadow-md border border-gray-200">
         <h3 class="text-lg font-bold text-gray-900 mb-3" style="font-family: General Sans, sans-serif;">Quick Access</h3>
-        <div class="h-px bg-gray-300 w-full"></div>
+        <div class="h-px bg-gray-200 w-full mb-4"></div>
 
         <nav class="flex flex-col">
           <!-- Registration -->
           <div>
             <a href="#registration" class="qa-item active" onclick="setActiveLink(this)">Registration</a>
-            <div class="border-b border-gray-300 pb-1">
+            <div class="border-b border-gray-200 pb-1">
               <a href="#solo" class="qa-subitem" onclick="setActiveLink(this)">• Solo</a>
               <a href="#team" class="qa-subitem" onclick="setActiveLink(this)">• Team</a>
             </div>
@@ -257,7 +268,7 @@
           <!-- Submitting a POC -->
           <div>
             <a href="#submitting-poc" class="qa-item" onclick="setActiveLink(this)">Submitting a POC</a>
-            <div class="border-b border-gray-300 pb-1">
+            <div class="border-b border-gray-200 pb-1">
               <a href="#data-memo" class="qa-subitem" onclick="setActiveLink(this)">• Data Responsibility Memo</a>
             </div>
           </div>

@@ -1,3 +1,13 @@
+.portal-bg {
+  background-color: #5797CE !important;
+  background-image: url('../images/bg%20(1).png') !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  min-height: 100vh !important;
+}
+
 @media screen and (max-width: 1024px) {
   .totalbox{
     margin: 0;

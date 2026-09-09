@@ -28,7 +28,7 @@
 {% endblock %}
 
 {% block body %}
-<div class="flex pt-16" style="background-color: #F1EDE8; min-height: 100vh;">
+<div class="flex pt-16 portal-bg" style="background: #5797CE url('{% static "images/bg (1).png" %}') no-repeat center center / cover fixed; min-height: 100vh;">
   {% include "navbar.html" %}
 
   <script>
@@ -145,11 +145,11 @@
         datasets: [{
           data: levelPoints,
           backgroundColor: [
-            'rgba(0, 158, 119, 1)',
-            'rgba(175, 213, 203, 1)'
+            '#FFC548',
+            '#FFEBB0'
           ],
           borderWidth: 0,
-          cutout: '70%',
+          cutout: '72%',
         }]
       },
       options: {
@@ -161,40 +161,24 @@
     });
   }
 
-  const tasksCompletedPoints = [{{ grp_tasks }}, 8];
+  const tasksCount = Number({{ grp_tasks|default:0 }});
   if (document.getElementById('tasks-completed-value')) {
-    if ({{ grp_tasks }} < 10)
-      document.getElementById('tasks-completed-value').innerText = '0' + tasksCompletedPoints[0];
-    else
-      document.getElementById('tasks-completed-value').innerText = tasksCompletedPoints[0];
+    document.getElementById('tasks-completed-value').innerText = tasksCount;
+  }
+  const taskProgressBar = document.getElementById('tasks-progress-bar');
+  if (taskProgressBar) {
+    const pct = Math.min(Math.max((tasksCount / 10) * 100, 20), 100);
+    taskProgressBar.style.width = pct + '%';
   }
 
-  if (document.getElementById('tasks-completed-pie')) {
-    var tasksCompletedChart = new Chart(document.getElementById('tasks-completed-pie').getContext('2d'), {
-      type: 'doughnut',
-      data: {
-        datasets: [{
-          data: tasksCompletedPoints,
-          backgroundColor: [
-            'rgba(0, 158, 119, 1)',
-            'rgba(175, 213, 203, 1)'
-          ],
-          borderWidth: 0,
-          cutout: '70%',
-        }]
-      },
-      options: {
-        plugins: {
-          legend: false,
-          tooltip: false,
-        }
-      }
-    });
-  }
-
-  const referralsPoints = [{{ grp_referrals }}, 5];
+  const referralsCount = Number({{ grp_referrals|default:0 }});
   if (document.getElementById('referrals-value')) {
-    document.getElementById('referrals-value').innerText = '0' + referralsPoints[0];
+    document.getElementById('referrals-value').innerText = referralsCount;
+  }
+  const referralsProgressBar = document.getElementById('referrals-progress-bar');
+  if (referralsProgressBar) {
+    const pct = Math.min(Math.max((referralsCount / 10) * 100, 20), 100);
+    referralsProgressBar.style.width = pct + '%';
   }
 
   if (document.getElementById('task-points')) {
@@ -202,29 +186,6 @@
   }
   if (document.getElementById('referral-points')) {
     document.getElementById('referral-points').innerText = '{{ grp_referrals_points|default:"0" }} points earned';
-  }
-
-  if (document.getElementById('referrals-pie')) {
-    var referralsChart = new Chart(document.getElementById('referrals-pie').getContext('2d'), {
-      type: 'doughnut',
-      data: {
-        datasets: [{
-          data: referralsPoints,
-          backgroundColor: [
-            'rgba(255, 161, 51, 1)',
-            'rgba(255, 224, 178, 1)'
-          ],
-          borderWidth: 0,
-          cutout: '70%',
-        }]
-      },
-      options: {
-        plugins: {
-          legend: false,
-          tooltip: false,
-        }
-      }
-    });
   }
 </script>
 {% endblock %}
