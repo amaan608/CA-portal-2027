@@ -48,8 +48,8 @@ def sendNotification(type):
             body="mail testing",
             from_email='Alcheringa Campus Ambassador',
             to=["commonwebops@gmail.com",
-                "shashank.d@alcheringa.co.in", 
-                "khushi.g@alcheringa.co.in",
+                "shubham@alcheringa.co.in", 
+                "mayank@alcheringa.co.in",
             ]
         )
         message.attach_alternative(email, "text/html")
