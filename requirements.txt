@@ -27,3 +27,5 @@ sqlparse==0.6.0
 tablib==3.10.0
 typing_extensions==4.16.0
 urllib3==2.7.0
+psycopg2-binary
+gunicorn
