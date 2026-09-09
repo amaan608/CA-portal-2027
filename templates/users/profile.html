@@ -2,42 +2,17 @@
 {% block title %}
   Profile | Alcheringa
 {% endblock %}
-
-{% block style %}
-<style>
-  html, body {
-    scroll-behavior: smooth;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
-  ::-webkit-scrollbar {
-    display: none;
-    width: 0px;
-    height: 0px;
-    background: transparent;
-  }
-  * {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  *::-webkit-scrollbar {
-    display: none;
-  }
-</style>
-{% endblock %}
-
 {% block body %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/font.css' %}">
-<div class="flex pt-16" style="background-color: #F1EDE8; min-height: 100vh;">
-  {% include 'navbar.html' %}
+<link rel="stylesheet" href={% static "css/font.css" %}>
+  <body>
+    <div class="bg-blue-50 flex gen" style="background-color: #f5f2e6;">
+      {% include 'navbar.html' %}
 
-  <div class="flex-1 p-6 md:p-10 max-w-5xl">
-    {% include 'users/profile_update.html' %}
-  </div>
-</div>
+      {% include 'users/profile_update.html' %}
+    </div>
+  </body>
 {% endblock %}
 {% block script %}
 
 {% endblock %}
-
