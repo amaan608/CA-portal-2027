@@ -7,11 +7,9 @@
 <nav class="fixed top-0 left-0 right-0 px-6 py-2 flex items-center justify-between w-full z-50 navi border-b border-gray-300 h-16"
   style="background-color: #f8f8f6;" x-data="{ dropdownOpen: false }">
   <a href="/" class="flex items-center">
-    <img src="{% static 'images/dashlogo.svg' %}" alt="Alcheringa Logo" width="130px" border="0" />
+    <img src="{% static 'images/logo_black.svg' %}" alt="Alcheringa Logo" style="height: 38px; width: auto;" border="0" />
   </a>
   <div class="flex items-center space-x-4">
-    <a class="font-medium text-xl position-relative mr-16 hidden lg:block"
-      style="font-weight: 600;font-size: 1.3rem;">{{ heading }}</a>
     {% include 'navbarnotifications.html' %}
   </div>
 </nav>

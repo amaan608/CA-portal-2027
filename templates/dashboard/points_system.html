@@ -28,7 +28,7 @@
 {% endblock %}
 
 {% block body %}
-<div class="flex pt-16" style="background-color: #F1EDE8; min-height: 100vh;">
+<div class="flex pt-16 portal-bg" style="background: #5797CE url('{% static "images/bg (1).png" %}') no-repeat center center / cover fixed; min-height: 100vh;">
   {% include 'navbar.html' %}
 
   <!-- Point System Main Content Container -->
@@ -41,17 +41,17 @@
     </div>
     
     <!-- Section 1: Tier List -->
-    <div class="rounded-2xl p-6 md:p-8 border border-gray-300 shadow-sm" style="background-color: #f8f8f6;">
+    <div class="rounded-2xl p-6 md:p-8 border border-gray-200 shadow-md bg-white">
       <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">Tier List</h3>
       <div class="h-px bg-gray-300 my-4"></div>
       <p class="text-gray-600 text-sm md:text-base mb-6">This is to show you the guidelines that will be followed to allot scores.</p>
       
       <div class="space-y-6">
-        <div class="rounded-xl p-4 border border-gray-300 shadow-sm overflow-hidden" style="background-color: #f8f8f6;">
+        <div class="rounded-xl p-4 border border-gray-200 shadow-sm overflow-hidden bg-white">
           <img src="/media/image-uploads/Group 699.png" alt="Tier List Progress Bar" class="w-full h-auto rounded-lg object-contain">
         </div>
         
-        <div class="rounded-xl p-4 border border-gray-300 shadow-sm overflow-hidden" style="background-color: #f8f8f6;">
+        <div class="rounded-xl p-4 border border-gray-200 shadow-sm overflow-hidden bg-white">
           <img src="/media/image-uploads/Group 700.png" alt="Team Tier List Progress Bar" class="w-full h-auto rounded-lg object-contain">
         </div>
       </div>

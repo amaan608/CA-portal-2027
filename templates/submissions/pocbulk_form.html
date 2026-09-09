@@ -1,92 +1,48 @@
 {% extends '../basic.html'%}
 {%block title%}Submissions | Alcheringa {%endblock%}
 {%block style%}
-<style>
-    .subpbody {
-        font-family: 'Poppins';
-    }
-
-    .pform {
-        width: 70%;
-
-    }
-
-    .bell {
-        position: fixed;
-        top: 1vw;
-        right: 1vw;
-    }
-
-    #form_button {
-        background-color: #109CF1;
-        border: none;
-        color: white;
-        padding: 10px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 15px;
-        padding-right: 25px;
-        padding-left: 25px;
-        cursor: pointer;
-        border-radius: 10px;
-        font-family: 'Poppins';
-    }
-</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 {%endblock%}
 {% block body %}
 {% load static %}
-<link rel="stylesheet" href={% static "css/font.css" %}>
-<body>
-    <div class="bg-blue-50 flex gen">
-        {% include "../navbar.html" %}
-        <div class="flex">
+<link rel="stylesheet" href="{% static 'css/font.css' %}">
+<div class="flex pt-16 portal-bg" style="background: #5797CE url('{% static "images/bg (1).png" %}') no-repeat center center / cover fixed; min-height: 100vh;">
+    {% include "../navbar.html" %}
+    
+    <div class="w-full max-w-4xl p-4 md:p-8">
+        <!-- Back Button -->
+        <a href="javascript:history.back()" class="inline-flex items-center gap-2 px-5 py-2 mb-6 text-white font-medium bg-[#1F77D0]/80 hover:bg-[#1F77D0] border-2 border-white rounded-xl transition-all shadow-md cursor-pointer text-sm">
+            <i class="fas fa-arrow-left text-xs"></i> Back
+        </a>
 
-            <div class="subpbody">
-                <div class=" bg-gray-50 flex  ">
-                  
+        <!-- Main Card -->
+        <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg w-full">
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-3" style="font-family: General Sans, sans-serif;">Submission</h1>
+            <div class="h-px bg-gray-200 w-full mb-6"></div>
 
-            
-                  <div class="mx-4 flex-grow">
-                    
-                    <div class=" flex flex-wrap ">
-                      <div class=" bg-white max-w-4xl rounded-lg w-screen shadow-md">
-                        <div>
-                          <div class="py-3 pl-6 font-medium text-xl border-b-2 font-semibold">Submit Multiple POCS </div>
-                          <br>
-                          <p class=" font-small text-xl ml-5 " style="font-size: 17px;color:rgb(109, 109, 109)">Add a CSV file with columns as Name,Designation,College,Contact </p>
-            
-                          <br>
-            
-                          <div class="pform ml-5">
-                            <form action="" method="POST" enctype="multipart/form-data">
-                                {% csrf_token %}
-                               <label for="file1" style = "font-weight: 400;font-size: 18px;">Upload a file</label><br><hr style = "margin-bottom: 15px;">
-                                {{form.csv_file}}
-                                <small style = "color: red;">* Only accepts CSV files</small>
-                                
-                                
-            
-                              <div class="submit mt-6 p-1 ">
-                                <input type="submit" value="Submit" id="form_button" />
-                              </div>
-                            </form>
-                          </div>
-            
-                          <br>
-                          <br>
-            
-            
-                          <div class="  w-80 border-gray-400 rounded mx-4 m-{5}"></div>
-                        </div>
-                      </div>
-                    </div>
+            <h2 class="text-base md:text-lg font-semibold text-gray-800 mb-2" style="font-family: General Sans, sans-serif;">Submit Multiple POCs</h2>
+            <p class="text-sm text-gray-500 mb-8 leading-relaxed">
+                Add a CSV file with columns as <strong>Name, Designation, College, Contact</strong>.
+            </p>
+
+            <form action="" method="POST" enctype="multipart/form-data" class="space-y-6">
+                {% csrf_token %}
+
+                <div class="mb-6">
+                    <label class="text-sm text-gray-600 font-medium block mb-2">Upload CSV File<span class="text-red-500">*</span></label>
+                    {{ form.csv_file }}
+                    <p class="text-xs text-red-500 mt-2">* Only accepts CSV files</p>
+                </div>
+
+                <div class="mt-8">
+                    <button type="submit" style="background-color: #FFC548;" class="text-gray-900 font-bold px-8 py-3 rounded-xl inline-flex items-center gap-2 hover:opacity-90 transition-opacity shadow-sm text-sm cursor-pointer">
+                        Submit <i class="fas fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
-    </div>
-
-</body>
+</div>
 {%endblock%}
 {% block script %}
-
 {% endblock %}

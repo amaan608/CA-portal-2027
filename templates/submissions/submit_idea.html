@@ -1,79 +1,64 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
-  .form-input
-  {
-    border: none;
-    background-color: transparent;
-    width:580px;
-    outline:none;
+  .underlined-input {
+    width: 100%;
+    background-color: transparent !important;
+    border: none !important;
+    border-bottom: 1.5px solid #CBD5E1 !important;
+    border-radius: 0 !important;
+    padding: 0.5rem 0 !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    color: #1E293B !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  .underlined-input:focus {
+    border-bottom-color: #1E293B !important;
   }
 </style>
-<style>@media only screen and (max-width:640px){
-  .subideabody{
-    width: 600px;
-  }
-.ideabox{
-  width: 600px;
-}
-}
-</style>
-  <div class="subideabody">
-    <div class=" bg-gray-50 flex  ">
 
-      <div class="mx-4 flex-grow">
-        
-        <br>
-        <div class=" flex flex-wrap ">
-          <div class=" bg-white max-w-4xl rounded-lg w-screen shadow-md ideabox">
-            <div>
-              <div class="py-3 pl-6 font-medium text-xl border-b-2 font-semibold">Submit Idea </div>
-              <br>
-              <p class="   m-5  " style = "font-size: 18px;color:rgb(82, 82, 82)">Tell us your ideas on how we can make Alcheringa bigger and better
-                than ever! </p>
+<div class="w-full max-w-4xl p-4 md:p-8">
+  <!-- Back Button -->
+  <a href="javascript:history.back()" class="inline-flex items-center gap-2 px-5 py-2 mb-6 text-white font-medium bg-[#1F77D0]/80 hover:bg-[#1F77D0] border-2 border-white rounded-xl transition-all shadow-md cursor-pointer text-sm">
+    <i class="fas fa-arrow-left text-xs"></i> Back
+  </a>
 
-              <br>
+  <!-- Main Card -->
+  <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg w-full">
+    <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-3" style="font-family: General Sans, sans-serif;">Submission</h1>
+    <div class="h-px bg-gray-200 w-full mb-6"></div>
 
-              <div class="sform">
-                <form action="#" method="post" id="idea_form" width:50%>
-                  {% csrf_token %}
-                  <div class="subject m-5 my-8 text-m border-b-2 border-gray-300">
-                    <label for="subject"></label>
-                    <!-- <input type="text" placeholder="Subject" name="subject" id="subject_input" required > -->
-                    {{ form.title }}
-                  </div>
+    <h2 class="text-base md:text-lg font-semibold text-gray-800 mb-2" style="font-family: General Sans, sans-serif;">Submit Idea</h2>
+    <p class="text-sm text-gray-500 mb-8 leading-relaxed">
+      Tell us your ideas on how we can make Alcheringa bigger and better than ever!
+    </p>
 
+    <form action="#" method="post" id="idea_form">
+      {% csrf_token %}
 
+      <div class="mb-6">
+        <label class="text-sm text-gray-500 font-medium block mb-1">Subject / Title<span class="text-red-500">*</span></label>
+        {{ form.title }}
+      </div>
 
-                  <div class="message m-5 my-8 text-m border-b-2 border-gray-60">
-                    <label for="message"></label>
-                    <!-- <textarea name="message" placeholder="Tell us your idea" id="message_input" cols="35" rows="5" required></textarea> -->
-                    {{ form.description}}
-                  </div>
+      <div class="mb-6">
+        <label class="text-sm text-gray-500 font-medium block mb-1">Idea Description<span class="text-red-500">*</span></label>
+        {{ form.description }}
+      </div>
 
+      <div class="mt-8">
+        <button type="submit" style="background-color: #FFC548;" class="text-gray-900 font-bold px-8 py-3 rounded-xl inline-flex items-center gap-2 hover:opacity-90 transition-opacity shadow-sm text-sm cursor-pointer">
+          Submit <i class="fas fa-arrow-right text-xs"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
 
-
-
-                  <div class="submit m-4 mx-6 p-1 ">
-                    <input type="submit" value="Submit" id="form_button" />
-                  </div>
-              </div>
-
-              <br>
-              <br>
-
-
-              <div class="  w-80 border-gray-400 rounded mx-4 m-{5}"></div>
-            </div>
-          </div>
-        </div>
-
-        <script>
-          var textarea = document.querySelector('textarea')
-          textarea.addEventListener('keydown', autosize);        
-          function autosize(){
-            var el = this;
-            setTimeout(function(){
-              el.style.cssText = 'height:auto; padding:0';
-              el.style.cssText = 'height:' + el.scrollHeight + 'px';
-            },0);
-          }
-        </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('#idea_form input[type="text"], #idea_form textarea');
+    inputs.forEach(input => input.classList.add('underlined-input'));
+  });
+</script>
