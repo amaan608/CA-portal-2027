@@ -61,10 +61,12 @@ function initHeroPage() {
     aftermoviePreview.addEventListener("focusin", () => setArcState(true));
     aftermoviePreview.addEventListener("focusout", () => setArcState(false));
   }
+
+  
 }
 
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initHeroPage);
 } else {
   initHeroPage();
-}
+}

@@ -301,47 +301,22 @@ html, body {
 
 .heroSectionn .aftermovie-preview {
   position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  box-sizing: border-box;
   overflow: visible;
-  margin-top: 0;
-  z-index: 1;
-}
-
-.heroSectionn .aftermovie-preview::before {
-  content: "";
-  position: absolute;
-  top: -46px;         /* was -60px */
-  left: 0;
-  width: 100%;         /* full width again — image itself no longer moves,
-                           so a wide arc is safe and matches Figma */
-  height: 46px;         /* was 160px — thin dome, not a block */
-  background: #000;
-  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-  opacity: 0;
-  transform: scaleY(0.3);
-  transform-origin: bottom center;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.heroSectionn .aftermovie-preview:hover::before,
-.heroSectionn .aftermovie-preview:focus-within::before {
-  opacity: 1;
-  transform: scaleY(1);
+  z-index: 5;
 }
 
 .heroSectionn .landing2 {
   display: block;
-  width: 100% !important;
-  aspect-ratio: 16 / 9;
-  height: auto !important;
-  object-fit: cover !important;
-  object-position: var(--landing2-pos) !important;
-  margin: 0;
-  position: relative;
-  z-index: 1;
-  background: #000;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
+
+
+
 
 .heroSectionn .aftermovie-preview:hover .valBox,
 .heroSectionn .aftermovie-preview:focus-within .valBox {
@@ -444,4 +419,9 @@ html, body {
   .heroSectionn .title1 {
     font-size: 13px !important;
   }
+}
+
+
+.heroSectionn iframe.landing2 {
+  border: none;
 }

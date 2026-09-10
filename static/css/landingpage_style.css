@@ -865,3 +865,24 @@ body {
 		transform: rotate(5deg);
 	}
 }
+
+/* ---------- Slide-in for "Who is a Campus Ambassador" ---------- */
+.fx-slide-left {
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.fx-slide-right {
+  opacity: 0;
+  transform: translateX(80px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.fx-in {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.description-list li:nth-child(1) { transition-delay: 0s; }
+.description-list li:nth-child(2) { transition-delay: 0.15s; }
+.description-list li:nth-child(3) { transition-delay: 0.3s; }
+.description-list li:nth-child(4) { transition-delay: 0.45s; }
