@@ -2117,3 +2117,12 @@ main {
   position: relative;
 }
 
+.video-embed-wrapper {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+.video-embed-wrapper iframe {
+  width: 100%;
+  border-radius: 16px;
+}

@@ -420,4 +420,48 @@ console.log("Counts found:", document.querySelectorAll(".counts").length);
 
   // Create all city markers
   createCityMarkers();
+
+  const fxRevealTargets = document.querySelectorAll(
+  ".box1, .box2, .box3first, .box3second"
+  );
+
+  fxRevealTargets.forEach((el) => el.classList.add("fx-hidden"));
+
+  const fxObserver = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove("fx-hidden");
+          entry.target.classList.add("fx-visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  fxRevealTargets.forEach((el) => fxObserver.observe(el));
+
+  // ---- Slide-in entrance for paragraphs/text blocks ----
+  const fxSlideTargets = document.querySelectorAll(
+    ".box2para, .box3first p, .box3secondleft, .box3secondright"
+  );
+
+  fxSlideTargets.forEach((el, index) => {
+    el.classList.add(index % 2 === 0 ? "fx-slide-left" : "fx-slide-right");
+  });
+
+  const fxSlideObserver = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("fx-in");
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  fxSlideTargets.forEach((el) => fxSlideObserver.observe(el));
 });

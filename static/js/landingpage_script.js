@@ -210,4 +210,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Console welcome message
     console.log('🎓 Campus Ambassador Portal loaded successfully!');
     console.log('💡 Click on the cards to see different benefits of becoming a Campus Ambassador.');
+    // ...all your existing code above (card clicks, notifications, etc.)...
+
+    // ---- Slide-in for heading + bullet points ----
+    const fxTitle = document.querySelector(".main-title");
+    const fxBullets = document.querySelectorAll(".description-list li");
+
+    if (fxTitle) fxTitle.classList.add("fx-slide-left");
+    fxBullets.forEach((el) => el.classList.add("fx-slide-right"));
+
+    const fxTopObserver = new IntersectionObserver(
+        (entries, obs) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("fx-in");
+                    obs.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.2 }
+    );
+
+    if (fxTitle) fxTopObserver.observe(fxTitle);
+    fxBullets.forEach((el) => fxTopObserver.observe(el));
 });
