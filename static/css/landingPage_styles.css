@@ -218,28 +218,31 @@
   }
 
   .part1 {
-    width: 90vw;
-    flex-direction: row;
+    width: calc(100% - 2rem);
+    max-width: 500px;
+    flex-direction: column;
     align-items: center;
-    padding: 1rem 1rem 1rem 140px; 
+    padding: 1rem;
     min-height: auto;
-    margin-left: -0.5rem;
+    margin: 0;
+    overflow: hidden;
   }
 
-  .part1 img {
-    position: absolute;
-    left: 0;
-    bottom: 0;
+  .part1 .contact-person-image {
+    position: static;
     width: 120px;
-    height: auto;
+    height: 120px;
     object-fit: contain;
+    margin: 0 auto;
+    transform: none;
   }
   
   .details1 {
     margin: 0;
-    text-align: left;
+    text-align: center;
     gap: 6px;
-    margin-left: 2.5rem;
+    min-width: 0;
+    width: 100%;
   }
 
   .h {
@@ -249,6 +252,12 @@
   .p,
   .ph {
     font-size: 1rem;
+    overflow-wrap: anywhere;
+  }
+
+  .fun-fact p {
+    margin: 0;
+    overflow-wrap: anywhere;
   }
 }
 
