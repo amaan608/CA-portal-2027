@@ -1703,8 +1703,10 @@ main {
 
 @media (max-width: 768px) {
   .page1 {
-    height: 92vh;
+    height: auto;
+    min-height: 0;
     width: 100vw;
+    padding-bottom: 40px;
   }
 
   .pfp {
@@ -1991,14 +1993,14 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
+  gap: clamp(12px, 4vw, 40px);
   max-width: 1100px;
-  width: 90%;
+  width: min(90%, 1100px);
   margin: 40px auto;
 }
 
 .testimonial-swiper {
-  width: 540px;
+  width: min(760px, 100%);
   max-width: 100%;
   overflow: hidden;
 }
@@ -2026,7 +2028,8 @@ main {
 
 .testimonial-image {
   flex-shrink: 0;
-  width: 190px;
+  width: clamp(130px, 30%, 190px);
+  height: 285px;
 }
 
 .testimonial-image img {
@@ -2082,16 +2085,28 @@ main {
 @media (max-width: 768px) {
   .testimonial-carousel-wrapper {
     gap: 12px;
+    width: calc(100% - 24px);
+    align-items: flex-start;
+    margin-bottom: 0;
+  }
+
+  .testimonial-swiper,
+  .testimonial-swiper .swiper-wrapper,
+  .testimonial-swiper .swiper-slide {
+    height: auto !important;
   }
 
   .testimonial-card {
     flex-direction: column;
     padding: 20px;
-    min-height: auto;
+    height: auto !important;
+    min-height: 0;
   }
 
   .testimonial-image {
-    width: 100%;
+    width: min(100%, 220px);
+    height: 180px;
+    margin: 0 auto 16px;
   }
 
   .testimonial-image img {
@@ -2102,9 +2117,37 @@ main {
     align-self: flex-end;
   }
 
+  .testimonial-content {
+    width: 100%;
+  }
+
   .carousel-arrow svg {
     width: 26px;
     height: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-carousel-wrapper {
+    gap: 2px;
+  }
+
+  .testimonial-card {
+    padding: 14px 12px;
+    width: 100%;
+  }
+
+  .testimonial-text {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .testimonial-name {
+    font-size: 20px;
+  }
+
+  .carousel-arrow {
+    padding: 2px;
   }
 }
 

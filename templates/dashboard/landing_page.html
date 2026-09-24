@@ -219,9 +219,6 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
       <div class="testimonials" style="font-weight:400;font-family:'Zolla'">Testimonials</div>
     </header>
     <div class="dots-container">
-      <span class="dot active" onclick="showTestimonial(0)"></span>
-      <span class="dot" onclick="showTestimonial(4)"></span>
-      <span class="dot" onclick="showTestimonial(5)"></span>
     </div>
     <main>
       <div class="testimonial-carousel-wrapper">
@@ -238,15 +235,13 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
             <div class="swiper-slide">
               <div class="testimonial-card">
                 <div class="testimonial-image">
-                  <img src="{% static 'images/pfp1.jpg' %}" alt="person_image" />
+                  <img src="{% static 'images/pfp1.jpg' %}" alt="Emadadul Hoq Milon" />
                 </div>
                 <div class="testimonial-content">
                   <p class="testimonial-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam, lectus sed dignissim
-                    pharetra, ligula eros mattis sem, id viverra ligula massa et eros. Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit.
+                    l represented Alcheringa, IIT Guwahati, last year. It was a great opportunity to represent this lovely program as a campus ambassador. The entire experience was incredible. I gained fresh knowledge from this experience, which also aided in my development of leadership, management, and communication abilities. We are pleased to participate in this monumental occasion. We aim to attend this major event every year and strengthen our friendship. Finally, I want to express my gratitude to the entire Alcheringa team for picking me up and providing me with this chance, as well as to my friend Prashams Matcha.
                   </p>
-                  <div class="testimonial-name">-Unknown</div>
+                  <div class="testimonial-name">- Emadadul Hoq Milon</div>
                 </div>
               </div>
             </div>
@@ -254,13 +249,13 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
             <div class="swiper-slide">
               <div class="testimonial-card">
                 <div class="testimonial-image">
-                  <img src="{% static 'images/pfp5.jpg' %}" alt="person_image" />
+                  <img src="{% static 'images/pfp5.jpg' %}" alt="Nandini" />
                 </div>
                 <div class="testimonial-content">
                   <p class="testimonial-text">
-                    Replace with Person Two's real testimonial text.
+                    Being a part of team Alcheringa was a beautiful learning experience, and learning becomes fun, when people are supportive. Thanks to Siddhant andAkshara, two heads of Alcheringa for their support and my friends Arunav and Debashish, who made the journey extremely a smooth run, with their hands in crisis. Made alot of mistakes, and learnt alot of new things. A journey, worth remembering, a journey with it's own ups and downs to be cherished. Also, huge thanks to all the participants for cooperating in making the event successful.
                   </p>
-                  <div class="testimonial-name">-Person Two</div>
+                  <div class="testimonial-name">- Nandini</div>
                 </div>
               </div>
             </div>
@@ -268,13 +263,13 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
             <div class="swiper-slide">
               <div class="testimonial-card">
                 <div class="testimonial-image">
-                  <img src="{% static 'images/pfp6.jpeg' %}" alt="person_image" />
+                  <img src="{% static 'images/pfp6.jpeg' %}" alt="Rishav Dhar" />
                 </div>
                 <div class="testimonial-content">
                   <p class="testimonial-text">
-                    Replace with Person Three's real testimonial text.
+                    I received significant experience as a campus ambassador at Alcheringa, IIT-Guwahati's annual festival. As an introvert, I earned the chance to create interactions, build networks, and, most importantly, a sense of self in my own campus. In addition, as the highest-scoring campus ambassador in the country, I received an invitation to attend Alcheringa live at IIT-Guwahati. Alcheringa captivated me. Hail Alcher!
                   </p>
-                  <div class="testimonial-name">-Person Three</div>
+                  <div class="testimonial-name">- Rishav Dhar</div>
                 </div>
               </div>
             </div>
@@ -282,13 +277,13 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
             <div class="swiper-slide">
               <div class="testimonial-card">
                 <div class="testimonial-image">
-                  <img src="{% static 'images/pfp7.jpg' %}" alt="person_image" />
+                  <img src="{% static 'images/pfp7.jpg' %}" alt="Anurag Dutta" />
                 </div>
                 <div class="testimonial-content">
                   <p class="testimonial-text">
-                    Replace with Person Four's real testimonial text.
+                    Being a Campus Ambassador for Alcheringa, IIT Guwahati, was a highly enriching experience that allowed me to develop new skills in networking, event coordination, and team collaboration. The role gave me the opportunity to connect with diverse individuals, work closely with both my peers at Royal Global University and the IIT Guwahati team, and contribute participants to the festival while gaining valuable exposure to large-scale event management. As a performer, Alcheringa also provided me with the platform to showcase my talent on a prestigious stage while simultaneously building connections with sponsors and brands associated with the event. This experience not only enhanced my interpersonal skills but also broadened my perspective on cultural events, making it one of the most rewarding journeys of my academic and artistic life.
                   </p>
-                  <div class="testimonial-name">-Person Four</div>
+                  <div class="testimonial-name">- Anurag Dutta</div>
                 </div>
               </div>
             </div>
@@ -526,6 +521,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
       new Swiper(".testimonial-swiper", {
         loop: true,
         speed: 500,
+        autoHeight: true,
         navigation: {
           nextEl: "#testimonial-next",
           prevEl: "#testimonial-prev",
