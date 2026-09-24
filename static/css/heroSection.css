@@ -320,6 +320,8 @@ html, body {
   border: none;
   position: relative;
   z-index: 1;
+  transform: scale(1.12);
+  transform-origin: center;
 }
 
 
@@ -333,6 +335,10 @@ html, body {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
+  .heroSectionn .landing2 {
+    transform: scale(1.16);
+  }
+
   .heroSectionn .caTxt {
     font-size: clamp(50px, 8vw, 70px) !important;
     line-height: 1.1 !important; /* Prevents tall custom fonts from clipping */
