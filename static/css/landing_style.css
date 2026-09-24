@@ -2021,6 +2021,7 @@ main {
   border-radius: 16px;
   padding: 16px 8px;
   box-sizing: border-box;
+  height: auto;
   min-height: 300px;
   width: 100%;
   border: none;
