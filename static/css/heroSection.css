@@ -73,21 +73,32 @@ html, body {
 /* Dark gradient over the photo so white text/cards read no matter what
    part of landing.jpeg is in frame */
 .heroSectionn .contHolderBox::before {
-  display: none;
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: url('../images/hero/curved-bg.png');
+  background-size: 100% 100%;
+  background-position: center top;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
 }
 
 .heroSectionn .contHolderBox::after { display: none; }
 
-/* Previously swapped to curved-bg.png (the flat blue + black dome) once
-   .is-scrolled was added. Disabled so the original landing.jpeg photo
-   stays in place at all times — remove this comment block and restore
-   the rule below if you want the swap back later.
-.heroSectionn.is-scrolled .contHolderBox {
-  background-image: url('../images/hero/curved-bg.png') !important;
-  background-size: 100% 100% !important;
-  background-position: center top !important;
+/* Crossfade the blue curved background only while the aftermovie is hovered. */
+.heroSectionn.is-hovered .contHolderBox::before {
+  opacity: 1;
 }
-*/
+
+/* Replace the first hero photo with black while the aftermovie is hovered.
+  The blue curved overlay remains visible above the black background. */
+.heroSectionn.is-hovered .contHolderBox {
+  background-image: none !important;
+  background-color: #000;
+}
 
 .heroSectionn .contHolderBox > *:not(img.heroImg) {
   position: relative;
@@ -250,9 +261,9 @@ html, body {
 .heroSectionn .counterBox {
   position: absolute;
   left: calc(50% - 16px);
-  bottom: -110px; /* Note: Adjust this if the cards overlap content below on mobile */
+  bottom: -170px; /* Keep the semicircle closer to the hero section below */
   transform: translateX(-50%);
-  width: min(1280px, calc(100% - 40px));
+  width: min(1500px, calc(100% - 24px));
   min-height: 120px; /* Changed from fixed height */
   height: auto;      /* Allows container to grow dynamically */
   margin: 0;
@@ -262,7 +273,7 @@ html, body {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
-  column-gap: clamp(24px, 3vw, 52px);
+  column-gap: clamp(24px, 4vw, 64px);
 
   transition: all 0.35s ease;
   z-index: 4;
@@ -273,22 +284,15 @@ html, body {
   width: 235.75px;
   height: 118.64px;
 
-  /* 1. Neutral Transparent Background */
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
-
-  /* 2. Fine Glass Border Effect (Light hits top/left edges) */
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  border-right: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 18.49px;
-
-  /* 3. Combined Blur & Saturation */
-  -webkit-backdrop-filter: blur(12px) saturate(130%);
-  backdrop-filter: blur(12px) saturate(130%);
-
-  /* Inner edge highlight + soft outer shadow */
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3), 0 8px 24px rgba(0, 0, 0, 0.15);
-
+ 
+  /* From https://css.glass */
+  background: rgba(250, 241, 241, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0.8px);
+  -webkit-backdrop-filter: blur(0.8px);
+  border: 1px solid rgba(250, 241, 241, 0.16);
+  
   padding: 20px 34px;
   display: flex !important;
   flex-direction: column !important;
@@ -302,37 +306,37 @@ html, body {
 }
 
 
-/* Same rotation values as before — only a small translateY is added per
-   card so the row reads as a deliberate gentle arc instead of a random
-   zigzag, and a touch more shadow depth so the cards separate from the
-   photo behind them. */
-.heroSectionn .valBox:nth-child(1) { transform: rotate(8.21deg) translateY(14px); transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
-.heroSectionn .valBox:nth-child(2) { transform: rotate(-6.83deg) translateY(-6px); transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
-.heroSectionn .valBox:nth-child(3) { transform: rotate(6.83deg) translateY(-6px); transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
-.heroSectionn .valBox:nth-child(4) { transform: rotate(-8.21deg) translateY(14px); transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
+.heroSectionn .valBox:nth-child(1) { transform: rotate(6.83deg); transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
+.heroSectionn .valBox:nth-child(2) { transform: rotate(-8.21deg); transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
+.heroSectionn .valBox:nth-child(3) { transform: rotate(6.83deg); transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
+.heroSectionn .valBox:nth-child(4) { transform: rotate(-8.21deg); transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
 
 @media (min-width: 901px) {
-  .heroSectionn.is-hovered .valBox:nth-child(1) { transform: translateY(-20px) rotate(12deg) !important; }
-  .heroSectionn.is-hovered .valBox:nth-child(2) { transform: translateY(-34px) rotate(-3deg) !important; }
-  .heroSectionn.is-hovered .valBox:nth-child(3) { transform: translateY(-34px) rotate(3deg) !important; }
-  .heroSectionn.is-hovered .valBox:nth-child(4) { transform: translateY(-20px) rotate(-12deg) !important; }
+  /* Hover just lifts each card along its own rotation instead of also
+     changing the tilt, so it stays true to the Figma angles at rest. */
+  .heroSectionn.is-hovered .valBox:nth-child(1) { transform: translateY(30px) rotate(-15.04deg) !important; }
+  .heroSectionn.is-hovered .valBox:nth-child(2) { transform: translateY(-34px) rotate(-8.14deg) !important; }
+  .heroSectionn.is-hovered .valBox:nth-child(3) { transform: translateY(-34px) rotate(6.83deg) !important; }
+  .heroSectionn.is-hovered .valBox:nth-child(4) { transform: translateY(30px) rotate(16.05deg) !important; }
 }
 
 
 
 .heroSectionn .num {
   font-family:  "Inter", sans-serif !important;
-  font-weight: 800 !important;
+  font-weight: 900 !important;
   font-size: 32px !important;
+  line-height: 1 !important;
   color: var(--ca-cream) !important;
   text-align: center !important;
-  margin: 0 0 4px !important;
+  margin: 0 !important;
 }
 
 .heroSectionn .title1 {
   font-family:  "Inter", sans-serif !important;
-  font-weight: 800 !important;
+  font-weight: 900 !important;
   font-size: 16px !important;
+  line-height: 1.1 !important;
   color: var(--ca-cream) !important;
   text-align: center !important;
   margin: 0 !important;
@@ -361,12 +365,8 @@ html, body {
   border: none;
   position: relative;
   z-index: 1;
-  object-fit: cover;
-  object-position: center;
-  /* Small safety-crop to trim the player's own edge artifacts without
-     zooming the actual footage out of frame. */
-  transform: scale(1.02);
-  transform-origin: center;
+  /* Keep the YouTube player fully inside the 16:9 wrapper. */
+  object-fit: contain;
 }
 
 /* Hover/focus on the video no longer touches the stat cards. */
@@ -374,7 +374,7 @@ html, body {
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .heroSectionn .landing2 {
-    transform: scale(1.16);
+    transform: none;
   }
 
   .heroSectionn .caTxt {
