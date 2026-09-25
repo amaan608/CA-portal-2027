@@ -35,6 +35,7 @@ html, body {
   width: 100%;
   overflow: hidden;
   background: #000;
+  margin-top: 82px;
 }
 
 .heroSectionn .contHolderBox {
@@ -42,7 +43,7 @@ html, body {
   /* Keep the counters above the aftermovie's black hover arc. */
   z-index: 3;
   width: 100%;
-  min-height: 760px;
+  min-height: 700px;
   background-image: linear-gradient(180deg, rgba(10, 65, 101, 0.16), rgba(18, 52, 74, 0.08)), url('../images/hero/landing.jpeg') !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
