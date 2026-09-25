@@ -1097,7 +1097,7 @@ opacity: 1;
 }
 
 .swiper-wrapper {
-  align-items: center;
+  align-items: stretch;
 }
 
 .iframe-container {
@@ -1287,7 +1287,8 @@ opacity: 1;
 .page1 {
   display: flex;
   flex-direction: column;
-  height: 70rem;
+  min-height: 70rem;
+  height: auto;
   background-color: transparent;
   margin: 0;
   padding: 0;
@@ -1702,6 +1703,74 @@ main {
 }
 
 @media (max-width: 768px) {
+
+
+  .testimonial-carousel-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 95vw !important; /* Give it maximum screen real estate */
+    margin: 0 auto !important;
+    gap: 10px !important;
+  }
+
+  /* 2. CRITICAL FIX: flex: 1 and min-width: 0 forces Swiper to respect the wrapper's width */
+  .testimonial-swiper {
+    flex: 1 !important;
+    min-width: 0 !important; 
+    width: 100% !important;
+  }
+
+  /* 3. Stop the arrows from shrinking when space gets tight */
+  .carousel-arrow {
+    display: flex !important;
+    flex-shrink: 0 !important;
+  }
+
+  .testimonial-swiper .swiper-slide {
+    height: 100% !important; 
+  }
+
+  /* 4. Ensure the card perfectly fits the slide */
+  .testimonial-card {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 24px !important;
+    box-sizing: border-box !important;
+  }
+
+  .testimonial-image {
+    width: 180px !important;
+    height: 180px !important;
+    margin: 0 auto 20px auto !important;
+    flex-shrink: 0;
+  }
+
+  .testimonial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .testimonial-content {
+    width: 100%;
+  }
+
+  .testimonial-name {
+    align-self: flex-end;
+    margin-top: 20px;
+  }
+
+  .carousel-arrow svg {
+    width: 26px;
+    height: 26px;
+  }
+
+
   .page1 {
     height: auto;
     min-height: 0;
@@ -1958,6 +2027,17 @@ main {
 /* --- Responsive Styles for VERY Small Screens (e.g., 360px, 390px) --- */
 @media (max-width: 480px) {
 
+  .testimonial-carousel-wrapper {
+    gap: 2px;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .testimonial-card {
+    padding: 14px 12px;
+    width: 100% !important;
+  }
+
   /* 1. Further reduce padding inside the main box */
   .frame2 {
     padding: 15px; /* Reduces the inner white space */
@@ -2021,7 +2101,7 @@ main {
   border-radius: 16px;
   padding: 16px 8px;
   box-sizing: border-box;
-  height: auto;
+  height: 100%;
   min-height: 300px;
   width: 100%;
   border: none;
@@ -2094,7 +2174,7 @@ main {
   .testimonial-swiper,
   .testimonial-swiper .swiper-wrapper,
   .testimonial-swiper .swiper-slide {
-    height: auto !important;
+    height: 100% !important;
   }
 
   .testimonial-card {
