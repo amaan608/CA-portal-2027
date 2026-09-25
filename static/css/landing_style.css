@@ -2157,11 +2157,12 @@ main {
   padding: 8px;
   flex-shrink: 0;
   transition: transform 0.2s ease;
+  transform: scale(2);
 }
 
-.carousel-arrow:hover {
+/* .carousel-arrow:hover {
   transform: scale(1.15);
-}
+} */
 
 @media (max-width: 768px) {
   .testimonial-carousel-wrapper {
