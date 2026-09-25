@@ -17,7 +17,7 @@ nav {
 }
 
 nav.scrolled {
-  position: sticky;
+  position: sticky !important;
   top: 0;
   left: 0;
   height: 83px;
@@ -90,6 +90,26 @@ nav img {
   transition: all 0.2s ease;
 }
 
+.nav-links a:not(.navhero-btn),
+.text-btn {
+  position: relative;
+  isolation: isolate;
+}
+
+.nav-links a:not(.navhero-btn)::before,
+.text-btn::before {
+  content: "";
+  position: absolute;
+  inset: -9px -14px;
+  z-index: -1;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.08);
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
 #navlink5 {
   color: var(--text-main) !important;
   text-decoration: none !important;
@@ -97,7 +117,13 @@ nav img {
 
 .nav-links a:hover, 
 .text-btn:hover {
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0 12px rgba(237, 231, 231, 0.5);
+}
+
+.nav-links a:not(.navhero-btn):hover::before,
+.text-btn:hover::before {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .nav-links a:focus-visible,
@@ -138,7 +164,7 @@ nav img {
   font-weight: 600;
   font-size: 16px;
   text-decoration: none;
-  background: var(--glass-bg);
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -146,12 +172,39 @@ nav img {
   border-right-color: rgba(255, 255, 255, 0.05);
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), 0 4px 16px rgba(0, 0, 0, 0.15);
   transition: all var(--transition-speed) cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
 }
 
 .navhero-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4), 0 8px 24px rgba(0, 0, 0, 0.2);
-  transform: translateY(-2px);
+  color: #ffffff !important;
+  background: #18181e;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4), 0 8px 24px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.navhero-btn:active {
+  transform: translateY(-1px);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navhero-btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 32px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.03);
+  transition: all .4s;
+}
+
+.navhero-btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
 }
 
 /* Responsive Styles */

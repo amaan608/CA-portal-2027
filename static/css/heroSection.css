@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: "Zolla";
   src: url("../Fonts/Zolla.ttf") format("truetype");
@@ -79,11 +78,16 @@ html, body {
 
 .heroSectionn .contHolderBox::after { display: none; }
 
+/* Previously swapped to curved-bg.png (the flat blue + black dome) once
+   .is-scrolled was added. Disabled so the original landing.jpeg photo
+   stays in place at all times — remove this comment block and restore
+   the rule below if you want the swap back later.
 .heroSectionn.is-scrolled .contHolderBox {
   background-image: url('../images/hero/curved-bg.png') !important;
   background-size: 100% 100% !important;
   background-position: center top !important;
 }
+*/
 
 .heroSectionn .contHolderBox > *:not(img.heroImg) {
   position: relative;
@@ -136,7 +140,7 @@ html, body {
   text-shadow: 0 0 10px rgba(246, 214, 107, 0.15);
 }
 
-/* ---------- CTA button ---------- */
+/* ---------- CTA button (Register) — frosted glass base + btn-4 diagonal shine sweep ---------- */
 
 .heroSectionn .joinBtn,
 .heroSectionn a.joinBtn {
@@ -148,26 +152,30 @@ html, body {
   font-weight: 800 !important;
   font-size: 24px !important;
   color: rgba(255, 255, 255, 0.96) !important;
-  
+
   /* 1. Frosted Glass Background & Filter */
   background-color: #13131326 !important;
   backdrop-filter: blur(10px) saturate(120%);
   -webkit-backdrop-filter: blur(10px) saturate(120%); /* Safari support */
-  
+
   /* 2. Directional Lighting Border */
   border: 1px solid rgba(255, 255, 255, 0.25) !important;
   border-bottom-color: rgba(255, 255, 255, 0.05) !important;
   border-right-color: rgba(255, 255, 255, 0.05) !important;
-  
+
   border-radius: 999px !important;
   padding: 12px 48px !important;
   min-width: 180px;
-  
+
   /* 3. Soft Glass Shadows */
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), 0 4px 12px rgba(0, 0, 0, 0.1);
-  
+
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   text-decoration: none !important;
+
+  /* btn-4 requires overflow hidden + position relative to clip/place the shine bar */
+  position: relative;
+  overflow: hidden;
 }
 
 .heroSectionn .joinBtn img {
@@ -176,27 +184,59 @@ html, body {
   filter: brightness(0) invert(1);
   transition: transform 0.3s ease;
 }
+
+/* Keep the label (and icon) above the shine sweep */
+.heroSectionn .joinBtn span,
+.heroSectionn .joinBtn img {
+  position: relative;
+  z-index: 20;
+}
+
+/* The diagonal shine bar, parked off the left edge */
+.heroSectionn .joinBtn::after,
+.heroSectionn a.joinBtn::after {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -75px;
+  width: 50px;
+  height: 155px;
+  background: #ffffff;
+  opacity: 0.2;
+  transform: rotate(35deg);
+  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: -10;
+  pointer-events: none;
+}
+
 .heroSectionn .joinBtn:hover,
 .heroSectionn a.joinBtn:hover {
   /* 1. Brighten the dark glass to simulate light hitting it */
   background: linear-gradient(135deg, rgba(30, 55, 85, 0.8), rgba(15, 30, 50, 0.6)) !important;
-  
+
   /* 2. Tactile lift and scale */
   transform: translateY(-4px) scale(1.02);
-  
+
   /* 3. Catch more light on the top/left edges */
   border-color: rgba(255, 255, 255, 0.6) !important;
   border-bottom-color: rgba(255, 255, 255, 0.15) !important;
   border-right-color: rgba(255, 255, 255, 0.15) !important;
-  
+
   /* 4. Deepen the drop shadow for height, brighten inner reflection, add subtle glow */
-  box-shadow: 
-    inset 0 2px 6px rgba(255, 255, 255, 0.4), 
+  box-shadow:
+    inset 0 2px 6px rgba(255, 255, 255, 0.4),
     0 24px 48px rgba(0, 0, 0, 0.5),
     0 0 24px rgba(255, 255, 255, 0.15); /* Soft outer glow */
-    
+
   /* 5. Make the text glow slightly */
   text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+/* Sweep the shine bar across on hover */
+.heroSectionn .joinBtn:hover::after,
+.heroSectionn a.joinBtn:hover::after {
+  left: 120%;
+  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 
@@ -217,13 +257,13 @@ html, body {
   height: auto;      /* Allows container to grow dynamically */
   margin: 0;
   padding-bottom: 18px;
-  
+
   /* Equal tracks keep every card evenly spaced across the row. */
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
   column-gap: clamp(24px, 3vw, 52px);
-  
+
   transition: all 0.35s ease;
   z-index: 4;
 }
@@ -232,10 +272,10 @@ html, body {
   position: relative;
   width: 235.75px;
   height: 118.64px;
-  
+
   /* 1. Neutral Transparent Background */
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
-  
+
   /* 2. Fine Glass Border Effect (Light hits top/left edges) */
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -262,10 +302,14 @@ html, body {
 }
 
 
-.heroSectionn .valBox:nth-child(1) { transform: rotate(8.21deg); transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
-.heroSectionn .valBox:nth-child(2) { transform: rotate(-6.83deg); transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
-.heroSectionn .valBox:nth-child(3) { transform: rotate(6.83deg); transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
-.heroSectionn .valBox:nth-child(4) { transform: rotate(-8.21deg); transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
+/* Same rotation values as before — only a small translateY is added per
+   card so the row reads as a deliberate gentle arc instead of a random
+   zigzag, and a touch more shadow depth so the cards separate from the
+   photo behind them. */
+.heroSectionn .valBox:nth-child(1) { transform: rotate(8.21deg) translateY(14px); transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
+.heroSectionn .valBox:nth-child(2) { transform: rotate(-6.83deg) translateY(-6px); transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
+.heroSectionn .valBox:nth-child(3) { transform: rotate(6.83deg) translateY(-6px); transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
+.heroSectionn .valBox:nth-child(4) { transform: rotate(-8.21deg) translateY(14px); transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
 
 @media (min-width: 901px) {
   .heroSectionn.is-hovered .valBox:nth-child(1) { transform: translateY(-20px) rotate(12deg) !important; }
@@ -294,16 +338,13 @@ html, body {
   margin: 0 !important;
 }
 
-.heroSectionn .joinBtn:hover,
-.heroSectionn a.joinBtn:hover {
-  background: #13131326 !important;
-}
-
 /* ---------- 2nd image seam: thin dome, not a thick block ---------- */
 
 .heroSectionn .aftermovie-preview {
   position: relative;
   width: 100%;
+  /* Back to 16:9 — the 21:9 variable didn't match the actual embedded
+     video and was cutting it off oddly. */
   aspect-ratio: 16 / 9;
   box-sizing: border-box;
   overflow: hidden;
@@ -320,18 +361,15 @@ html, body {
   border: none;
   position: relative;
   z-index: 1;
-  transform: scale(1.12);
+  object-fit: cover;
+  object-position: center;
+  /* Small safety-crop to trim the player's own edge artifacts without
+     zooming the actual footage out of frame. */
+  transform: scale(1.02);
   transform-origin: center;
 }
 
-
-
-
-.heroSectionn .aftermovie-preview:hover .valBox,
-.heroSectionn .aftermovie-preview:focus-within .valBox {
-  box-shadow: inset 0 1px 1px rgba(255,255,255,.32), 0 18px 26px rgba(0, 0, 0, 0.28);
-  border-color: rgba(255, 251, 239, 0.5) !important;
-}
+/* Hover/focus on the video no longer touches the stat cards. */
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
@@ -361,7 +399,7 @@ html, body {
   .heroSectionn .valBox {
     transform: none !important; /* Disable the arc on tablets */
   }
-  
+
   .heroSectionn.is-hovered .valBox {
     transform: none !important; /* Prevent arc snapping on touch/hover */
   }
@@ -400,7 +438,7 @@ html, body {
 
   /* 3. Fix the floating cards by dropping absolute positioning on mobile */
   .heroSectionn .counterBox {
-    position: relative !important; 
+    position: relative !important;
     bottom: auto !important;
     left: auto !important;
     transform: none !important;
@@ -408,7 +446,7 @@ html, body {
     height: auto;
     margin-top: 48px;
     padding: 0;
-    
+
     /* Perfect 2x2 Grid */
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -417,7 +455,7 @@ html, body {
 
   /* 4. Let grid control the card sizing */
   .heroSectionn .valBox {
-    width: 100% !important; 
+    width: 100% !important;
     height: auto !important;
     aspect-ratio: 4 / 3; /* Keeps them uniformly rectangular */
     padding: 16px 12px !important;
