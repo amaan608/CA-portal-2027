@@ -2251,3 +2251,34 @@ main {
   width: 100%;
   border-radius: 16px;
 }
+/* 1. Force the Swiper wrapper to stretch all slides to match the tallest one */
+.testimonial-swiper .swiper-wrapper {
+    align-items: stretch !important;
+}
+
+/* 2. Force slides to adapt to the stretched height on ALL devices */
+.testimonial-swiper .swiper-slide {
+    height: auto !important;
+    display: flex !important;
+}
+
+/* 3. Force the inner card to fill the available space (keeps PC layout intact) */
+.testimonial-card {
+    height: 100% !important;
+    display: flex !important;
+}
+
+/* 4. Push the name to the bottom uniformly */
+.testimonial-content {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+    justify-content: space-between !important; 
+}
+
+/* 5. Shift image to the top ONLY for tablet and mobile */
+@media (max-width: 1024px) {
+    .testimonial-card {
+        flex-direction: column !important;
+    }
+}
