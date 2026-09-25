@@ -165,8 +165,8 @@
   font-family: 'Poppins', sans-serif;
   border-top: none;
   margin-top: 30px;
-  padding: 20px 24px;
-  padding-bottom: 50px;
+  padding: 20px 24px 0px 24px;
+  padding-bottom: 0;
   font-size: 0.6rem;
   text-align: center;
   line-height: 0;
@@ -261,7 +261,7 @@
     font-size: 0.6rem;
     padding: 16px;
     margin-top: 18px;
-    padding-bottom:24px;
+    padding-bottom:0px;
     padding-top:8px;
     line-height:0;
   }
@@ -269,7 +269,7 @@
 
 
 .image-text {
-  margin: 0;
+  margin: 0 0 -4vw 0;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

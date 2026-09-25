@@ -301,6 +301,7 @@
   background-color: #222121;
   color: #F8F1E7;
   width: 100%;
+  overflow: hidden;
 }
 
 .footer-top {
@@ -433,7 +434,7 @@
   border-top: none;
   margin-top: 30px;
   padding: 20px 24px;
-  padding-bottom: 50px;
+  padding-bottom: 0;
   font-size: 0.6rem;
   text-align: center;
   line-height: 0;
@@ -523,7 +524,7 @@
     font-size: 0.6rem;
     padding: 16px;
     margin-top: 18px;
-    padding-bottom:24px;
+    padding-bottom:0;
     padding-top:8px;
     line-height:0;
   }
