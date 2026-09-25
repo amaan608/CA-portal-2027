@@ -52,13 +52,6 @@ function initHeroPage() {
   const heroRoot = document.querySelector(".heroSectionn");
 
   if (aftermoviePreview && heroRoot) {
-    const updateScrollState = () => {
-      heroRoot.classList.toggle("is-scrolled", window.scrollY > 80);
-    };
-
-    updateScrollState();
-    window.addEventListener("scroll", updateScrollState, { passive: true });
-
     const setArcState = (active) => {
       heroRoot.classList.toggle("is-hovered", active);
     };
