@@ -247,6 +247,105 @@ body {
   }
 }
 
+@media (max-width: 580px) {
+  .join-section {
+    padding: 38px 16px 30px;
+  }
+
+  .join-inner-wrapper {
+    align-items: center;
+    gap: 24px;
+  }
+
+  .join-left-column,
+  .join-right-column {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .join-left-column {
+    align-items: center;
+  }
+
+  .join-heading {
+    font-size: clamp(2.25rem, 11vw, 3rem) !important;
+    text-align: center;
+  }
+
+  .join-logo-image {
+    max-width: min(330px, 88vw);
+  }
+
+  .join-right-column {
+    gap: 12px;
+  }
+
+  .join-toggle-tabs {
+    justify-content: center;
+  }
+
+  .join-glassy-card {
+    padding: 22px 18px;
+  }
+
+  .join-benefits-list li {
+    font-size: 11px;
+  }
+
+  .box2.register-how-to-section {
+    min-height: 0;
+    padding: 42px 16px 28px;
+  }
+
+  .register-heading {
+    font-size: 2.5rem;
+    margin-bottom: 26px;
+  }
+
+  .register-content-grid {
+    gap: 18px;
+  }
+
+  .register-tabs-column {
+    gap: 14px;
+  }
+
+  .reg-tab-btn {
+    padding: 14px 18px;
+    font-size: 1.05rem;
+  }
+
+  .register-card {
+    min-height: 180px;
+    padding: 26px 22px;
+  }
+
+  .reg-card-title {
+    font-size: 1.05rem;
+  }
+
+  .reg-card-desc {
+    font-size: 0.75rem;
+  }
+
+  .box3 {
+    min-height: 0;
+    padding: 34px 16px 48px;
+  }
+
+  .box3-title-top {
+    font-size: 2rem;
+  }
+
+  .box3-title-bottom {
+    font-size: 2.5rem;
+  }
+
+  .box3-cards-grid {
+    max-width: 290px;
+  }
+}
+
 .box2.register-how-to-section {
   background: transparent !important;
   position: relative;
@@ -784,4 +883,94 @@ body {
 .fx-in {
   opacity: 1 !important;
   transform: none !important;
+}
+
+@media screen and (max-width: 580px) {
+  .box3-map-column {
+    display: none;
+  }
+
+  .box3-inner-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .box3-map-column,
+  .box3-content-column {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .box3-map-container {
+    width: min(100%, 320px);
+    margin: 0 auto;
+  }
+
+  .box3-content-column {
+    align-items: center;
+    text-align: center;
+  }
+
+  .box3-title-wrapper {
+    margin-bottom: 24px;
+  }
+
+  .box3-cards-grid {
+    width: 100%;
+    max-width: 290px;
+  }
+
+  .box2.register-how-to-section {
+    min-height: 0;
+    padding: 42px 16px 28px;
+  }
+
+  .register-heading {
+    font-size: 2.5rem;
+    margin-bottom: 26px;
+  }
+
+  .register-content-grid {
+    gap: 18px;
+  }
+
+  .register-tabs-column {
+    gap: 14px;
+  }
+
+  .reg-tab-btn {
+    padding: 14px 18px;
+    font-size: 1.05rem;
+  }
+
+  .register-card {
+    min-height: 180px;
+    padding: 26px 22px;
+  }
+
+  .reg-card-title {
+    font-size: 1.05rem;
+  }
+
+  .reg-card-desc {
+    font-size: 0.75rem;
+  }
+
+  .box3 {
+    min-height: 0;
+    padding: 34px 16px 48px;
+  }
+
+  .box3-title-top {
+    font-size: 2rem;
+  }
+
+  .box3-title-bottom {
+    font-size: 2.5rem;
+  }
+
+  .box3-cards-grid {
+    max-width: 290px;
+  }
 }

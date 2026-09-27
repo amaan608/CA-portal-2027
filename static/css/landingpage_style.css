@@ -517,7 +517,7 @@ body {
 		font-family: 'Zolla', sans-serif;
 		font-weight: 400;
 		font-style: normal;
-		font-size: 1.5rem;
+		font-size: 1.5rem !important;
 		line-height: 4.6875rem;
 		letter-spacing: 0;
 		text-align: center;
@@ -528,7 +528,7 @@ body {
 		font-family: 'Zolla', sans-serif;
 		font-weight: 400;
 		font-style: normal;
-		font-size: 1.5rem;
+		font-size: 1.5rem !important;
 		line-height: 4.6875rem;
 		letter-spacing: 0;
 		color: #ffc72b;
@@ -586,14 +586,14 @@ body {
 
 	.bottom-section-title .section-title,
 	.section-title {
-		font-size: 1.5rem;
-		line-height: 100%;
+		font-size: 1.5rem !important;
+		line-height: 100% !important;
 	}
 
 	.bottom-section-title .highlight-yellow,
 	.bottom-section-title .section-title .highlight-yellow {
-		font-size: 1.5rem;
-		line-height: 100%;
+		font-size: 1.5rem !important;
+		line-height: 100% !important;
 	}
 
 	.cards-container {
@@ -690,6 +690,11 @@ body {
 }
 
 @media (max-width: 480px) {
+	.roles-section-title {
+		font-size: 2.5rem !important;
+		line-height: 1 !important;
+		max-width: 100%;
+	}
 	.illustration-right {
 		display: none;
 	}
@@ -799,8 +804,8 @@ body {
 		text-align: left !important;
 		align-items: center !important;
 		justify-content: space-between !important;
-		min-width: 21.45125rem !important;
-		width: 21.45125rem !important;
+		min-width: 0 !important;
+		width: min(21.45125rem, 95vw) !important;
 		max-width: 95vw !important;
 		height: 7.25rem !important;
 		min-height: 7.25rem !important;
