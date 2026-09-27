@@ -25,8 +25,8 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 {% endblock %} {% block body %}
 
-<script src="/static/js/home_main.js"></script>
-<script src="/static/js/landing_page.js"></script>
+<script src="{% static 'js/home_main.js' %}"></script>
+<script src="{% static 'js/landing_page.js' %}"></script>
 <script src="{% static 'js/landingpage_script.js' %}"></script>
 
 
@@ -74,31 +74,31 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
           <div class="cards-container">
             <div class="card" data-card="1">
               <div class="card-illustration">
-                <img src="media/image-uploads/about1.png" alt="Pronites Pass" class="team-image">
+                <img src="{% get_media_prefix %}image-uploads/about1.png" alt="Pronites Pass" class="team-image">
               </div>
               <h3 class="card-title">Pronites Pass</h3>
             </div>
             <div class="card" data-card="2">
               <div class="card-illustration">
-                <img src="media/image-uploads/about2.png" alt="Join the team" class="team-image">
+                <img src="{% get_media_prefix %}image-uploads/about2.png" alt="Join the team" class="team-image">
               </div>
               <h3 class="card-title">Join the team</h3>
             </div>
             <div class="card" data-card="3">
               <div class="card-illustration">
-                <img src="media/image-uploads/about3.png" alt="Level wise certificates" class="team-image">
+                <img src="{% get_media_prefix %}image-uploads/about3.png" alt="Level wise certificates" class="team-image">
               </div>
               <h3 class="card-title">Level wise certificates</h3>
             </div>
             <div class="card" data-card="4">
               <div class="card-illustration">
-                <img src="media/image-uploads/about4.png" alt="Travel Reimbursement" class="team-image">
+                <img src="{% get_media_prefix %}image-uploads/about4.png" alt="Travel Reimbursement" class="team-image">
               </div>
               <h3 class="card-title">Travel Reimbursement</h3>
             </div>
             <div class="card" data-card="5">
               <div class="card-illustration">
-                <img src="media/image-uploads/about5.png" alt="Exciting prizes" class="team-image">
+                <img src="{% get_media_prefix %}image-uploads/about5.png" alt="Exciting prizes" class="team-image">
               </div>
               <h3 class="card-title">Exciting prizes</h3>
             </div>
@@ -123,7 +123,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                     <p class="role-description">Lead Alcheringa promotion at your college. Present to key clubs and social groups.</p>
                   </div>
                   <div class="role-illustration">
-                    <img src="media/image-uploads/role-image1.png" class="role-image" alt="College branding">
+                    <img src="{% get_media_prefix %}image-uploads/role-image1.png" class="role-image" alt="College branding">
                   </div>
                 </div>
               </div>
@@ -135,7 +135,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                     <p class="role-description">Lead your city’s top performer search and help organize Alcheringa’s city eliminations.</p>
                   </div>
                   <div class="role-illustration">
-                    <img src="media/image-uploads/role-image2.png" class="role-image" alt="City Elimination">
+                    <img src="{% get_media_prefix %}image-uploads/role-image2.png" class="role-image" alt="City Elimination">
                   </div>
                 </div>
               </div>
@@ -147,7 +147,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                     <p class="role-description">Expand Alcheringa by connecting with college cultural societies.</p>
                   </div>
                   <div class="role-illustration">
-                    <img src="media/image-uploads/role-image3.png" class="role-image" alt="Increasing Reach">
+                    <img src="{% get_media_prefix %}image-uploads/role-image3.png" class="role-image" alt="Increasing Reach">
                   </div>
                 </div>
               </div>
@@ -159,7 +159,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                     <p class="role-description">Complete all tasks promptly to effectively promote and represent Alcheringa.</p>
                   </div>
                   <div class="role-illustration">
-                    <img src="media/image-uploads/role-image4.png" class="role-image" alt="Complete Tasks">
+                    <img src="{% get_media_prefix %}image-uploads/role-image4.png" class="role-image" alt="Complete Tasks">
                   </div>
                 </div>
               </div>
@@ -171,7 +171,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                     <p class="role-description">Suggest creative ideas to enhance event visibility and engagement across campus.</p>
                   </div>
                   <div class="role-illustration">
-                    <img src="media/image-uploads/role-image5.png" class="role-image" alt="Suggest Ideas">
+                    <img src="{% get_media_prefix %}image-uploads/role-image5.png" class="role-image" alt="Suggest Ideas">
                   </div>
                 </div>
               </div>
@@ -183,7 +183,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                     <p class="role-description">Drive registrations by actively engaging with students and promoting the event in campus.</p>
                   </div>
                   <div class="role-illustration">
-                    <img src="media/image-uploads/role-image6.png" class="role-image" alt="Get Registrations">
+                    <img src="{% get_media_prefix %}image-uploads/role-image6.png" class="role-image" alt="Get Registrations">
                   </div>
                 </div>
               </div>

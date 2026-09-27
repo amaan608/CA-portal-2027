@@ -1281,14 +1281,14 @@ opacity: 1;
 /* ALCHER 2026 STYLES*/
 @font-face {
   font-family: "Vastago Grotesk";
-  src: url("Fonts/VastagoGrotesk-Bold.otf") format("truetype");
+  src: url("../Fonts/VastagoGrotesk-Bold.otf") format("truetype");
   font-weight: 700;
   font-style: bold;
 }
 
 @font-face {
   font-family: "Poppins";
-  src: url("Fonts/Poppins-Medium.ttf") format("truetype");
+  src: url("../Fonts/Poppins-Medium.ttf") format("truetype");
   font-weight: 500;
 }
 
@@ -1486,7 +1486,7 @@ main {
   margin: auto;
   width: 45px;
   height: 60px;
-  background: url("IMAGES/Arrow\ Right.png") no-repeat center center;
+  background: url("../images/Arrow\ Right.png") no-repeat center center;
   background-size: contain;
   border: none;
   cursor: pointer;
@@ -1498,7 +1498,7 @@ main {
   margin: auto;
   width: 45px;
   height: 60px;
-  background: url("IMAGES/arrow\ right\ right.png") no-repeat center center;
+  background: url("../images/arrow\ right\ right.png") no-repeat center center;
   background-size: contain;
   border: none;
   cursor: pointer;
