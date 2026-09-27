@@ -1,83 +1,128 @@
 {% load static %}
-<div class="first-container">
-  <div class="box1 join-section">
-      <div class="join-inner-wrapper">
-        <div class="join-left-column">
-          <h2 class="join-heading">Join as a</h2>
-          <div class="join-logo-wrapper">
-            <img src="{% static 'images/team_or_solo_logo.png' %}" alt="Team or Solo" class="join-logo-image" />
-          </div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0..200&display=swap" />
+  <link rel="stylesheet" href="{% static 'css/rj.css' %}" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+</head>
+
+<body>
+  <div class="first-container">
+    <div class="box1 jsh">
+      <div class="box1left">
+        <div class="grid-container"></div>
+        <div class="leftboximg">
+          <img src="{% static 'images/rjimages/team.svg'%}" alt="" srcset="" />
         </div>
-        <div class="join-right-column">
-          <div class="join-toggle-tabs">
-            <button type="button" class="join-tab-btn active" data-mode="team" id="tab-btn-team">
-              Team <span class="tab-arrow">&#x2198;</span>
+      </div>
+      <div class="box1right">
+        <div class="temp">
+          <div style="display: flex; gap: 8px">
+            <button class="rightbox1btn act">Team
+              <span class="rightarrow">&rarr;</span>
             </button>
-            <button type="button" class="join-tab-btn" data-mode="solo" id="tab-btn-solo">
-              Solo <span class="tab-arrow">&#x2198;</span>
+            <button class="rightbox1btn">Solo
+              <span class="rightarrow">&rarr;</span>
             </button>
           </div>
-          <div class="join-glassy-card" id="join-card">
-            <ul class="join-benefits-list" id="team-benefits">
-              <li>
-                <strong>Boosts Creativity & Productivity &ndash;</strong> Teamwork enables brainstorming, generating diverse ideas, and developing innovative solutions from multiple perspectives.
-              </li>
-              <li>
-                <strong>Enhances Communication & Interpersonal Skills &ndash;</strong> Collaborating with others builds rapport, strengthens social skills, and fosters openness to different cultures and viewpoints.
-              </li>
-              <li>
-                <strong>Accelerates Learning & Problem-Solving &ndash;</strong> Sharing knowledge and tackling challenges together deepens understanding, broadens perspectives, and speeds up personal and collective growth.
-              </li>
-            </ul>
-            <ul class="join-benefits-list" id="solo-benefits" style="display: none;">
-              <li>
-                <strong>Independence & Ownership &ndash;</strong> Working solo lets you plan, organize, and execute tasks entirely on your own, giving you full control over the outcome.
-              </li>
-              <li>
-                <strong>Flexibility & Personal Style &ndash;</strong> You can work at your own pace, adapt processes to your style, and shape results in the way you envision.
-              </li>
-              <li>
-                <strong>Self-Motivation & Discipline &ndash;</strong> Being your own driver of progress helps you stay motivated, manage stress, and take full responsibility for completing tasks.
-              </li>
-            </ul>
-          </div>
+          <ul class="Team" id="teamT">
+            <li class="Team" style="color: #13141d">
+              <span style="color: black; font-weight:550">Boosts Creativity & Productivity</span> - Teamwork enables brainstorming, generating diverse ideas, and
+              developing innovative solutions from multiple perspectives.</li>
+            <li class="Team" style="color: #13141d">
+              <span style="color: black; font-weight:550">Enhances Communication & Interpersonal Skills</span> - Collaborating with others builds rapport, strengthens
+              social skills, and fosters openness to different cultures and viewpoints. </li>
+            <li class="Team" style="color: #13141d">
+              <span style="color: black; font-weight:550">Accelerates Learning & Problem-Solving</span> - Sharing knowledge and tackling challenges together deepens
+              understanding, broadens perspectives, and speeds up personal and collective growth. </li>
+          </ul>
+          <ul class="solo" id="soloT" style="display: none">
+            <li class="mb-4" style="color: #13141d">
+              <span style="color: black; font-weight:550">Independence & Ownership</span> - Working solo lets you plan, organize, and execute tasks entirely on your own, giving you full control over the outcome.
+            </li>
+            <li class="mb-4" style="color: #13141d">
+              <span style="color: black; font-weight:550">Flexibility & Personal Style</span> - You can work at your own pace, adapt processes to your style, and shape results in the way you envision.
+            </li>
+            <li class="mb-4" style="color: #13141d">
+              <span style="color: black; font-weight:550">Self-Motivation & Discipline</span> - Being your own driver of progress helps you stay motivated, manage stress, and take full responsibility for completing tasks.
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-    <div class="box2 register-how-to-section">
-      <div class="register-inner-wrapper">
-        <h2 class="register-heading">
-          <span class="reg-title-white">Register</span>
-          <span class="reg-title-yellow">Now</span>
-        </h2>
-        <div class="register-content-grid">
-          <div class="register-tabs-column">
-            <button type="button" class="reg-tab-btn active" data-step="1">
-              <span class="step-num">1.</span> Register
-            </button>
-            <button type="button" class="reg-tab-btn" data-step="2">
-              <span class="step-num">2.</span> Complete and verify tasks
-            </button>
-            <button type="button" class="reg-tab-btn" data-step="3">
-              <span class="step-num">3.</span> Collect Rewards
-            </button>
+    <div class="box2">
+      <div class="mainContent">
+        <div class="box2animation">
+          <p class="box2para">How to</p>
+          <div class="mainContImg">
+            <img src="{% static 'images/rjimages/head.svg'%}" alt="" srcset="" />
           </div>
-          <div class="register-card-column">
-            <div class="register-card" id="reg-card">
-              <h3 class="reg-card-title" id="reg-card-title"><span class="step-num">1.</span> Register</h3>
-              <p class="reg-card-desc" id="reg-card-desc">
-                Sign up to become a Campus Ambassador at Alcheringa and join our dynamic community of students from across the country.
-              </p>
-            </div>
+        </div>
+        <div class="queue">
+          <div class="steps">
+            <span class="step">1. Register</span>
+            <span class="material-symbols-outlined less">
+              keyboard_arrow_down
+            </span>
+            <span class="material-symbols-outlined more" style="display:none;">
+              keyboard_control_key
+            </span>
           </div>
+          <p class="step-details">
+            Sign up to become a Campus Ambassador at Alcheringa and join our dynamic community of students from across
+            the country.
+          </p>
+          <hr />
+          <div class="steps">
+            <span class="step">2. Complete & Verify Tasks</span>
+            <span class="material-symbols-outlined less">
+              keyboard_arrow_down
+            </span>
+            <span class="material-symbols-outlined more" style="display:none;">
+              keyboard_control_key
+            </span>
+          </div>
+          <p class="step-details">
+            Review the tasks listed on your dashboard, follow the instructions, upload proof of completion, and wait for
+            our team to verify your submission. Once approved, you will earn points.
+          </p>
+          <hr />
+          <div class="steps">
+            <span class="step">3. Collect Rewards</span>
+            <span class="material-symbols-outlined less">
+              keyboard_arrow_down
+            </span>
+            <span class="material-symbols-outlined more" style="display:none;">
+              keyboard_control_key
+            </span>
+          </div>
+          <p class="step-details">
+            As you accumulate points, you will be able to redeem rewards and incentives we have in store.
+          </p>
         </div>
       </div>
     </div>
     <div class="box3">
-      <div class="box3-inner-wrapper">
-        <div class="box3-map-column">
-          <div class="box3-map-container">
-            <svg id="india-map" viewBox="0 0 657 722" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="box3first">
+        <p>Participation across</p>
+        <img src="{% static 'images/rjimages/india.svg'%}" alt="" srcset="" />
+      </div>
+      <div class="box3second">
+        <div class="box3secondleft bfl" id="stats-section">
+          <div class="counts" data-target="500">0+</div>
+          <p>Colleges participated in 2025</p>
+          <div class="counts" data-target="100">0+</div>
+          <p>Events</p>
+        </div>
+        <div class="box3secondmiddle">
+          <svg id="india-map" viewBox="0 0 657 722" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_1486_16216)">
               <path
                 d="M228.046 511.068L228.116 510.215L227.977 510.002L228.046 509.433L227.908 509.362L227.699 508.864L227.908 508.011L227.838 507.514L227.63 507.087L227.561 506.234L227.769 505.665V505.168L227.63 504.386L227.908 504.03H228.324L228.671 503.675L229.087 503.462L229.364 503.675L229.573 503.106L229.434 502.822L228.532 502.324L228.185 501.969L227.491 501.826L226.659 501.898L226.173 502.111L225.479 501.755L225.063 501.826L224.647 501.613L223.745 501.258L223.398 500.76L223.121 499.978L223.884 499.836L224.022 499.481L224.508 499.694L225.341 499.623V499.267L225.618 499.125L226.243 498.983V498.414L225.965 498.343L225.826 497.988H226.381L226.659 497.703H227.006V497.135L227.283 496.424L227.144 496.281L226.589 496.495L226.243 495.997L227.214 495.713L227.283 495.073L226.381 495.002L226.659 494.007V493.651L227.214 493.722L227.353 493.296L227.006 492.727L227.075 492.3L227.006 491.021L227.214 490.879L227.144 490.097L227.491 489.812L227.422 489.386L227.838 489.03L227.699 488.462L227.422 487.893V487.609L227.075 487.253L227.144 487.04L226.034 486.684L225.479 486.329L225.202 485.902L225.41 485.263H225.826V484.836L225.618 484.694L227.006 483.556L226.589 483.272L226.867 482.774L227.006 482.135L226.936 481.637H227.422L227.561 481.921L228.254 481.779V481.282L228.463 481.068L228.046 480.784V480.429L228.463 480.144L229.226 480.429V479.931L229.711 480.144H229.989V479.575L230.405 479.504L230.683 479.362L231.376 479.504L231.446 479.007L230.821 478.509H230.128L229.573 478.296L229.503 477.798L228.809 477.94L228.393 477.443L227.908 478.154L227.699 477.585L227.353 477.656L227.144 477.372L226.728 477.301V476.874L226.936 476.305L226.798 475.737L227.075 474.884L227.63 474.741L227.769 474.528L228.393 474.315L228.601 474.386L229.018 473.959L228.879 473.604L228.324 473.248L227.908 473.177L228.046 472.822L228.324 472.609V472.324L228.879 472.253L229.087 471.969L229.156 471.471L229.642 471.187L229.503 470.618L230.058 470.76L230.128 469.907L230.613 469.836L230.752 469.41L230.613 468.912H230.336L229.85 468.414L228.879 468.059L228.74 467.632L229.156 467.206L229.711 467.064L229.781 466.708L229.642 466.139L229.711 465.642L229.364 465.429L229.156 464.86L229.503 464.291L229.226 463.794L229.781 463.083L229.226 462.798H228.809L229.156 462.443L228.879 461.945L228.393 461.803L228.254 461.305L228.809 460.808L228.879 460.168L228.324 460.026L228.393 459.741L229.018 459.813L229.434 459.67L229.226 459.173L229.295 458.817L229.781 459.031V458.675L229.503 458.462L229.711 457.538L230.544 457.395L230.613 457.751L230.821 457.964L231.862 457.395L232.209 457.467L232.556 456.685L232.486 456.045L232.209 455.547L232.278 454.907L232.625 454.623L233.319 454.552L233.596 454.054V453.77L234.013 452.988L234.29 452.206L235.608 451.708L236.233 451.922L236.302 451.495L235.955 451.14L235.47 450.926L235.192 450.571L235.123 450.144H234.637L234.29 450.073L234.568 449.22L233.805 449.291L233.874 448.58H232.903V447.798L232.764 447.656L232.833 446.945L233.527 447.159L233.458 446.732L233.527 446.163L233.874 446.092L234.082 446.448H234.36L234.429 445.879L234.221 445.524L234.498 445.026L234.568 444.599L234.429 444.386L234.845 443.178L235.192 442.893L235.47 442.964V442.538L234.706 442.396V442.04L235.678 441.685L235.955 441.4L236.371 441.187L236.926 441.614L237.065 441.898L237.551 442.04L237.898 442.467L238.245 442.68V443.107L238.453 443.32L238.938 442.964L239.216 443.178H239.771L240.187 443.462L240.812 443.249V442.467L241.02 441.969L241.089 441.4L240.742 440.974L240.95 440.05L241.644 439.268L242.13 439.339L242.546 438.841L243.032 438.983L243.309 438.628L243.24 438.201L243.032 437.846L242.962 436.708L243.24 436.424V435.784L242.823 434.718L242.477 434.576L242.754 434.007H243.378L243.448 433.723L243.934 433.509V433.083L244.211 432.656L244.35 432.088L244.211 431.59L243.795 431.448V430.879L242.962 430.666L243.24 429.386L243.725 430.026L244.627 430.097L244.697 430.666L244.905 430.95L245.529 431.235L246.431 431.377L246.709 431.874L247.333 431.306L248.443 431.448L248.79 431.377L249.137 431.519L250.663 432.017L250.941 432.443L251.357 432.159L251.842 432.23L252.259 432.159L252.675 432.585H253.438L253.646 433.154L253.785 433.865L253.646 434.718H254.271L254.756 434.434L255.242 434.505L255.727 434.86L255.658 435.5L255.936 436.069V436.282L255.45 436.637V436.851H255.936L256.213 436.637L256.699 437.064L257.323 436.993L257.531 437.277L258.294 437.348L258.364 437.633L258.988 437.917L259.543 438.557L259.959 438.77L260.514 438.628L260.306 438.201L260.445 437.704L260.861 437.348L260.931 436.708L261.069 436.353L260.861 435.642H261.208L262.11 436.069L262.318 436.566L262.804 436.424H263.359L263.428 436.637L264.191 437.206H264.746L265.024 437.562L265.301 437.988L266.065 437.562L266.134 437.064L266.62 436.922L266.758 437.419L267.105 437.704L267.591 437.917L267.73 437.775L267.868 437.135L268.146 436.566L268.493 436.353H269.256L269.88 436.211L270.435 435.784L271.129 435.926L271.407 436.282L271.823 436.495L272.1 437.135L273.002 437.917L273.627 438.059L274.32 438.77V439.125L274.806 439.979L274.667 440.974L274.528 441.329L274.598 442.111L274.32 442.396L273.835 443.533V444.031L274.251 444.599L273.557 445.31L272.863 445.737L272.655 446.092L272.725 447.016L272.655 447.372L272.863 447.514L273.28 447.301L273.904 447.372L274.112 447.798L274.043 448.723L274.251 449.505L274.182 451.14L273.904 451.566L273.349 451.708L273.765 452.419L274.043 452.632L275.569 453.059L275.708 453.343L275.985 453.414L276.194 453.983L276.887 454.339L277.373 454.836L278.344 454.481L278.552 454.836L278.899 454.907L279.177 454.481L280.009 454.339L280.425 454.054L280.98 454.694L281.397 455.974L281.813 456.756L282.299 456.329L282.576 456.614L282.992 456.329L283.894 455.903H284.588L285.074 456.116L285.421 456.756L286.739 457.609L287.016 457.964L287.363 458.106L287.432 458.604L287.71 459.102L288.265 459.457L288.542 459.884L288.473 460.168L288.889 460.452L289.098 461.377L289.514 462.23V462.585L289.93 463.083L290.208 463.794L289.236 464.291L289.306 465.215L289.791 465.429L290.485 465.358L290.901 464.789L290.832 464.149L290.971 463.936L291.664 464.149L291.803 464.504L291.456 464.647L291.595 465.855L291.734 466.068L292.428 465.997L293.26 465.571L293.468 465.358L293.815 465.286V465.784L293.399 466.211L293.329 466.922L293.676 467.846L293.607 468.13L293.815 468.912L294.023 470.334L294.231 470.476L294.439 472.04L294.578 472.538L294.925 473.035L295.411 473.177L295.758 473.106L296.174 472.466L297.353 471.756L297.978 471.898L299.157 472.609H300.336L301.655 472.68L302.14 472.751L302.418 472.395L302.626 472.538L303.25 472.395L303.458 472.751L304.846 472.538L305.262 472.253L305.956 472.538L306.511 472.04L306.58 471.685L306.927 471.258L307.413 471.116L307.69 471.613L308.731 470.903L309.147 471.4L309.425 471.969L309.217 472.182L308.87 472.253L308.662 472.466H308.176L307.69 472.822L307.621 473.177L307.135 473.533L306.164 473.604L305.887 474.03L305.401 474.244L305.193 474.528V475.168L304.846 475.594L304.499 476.305L304.083 476.732L303.875 477.158L304.291 477.514L303.875 478.154L303.736 480.002L302.695 481.353L302.348 481.566L302.21 481.779L301.655 481.921L300.961 481.637L300.822 481.282L300.475 481.21L299.851 482.277L299.435 482.632H298.463L297.978 482.49L297.631 482.917L297.561 483.699L297.77 483.983L297.423 484.41H297.076L295.966 484.836L295.55 484.978H295.133L294.856 485.334L294.023 485.476L293.468 485.334L293.052 484.978L292.566 485.049L292.705 485.689V486.187L292.219 486.258L291.873 486.187L291.803 486.613L291.595 486.898L291.734 487.182L291.595 487.751L291.664 488.106L291.179 488.604L290.971 488.391L289.514 488.035L289.098 487.822L288.334 487.751L287.641 488.035L287.432 487.68L287.779 487.466L287.294 486.898L286.669 486.755L285.976 486.329L285.767 486.613L284.796 487.111L284.588 487.466L284.519 488.035L284.311 488.391H283.964L283.825 488.817L283.339 488.675L282.923 488.035L282.854 487.609L282.299 488.035L282.715 488.888L282.368 489.244L282.16 489.741L282.923 490.026L283.756 490.31L284.38 490.737L284.657 490.239L285.212 490.452L285.421 490.168L286.184 490.665H286.461L286.392 491.163L286.461 491.732L286.045 491.803V492.514L285.906 492.727L286.461 493.082L286.669 493.509L286.045 494.007L284.657 493.722L284.033 493.438L283.964 492.94L283.339 492.656L283.27 492.372L282.923 492.229V492.585L282.437 493.011L282.16 492.087H281.674L281.397 491.803L281.258 490.95L281.05 490.026L280.287 488.959L279.94 489.101L279.454 488.746L279.038 488.817V488.319L278.83 488.248L278.483 488.675L278.067 489.101L277.859 489.457L277.373 489.528L277.026 489.386L276.957 489.883H276.194L276.055 490.452L275.5 491.021L275.153 491.945L275.569 492.158H275.985L276.124 492.727L276.679 492.94L276.332 493.793L276.263 494.362L275.638 495.002L275.153 495.428L274.806 496.068L274.251 496.637H273.904L273.488 496.495L273.28 496.281L272.933 495.5L272.725 495.286L271.753 495.428L271.198 494.789L271.06 494.646L270.574 494.86L270.088 495.428H269.325L268.77 495.784L268.631 496.068L267.73 495.997L267.244 496.424L266.55 496.637L265.787 496.708L264.885 497.135L264.746 497.419L264.469 497.632L262.943 497.703L262.388 497.774L261.416 498.059L261.278 498.414L260.723 498.912L260.584 499.481L260.861 500.191L260.514 500.547L260.376 502.111L260.653 502.608L260.723 503.39L260.653 504.386L260.306 504.812L259.682 505.097L258.711 504.67H257.67L257.184 504.528H256.699L256.213 504.812L255.589 505.025L254.617 505.594L254.548 506.092L254.895 507.016L254.479 507.514L253.924 507.229L253.785 506.518L253.646 506.234L253.161 506.376L253.23 507.727L252.675 508.509L252.051 509.007H251.357L250.941 508.935L250.385 508.651L250.039 508.296L249.414 507.585L248.79 507.514L247.957 508.296L246.778 508.011L245.945 507.798H245.044L244.35 508.225L243.795 508.367L243.378 508.864H242.893L242.477 508.722L242.13 508.935L242.268 509.575L242.06 510.073L241.991 510.713L241.713 510.997L241.228 511.139L240.742 511.495L240.812 511.708L240.465 512.49H239.771V512.774L239.285 512.916L238.592 512.632L238.314 512.063L238.106 511.495L237.69 511.566L237.412 512.277L236.857 511.992H236.025L235.192 511.566L234.845 511.637L234.637 511.992H234.221L233.527 512.206L231.931 511.779L231.376 511.992L230.475 511.85L229.85 511.281L229.503 511.352L228.046 511.068Z"
@@ -215,32 +260,31 @@
               </filter>
             </defs>
           </svg>
-            <div id="map-tooltip" class="hidden"></div>
-          </div>
+          <div id="map-tooltip" class="hidden"></div>
         </div>
-
-        <div class="box3-content-column">
-          <div class="box3-title-wrapper">
-            <h2 class="box3-title-top">Participation across</h2>
-            <h1 class="box3-title-bottom">INDIA</h1>
+        <div class="box3secondright bfl" id="achievements-section">
+          <div class="counts" data-target="1100">0+</div>
+          <p>CA'S participated in 2025</p>
+          <div class="counts" data-target="300000">0+</div>
+          <p>Prize pool</p>
+        </div>
+        <div class="bfr">
+          <div class="box3secondleft" id="stats-section">
+            <div class="counts" data-target="500">0+</div>
+            <p>Colleges participated in 2025</p>
+            <div class="counts" data-target="100">0+</div>
+            <p>Events</p>
           </div>
-
-          <div class="box3-cards-grid" id="stats-section">
-            <div class="box3-stat-card">
-              <div class="counts" data-target="500">500+</div>
-              <p class="stat-card-label spaced">Colleges reached</p>
-              <div class="counts" data-target="30">30+</div>
-              <p class="stat-card-label">States &amp; UTs</p>
-            </div>
-
-            <div class="box3-stat-card" id="achievements-section">
-              <div class="counts" data-target="1100">1100+</div>
-              <p class="stat-card-label spaced">Campus Ambassadors</p>
-              <div class="counts" data-target="250000">2,50,000+</div>
-              <p class="stat-card-label">Students impacted</p>
-            </div>
+          <div class="box3secondright" id="achievements-section">
+            <div class="counts" data-target="1100">0+</div>
+            <p>CA'S participated in 2025</p>
+            <div class="counts" data-target="300000">0+</div>
+            <p>Prize pool</p>
           </div>
         </div>
       </div>
     </div>
   </div>
+</body>
+
+</html>

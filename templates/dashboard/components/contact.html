@@ -1,26 +1,44 @@
 {% load static %}
-<div class="mainbox">
-  <div class="upper">
-    <div class="contact-btn">Contact Us</div>
-  </div>
-  <div class="down1">
-    <div class="part1 green">
-      <img class="contact-person-image" src="{% static 'images/mayank.jpeg' %}" alt="Mayank Sahu"/>
-      <div class="details1">
-        <div class="h">Mayank Sahu</div>
-        <div class="p">PR Head</div>
-        <div class="ph">+91 88274 12678</div>
-        <div class="ph">mayank@alcheringa.co.in</div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact</title>
+  <link rel="stylesheet" href="{% static 'css/landingPage_styles.css' %}" />
+</head>
+<body>
+  <div class="mainbox">
+    <div class="upper">
+      {% comment %} <h2 class="help-heading">Need any help?</h2> {% endcomment %}
+      <div class="contact-btn">Contact Us</div>
+    </div>
+    <div class="down1">
+      <div class="part1 green">
+        <img class="contact-person-image" src="{% static 'images/mayank.jpeg' %}" alt="Mayank Sahu"/>
+        <div class="details1">
+          <div class="h">Mayank Sahu</div>
+          <div class="p">PR Head</div>
+          {% comment %} <br> {% endcomment %}
+          <div class="ph">+91 88274 12678</div>
+          <div class="ph">mayank@alcheringa.co.in</div>
+          {% comment %} <div class="fun-fact"><p style="font-family:'Zolla'">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis</p></div> {% endcomment %}
+        </div>
+      </div>
+      <div class="part1 blue">
+        <img class="contact-person-image" src="{% static 'images/shubham.png' %}" alt="Shubham Kumar"/>
+        <div class="details1">
+          <div class="h">Shubham Kumar</div>
+          <div class="p">PR Head</div>
+          {% comment %} <br> {% endcomment %}
+          {% comment %} <br> {% endcomment %}
+          <div class="ph">+91 72096 88170</div>
+          <div class="ph">shubham@alcheringa.co.in</div>
+          {% comment %} <div class="fun-fact"><p style="font-family:'Zolla'">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis</p></div> {% endcomment %}
+        </div>
       </div>
     </div>
-    <div class="part1 blue">
-      <img class="contact-person-image" src="{% static 'images/shubham.png' %}" alt="Shubham Kumar"/>
-      <div class="details1">
-        <div class="h">Shubham Kumar</div>
-        <div class="p">PR Head</div>
-        <div class="ph">+91 72096 88170</div>
-        <div class="ph">shubham@alcheringa.co.in</div>
-      </div>
-    </div>
   </div>
-</div>
+</body>
+</html>

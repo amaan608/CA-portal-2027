@@ -24,8 +24,8 @@ html, body {
   --ca-card-border: rgba(255, 251, 239, 0.32);
   --ca-blue-glass: rgba(42, 106, 203, 0.55);
 
-  /* landing2 crop controls to match LandingPage.png (1542 / 706) */
-  --landing2-ratio: 1542 / 706;
+  /* landing2 crop controls — nudge these if the black edge peeks back in */
+  --landing2-ratio: 21 / 9;
   --landing2-pos: center;
 }
 
@@ -348,7 +348,9 @@ html, body {
 .heroSectionn .aftermovie-preview {
   position: relative;
   width: 100%;
-  aspect-ratio: var(--landing2-ratio, 1542 / 706);
+  /* Back to 16:9 — the 21:9 variable didn't match the actual embedded
+     video and was cutting it off oddly. */
+  aspect-ratio: 16 / 9;
   box-sizing: border-box;
   overflow: hidden;
   z-index: 5;
@@ -359,14 +361,13 @@ html, body {
 
 .heroSectionn .landing2 {
   display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
   width: 100%;
-  height: 123%;
-  transform: translate(-50%, -50%);
+  height: 100%;
   border: none;
+  position: relative;
   z-index: 1;
+  /* Keep the YouTube player fully inside the 16:9 wrapper. */
+  object-fit: contain;
 }
 
 /* Hover/focus on the video no longer touches the stat cards. */
@@ -374,7 +375,7 @@ html, body {
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .heroSectionn .landing2 {
-    transform: translate(-50%, -50%);
+    transform: none;
   }
 
   .heroSectionn .caTxt {
