@@ -1,74 +1,73 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("raj script is running");
 
-  const rightbox1btns = document.querySelectorAll(".rightbox1btn");
-  const teamList = document.querySelector(".Team");
-  const soloList = document.querySelector(".solo");
+  const joinTabBtns = document.querySelectorAll(".join-tab-btn");
+  const teamBenefits = document.getElementById("team-benefits");
+  const soloBenefits = document.getElementById("solo-benefits");
 
-  rightbox1btns.forEach((button) => {
-    button.addEventListener("click", () => {
-      rightbox1btns.forEach((btn) => btn.classList.remove("act"));
-      button.classList.add("act");
+  if (joinTabBtns.length > 0) {
+    joinTabBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        joinTabBtns.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
 
-      if (button.textContent.includes("Team")) {
-        teamList.style.display = "block";
-        soloList.style.display = "none";
-      } else {
-        teamList.style.display = "none";
-        soloList.style.display = "block";
-      }
+        const mode = btn.getAttribute("data-mode");
+        if (mode === "team") {
+          if (teamBenefits) teamBenefits.style.display = "flex";
+          if (soloBenefits) soloBenefits.style.display = "none";
+        } else {
+          if (teamBenefits) teamBenefits.style.display = "none";
+          if (soloBenefits) soloBenefits.style.display = "flex";
+        }
+      });
     });
-  });
+  }
+  // Register / How To Step Tab Switcher
+  const regTabButtons = document.querySelectorAll(".reg-tab-btn");
+  const regCardTitle = document.getElementById("reg-card-title");
+  const regCardDesc = document.getElementById("reg-card-desc");
+  const regCard = document.getElementById("reg-card");
 
-  console.log("Buttons found:", rightbox1btns.length);
-console.log("Less arrows found:", document.querySelectorAll(".steps .less").length);
-console.log("Counts found:", document.querySelectorAll(".counts").length);
+  const stepDetailsData = {
+    "1": {
+      title: '<span class="step-num">1.</span> Register',
+      desc: "Sign up to become a Campus Ambassador at Alcheringa and join our dynamic community of students from across the country."
+    },
+    "2": {
+      title: '<span class="step-num">2.</span> Complete and verify tasks',
+      desc: "Review the tasks listed on your dashboard, follow the instructions, upload proof of completion, and wait for our team to verify your submission. Once approved, you will earn points."
+    },
+    "3": {
+      title: '<span class="step-num">3.</span> Collect Rewards',
+      desc: "As you accumulate points, you will be able to redeem rewards and incentives we have in store."
+    }
+  };
 
+  if (regTabButtons.length > 0 && regCardTitle && regCardDesc) {
+    regTabButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const stepKey = btn.getAttribute("data-step");
+        if (!stepKey || !stepDetailsData[stepKey]) return;
 
-  document.querySelectorAll(".steps .step").forEach((downArrow) => {
-    downArrow.addEventListener("click", () => {
-      const stepsDiv = downArrow.parentElement;
-      const moreArrow = stepsDiv.querySelector(".step");
-      const paragraph = stepsDiv.nextElementSibling;
+        regTabButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
 
-      // Show paragraph
-      paragraph.classList.add("show");
-
+        if (regCard) {
+          regCard.style.opacity = "0";
+          regCard.style.transform = "translateY(4px)";
+          setTimeout(() => {
+            regCardTitle.innerHTML = stepDetailsData[stepKey].title;
+            regCardDesc.textContent = stepDetailsData[stepKey].desc;
+            regCard.style.opacity = "1";
+            regCard.style.transform = "translateY(0)";
+          }, 150);
+        } else {
+          regCardTitle.innerHTML = stepDetailsData[stepKey].title;
+          regCardDesc.textContent = stepDetailsData[stepKey].desc;
+        }
+      });
     });
-  });
-
-
-  document.querySelectorAll(".steps .less").forEach((downArrow) => {
-    downArrow.addEventListener("click", () => {
-      const stepsDiv = downArrow.parentElement;
-      const moreArrow = stepsDiv.querySelector(".more");
-      const paragraph = stepsDiv.nextElementSibling;
-
-      // Show paragraph
-      paragraph.classList.add("show");
-
-      // Toggle arrow icons
-      downArrow.style.display = "none";
-      moreArrow.style.display = "inline";
-    });
-  });
-
-  
-
-  document.querySelectorAll(".steps .more").forEach((upArrow) => {
-    upArrow.addEventListener("click", () => {
-      const stepsDiv = upArrow.parentElement;
-      const downArrow = stepsDiv.querySelector(".less");
-      const paragraph = stepsDiv.nextElementSibling;
-
-      // Hide paragraph
-      paragraph.classList.remove("show");
-
-      // Toggle arrow icons
-      upArrow.style.display = "none";
-      downArrow.style.display = "inline";
-    });
-  });
+  }
 
   function animateCount(el, target, duration = 3000) {
     const start = 0;
@@ -79,12 +78,12 @@ console.log("Counts found:", document.querySelectorAll(".counts").length);
       const progress = Math.min(elapsed / duration, 1); // 0 to 1
 
       const value = Math.floor(progress * target);
-      el.textContent = value + "+";
+      el.textContent = value.toLocaleString("en-IN") + "+";
 
       if (progress < 1) {
         requestAnimationFrame(update);
       } else {
-        el.textContent = target + "+"; // ensure final value
+        el.textContent = target.toLocaleString("en-IN") + "+"; // ensure final value
       }
     }
 
@@ -321,79 +320,54 @@ console.log("Counts found:", document.querySelectorAll(".counts").length);
 
   console.log(isTouchDevice());
 
-  function showTooltip(cityData, event) {
+  function showTooltip(cityData, targetElement) {
+    if (!tooltip) return;
     const customMessage = `
-        <div style="text-align: left; line-height: 1.4;">
-          <strong>${cityData.name}</strong><br>
-          Colleges: ${cityData.colleges}<br>
-          Ambassadors: ${cityData.ambassadors}
+        <div style="text-align: left; line-height: 1.45; font-family: 'Poppins', sans-serif;">
+          <strong style="color: #FEC728; font-size: 14px; font-weight: 700;">${cityData.name}</strong><br>
+          <span style="color: #FFFFFF; font-size: 12.5px;">Colleges: ${cityData.colleges}</span><br>
+          <span style="color: #FFFFFF; font-size: 12.5px;">Ambassadors: ${cityData.ambassadors}</span>
         </div>
       `;
     tooltip.innerHTML = customMessage;
 
-    const targetElement = event.target.closest(".city-marker");
     if (!targetElement) return;
-
     const rect = targetElement.getBoundingClientRect();
-    const x = rect.left + window.scrollX + rect.width / 2;
-    const y = rect.top + window.scrollY;
+    const x = rect.left + rect.width / 2;
+    const y = rect.top;
 
-    tooltip.style.left = `${x + 15}px`;
-    tooltip.style.top = `${y - 45}px`;
+    tooltip.style.left = `${Math.round(x)}px`;
+    tooltip.style.top = `${Math.round(y)}px`;
     tooltip.classList.remove("hidden");
     tooltip.classList.add("visible");
   }
 
   // Handle mouseout event
   function hideTooltip() {
+    if (!tooltip) return;
     tooltip.classList.remove("visible");
     tooltip.classList.add("hidden");
-  }
-  function handleDesktopMouseOver(event) {
-    const cityMarker = event.target.closest(".city-marker");
-    if (!cityMarker) return;
-    const cityId = cityMarker.getAttribute("data-city-id");
-    const cityData = cities.find((city) => city.id === cityId);
-    if (!cityData) return;
-    showTooltip(cityData, event);
-  }
-
-  function handleDesktopMouseOut() {
-    hideTooltip();
-  }
-
-  function handleMobileClick(event) {
-    const cityMarker = event.target.closest(".city-marker");
-    if (!cityMarker) return;
-    const cityId = cityMarker.getAttribute("data-city-id");
-    const cityData = cities.find((city) => city.id === cityId);
-    if (!cityData) return;
-
-    // Toggle tooltip visibility on click
-    if (tooltip.classList.contains("visible")) {
-      hideTooltip();
-    } else {
-      showTooltip(cityData, event);
-    }
-
-    // Hide after a timeout
-    setTimeout(() => {
-      hideTooltip();
-    }, 2500);
   }
 
   // Create city markers on the map
   function createCityMarkers() {
+    if (!map) return;
     cities.forEach((city) => {
-      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      svg.setAttribute("id", `pin-${city.id}`);
-      svg.setAttribute("class", "city-marker");
-      svg.setAttribute("x", city.x - 12);
-      svg.setAttribute("y", city.y - 22);
-      svg.setAttribute("width", 32);
-      svg.setAttribute("height", 32);
-      svg.setAttribute("viewBox", "0 0 24 24");
-      svg.style.cursor = "pointer";
+      const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      g.setAttribute("id", `pin-${city.id}`);
+      g.setAttribute("class", "city-marker");
+      g.setAttribute("data-city-id", city.id);
+      g.setAttribute("transform", `translate(${city.x - 12}, ${city.y - 22})`);
+      g.style.cursor = "pointer";
+
+      // Larger hit area for easy hovering
+      const hitArea = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      hitArea.setAttribute("cx", "12");
+      hitArea.setAttribute("cy", "12");
+      hitArea.setAttribute("r", "16");
+      hitArea.setAttribute("fill", "transparent");
+      hitArea.setAttribute("pointer-events", "all");
+      g.appendChild(hitArea);
 
       const path = document.createElementNS(
         "http://www.w3.org/2000/svg",
@@ -403,18 +377,23 @@ console.log("Counts found:", document.querySelectorAll(".counts").length);
         "d",
         "M12 2C8.686 2 6 4.686 6 8C6 12.553 12 22 12 22C12 22 18 12.553 18 8C18 4.686 15.314 2 12 2ZM12 11C10.343 11 9 9.657 9 8C9 6.343 10.343 5 12 5C13.657 5 15 6.343 15 8C15 9.657 13.657 11 12 11Z"
       );
-      path.setAttribute("fill", "#e74c3c");
-      svg.appendChild(path);
-
-      svg.setAttribute("data-city-id", city.id);
+      path.setAttribute("fill", "#FF3B30");
+      path.setAttribute("stroke", "#FFFFFF");
+      path.setAttribute("stroke-width", "0.6");
+      path.setAttribute("pointer-events", "none");
+      g.appendChild(path);
 
       if (isTouchDevice()) {
-        svg.addEventListener("click", handleMobileClick);
+        g.addEventListener("click", (e) => {
+          e.stopPropagation();
+          showTooltip(city, g);
+          setTimeout(hideTooltip, 3000);
+        });
       } else {
-        svg.addEventListener("mouseover", handleDesktopMouseOver);
-        svg.addEventListener("mouseout", handleDesktopMouseOut);
+        g.addEventListener("mouseenter", () => showTooltip(city, g));
+        g.addEventListener("mouseleave", hideTooltip);
       }
-      map.appendChild(svg);
+      map.appendChild(g);
     });
   }
 
@@ -422,7 +401,7 @@ console.log("Counts found:", document.querySelectorAll(".counts").length);
   createCityMarkers();
 
   const fxRevealTargets = document.querySelectorAll(
-  ".box1, .box2, .box3first, .box3second"
+    ".box1, .box2, .box3, .box3-stat-card"
   );
 
   fxRevealTargets.forEach((el) => el.classList.add("fx-hidden"));
@@ -444,7 +423,7 @@ console.log("Counts found:", document.querySelectorAll(".counts").length);
 
   // ---- Slide-in entrance for paragraphs/text blocks ----
   const fxSlideTargets = document.querySelectorAll(
-    ".box2para, .box3first p, .box3secondleft, .box3secondright"
+    ".box2para, .box3-title-top, .box3-title-bottom, .box3-stat-card"
   );
 
   fxSlideTargets.forEach((el, index) => {

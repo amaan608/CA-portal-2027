@@ -2,8 +2,8 @@
 
 @font-face {
 	font-family: 'Zolla';
-	src: url(../Fonts/Zolla.ttf) format('Zolla');
-	font-weight: 400;
+	src: url('../Fonts/Zolla.ttf') format('truetype');
+	font-weight: normal;
 	font-style: normal;
 }
 
@@ -25,12 +25,13 @@ body {
 	/* padding: 0 20px; */
 }
 
-/* Single Continuous Background Wrapper for Top 3 Sections */
+/* Single Continuous Sky Canvas for the Entire Page */
+.main-continuous-cloud-bg,
 .hero-continuous-wrapper {
-	background-image: url(../images/MAIN_TEXTURE.png);
-	background-size: cover;
+	background-image: url('../images/MAIN_TEXTURE.png');
+	background-size: 100% auto;
 	background-position: top center;
-	background-repeat: no-repeat;
+	background-repeat: repeat-y;
 	width: 100%;
 	position: relative;
 	overflow: hidden;
@@ -39,39 +40,43 @@ body {
 /* Top Section - Campus Ambassador Info */
 .top-section {
 	background: transparent !important;
-	height: 90vh;
-	padding-left: 90px;
-	padding-top: 90px;
+	height: auto;
+	min-height: auto;
+	padding: 80px 20px 50px clamp(20px, 6vw, 90px);
 	position: relative;
-	overflow: hidden;
 }
 
 .top-section .container {
 	width: 100%;
-	height: 90vh;
+	height: auto;
+	min-height: auto;
 	display: flex;
 	gap: 20px;
 	flex-direction: column;
-	align-items: self-start;
-	align-self: center;
-	align-content: center;
+	align-items: flex-start;
 	margin: 0;
+	position: relative;
 }
 
 
 .main-title {
-	font-size: 72px;
-	font-weight: 700;
+	font-size: 72px !important;
+	font-weight: 400;
 	color: #ffffff;
-	margin-bottom: 45px;
-	line-height: 75px;
-	font-family: 'Zolla', sans-serif;
+	margin-bottom: 40px;
+	line-height: 1.1;
+	font-family: 'Zolla', sans-serif !important;
 	letter-spacing: 0.5px;
 }
 
-.highlight-yellow {
-	color: #ffc72b;
-	font-family: 'Zolla', sans-serif;
+.main-title .highlight-yellow {
+	color: #FFC727;
+	font-family: 'Zolla', sans-serif !important;
+	font-size: 72px !important;
+}
+
+.main-title .white-mark {
+	color: #ffffff !important;
 }
 
 .description-list {
@@ -110,15 +115,23 @@ body {
 	transform: translateY(-52%);
 }
 
-/* Phone Illustration Right */
+/* Phone Illustration Right - Hanging seamlessly from bottom right of video */
 .illustration-right {
 	position: absolute;
 	top: 0;
 	right: 0;
-	height: 100%;
-	min-height: 500px;
+	z-index: 10;
 	transform-origin: top center;
-	animation: swing 3s ease-in-out infinite;
+	animation: swing 3.5s ease-in-out infinite;
+	pointer-events: none;
+}
+
+.phone-illustration {
+	height: clamp(460px, 36vw, 620px);
+	max-height: 640px;
+	width: auto;
+	display: block;
+	filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.18));
 }
 
 #responsibility1 {
@@ -127,50 +140,54 @@ body {
 
 /* Bottom Section - Dark Background */
 .bottom-section {
-	background: transparent;
-	min-height: 90vh;
-	padding: 80px 0;
+	background: transparent !important;
+	min-height: auto;
+	height: auto;
+	padding: 60px 20px 70px 20px;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 }
 
 .bottom-section .container {
-	min-height: 90vh;
+	min-height: auto;
+	height: auto;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 8rem;
+	gap: 3.5rem;
 	align-items: center;
 	justify-content: center;
 }
 
 .bottom-section-title {
-	font-size: 72px;
-	font-family: 'Zolla', sans-serif;
-	line-height: 66px;
+	font-family: 'Zolla', sans-serif !important;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+	text-align: center;
+	margin-bottom: 20px;
 }
 
+.bottom-section-title .section-title,
 .section-title {
-	font-size: 72px;
-	font-weight: 400;
-	color: white;
+	font-size: 72px !important;
+	font-weight: 400 !important;
+	color: #ffffff !important;
 	text-align: center;
-	line-height: 66px;
-	font-family: 'Zolla', sans-serif;
-	text-align: center;
+	line-height: 66px !important;
+	font-family: 'Zolla', sans-serif !important;
+	margin: 0;
 }
-
 
 .bottom-section-title .highlight-yellow {
-	font-family: 'Zolla', sans-serif;
-	font-size: 72px;
-	font-weight: 400;
-	color: #FFC727;
+	font-family: 'Zolla', sans-serif !important;
+	font-size: 72px !important;
+	font-weight: 400 !important;
+	color: #FFC727 !important;
 	text-align: center;
+	line-height: 66px !important;
 }
 
 
@@ -287,13 +304,13 @@ body {
 /* Roles & Responsibilities Section - Single Card Slider */
 .roles-section {
 	background: transparent !important;
-	padding: 80px 0;
+	padding: 60px 20px 70px 20px;
 	position: relative;
-	overflow: hidden;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	min-height: 80vh;
+	min-height: auto;
+	height: auto;
 }
 
 .roles-section .container {
