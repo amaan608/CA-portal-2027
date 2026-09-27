@@ -2,7 +2,7 @@
 
 @font-face {
 	font-family: 'Zolla';
-	src: url(../Fonts/Zolla.ttf) format('Zolla');
+	src: url(../Fonts/Zolla.ttf) format('truetype');
 	font-weight: 400;
 	font-style: normal;
 }
@@ -33,7 +33,7 @@ body {
 	background-repeat: no-repeat;
 	width: 100%;
 	position: relative;
-	overflow: hidden;
+	overflow-x: clip;
 }
 
 /* Top Section - Campus Ambassador Info */
@@ -287,12 +287,10 @@ body {
 /* Roles & Responsibilities Section - Single Card Slider */
 .roles-section {
 	background: transparent !important;
-	padding: 80px 0;
+	padding: 80px 0 100px 0;
 	position: relative;
-	overflow: hidden;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	overflow: visible;
+	display: block;
 	min-height: 80vh;
 }
 
@@ -302,59 +300,79 @@ body {
 }
 
 .roles-header {
-	position: relative;
+	position: sticky;
+	top: 70px;
+	z-index: 20;
 	text-align: center;
-	margin-bottom: 50px;
+	margin-bottom: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	pointer-events: none;
 }
 
 .roles-title {
-	font-size: 3rem;
+	font-size: 72px;
+	line-height: 66px;
 	font-weight: 700;
-	color: #ffffff;
-	margin: 0 0 15px 0;
-	line-height: 1.2;
 	font-family: 'Zolla', sans-serif;
+	margin: 0;
 	text-align: center;
-}
-
-.responsibilities-container {
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.highlight-yellow-roles {
-	background: #ffc72b;
-	width: 440px;
-	height: 80px;
-	border-radius: 16px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	transform: rotate(-2.5deg);
-	transform-origin: center;
-	box-shadow: 0 4px 15px rgba(255, 199, 43, 0.3);
+	gap: 16px;
+	white-space: nowrap;
+}
+
+.roles-title .highlight-yellow,
+.roles-title .roles-yellow {
+	color: #ffc72b;
 	font-family: 'Zolla', sans-serif;
-	font-size: 2.8rem;
-	font-weight: 700;
-	color: #142e54;
 }
 
-.roles-asterisk {
+.roles-title .roles-and {
 	color: #ffffff;
-	font-size: 4rem;
-	margin-left: 10px;
-	font-weight: bold;
-	position: static;
+	font-family: 'Zolla', sans-serif;
 }
 
-/* Roles Swiper Single Card */
+/* Roles Scroll Stacking Cards Container */
+.roles-cards-stack,
 .roles-swiper {
 	max-width: 1077px;
 	margin: 0 auto;
 	padding: 10px 20px 20px 20px;
 	position: relative;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.roles-cards-stack {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.role-card-wrapper {
+	position: -webkit-sticky;
+	position: sticky;
+	top: calc(150px + var(--i, 0) * 15px);
+	z-index: calc(var(--i, 0) + 1);
+	width: 100%;
+	max-width: 1077px;
+	margin: 0 auto;
+	margin-bottom: 260px;
+	box-sizing: border-box;
+}
+
+.role-card-wrapper:last-child {
+	margin-bottom: 40px;
+}
+
+.role-card-wrapper .role-card {
+	transform-origin: 50% 0%;
+	will-change: transform, filter;
+	transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.15s ease;
 }
 
 .role-card {
@@ -695,41 +713,30 @@ body {
 	}
 
 	.roles-header {
-		margin-bottom: 1.5625rem;
+		position: relative !important;
+		top: auto !important;
+		margin-bottom: 1.5625rem !important;
 		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.roles-title {
-		font-size: 1.5rem !important;
-		font-family: 'Zolla', sans-serif !important;
-		color: #ffc72b !important;
+		font-size: 24px !important;
+		line-height: 1.2 !important;
 		margin: 0 !important;
-		line-height: 100% !important;
-		display: inline !important;
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		gap: 6px !important;
+		flex-wrap: wrap !important;
 	}
 
-	.responsibilities-container {
-		display: inline-flex !important;
-		background: transparent !important;
-		box-shadow: none !important;
-		margin: 0 !important;
-	}
-
-	.highlight-yellow-roles {
-		background: transparent !important;
-		box-shadow: none !important;
-		transform: none !important;
-		width: auto !important;
-		height: auto !important;
-		font-size: 1.5rem !important;
-		font-family: 'Zolla', sans-serif !important;
-		color: #ffc72b !important;
-		display: inline !important;
-		line-height: 100% !important;
-	}
-
-	.roles-asterisk {
-		display: none !important;
+	.roles-title .highlight-yellow,
+	.roles-title .roles-yellow,
+	.roles-title .roles-and {
+		font-size: 24px !important;
 	}
 
 	.roles-section .container {
@@ -741,6 +748,7 @@ body {
 		width: 100% !important;
 	}
 
+	.roles-cards-stack,
 	.roles-swiper {
 		width: 100% !important;
 		max-width: 100% !important;
@@ -750,6 +758,27 @@ body {
 		display: flex !important;
 		flex-direction: column !important;
 		align-items: center !important;
+	}
+
+	/* On phone, all 6 cards are shown sequentially, no sticky stacking */
+	.roles-cards-stack .role-card-wrapper {
+		position: relative !important;
+		top: auto !important;
+		z-index: auto !important;
+		margin-bottom: 1.25rem !important;
+		width: 100% !important;
+		display: flex !important;
+		justify-content: center !important;
+		transform: none !important;
+	}
+
+	.roles-cards-stack .role-card-wrapper:last-child {
+		margin-bottom: 0 !important;
+	}
+
+	.roles-cards-stack .role-card-wrapper .role-card {
+		transform: none !important;
+		filter: none !important;
 	}
 
 	.roles-swiper .swiper-wrapper {
@@ -777,6 +806,7 @@ body {
 		display: none !important;
 	}
 
+	.roles-cards-stack .role-card,
 	.roles-swiper .role-card {
 		flex-direction: row !important;
 		text-align: left !important;
@@ -798,6 +828,7 @@ body {
 		box-sizing: border-box !important;
 	}
 
+	.roles-cards-stack .role-card-content,
 	.roles-swiper .role-card-content {
 		flex: 1 !important;
 		max-width: 62% !important;
@@ -808,6 +839,7 @@ body {
 		height: 100% !important;
 	}
 
+	.roles-cards-stack .role-card-title,
 	.roles-swiper .role-card-title {
 		font-size: 1.0625rem !important;
 		font-family: 'Zolla', sans-serif !important;
@@ -818,6 +850,7 @@ body {
 		letter-spacing: 0.01875rem !important;
 	}
 
+	.roles-cards-stack .role-description,
 	.roles-swiper .role-description {
 		font-size: 0.59375rem !important;
 		font-family: 'Inter', sans-serif !important;
@@ -828,6 +861,7 @@ body {
 		padding-left: 0 !important;
 	}
 
+	.roles-cards-stack .role-illustration,
 	.roles-swiper .role-illustration {
 		flex: 0 0 6.875rem !important;
 		width: 6.875rem !important;
@@ -841,6 +875,7 @@ body {
 		bottom: 0 !important;
 	}
 
+	.roles-cards-stack .role-image,
 	.roles-swiper .role-image {
 		max-height: 6.5625rem !important;
 		max-width: 100% !important;

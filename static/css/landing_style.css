@@ -2094,30 +2094,38 @@ main {
 
 .testimonial-card {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: row;
+  align-items: stretch;
   background-color: #FFFBEF;
-  /* border: 2px solid #2A6ACB; */
-  border-radius: 16px;
-  padding: 16px 8px;
+  border-radius: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   box-sizing: border-box;
   height: 100%;
-  min-height: 300px;
+  min-height: 350px;
   width: 100%;
   border: none;
+  overflow: hidden;
+  position: relative;
 }
 
 .testimonial-image {
   flex-shrink: 0;
-  width: clamp(130px, 30%, 190px);
-  height: 285px;
+  width: clamp(200px, 36%, 270px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  align-self: flex-end;
+  margin: 0;
+  padding: 0;
 }
 
 .testimonial-image img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
+  height: 350px;
+  object-fit: contain;
+  object-position: bottom left;
+  border-radius: 0;
   display: block;
 }
 
@@ -2127,24 +2135,30 @@ main {
   justify-content: space-between;
   flex: 1;
   min-width: 0;
+  padding: 36px 40px 30px 10px;
+  box-sizing: border-box;
 }
 
 .testimonial-text {
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #1a1a1a;
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-size: 17.5px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #111827;
   margin: 0;
   overflow-wrap: break-word;
 }
 
 .testimonial-name {
   align-self: flex-end;
-  font-family: "Zolla", sans-serif;
-  font-weight: 400;
-  font-size: 24px;
-  color: #000;
-  margin-top: 12px;
+  font-family: 'Zolla', sans-serif !important;
+  font-weight: normal !important;
+  font-size: 32px;
+  line-height: 1.1;
+  color: #000000;
+  margin-top: 20px;
+  text-align: right;
+  letter-spacing: 0.5px;
 }
 
 .carousel-arrow {
@@ -2235,10 +2249,8 @@ main {
 
 
 .sky-bg-section {
-  background-image: url("../images/bg\ \(1\).png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: top center;
+  background: transparent !important;
+  background-image: none !important;
   position: relative;
 }
 

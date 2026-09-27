@@ -18,7 +18,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 
 <link rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0..200&display=swap" />
-<link rel="stylesheet" href="{% static 'css/landing_page.css' %}?v=20260930" />
+<link rel="stylesheet" href="{% static 'css/landing_page.css' %}?v=20260930_reg_card_fix" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 {% endblock %} {% block body %}
@@ -124,78 +124,83 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
       <!-- Roles & Responsibilities Section -->
       <div class="roles-section" id="responsibility">
         <div class="container">
-          <!-- Roles Swiper Single Card Carousel -->
-          <div class="swiper roles-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="role-card">
-                  <div class="role-card-content">
-                    <h3 class="role-card-title">College branding</h3>
-                    <p class="role-description">Lead Alcheringa promotion at your college. Present to key clubs and social groups.</p>
-                  </div>
-                  <div class="role-illustration">
-                    <img src="media/image-uploads/role-image1.png" class="role-image" alt="College branding">
-                  </div>
+          <div class="roles-header">
+            <h2 class="roles-title">
+              <span class="highlight-yellow">Roles</span>
+              <span class="roles-and">and</span>
+              <span class="highlight-yellow">Responsibilities</span>
+            </h2>
+          </div>
+          <!-- Roles Scroll-Driven Stacking Cards -->
+          <div class="roles-cards-stack roles-swiper">
+            <div class="role-card-wrapper" data-index="0" style="--i: 0; z-index: 1;">
+              <div class="role-card">
+                <div class="role-card-content">
+                  <h3 class="role-card-title">College branding</h3>
+                  <p class="role-description">Lead Alcheringa promotion at your college. Present to key clubs and social groups.</p>
+                </div>
+                <div class="role-illustration">
+                  <img src="media/image-uploads/role-image1.png" class="role-image" alt="College branding">
                 </div>
               </div>
+            </div>
 
-              <div class="swiper-slide">
-                <div class="role-card">
-                  <div class="role-card-content">
-                    <h3 class="role-card-title">City Elimination</h3>
-                    <p class="role-description">Lead your city’s top performer search and help organize Alcheringa’s city eliminations.</p>
-                  </div>
-                  <div class="role-illustration">
-                    <img src="media/image-uploads/role-image2.png" class="role-image" alt="City Elimination">
-                  </div>
+            <div class="role-card-wrapper" data-index="1" style="--i: 1; z-index: 2;">
+              <div class="role-card">
+                <div class="role-card-content">
+                  <h3 class="role-card-title">City Elimination</h3>
+                  <p class="role-description">Lead your city’s top performer search and help organize Alcheringa’s city eliminations.</p>
+                </div>
+                <div class="role-illustration">
+                  <img src="media/image-uploads/role-image2.png" class="role-image" alt="City Elimination">
                 </div>
               </div>
+            </div>
 
-              <div class="swiper-slide">
-                <div class="role-card">
-                  <div class="role-card-content">
-                    <h3 class="role-card-title">Increasing Reach</h3>
-                    <p class="role-description">Expand Alcheringa by connecting with college cultural societies.</p>
-                  </div>
-                  <div class="role-illustration">
-                    <img src="media/image-uploads/role-image3.png" class="role-image" alt="Increasing Reach">
-                  </div>
+            <div class="role-card-wrapper" data-index="2" style="--i: 2; z-index: 3;">
+              <div class="role-card">
+                <div class="role-card-content">
+                  <h3 class="role-card-title">Increasing Reach</h3>
+                  <p class="role-description">Expand Alcheringa by connecting with college cultural societies.</p>
+                </div>
+                <div class="role-illustration">
+                  <img src="media/image-uploads/role-image3.png" class="role-image" alt="Increasing Reach">
                 </div>
               </div>
+            </div>
 
-              <div class="swiper-slide">
-                <div class="role-card">
-                  <div class="role-card-content">
-                    <h3 class="role-card-title">Complete Tasks</h3>
-                    <p class="role-description">Complete all tasks promptly to effectively promote and represent Alcheringa.</p>
-                  </div>
-                  <div class="role-illustration">
-                    <img src="media/image-uploads/role-image4.png" class="role-image" alt="Complete Tasks">
-                  </div>
+            <div class="role-card-wrapper" data-index="3" style="--i: 3; z-index: 4;">
+              <div class="role-card">
+                <div class="role-card-content">
+                  <h3 class="role-card-title">Complete Tasks</h3>
+                  <p class="role-description">Complete all tasks promptly to effectively promote and represent Alcheringa.</p>
+                </div>
+                <div class="role-illustration">
+                  <img src="media/image-uploads/role-image4.png" class="role-image" alt="Complete Tasks">
                 </div>
               </div>
+            </div>
 
-              <div class="swiper-slide">
-                <div class="role-card">
-                  <div class="role-card-content">
-                    <h3 class="role-card-title">Suggest Ideas</h3>
-                    <p class="role-description">Suggest creative ideas to enhance event visibility and engagement across campus.</p>
-                  </div>
-                  <div class="role-illustration">
-                    <img src="media/image-uploads/role-image5.png" class="role-image" alt="Suggest Ideas">
-                  </div>
+            <div class="role-card-wrapper" data-index="4" style="--i: 4; z-index: 5;">
+              <div class="role-card">
+                <div class="role-card-content">
+                  <h3 class="role-card-title">Suggest Ideas</h3>
+                  <p class="role-description">Suggest creative ideas to enhance event visibility and engagement across campus.</p>
+                </div>
+                <div class="role-illustration">
+                  <img src="media/image-uploads/role-image5.png" class="role-image" alt="Suggest Ideas">
                 </div>
               </div>
+            </div>
 
-              <div class="swiper-slide">
-                <div class="role-card">
-                  <div class="role-card-content">
-                    <h3 class="role-card-title">Get Registrations</h3>
-                    <p class="role-description">Drive registrations by actively engaging with students and promoting the event in campus.</p>
-                  </div>
-                  <div class="role-illustration">
-                    <img src="media/image-uploads/role-image6.png" class="role-image" alt="Get Registrations">
-                  </div>
+            <div class="role-card-wrapper" data-index="5" style="--i: 5; z-index: 6;">
+              <div class="role-card">
+                <div class="role-card-content">
+                  <h3 class="role-card-title">Get Registrations</h3>
+                  <p class="role-description">Drive registrations by actively engaging with students and promoting the event in campus.</p>
+                </div>
+                <div class="role-illustration">
+                  <img src="media/image-uploads/role-image6.png" class="role-image" alt="Get Registrations">
                 </div>
               </div>
             </div>
@@ -204,9 +209,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
         </div>
       </div>
     </section>
-  </div>
 
-</body>
 <!-- Map Starts here-->
 {% include 'newpage1.html' %}
 <!-- Sponsor Section - temporarily hidden -->
@@ -298,6 +301,9 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 </button>
       </div>
 
+      <div class="testimonial-progress-track">
+        <div class="testimonial-progress-fill"></div>
+      </div>
     </main>
   </div>
 
@@ -430,6 +436,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
   {% include 'dashboard/components/contact.html' %}
   {% include 'dashboard/components/Footer.html' %}
 </div>
+</div>
 <script>
   var navLinks = document.getElementById("navLinks");
 
@@ -453,22 +460,95 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 </script>
 
 <script>
-    try {
-      new Swiper(".roles-swiper", {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        speed: 800,
-        allowTouchMove: false,
-        autoplay: {
-          delay: 3000,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: false,
-        },
-      });
-    } catch (err) {
-      console.error("Roles swiper failed to init:", err);
-    }
+    // Scroll-driven stacking cards interaction for Roles and Responsibilities
+    (function () {
+      try {
+        var container = document.querySelector(".roles-cards-stack");
+        if (!container) return;
+
+        var wrappers = Array.from(container.querySelectorAll(".role-card-wrapper"));
+        if (!wrappers.length) return;
+
+        var cards = wrappers.map(function (w) {
+          return w.querySelector(".role-card");
+        });
+
+        var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (prefersReduced) return;
+
+        var ticking = false;
+
+        function updateStack() {
+          var isPhone = window.innerWidth <= 768;
+          if (isPhone) {
+            // On phone, all 6 cards are displayed normally without stacking animation
+            for (var k = 0; k < cards.length; k++) {
+              if (cards[k]) {
+                cards[k].style.transform = "none";
+                cards[k].style.filter = "none";
+              }
+            }
+            ticking = false;
+            return;
+          }
+
+          var isTablet = window.innerWidth <= 1024;
+          var baseTop = isTablet ? 120 : 150;
+          var stepOffset = isTablet ? 12 : 15;
+          var travelWindow = isTablet ? 220 : 260;
+
+          for (var i = 0; i < wrappers.length; i++) {
+            var card = cards[i];
+            if (!card) continue;
+
+            var scaleReduction = 0;
+            var brightReduction = 0;
+
+            for (var j = i + 1; j < wrappers.length; j++) {
+              var nextWrapper = wrappers[j];
+              var targetTop = baseTop + j * stepOffset;
+              var rect = nextWrapper.getBoundingClientRect();
+              var distToSticky = rect.top - targetTop;
+
+              if (distToSticky < travelWindow) {
+                var progress = Math.min(1, Math.max(0, (travelWindow - distToSticky) / travelWindow));
+                var scaleStep = isTablet ? 0.03 : 0.04;
+                var brightStep = isTablet ? 0.035 : 0.05;
+                scaleReduction += progress * scaleStep;
+                brightReduction += progress * brightStep;
+              }
+            }
+
+            var finalScale = Math.max(isTablet ? 0.85 : 0.80, 1 - scaleReduction);
+            var finalBrightness = Math.max(0.75, 1 - brightReduction);
+
+            if (scaleReduction > 0.001) {
+              card.style.transform = "scale(" + finalScale.toFixed(4) + ")";
+              card.style.filter = "brightness(" + finalBrightness.toFixed(4) + ")";
+            } else {
+              card.style.transform = "scale(1)";
+              card.style.filter = "none";
+            }
+          }
+
+          ticking = false;
+        }
+
+        function onScroll() {
+          if (!ticking) {
+            requestAnimationFrame(updateStack);
+            ticking = true;
+          }
+        }
+
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onScroll, { passive: true });
+        // Initial run
+        updateStack();
+      } catch (err) {
+        console.error("Roles stacking failed to init:", err);
+      }
+    })();
 
     // Auto-cycle stacked cards with smooth animation for Why Become CA section
     try {
@@ -517,7 +597,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     }
 
     try {
-      new Swiper(".testimonial-swiper", {
+      const testimonialSwiper = new Swiper(".testimonial-swiper", {
         loop: true,
         speed: 500,
         navigation: {
@@ -525,6 +605,17 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
           prevEl: "#testimonial-prev",
         },
       });
+
+      function updateTestimonialProgress() {
+        const fill = document.querySelector(".testimonial-progress-fill");
+        if (!fill) return;
+        const total = 4;
+        const current = (testimonialSwiper.realIndex !== undefined ? testimonialSwiper.realIndex : 0) + 1;
+        fill.style.width = ((current / total) * 100) + "%";
+      }
+
+      testimonialSwiper.on("slideChange", updateTestimonialProgress);
+      updateTestimonialProgress();
     } catch (err) {
       console.error("Testimonial swiper failed to init:", err);
     }

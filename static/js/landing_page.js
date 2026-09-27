@@ -1,24 +1,77 @@
 document.addEventListener("DOMContentLoaded", () => {
+  if (window.__landingPageInit) return;
+  window.__landingPageInit = true;
   console.log("raj script is running");
 
+  // Join as a Team or Solo Toggle Handler
+  const btnTeam = document.getElementById("join-toggle-team");
+  const btnSolo = document.getElementById("join-toggle-solo");
+  const contentTeam = document.getElementById("join-content-team");
+  const contentSolo = document.getElementById("join-content-solo");
+
+  if (btnTeam && btnSolo && contentTeam && contentSolo) {
+    btnTeam.addEventListener("click", () => {
+      btnTeam.classList.add("active");
+      btnTeam.setAttribute("aria-pressed", "true");
+      btnSolo.classList.remove("active");
+      btnSolo.setAttribute("aria-pressed", "false");
+
+      contentTeam.classList.add("active");
+      contentSolo.classList.remove("active");
+    });
+
+    btnSolo.addEventListener("click", () => {
+      btnSolo.classList.add("active");
+      btnSolo.setAttribute("aria-pressed", "true");
+      btnTeam.classList.remove("active");
+      btnTeam.setAttribute("aria-pressed", "false");
+
+      contentSolo.classList.add("active");
+      contentTeam.classList.remove("active");
+    });
+  }
+
+  // Register Section Step Switching Handler
+  const stepButtons = document.querySelectorAll(".register-step-btn");
+  const stepContents = document.querySelectorAll(".register-step-content");
+
+  if (stepButtons.length && stepContents.length) {
+    stepButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const stepNum = btn.getAttribute("data-step");
+        stepButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        stepContents.forEach((c) => c.classList.remove("active"));
+        const targetContent = document.getElementById(`step-content-${stepNum}`);
+        if (targetContent) {
+          targetContent.classList.add("active");
+        }
+      });
+    });
+  }
+
+  // Backward compatibility fallback for legacy rightbox1btn if present
   const rightbox1btns = document.querySelectorAll(".rightbox1btn");
   const teamList = document.querySelector(".Team");
   const soloList = document.querySelector(".solo");
 
-  rightbox1btns.forEach((button) => {
-    button.addEventListener("click", () => {
-      rightbox1btns.forEach((btn) => btn.classList.remove("act"));
-      button.classList.add("act");
+  if (rightbox1btns.length && teamList && soloList) {
+    rightbox1btns.forEach((button) => {
+      button.addEventListener("click", () => {
+        rightbox1btns.forEach((btn) => btn.classList.remove("act"));
+        button.classList.add("act");
 
-      if (button.textContent.includes("Team")) {
-        teamList.style.display = "block";
-        soloList.style.display = "none";
-      } else {
-        teamList.style.display = "none";
-        soloList.style.display = "block";
-      }
+        if (button.textContent.includes("Team")) {
+          teamList.style.display = "block";
+          soloList.style.display = "none";
+        } else {
+          teamList.style.display = "none";
+          soloList.style.display = "block";
+        }
+      });
     });
-  });
+  }
 
   console.log("Buttons found:", rightbox1btns.length);
 console.log("Less arrows found:", document.querySelectorAll(".steps .less").length);
@@ -70,8 +123,7 @@ console.log("Counts found:", document.querySelectorAll(".counts").length);
     });
   });
 
-  function animateCount(el, target, duration = 3000) {
-    const start = 0;
+  function animateCount(el, target, duration = 2500) {
     const startTime = performance.now();
 
     function update(currentTime) {
@@ -79,12 +131,20 @@ console.log("Counts found:", document.querySelectorAll(".counts").length);
       const progress = Math.min(elapsed / duration, 1); // 0 to 1
 
       const value = Math.floor(progress * target);
-      el.textContent = value + "+";
+      if (el.dataset.format === "comma" || target >= 100000) {
+        el.textContent = value.toLocaleString("en-IN") + "+";
+      } else {
+        el.textContent = value + "+";
+      }
 
       if (progress < 1) {
         requestAnimationFrame(update);
       } else {
-        el.textContent = target + "+"; // ensure final value
+        if (el.dataset.format === "comma" || target >= 100000) {
+          el.textContent = target.toLocaleString("en-IN") + "+";
+        } else {
+          el.textContent = target + "+";
+        }
       }
     }
 
@@ -382,17 +442,18 @@ console.log("Counts found:", document.querySelectorAll(".counts").length);
     }, 2500);
   }
 
-  // Create city markers on the map
+  // Create city markers on the map using vibrant red location pin
   function createCityMarkers() {
+    if (!map) return;
     cities.forEach((city) => {
       const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svg.setAttribute("id", `pin-${city.id}`);
       svg.setAttribute("class", "city-marker");
-      svg.setAttribute("x", city.x - 12);
-      svg.setAttribute("y", city.y - 22);
-      svg.setAttribute("width", 32);
-      svg.setAttribute("height", 32);
-      svg.setAttribute("viewBox", "0 0 24 24");
+      svg.setAttribute("x", city.x - 11);
+      svg.setAttribute("y", city.y - 28);
+      svg.setAttribute("width", 22);
+      svg.setAttribute("height", 31);
+      svg.setAttribute("viewBox", "0 0 22 31");
       svg.style.cursor = "pointer";
 
       const path = document.createElementNS(
@@ -401,9 +462,9 @@ console.log("Counts found:", document.querySelectorAll(".counts").length);
       );
       path.setAttribute(
         "d",
-        "M12 2C8.686 2 6 4.686 6 8C6 12.553 12 22 12 22C12 22 18 12.553 18 8C18 4.686 15.314 2 12 2ZM12 11C10.343 11 9 9.657 9 8C9 6.343 10.343 5 12 5C13.657 5 15 6.343 15 8C15 9.657 13.657 11 12 11Z"
+        "M11 0.263C19.5 0.263 22 7.263 22 11.263C22 15.263 11 30.263 11 30.263C11 30.263 0 16.263 0 11.263C0 6.263 2.5 0.263 11 0.263ZM10.4 7.263C8.246 7.263 6.5 8.925 6.5 10.975C6.5 13.024 8.246 14.686 10.4 14.686C12.554 14.686 14.3 13.024 14.3 10.975C14.3 8.925 12.554 7.263 10.4 7.263Z"
       );
-      path.setAttribute("fill", "#e74c3c");
+      path.setAttribute("fill", "#DE2F2A");
       svg.appendChild(path);
 
       svg.setAttribute("data-city-id", city.id);
@@ -418,11 +479,11 @@ console.log("Counts found:", document.querySelectorAll(".counts").length);
     });
   }
 
-  // Create all city markers
-  createCityMarkers();
+  // City markers disabled - removed red dots per user request
+  // createCityMarkers();
 
   const fxRevealTargets = document.querySelectorAll(
-  ".box1, .box2, .box3first, .box3second"
+  ".join-section, .box2, .india-section"
   );
 
   fxRevealTargets.forEach((el) => el.classList.add("fx-hidden"));
